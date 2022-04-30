@@ -1,0 +1,274 @@
+.resultlbl {
+  font-weight: 0;
+  color: #111;
+  text-align: center;
+  padding: 5px;
+  border: solid 1px #aaa;
+  position: relative;
+  cursor: pointer;
+  background: #e9e9e9;
+  margin: -1px -3px 0;
+  display: inline-block;
+  width: 10em;
+  border-radius: 8px;
+  margin-right: 0.5em;
+}
+
+div {
+  display: block;
+}
+
+.wrap {
+  margin-right: 5%;
+  margin-left: 20%;
+}
+
+.results {
+  width: 44%;
+  float: left;
+}
+
+.panel {
+  float: left;
+  display: inline-block;
+}
+
+fieldset {
+  background-color: #f1f4f9;
+}
+.pokeselect {
+  width: 100%;
+}
+
+.infogroup {
+  margin: 1em 0;
+}
+
+th {
+  font-size: 1em;
+  padding: 0;
+  display: table-cell;
+  font-weight: bold;
+}
+
+td {
+  padding: 0;
+}
+
+.moveSelect {
+  width: 10em;
+}
+
+input {
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textfield;
+  background-color: white;
+  cursor: text;
+  margin: 0em;
+  padding: 1px 0px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  width: 3.1em;
+}
+
+.moveslbl {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: left;
+  padding-right: 1em;
+  padding-bottom: 0.1em;
+  width: 5.5em;
+}
+
+.checkbox {
+  width: auto;
+  -webkit-appearance: checkbox;
+}
+
+hr {
+  display: block;
+  unicode-bidi: isolate;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}
+
+.left {
+  float: left;
+  width: 10em;
+}
+
+.right {
+  float: right;
+}
+
+.field {
+  height: 532px;
+}
+
+.bott {
+  text-align: center;
+  float: bottom;
+  display: block;
+}
+
+.fieldTraps {
+  height: 65%;
+}
+
+#title {
+  background-color: rgb(129, 134, 143);
+  border: solid black;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+  color: #000000;
+  font-family: "Times New Roman";
+}
+
+.hiddenToUser {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  white-space: nowrap;
+}
+
+.hiddenToUser:checked + .resultlbl {
+  font-weight: bold;
+  color: #111111 !important;
+  background: #f5f5f5 !important;
+}
+
+.hiddenToUser:checked + .radiolbl {
+  font-weight: bold;
+  color: #111111 !important;
+  background: #f5f5f5 !important;
+}
+
+.radiolbl {
+  text-align: center;
+  border: solid 1px #aaaaaa;
+  padding: 4px 4px;
+  position: relative;
+  cursor: pointer;
+  color: #555555;
+  background: #e9e9e9;
+  margin: -1px -3px 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.critlbl {
+  font-size: 0.8em;
+  width: 2.5em;
+  height: 1em;
+  padding: 3px 3px;
+  margin: 0px 1px;
+}
+
+.fieldlbl {
+  font-size: 0.8em;
+}
+
+.rest {
+  width: 5em;
+}
+
+.icetrap {
+  width: 6em;
+}
+
+.entered {
+  width: 9.5em;
+}
+
+.big {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.detailedReport {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+.infoBar {
+  font-weight: 700;
+  font-size: 0.8em;
+  margin-bottom: 2em;
+}
+
+.divAlign {
+  display: inline-block;
+  width: 5em;
+}
+
+.hpBar {
+  width: 100%;
+  height: 1em;
+  height: 4px;
+  border-style: solid;
+  border-top-width: 2px;
+  border-right-width: 1px;
+  border-bottom-width: 2px;
+  border-left-width: .5px;
+  border-radius: 3px;
+}
+
+.blueNRGBar {
+  border-top-color: #5897fb;
+  border-bottom-color: #0046b5;
+  border-right-color: #0046b5;
+}
+
+.greenHPBar {
+  border-top-color: #00dd60;
+  border-bottom-color: #007734;
+  border-right-color: #007734;
+}
+
+.yellowHPBar {
+  border-top-color: #f8e379;
+  border-bottom-color: #be9f0a;
+  border-right-color: #be9f0a;
+}
+
+.redHPBar {
+  border-top-color: #f37f67;
+  border-bottom-color: #a3260d;
+  border-right-color: #a3260d;
+}
+
+th {
+  padding-right: 0.5em;
+}
+
+.contributors {
+  position: absolute;
+  bottom: 2em;
+  left: 0.5em;
+  font-size: 18;
+}
+
+.select2-results {
+  color: black !important;
+}

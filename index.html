@@ -1,0 +1,1260 @@
+<head>
+    <title>Damage Calculator - Loomian Legacy</title>
+    <meta name="description" content="The premier Loomian Legacy Damage Calculator. A must-have tool for competitive Loomian Legacy battling.">
+    <meta name="keywords" content="Loomian Legacy, Loomian Legacy Damage Calculator, Loomian Legacy Damage Calc, Loomian Legacy PvP, LL Damage Calculator, LL Damage Calc, Damage Calculator, Swoldex">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148355292-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-148355292-1');
+    </script>
+</head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/nodeca/pako/7abdb13e/dist/pako.min.js"></script>
+
+<body onunload="saveCookie()" style="min-width:103em; min-height:50em;">
+    <h1 id="title">Loomian Legacy Damage Calculator</h1>
+    <div class="wrap">
+        <div class="results">
+            <span class="infoBar" id="loom1Info">Select One To Show Detailed Results</span>
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveOneRadio1" name="moveResult" checked="checked" onchange="update()">
+                <label class="resultlbl" id="moveOneLbl1" for="moveOneRadio1">
+                    Blizzard
+                </label>
+                <span id="moveOneDmg1">65-75%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveTwoRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveTwoLbl1" for="moveTwoRadio1">
+                    Flamethrower
+                </label>
+                <span id="moveTwoDmg1">65-50%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveThreeRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveThreeLbl1" for="moveThreeRadio1">
+                    Mud Buck
+                </label>
+                <span id="moveThreeDmg1">53-34%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveFourRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveFourLbl1" for="moveFourRadio1">
+                    Searing Steel
+                </label>
+                <span id="moveFourDmg1">32% - 54%</span>
+            </div>
+
+        </div>
+
+        <div class="results">
+            <span class="infoBar" id="loom2Info">Select One To Show Detailed Results</span>
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveOneRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveOneLbl2" for="moveOneRadio2">
+                    Blizzard
+                </label>
+                <span id="moveOneDmg2">65-75%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveTwoRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveTwoLbl2" for="moveTwoRadio2">
+                    Flamethrower
+                </label>
+                <span id="moveTwoDmg2">65-50%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveThreeRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveThreeLbl2" for="moveThreeRadio2">
+                    Mud Buck
+                </label>
+                <span id="moveThreeDmg2">53-34%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveFourRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveFourLbl2" for="moveFourRadio2">
+                    Searing Steel
+                </label>
+                <span id="moveFourDmg2">32% - 54%</span>
+            </div>
+
+        </div>
+
+        <div class="detailedReport">
+
+            <div class="big">
+                <span id="detailedResult"></span>
+            </div>
+
+            <div class="small">
+                <span id="possibleDmg"></span>
+            </div>
+
+        </div>
+
+        <div class="panel">
+            <fieldset>
+
+                <legend align="center">
+                    Loomian 1
+                </legend>
+
+                <select class="pokeselect" id="pokes1" onchange="loadSets(true)">
+                </select>
+                <br id="lineBreak1" style="display: none;">
+                <button id="deleteSet1" style="display: none;" onclick="deleteSet()">Delete This Set</button>
+
+                <div class="infogroup">
+
+                    <div>
+                        <label class="typelbl divAlign">Type:</label>
+                        <select id="primaryType1" onchange="update()"></select>
+                        <select id="secondaryType1" onchange="update()">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Gender: </label>
+
+                        <select id="gender1" onchange="update()">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Level: </label>
+                        <input id="level1" value=100 type=number min=1 max=100
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+                    </div>
+                </div>
+
+                <div class="infogroup">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Base</th>
+                                <th>UPs</th>
+                                <th>TPs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP</th>
+                                <td>
+                                    <input id="baseHP1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statHP1">300</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Energy</th>
+                                <td>
+                                    <input id="baseEnergy1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statEnergy1">300</span>
+                                </td>
+                            </tr>                            
+
+                            <tr>
+                                <th>M Attack</th>
+                                <td>
+                                    <input id="baseAtk1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtk1">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Defense</th>
+                                <td>
+                                    <input id="baseDef1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDef1">300</span>
+                                </td>
+                                <td>
+                                    <select id="defStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>R Attack</th>
+                                <td>
+                                    <input id="baseAtkR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkRIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkREV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtkR1">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkRStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>R Defense</th>
+                                <td>
+                                    <input id="baseDefR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defRIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defREV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDefR1">300</span>
+                                </td>
+                                <td>
+                                    <select id="defRStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Speed</th>
+                                <td>
+                                    <input id="baseSpd1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdIV1" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdEV1" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statSpd1">300</span>
+                                </td>
+                                <td>
+                                    <select id="spdStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="infogroup">
+                    <div>
+                        <label class="divAlign">Personality: </label>
+                        <select id="posNat1" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="hyper">Hyper</option>
+                            <option value="brawny">Brawny</option>
+                            <option value="robust">Robust</option>
+                            <option value="smart">Smart</option>
+                            <option value="clever">Clever</option>
+                            <option value="nimble">Nimble</option>
+                            <option value="dull">Dull</option>
+                            <option value="frail">Frail</option>
+                            <option value="tender">Tender</option>
+                            <option value="clumsy">Clumsy</option>
+                            <option value="foolish">Foolish</option>
+                            <option value="sluggish">Sluggish</option>
+                            <option value="indifferent">Indifferent</option>
+                        </select>
+                        <select id="negNat1" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="dull">Dull</option>
+                            <option value="frail">Frail</option>
+                            <option value="tender">Tender</option>
+                            <option value="clumsy">Clumsy</option>
+                            <option value="foolish">Foolish</option>
+                            <option value="sluggish">Sluggish</option>
+                            <option value="hyper">Hyper</option>
+                            <option value="brawny">Brawny</option>
+                            <option value="robust">Robust</option>
+                            <option value="smart">Smart</option>
+                            <option value="clever">Clever</option>
+                            <option value="nimble">Nimble</option>
+                            <option value="indifferent">Indifferent</option>
+                        </select>
+                        <select id="veryNat1" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="vHyper">Very Hyper</option>
+                            <option value="vDull">Very Dull</option>
+                            <option value="vBrawny">Very Brawny</option>
+                            <option value="vFrail">Very Frail</option>
+                            <option value="vRobust">Very Robust</option>
+                            <option value="vTender">Very Tender</option>
+                            <option value="vSmart">Very Smart</option>
+                            <option value="vClumsy">Very Clumsy</option>
+                            <option value="vClever">Very Clever</option>
+                            <option value="vFoolish">Very Foolish</option>
+                            <option value="vNimble">Very Nimble</option>
+                            <option value="vSluggish">Very Sluggish</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Ability: </label>
+                        <select id="ability1" onchange="update()">
+                            <option>None</option>
+                        </select>
+                        <input type="checkbox" id="immuneBoost1" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Item: </label>
+                        <select id="item1" onchange="update()">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Status: </label>
+                        <select id="status1" onchange="update()">
+                            <option value="healthy">Healthy</option>
+                            <option value="paralasis">Paralyzed</option>
+                            <option value="burned">Burned</option>
+                            <option value="poisoned">Poisoned</option>
+                            <option value="asleep">Asleep</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP1">321</label>
+                    <input id="percentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <label class="divAlign">Current Ene </label>
+                    <input id="currentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalNRG1">321</label>
+                    <input id="percentNRG1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar1" style="background: linear-gradient(to right, green 100%, white 0%);">
+                    <br>
+                    Energy
+                    <div class="hpBar blueNRGBar" id="nrgBar1" style="background: linear-gradient(to right, rgba(0,150,255) 100%, white 0%);">
+
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="infogroup">
+
+                    <div>
+                        <select class="moveSelect" id="moveOne1" onchange="update(true)">
+                        </select>
+                        <input id="moveOnePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveOneType1" readonly>
+                        <input id="moveOneEnergy1" value="0" readonly>
+                        <input class="moveslbl" id="moveOneMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveOneCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveOneCrit1">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveTwo1" onchange="update(true)">
+                        </select>
+                        <input id="moveTwoPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveTwoType1" readonly>
+                        <input id="moveTwoEnergy1" value="0" readonly>
+                        <input class="moveslbl" id="moveTwoMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveTwoCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveTwoCrit1">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveThree1" onchange="update(true)">
+                        </select>
+                        <input id="moveThreePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">                        
+                        <input class="moveslbl" id="moveThreeType1" readonly>
+                        <input id="moveThreeEnergy1" value="0" readonly>
+                        <input class="moveslbl" id="moveThreeMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveThreeCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveThreeCrit1">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveFour1" onchange="update(true)">
+                        </select>
+                        <input id="moveFourPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveFourType1" readonly>
+                        <input id="moveFourEnergy1" value="0" readonly>
+                        <input class="moveslbl" id="moveFourMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveFourCrit1">Crit</label>
+                    </div>
+
+                </div>
+
+
+
+            </fieldset>
+
+        </div>
+        <div class="panel">
+            <fieldset class="field">
+                <legend align="center">
+                    Field
+                </legend>
+
+                <div align="center">
+                    <select id="singleDouble" onchange="update()">
+                        <option value="singles">Singles</option>
+                        <option value="doubles">Doubles</option>
+                    </select>
+                </div>
+
+                <hr>
+                <div class="fieldTraps">
+                     <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="rest1" onchange="update()">
+                            <label class="radiolbl fieldlbl rest" for="rest1">Rest</label>
+                        </div>
+        
+                        <div class="right">
+                                <input type="checkbox" class="hiddenToUser" id="rest2" onchange="update()">
+                            <label class="radiolbl fieldlbl rest" for="rest2">Rest</label>
+                        </div>
+                    </div>                    
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap1" title="Is this side affected by Icicle Trap">Icicle Trap</label>
+                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle1" style="width: 3em;" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle2" style="width: 3em;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap2" title="Is this side affected by Icicle Trap">Icicle Trap</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb0">0</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="2" id="leftBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="leftBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="3" id="leftBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em;" for="leftBarb3" title="3 layers of barbs.">3 Barbs</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="3" id="rightBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em;" for="rightBarb3" title="3 layers of barbs.">3 Barbs</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="2" id="rightBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="1" id="rightBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em;" for="rightBarb0">0</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="sapPlant1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="sapPlant1" title="Is this side affected by Sap Plant">Sap Plant</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="sapPlant2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="sapPlant2" title="Is this side affected by Sap Plant">Sap Plant</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="bloodDrain1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="bloodDrain1" title="Is this side affected by Blood Drain?">Blood Drain</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="bloodDrain2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="bloodDrain2" title="Is this side affected by Blood Drain?">Blood Drain</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="pestilence1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="pestilence1" title="Is this side affected by Pestilence?">Pestilence</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="pestilence2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="pestilence2" title="Is this side affected by Pestilence?">Pestilence</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="quicksand1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="quicksand1" title="Is this side affected by Quicksand?">Quicksand</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="quicksand2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="quicksand2" title="Is this side affected by Quicksand?">Quicksand</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="buzzolen1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="buzzolen1" title="Was this side stung by Buzzolen?">Stung by Buzzolen</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="buzzolen2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="buzzolen2" title="Was this side stung by Buzzolen?">Stung by Buzzolen</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="softWater1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater1" title="Is this side affected by Soft Water?">Soft Water</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="softWater2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater2" title="Is this side affected by Soft Water?">Soft Water</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="smackDown1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="smackDown1" title="Is this side prevented from levitating?">Smacked Down</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="smackDown2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="smackDown2" title="Is this side prevented from levitating?">Smacked Down</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="tagTeam1">Team Has Conspire</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="tagTeam2">Team Has Conspire</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="dawn1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="dawn1">Ally Has Dusk/Dawn</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="dawn2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="dawn2">Ally Has Dusk/Dawn</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="guardian1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="guardian1">Ally Has Guardian</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="guardian2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="guardian2">Ally Has Guardian</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="bott">
+                    <a href="https://saucesoy.github.io/Set-Maker">You can make sets here</a>
+                </div>
+                <div class="bott">
+                    <textarea id="import" placeholder="Enter set data here" onchange="importSets()"></textarea>
+                </div>
+                <span class="bott" id="err"></span>
+
+
+            </fieldset>
+
+        </div>
+        <div class="panel">
+            <fieldset>
+                <legend align="center">
+                    Loomian 2
+                </legend>
+                <select class="pokeselect" id="pokes2" onchange="loadSets(undefined, true)"></select>
+
+                <br id="lineBreak2" style="display: none;">
+                <button id="deleteSet2" style="display: none;" onclick="deleteSet(true)">Delete This Set</button>
+
+                <div class="infogroup">
+
+                    <div>
+                        <label class="typelbl divAlign">Type:</label>
+                        <select id="primaryType2" onchange="update()"></select>
+                        <select id="secondaryType2" onchange="update()">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Gender: </label>
+
+                        <select id="gender2" onchange="update()">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Level: </label>
+                        <input id="level2" value=100 type=number min=1 max=100
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+                    </div>
+                </div>
+
+                <div class="infogroup">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Base</th>
+                                <th>UPs</th>
+                                <th>TPs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP</th>
+                                <td>
+                                    <input id="baseHP2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statHP2">300</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Energy</th>
+                                <td>
+                                    <input id="baseEnergy2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="energyEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statEnergy2">300</span>
+                                </td>
+                            </tr>                              
+                            <tr>
+                                <th>M Attack</th>
+                                <td>
+                                    <input id="baseAtk2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtk2">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Defense</th>
+                                <td>
+                                    <input id="baseDef2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDef2">300</span>
+                                </td>
+                                <td>
+                                    <select id="defStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>R Attack</th>
+                                <td>
+                                    <input id="baseAtkR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkRIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkREV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtkR2">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkRStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>R Defense</th>
+                                <td>
+                                    <input id="baseDefR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defRIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defREV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDefR2">300</span>
+                                </td>
+                                <td>
+                                    <select id="defRStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Speed</th>
+                                <td>
+                                    <input id="baseSpd2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdIV2" value=40 type=number min=0 max=40
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdEV2" value=0 type=number min=0 max=200 step=4
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statSpd2">300</span>
+                                </td>
+                                <td>
+                                    <select id="spdStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="infogroup">
+                    <div>
+                        <label class="divAlign">Personality: </label>
+                        <select id="posNat2" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="hyper">Hyper</option>
+                            <option value="brawny">Brawny</option>
+                            <option value="robust">Robust</option>
+                            <option value="smart">Smart</option>
+                            <option value="clever">Clever</option>
+                            <option value="nimble">Nimble</option>
+                            <option value="dull">Dull</option>
+                            <option value="frail">Frail</option>
+                            <option value="tender">Tender</option>
+                            <option value="clumsy">Clumsy</option>
+                            <option value="foolish">Foolish</option>
+                            <option value="sluggish">Sluggish</option>
+                            <option value="indifferent">Indifferent</option>
+                        </select>
+                        <select id="negNat2" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="dull">Dull</option>
+                            <option value="frail">Frail</option>
+                            <option value="tender">Tender</option>
+                            <option value="clumsy">Clumsy</option>
+                            <option value="foolish">Foolish</option>
+                            <option value="sluggish">Sluggish</option>
+                            <option value="hyper">Hyper</option>
+                            <option value="brawny">Brawny</option>
+                            <option value="robust">Robust</option>
+                            <option value="smart">Smart</option>
+                            <option value="clever">Clever</option>
+                            <option value="nimble">Nimble</option>
+                            <option value="indifferent">Indifferent</option>
+                        </select>
+                        <select id="veryNat2" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="vHyper">Very Hyper</option>
+                            <option value="vDull">Very Dull</option>
+                            <option value="vBrawny">Very Brawny</option>
+                            <option value="vFrail">Very Frail</option>
+                            <option value="vRobust">Very Robust</option>
+                            <option value="vTender">Very Tender</option>
+                            <option value="vSmart">Very Smart</option>
+                            <option value="vClumsy">Very Clumsy</option>
+                            <option value="vClever">Very Clever</option>
+                            <option value="vFoolish">Very Foolish</option>
+                            <option value="vNimble">Very Nimble</option>
+                            <option value="vSluggish">Very Sluggish</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Ability: </label>
+                        <select id="ability2" onchange="update()">
+                            <option>None</option>
+                        </select>
+                        <input type="checkbox" id="immuneBoost2" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Item: </label>
+                        <select id="item2" onchange="update()">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Status: </label>
+                        <select id="status2" onchange="update()">
+                            <option value="healthy">Healthy</option>
+                            <option value="paralasis">Paralyzed</option>
+                            <option value="burned">Burned</option>
+                            <option value="poisoned">Poisoned</option>
+                            <option value="asleep">Asleep</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP2">321</label>
+                    <input id="percentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <label class="divAlign">Current Ene </label>
+                    <input id="currentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalNRG2">321</label>
+                    <input id="percentNRG2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar2" style="background: linear-gradient(to right, green 100%, white 0%);">
+                    <br>
+                    Energy
+                    <div class="hpBar blueNRGBar" id="nrgBar2" style="background: linear-gradient(to right, rgba(0,150,255) 100%, white 0%);">
+
+
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="infogroup">
+
+                    <div>
+                        <select class="moveSelect" id="moveOne2" onchange="update(true)">
+                        </select>
+                        <input id="moveOnePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveOneType2" readonly>
+                        <input id="moveOneEnergy2" value="0" readonly>
+                        <input class="moveslbl" id="moveOneMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveOneCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveOneCrit2">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveTwo2" onchange="update(true)">
+                        </select>
+                        <input id="moveTwoPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveTwoType2" readonly>
+                        <input id="moveTwoEnergy2" value="0" readonly>
+                        <input class="moveslbl" id="moveTwoMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveTwoCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveTwoCrit2">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveThree2" onchange="update(true)">
+                        </select>
+                        <input id="moveThreePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveThreeType2" readonly>
+                        <input id="moveThreeEnergy2" value="0" readonly>
+                        <input class="moveslbl" id="moveThreeMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveThreeCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveThreeCrit2">Crit</label>
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveFour2" onchange="update(true)">
+                        </select>
+                        <input id="moveFourPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveFourType2" readonly>
+                        <input id="moveFourEnergy2" value="0" readonly>
+                        <input class="moveslbl" id="moveFourMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveFourCrit2">Crit</label>
+                    </div>
+
+                </div>
+
+
+
+
+            </fieldset>
+
+        </div>
+    </div>
+    <div class="contributors">
+        <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()">
+        <label class="radiolbl fieldlbl entered" for="darkMode">Dark Mode</label>
+        <br>
+        Made By: Sioist <br>Contributors: <br>- i_eaturface <br>- Team Apex <br><br><a href="https://github.com/SauceSoy/Damage-Calculator">GitHub Repo</a>
+    </div>
+</body>
+<script>
+    function restrict(value, min, max) {
+        if (parseInt(value) < min) {
+            return min;
+        }
+        else if (parseInt(value) > max) {
+            return max;
+        }
+        else if (value == "") {
+            return min;
+        }
+
+        return parseInt(value);
+    }
+</script>
+
+<link href="src/style.css" rel="stylesheet">
+<script src="src/app.js"></script>
+<script src="src/data.js"></script>
+<script src="src/builtInSets.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.pokeSelect').select2();
+    });
+    $(document).ready(function () {
+        $('.moveSelect').select2();
+    });
+</script>
