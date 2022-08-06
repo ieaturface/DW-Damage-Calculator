@@ -2632,7 +2632,7 @@ var moves = {
 
     headbutt: {
         name: "Headbutt",
-        power: 30,
+        power: 60,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
