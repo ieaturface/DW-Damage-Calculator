@@ -367,11 +367,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -423,7 +423,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1982,6 +1982,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+
     //Base ------------------------------------
 
     dmg = Math.floor(2 * level / 5) + 2;
@@ -2062,12 +2063,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
+    if (itemA == "Champion Belt" && move.mr == "Melee") {
+        multi *= 1.1;
+        stuffUsed.item1 = itemA;
+    }
+
     if ((itemA == "Lucky Pebble" && tempType == "Earth") ||
        (itemA == "Battery" && tempType == "Spark") ||
        (itemA == "Ice Pack" && tempType == "Ice") ||
        (itemA == "Used Timbers" && tempType == "Fire") ||
        (itemA == "Bubblegum" && tempType == "Food") ||
-       (itemA == "Small Sprout" && tempType == "Plant")) {
+       (itemA == "Small Sprout" && tempType == "Plant") ||
+       (itemA == "Delicate Wing" && tempType == "Insect")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2160,7 +2167,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if (move.mr1 == "Ranged Defense" && ability1 == "Spell Shield") {
+    if ((move.mr1 == "Ranged Defense" && ability1 == "Spell Shield") ||
+        (move.mr1 == "Melee Attack" && ability1 == "Hidden Strength")) {
         multi *= 2;
         stuffUsed.ability1 = ability1
     }

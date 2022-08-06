@@ -443,9 +443,9 @@ var loomians = {
         height: 13.5,
         baseStats: {
             hp: 67,
-            attack: 50,
+            attack: 45,
             defense: 65,
-            attackR: 85,
+            attackR: 90,
             defenseR: 75,
             speed: 93
         }
@@ -2966,7 +2966,7 @@ var moves = {
     },
 
     waterbolt: {
-        name: "Rust",
+        name: "Waterbolt",
         power: 50,
         accuracy: 100,
         type: "Water",
@@ -3291,6 +3291,19 @@ var moves = {
     crunch: {
         name: "Crunch",
         power: 85,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        secondaryEffect: true
+    },
+
+    bite: {
+        name: "Bite",
+        power: 50,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
@@ -3760,6 +3773,17 @@ var moves = {
         contact: true
     },
 
+    pummel: {
+        name: "Pummel",
+        power: 60,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     flurry: {
         name: "Flurry",
         power: 25,
@@ -4022,7 +4046,7 @@ var moves = {
 
     flashingStrike: {
         name: "Flashing Strike",
-        power: 80,
+        power: 75,
         accuracy: 100,
         type: "Light",
         mr: "Melee",
@@ -4533,6 +4557,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true
     },
+
+    ambush: {
+        name: "Ambush",
+        power: 60,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
 
     retribution: {
         name: "Retribution",
@@ -5788,8 +5824,8 @@ var helmets = {
         speed: 0,
     },
 
-    'dramask mask': {
-        name: "Dramask Mask",
+    'theatre mask': {
+        name: "Theatre Mask",
         health: 0,
         attack: 0,
         defense: 10,
@@ -6228,7 +6264,7 @@ var typeModAbilities = {
 }
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
-             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate"];
+             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -6237,4 +6273,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "The calculator is live YAY. Chanting currently does nothing because I don't know the mechanics yet.";
+var changelog = "Added/Fixed missing stuff. Damage seems to be slightly innaccurate (lower), so be wary when using the calculator.";
