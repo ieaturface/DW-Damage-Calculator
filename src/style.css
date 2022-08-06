@@ -113,6 +113,7 @@ hr {
 
 .field {
   height: 532px;
+  width: 320px;
 }
 
 .bott {
@@ -122,7 +123,7 @@ hr {
 }
 
 .fieldTraps {
-  height: 65%;
+  height: 55%;
 }
 
 #title {
@@ -201,6 +202,20 @@ hr {
 
 .small {
   font-size: 0.8em;
+}
+
+.btn-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-mid {
+    border-radius: 0;
+}
+
+.btn-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .detailedReport {
