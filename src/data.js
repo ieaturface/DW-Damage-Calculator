@@ -2538,6 +2538,17 @@ var moves = {
         slash: true
     },
 
+    blowupBlast: {
+        name: "Blowup Blast",
+        power: 200,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true
+    },
+
     purlStitch: {
         name: "Purl Stitch",
         power: 30,
