@@ -174,6 +174,9 @@ let immuneAbilityBoost2 = document.getElementById("immuneBoost2");
 let rain = document.getElementById("rain");
 let acidRain = document.getElementById("acidRain");
 let chocolateRain = document.getElementById("chocolateRain");
+let sandstorm = document.getElementById("sandstorm");
+
+let darkExpansion = document.getElementById("darkExpansion");
 
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
@@ -199,6 +202,9 @@ let wall2 = document.getElementById("wall2");
 
 let shield1 = document.getElementById("shield1");
 let shield2 = document.getElementById("shield2");
+
+let shale1 = document.getElementById("shale1");
+let shale2 = document.getElementById("shale2");
 
 let seasoned1 = document.getElementById("seasoned1");
 let seasoned2 = document.getElementById("seasoned2");
@@ -893,8 +899,8 @@ function loadBaseStats(side) {
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
-    tempAbility1 = abilities.find((x) => x == abilityDropdown1.value);
-    tempAbility2 = abilities.find((x) => x == abilityDropdown2.value);
+    tempAbility1 = gender1.value;
+    tempAbility2 = gender2.value;
     
     if (side == 1 || side == undefined) {
         baseHP1.value = firstLoom.baseStats.hp;
@@ -903,7 +909,7 @@ function loadBaseStats(side) {
         baseAtkR1.value = firstLoom.baseStats.attackR;
         baseDefR1.value = firstLoom.baseStats.defenseR;
         baseSpd1.value = firstLoom.baseStats.speed;
-        if (ability1 == "Idiosyncratic") {
+        if (firstLoom.name == "Staligant" && gender1.value == "Female") {
             baseAtk1.value = firstLoom.baseStats.attackR;
             baseDef1.value = firstLoom.baseStats.defenseR;
             baseAtkR1.value = firstLoom.baseStats.attack;
@@ -917,7 +923,7 @@ function loadBaseStats(side) {
         baseAtkR2.value = secondLoom.baseStats.attackR;
         baseDefR2.value = secondLoom.baseStats.defenseR;
         baseSpd2.value = secondLoom.baseStats.speed;
-        if (ability2 == "Idiosyncratic") {
+        if (secondLoom.name == "Staligant" && gender2.value == "Female") {
             baseAtk2.value = secondLoom.baseStats.attackR;
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
@@ -1233,11 +1239,11 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
 
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
-    if ((tempAbility1 != ability1 && (tempAbility1 == "Idiosyncratic" || ability1 == "Idiosyncratic"))) {
+    if (tempAbility1 != gender1.value && firstLoom.name == "Staligant") {
         loadBaseStats(1);
         loadStats();
     }
-    if ((tempAbility2 != ability2 && (tempAbility2 == "Idiosyncratic" || ability2 == "Idiosyncratic"))) {
+    if (tempAbility2 != gender2.value && secondLoom.name == "Staligant") {
         loadBaseStats(2);
         loadStats();
     }
@@ -1923,6 +1929,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let btl2 = (second == false ? enteredBtl1.checked : enteredBtl2.checked);
     let wall = (second == false ? wall2.checked : wall1.checked);
     let shield = (second == false? shield2.checked : shield1.checked);
+    let shale = (second == false ? shale2.checked : shale1.checked);
     let seasoned = (second == false? seasoned2.checked : seasoned1.checked);
     let stat1 = (second == false ? status1.value : status2.value);
     let stat2 = (second == false ? status2.value : status1.value);
@@ -2090,7 +2097,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Ward")) {
-        multi *= 1.5;
+        multi *= 2;
         stuffUsed.item2 = itemB;
         stuffUsed.ability2 = (ability2 == "Ward" ? ability2 : stuffUsed.ability2);
     }
@@ -2102,7 +2109,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         (move.name == "Shatter" && (wall || shield)) ||
         (move.name == "Just Desserts" && stats1.hpPercent < 50) ||
         (move.name == "Toxic Bomb" && (stat2 == "poisoned" || stat2 == "diseased")) ||
-        (move.name == "Pursuit" && btl1)) {
+        (move.name == "Pursuit" && btl1) ||
+        (move.name == "Night Night" && stat2 == "asleep")) {
         multi *= 2;
         stuffUsed.extra1 += " (" + (tempPower * 2) + " BP)";
     }
@@ -2142,12 +2150,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.weather += " in Rain";
     }
     if (acidRain.checked && tempType == "Poison") {
-        multi *= 1.5;
+        multi *= 1.25;
         stuffUsed.weather += " in Acid Rain";
     }
     if (chocolateRain.checked && tempType == "Food") {
         multi *= 1.5;
         stuffUsed.weather += " in Chocolate Rain";
+    }
+    if (darkExpansion.checked && tempType == "Dark") {
+        multi *= 1.5;
+        stuffUsed.weather += " in Darkness Expansion";
+    }
+    if (darkExpansion.checked && tempType == "Light" && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.weather += " in Darkness Expansion";
     }
 
     tempPower = pokeRound(tempPower * multi);
@@ -2305,6 +2321,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.75;
         stuffUsed.item2 = itemB;
     }
+    if (effectiveness > 1 && sandstorm.checked && shale) {
+        multi *= 0.5;
+        stuffUsed.weather += " through Shale";
+    }
+
     if (isDouble && guardian) {
         multi *= 0.75;
     }
@@ -2354,7 +2375,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
         for (let i = 0.85; i <= 1; i += 0.01) {
             if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * i) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-                multi = 1.5;
+                multi = 2;
                 stuffUsed.item1 = itemA;
             }
             possibleDmg.push(Math.floor(dmg * multi * i + multiDmg * i));
@@ -2366,7 +2387,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             }
         }
         if (foulHit) {
-            return [dmg, possibleDmg];
+            return [dmg, possibleDmg];f
         }
         if (shardSurge) return dmg;
         possibleDmg[16] = stuffUsed;
@@ -2374,7 +2395,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (itemA == "Strength Jelly" && withoutSlapDown && dmg < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-        multi *= 1.5;
+        multi *= 2;
     }
     dmg = (Math.floor(dmg * multi + multiDmg));
 
@@ -2684,6 +2705,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (acidRain.checked && !loom2.types.includes("Poison")) {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "acid rain damage and ";
+    }
+
+    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal")) {
+        newHP += Math.floor(hp1 * 1 / 16);
+        hazardString += "sandstorm damage and ";
     }
 
     if (status == "poisoned" && !loom2.types.includes("Poison")) {

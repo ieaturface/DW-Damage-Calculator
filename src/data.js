@@ -1653,9 +1653,9 @@ var loomians = {
         height: 54,
         baseStats: {
             hp: 63,
-            attack: 66,
+            attack: 110,
             defense: 95,
-            attackR: 110,
+            attackR: 66,
             defenseR: 71,
             speed: 95
         }
@@ -2515,7 +2515,7 @@ var moves = {
     },
 
     lick: {
-        name: "Subterfuge",
+        name: "Lick",
         power: 30,
         accuracy: 100,
         type: "Basic",
@@ -2697,6 +2697,18 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    shellshock: {
+        name: "Shellshock",
+        power: 60,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     triElementalSlash: {
@@ -3362,6 +3374,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    sharpClaws: {
+        name: "Sharp Claws",
+        power: 60,
+        accuracy: 95,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     hornPierce: {
         name: "Horn Pierce",
         power: 50,
@@ -3502,6 +3526,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    fatalSting: {
+        name: "Fatal Sting",
+        power: 150,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     swarm: {
@@ -3735,6 +3770,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1/4
+    },
+
+    solidCharge: {
+        name: "Solid Charge",
+        power: 80,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Melee",
+        mr1: "Melee Defense",
+        mr2: "Melee Defense",
+        contact: true
     },
 
     helicopterKick: {
@@ -4110,6 +4156,16 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    rupture: {
+        name: "Rupture",
+        power: 140,
+        accuracy: 90,
+        type: "Crystal",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
     geodeSmash: {
         name: "Geode Smash",
         power: 50,
@@ -4460,6 +4516,16 @@ var moves = {
     shadowbolt: {
         name: "Shadowbolt",
         power: 50,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    nightNight: {
+        name: "Night Night",
+        power: 70,
         accuracy: 100,
         type: "Dark",
         mr: "Magic",
@@ -6117,7 +6183,7 @@ var types = {
 
     poison: {
         weaknesses: ["earth", "mind"],
-        resistances: ["air", "poison", "plant", "melee"],
+        resistances: ["air", "poison", "insect", "melee"],
         immunities: [],
         otherName: "noxious"
     },
