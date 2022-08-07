@@ -649,8 +649,17 @@
                     <input type="radio" class="hiddenToUser" name="weather" value="2" id="acidRain" onchange="update()">
                     <label class="radiolbl fieldlbl btn-mid" for="acidRain" title="Select the current weather condition">Acid Rain</label>
                     <input type="radio" class="hiddenToUser" name="weather" value="3" id="chocolateRain" onchange="update()">
-                    <label class="radiolbl fieldlbl btn-right" for="chocolateRain" title="Select the current weather condition">Chocolate Rain</label>
+                    <label class="radiolbl fieldlbl btn-mid" for="chocolateRain" title="Select the current weather condition">Chocolate Rain</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="4" id="sandstorm" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="sandstorm" title="Select the current weather condition">Sandstorm</label>
                 </div>    
+                <hr>
+                <div align="center">
+                    <input type="radio" class="hiddenToUser" name="effect" value="0" id="noEffect" checked="checked" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-left" for="noEffect" title="Select the current field effect">None</label>
+                    <input type="radio" class="hiddenToUser" name="effect" value="1" id="darkExpansion" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="darkExpansion" title="Select the current field effect">Darkness Expansion</label>
+                </div>
                 <hr>
                 <div class="fieldTraps">
                     <div>
@@ -668,6 +677,17 @@
                             <label class="radiolbl fieldlbl btn-right" style="font-size: 0.75em;" for="wall2" title="Is this side protected by Crystal Wall?">Crystal Wall</label>
                         </div>
                     </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="shale1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" style="font-size: 0.75em;" for="shale1" title="Is this side protected by Shale?">Shale</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="shale2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" style="font-size: 0.75em;" for="shale2" title="Is this side protected by Shale?">Shale</label>
+                        </div>
+                    </div>    
                     <div>
                         <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="seasoned1" onchange="update()">
