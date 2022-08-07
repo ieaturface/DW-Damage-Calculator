@@ -2172,11 +2172,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     //Attack -------------------------------------------
 
     if (crit && tempAtk.stage < 0) {
-        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.ev.value, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
+        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
     }
 
     if (ability2 == "Apathetic" || ability2 == "Ignorant") {
-        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.ev.value, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
+        tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
         stuffUsed.ability2 = ability2;
     }
     if (ability1 == "Trump Card" && stat1 != "healthy" && move.mr1 == "Melee Attack") {
@@ -2195,10 +2195,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     //Defense ----------------------------------------------------
 
     if (crit && tempDef.stage > 0) {
-        tempDef.def = calculateStat(tempDef.base, tempDef.ev.value, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
+        tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
     }
     if (ability1 == "Apathetic" || ability1 == "Ignorant") {
-        tempDef.def = calculateStat(tempDef.base, tempDef.ev.value, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
+        tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
     }
     if (ability2 == "Spell Shield" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
@@ -2418,86 +2418,86 @@ function getTempAtkDef(second, mr) {
     //tempAtk
     if (mr.mr1 == "Ranged Attack") {
         if (second) {
-            tempAtk = { atk: atkR2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempAtk = { atk: atkR2, base: baseAtkR2.value, equip: equipment2.mAttack, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         } else {
-            tempAtk = { atk: atkR1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempAtk = { atk: atkR1, base: baseAtkR1.value, equip: equipment1.mAttack, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         }    
     }
     else if (mr.mr1 == "Melee Attack") {
         if (second) {
-            tempAtk = { atk: atk2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempAtk = { atk: atk2, base: baseAtk2.value, equip: equipment2.attack, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         } else {
-            tempAtk = { atk: atk1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempAtk = { atk: atk1, base: baseAtk1.value, equip: equipment1.attack, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         }
     }
     else if (mr.mr1 == "Ranged Defense") {
         if (second) {
-            tempAtk = { atk: defR2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempAtk = { atk: defR2, base: baseDefR2.value, equip: equipment2.mDefense, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         } else {
-            tempAtk = { atk: defR1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempAtk = { atk: defR1, base: baseDefR1.value, equip: equipment1.mDefense, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         }
     }
     else if (mr.mr1 == "Melee Defense") {
         if (second) {
-            tempAtk = { atk: def2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempAtk = { atk: def2, base: baseDef2.value, equip: equipment2.defense, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         } else {
-            tempAtk = { atk: def1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempAtk = { atk: def1, base: baseDef1.value, equip: equipment1.defense, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         }
     }
     else if (mr.mr1 == "Speed") {
         if (second) {
-            tempAtk = { atk: spd2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempAtk = { atk: spd2, base: baseSpd2.value, equip: equipment2.speed, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         } else {
-            tempAtk = { atk: spd1, base: baseSpd1.value, name: "Speed", posNat: posNat1, negNat: negNat1, stage: parseInt(spdStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempAtk = { atk: spd1, base: baseSpd1.value, equip: equipment1.speed, name: "Speed", posNat: posNat1, negNat: negNat1, stage: parseInt(spdStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         }
     }
     else {
-        tempAtk = { atk: spd2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+        tempAtk = { atk: spd2, base: baseSpd2.value, equip: equipment2.speed, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
     }
     //tempDef
     if (mr.mr2 == "Ranged Attack") {
         if (second) {
-            tempDef = { def: atkR1, base: baseAtkR1.value, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempDef = { def: atkR1, base: baseAtkR1.value, equip: equipment1.mAttack, name: "AttackR", posNat: posNat1, negNat: negNat1, stage: parseInt(atkRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
-            tempDef = { def: atkR2, base: baseAtkR2.value, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempDef = { def: atkR2, base: baseAtkR2.value, equip: equipment2.mAttack, name: "AttackR", posNat: posNat2, negNat: negNat2, stage: parseInt(atkRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
     else if (mr.mr2 == "Melee Attack") {
         if (second) {
-            tempDef = { def: atk1, base: baseAtk1.value, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempDef = { def: atk1, base: baseAtk1.value, equip: equipment1.attack, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
-            tempDef = { def: atk2, base: baseAtk2.value, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempDef = { def: atk2, base: baseAtk2.value, equip: equipment2.attack, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
     else if (mr.mr2 == "Ranged Defense") {
         if (second) {
-            tempDef = { def: defR1, base: baseDefR1.value, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempDef = { def: defR1, base: baseDefR1.value, equip: equipment1.mDefense, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
-            tempDef = { def: defR2, base: baseDefR2.value, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempDef = { def: defR2, base: baseDefR2.value, equip: equipment2.mDefense, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
     else if (mr.mr2 == "Melee Defense") {
         if (second) {
-            tempDef = { def: def1, base: baseDef1.value, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempDef = { def: def1, base: baseDef1.value, equip: equipment1.defense, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
-            tempDef = { def: def2, base: baseDef2.value, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempDef = { def: def2, base: baseDef2.value, equip: equipment2.defense, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
     else if (mr.mr2 == "Speed") {
         if (second) {
-            tempDef = { def: spd1, base: baseSpd1.value, name: "Speed", posNat: posNat1, negNat: negNat1, stage: parseInt(spdStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+            tempDef = { def: spd1, base: baseSpd1.value, equip: equipment1.speed, name: "Speed", posNat: posNat1, negNat: negNat1, stage: parseInt(spdStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
-            tempDef = { def: spd2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+            tempDef = { def: spd2, base: baseSpd2.value, equip: equipment2.speed, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
     else {
-        tempDef = { def: spd2, base: baseSpd2.value, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+        tempDef = { def: spd2, base: baseSpd2.value, equip: equipment2.speed, name: "Speed", posNat: posNat2, negNat: negNat2, stage: parseInt(spdStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
     }
 
     if (second) {
-        tempHealth = { health: hp2, base: baseHP2, name: "Health", posNat: posNat1, negNat: negNat1, level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+        tempHealth = { health: hp2, base: baseHP2, equip: equipment2.health, name: "Health", posNat: posNat1, negNat: negNat1, level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
     } else {
-        tempHealth = { health: hp1, base: baseHP1, name: "Health", posNat: posNat2, negNat: negNat2, level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+        tempHealth = { health: hp1, base: baseHP1, equip: equipment1.health, name: "Health", posNat: posNat2, negNat: negNat2, level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
     }
 
     return { attack: tempAtk, defense: tempDef, health: tempHealth };
