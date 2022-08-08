@@ -1684,15 +1684,15 @@ function detailedReport() {
     let possibleDmg = possibleArray[0];
     let foulDamage = possibleArray[1];
     let possibleDmg2 = possibleDmg[0];
-    let possibleDmg3 = possibleDmg[15];
+    let possibleDmg3 = possibleDmg[20];
     if (foulDamage) {
         possibleDmg2 = possibleDmg2 + foulDamage[0];
-        possibleDmg3 = possibleDmg3 + foulDamage[15];
+        possibleDmg3 = possibleDmg3 + foulDamage[20];
     }
     let turnCount = 0;
     let lowerPercent = (possibleDmg2 / hp * 100).toFixed(1);
     let upperPercent = (possibleDmg3 / hp * 100).toFixed(1);
-    let stuffUsed = possibleDmg[16];
+    let stuffUsed = possibleDmg[21];
     possibleDmg.pop();
     let possibleDmgStr = "Possible Damage Amounts: (" + displayDamage(possibleArray) + ")";
     let critStr = (crit == true ? " Crit " : "");
@@ -2356,7 +2356,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ul) {
-        multi *= 0.85;
+        multi *= 0.915;
     }
 
     dmg = Math.floor(dmg * multi);
@@ -2372,13 +2372,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (detailed) {
-
-        for (let i = 0.85; i <= 1; i += 0.01) {
-            if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * i) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
+        let numb;
+        for (let i = 0.915; i < 1.116; i += 0.01) {
+            numb = i.toFixed(3);
+            if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * numb) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
                 multi = 2;
                 stuffUsed.item1 = itemA;
             }
-            possibleDmg.push(Math.floor(dmg * multi * i + multiDmg * i));
+            possibleDmg.push(Math.floor(dmg * multi * numb + multiDmg * i));
             multi = 1;
         }
         if (move.name == "Boo!" || move.name == "Body Throw") {
@@ -2390,9 +2391,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             return [dmg, possibleDmg];f
         }
         if (shardSurge) return dmg;
-        possibleDmg[16] = stuffUsed;
+        possibleDmg[21] = stuffUsed;
         return [possibleDmg, possibleFoulDmg];
     }
+
+    if (!ul) multi *= 1.115;
+    dmg = Math.floor(dmg * multi);
+    multi = 1;
 
     if (itemA == "Strength Jelly" && withoutSlapDown && dmg < Math.floor(parseInt(stats2.totalHP) * 1/4)){
         multi *= 2;

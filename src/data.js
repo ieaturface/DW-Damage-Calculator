@@ -3040,7 +3040,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         priority: true
     },
 
@@ -3457,7 +3456,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         priority: true
     },
 
@@ -6350,4 +6348,4 @@ for (let ty in types) {
 
 var sets = [];
 
-var changelog = "Added/Fixed missing stuff. Damage seems to be slightly innaccurate (lower), so be wary when using the calculator.";
+var changelog = "Made damage calculations more accurate to what they are in game.";
