@@ -373,11 +373,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -429,7 +429,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1765,7 +1765,7 @@ function detailedReport() {
     }
 
     if (tickOHKOs.length != 0) {
-        let chance = (OHKOs.length / 16 * 100).toFixed(1);
+        let chance = (OHKOs.length / 21 * 100).toFixed(2);
         let chanceStr = qualifier + " " + chance + "% chance to OHKO";
 
         if (chance >= 100) {
@@ -1774,7 +1774,7 @@ function detailedReport() {
             document.getElementById("detailedResult").innerHTML = str;
             return;
         } else {
-            chance = (tickOHKOs.length / 16 * 100).toFixed(1);
+            chance = (tickOHKOs.length / 21 * 100).toFixed(2);
             chanceStr = qualifier + " " + chance + "% chance to OHKO";
             if (chance >= 100) {
                 chanceStr = "guaranteed OHKO";
@@ -1825,7 +1825,7 @@ function detailedReport() {
     }
 
     if (THKOs.length != 0) {
-        let chance = (THKOs.length / 256 * 100).toFixed(1);
+        let chance = (THKOs.length / 441 * 100).toFixed(2);
         let chanceStr = qualifier + " " + chance + "% chance to 2HKO";
         if (chance >= 100) chanceStr = "guaranteed 2HKO";
 
@@ -1849,7 +1849,7 @@ function detailedReport() {
     }
 
     if (TRHKOs.length != 0) {
-        let chance = (TRHKOs.length / 4096 * 100).toFixed(1);
+        let chance = (TRHKOs.length / 9261 * 100).toFixed(2);
         let chanceStr = qualifier + " " + chance + "% chance to 3HKO";
         if (chance >= 100) chanceStr = "guaranteed 3HKO";
 
@@ -1862,7 +1862,7 @@ function detailedReport() {
     turnCount = 3;
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
-    if (possibleDmg[15] * 4 >= hp) {
+    if (possibleDmg[20] * 4 >= hp) {
         let FHKO = "possible 4HKO";
 
         str += FHKO + hazardStr;
@@ -1873,7 +1873,7 @@ function detailedReport() {
     turnCount = 4;
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
-    if (possibleDmg[15] * 5 >= hp) {
+    if (possibleDmg[20] * 5 >= hp) {
         let FIHKO = "possible 5HKO";
 
         str += FIHKO + hazardStr;
