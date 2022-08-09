@@ -4345,7 +4345,7 @@ var moves = {
 
     necromancy: {
         name: "Necromancy",
-        power: 30,
+        power: 50,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
