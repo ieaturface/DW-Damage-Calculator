@@ -664,6 +664,17 @@
                 <div class="fieldTraps">
                     <div>
                         <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="wall1" onchange="update()">
                             <label class="radiolbl fieldlbl btn-left" style="font-size: 0.75em;" for="wall1" title="Is this side protected by Crystal Wall?">Crystal Wall</label>
                             <input type="checkbox" class="hiddenToUser" id="shield1" onchange="update()">
@@ -806,17 +817,6 @@
                             <label class="radiolbl fieldlbl" style="width: 1em; display:  none;" for="rightBarb1" title="1 layer of barbs.">1</label>
                             <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="update()">
                             <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="rightBarb0">0</label>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="left">
-                            <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" style="display: none;" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
-                        </div>
-
-                        <div class="right">
-                            <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
-                            <label class="radiolbl fieldlbl entered" style="display: none;" for="enteredBtl2" title="Has this side just entered battle?">Just Switched In/Out</label>
                         </div>
                     </div>
                     <div>
