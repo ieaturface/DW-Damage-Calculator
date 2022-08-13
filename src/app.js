@@ -1918,11 +1918,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let stats1;
     let stats2;
     if (second) {
-        stats1 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
-        stats2 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        stats1 = {atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        stats2 = {atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
     } else {
-        stats1 = {atk: atk1, def: def1, atkR: atkR1, defR: defR1, spd: spd1, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
-        stats2 = {atk: atk2, def: def2, atkR: atkR2, defR: defR2, spd: spd2, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        stats1 = {atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        stats2 = {atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
     }
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -2024,6 +2024,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             multi *= 1.5;
             stuffUsed.extra1 += " (" + tempPower * 1.5 + " BP)";
         }
+    }
+
+    if (move.name == "Wind Shear" && stats1.spd > stats2.spd) {
+        multi *= 2;
+        stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
 
     if ((ability1 == "Fire Up") && immuneBoostCheck1) {
@@ -2315,10 +2320,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Status ------------------------
 
-    if ((stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && types1.primary != "Fire" && types1.secondary != "Fire") ||
-        (stat1 == "cursed" && move.mr == "Magic" && types1.primary != "Spirit" && types1.secondary != "Spirit")) {
+    if (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && types1.primary != "Fire" && types1.secondary != "Fire") {
         multi *= 0.5;
     }
+    if (stat1 == "cursed" && move.mr == "Magic" && types1.primary != "Spirit" && types1.secondary != "Spirit") multi *= 0.75;
 
     dmg = Math.floor(dmg * multi);
     multi = 1;

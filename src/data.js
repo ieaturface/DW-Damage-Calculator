@@ -2240,13 +2240,13 @@ var loomians = {
         name: "Meltimaw",
         types: ["Food", "Fire"],
         weight: 51,
-        height: 15,
+        height: 50,
         baseStats: {
-            hp: 90,
+            hp: 80,
             attack: 105,
             defense: 80,
-            attackR: 85,
-            defenseR: 75,
+            attackR: 70,
+            defenseR: 80,
             speed: 95
         }
     },
@@ -2258,10 +2258,10 @@ var loomians = {
         height: 216,
         baseStats: {
             hp: 110,
-            attack: 90,
+            attack: 85,
             defense: 100,
-            attackR: 90,
-            defenseR: 100,
+            attackR: 85,
+            defenseR: 90,
             speed: 40
         }
     },
@@ -2309,6 +2309,53 @@ var loomians = {
             attackR: 125,
             defenseR: 80,
             speed: 100
+        }
+    },
+
+    klicki: {
+        name: "Klicki",
+        types: ["Metal", "Insect"],
+        finalEvo: false,
+        weight: 4,
+        height: 3,
+        baseStats: {
+            hp: 30,
+            attack: 40,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 60
+        }
+    },
+
+    beetal: {
+        name: "Beetal",
+        types: ["Metal", "Insect"],
+        finalEvo: false,
+        weight: 22,
+        height: 15,
+        baseStats: {
+            hp: 40,
+            attack: 60,
+            defense: 55,
+            attackR: 60,
+            defenseR: 55,
+            speed: 80
+        }
+    },
+
+    metalytra: {
+        name: "Metalytra",
+        types: ["Metal", "Insect"],
+        weight: 153,
+        height: 112,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 60,
+            attackR: 60,
+            defenseR: 60,
+            speed: 140
         }
     },
 
@@ -2713,7 +2760,7 @@ var moves = {
 
     triElementalSlash: {
         name: "Tri-Elemental Slash",
-        power: 65,
+        power: 75,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -2800,8 +2847,8 @@ var moves = {
 
     fireball: {
         name: "Fireball",
-        power: 120,
-        accuracy: 80,
+        power: 110,
+        accuracy: 85,
         type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -4206,6 +4253,30 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    bonk: {
+        name: "Bonk",
+        power: 100,
+        accuracy: 80,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    binaryBlitz: {
+        name: "Binary Blitz",
+        power: 120,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/3
     },
 
     ironSlash: {
@@ -6243,7 +6314,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Opportunist", "Overbite", "Parry", "Pecking Order", "Poison Absorb", "Poisonous Skin", "Pollen Armor", "Possession", "Precise", "Premonition", "Puncture", "Rapier", "Reaper", "Reflective", "Rejuvenator", "Relentless", "Restless", "Retaliate",
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
-                 "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef"];
+                 "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate"];
 
 var typeModAbilities = {
     adipose: {
