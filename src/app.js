@@ -2756,7 +2756,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 }
 
 function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat == "marked")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
         let drain = move.drain;
         if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
             if (!drain) drain = 1/2;
