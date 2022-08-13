@@ -4604,7 +4604,7 @@ var moves = {
 
     chaoticBolt: {
         name: "Chaotic Bolt",
-        power: 100,
+        power: 85,
         accuracy: 100,
         type: "Dark",
         mr: "Magic",

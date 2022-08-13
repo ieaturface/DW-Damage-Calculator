@@ -2018,10 +2018,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             tempType = "Spark";
             stuffUsed.extra1 += " (" + tempType + ")";
         } else if (stat2 == "enraged" && withoutSlapDown) {
-            multi *= 2;
+            multi *= 1.5;
             stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
         } else if (stat2 == "burned" || stat2 == "poisoned" || stat2 == "diseased") {
-            multi *= 1.5;
+            multi *= 1.25;
             stuffUsed.extra1 += " (" + tempPower * 1.5 + " BP)";
         }
     }
