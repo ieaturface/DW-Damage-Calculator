@@ -2350,12 +2350,12 @@ var loomians = {
         weight: 153,
         height: 112,
         baseStats: {
-            hp: 50,
-            attack: 80,
+            hp: 70,
+            attack: 100,
             defense: 60,
-            attackR: 60,
+            attackR: 80,
             defenseR: 60,
-            speed: 140
+            speed: 120
         }
     },
 
@@ -4257,8 +4257,8 @@ var moves = {
 
     bonk: {
         name: "Bonk",
-        power: 100,
-        accuracy: 80,
+        power: 80,
+        accuracy: 100,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
