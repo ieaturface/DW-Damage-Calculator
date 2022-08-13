@@ -3561,7 +3561,7 @@ var moves = {
         secondaryEffect: true
     },
 
-    mandibleWould: {
+    mandibleWound: {
         name: "Mandible Wound",
         power: 100,
         accuracy: 100,
@@ -3604,6 +3604,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    itchyBite: {
+        name: "Itchy Bite",
+        power: 60,
+        accuracy: 95,
+        type: "Insect",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        secondaryEffect: true
     },
 
     quickSting: {
@@ -5529,6 +5542,14 @@ var moves = {
 
     enlightenment: {
         name: "Enlightenment",
+        power: 0,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Support"
+    },
+
+    rest: {
+        name: "Rest",
         power: 0,
         accuracy: 100,
         type: "Mind",
