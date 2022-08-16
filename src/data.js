@@ -4683,7 +4683,7 @@ var moves = {
 
     darkSlash: {
         name: "Dark Slash",
-        power: 80,
+        power: 75,
         accuracy: 90,
         type: "Dark",
         mr: "Melee",
@@ -4753,7 +4753,7 @@ var moves = {
 
     toxicBomb: {
         name: "Toxic Bomb",
-        power: 65,
+        power: 55,
         accuracy: 100,
         type: "Poison",
         mr: "Magic",

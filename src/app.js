@@ -630,6 +630,7 @@ $(".moveSelect").change(function() {
         let doodle = $(this).closest(".doodle-info");
         let moveHits = (doodle.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
+        if (move.name == "Double Bite" || move.name == "Quad Strike") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Tri-Elemental Slash") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").show();
@@ -1913,6 +1914,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let tempAtk;
     let tempDef;
     let tempStats;
+    if (hits && !hitConfirmer) hits = hits.charAt(0);
     let gen1 = gender1.value;
     let gen2 = gender2.value;
     let stats1;
@@ -2385,20 +2387,29 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let multiDmg = 0;
     if (move.hits && !hitConfirmer) {
         hits = hits.charAt(0);
+        if (move.name == "Double Bite") hits = 2;
+        if (move.name == "Quad Strike") hits = 4;
         for (let i = 0; i < hits - 1; i++) {
-            multiDmg = multiDmg + getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, true, level, ul, second, false, false);
+            multiDmg = multiDmg + getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, true, level, ul, second, detailed, false);
         }
     }
 
-    if (detailed) {
+    if (detailed && !hitConfirmer) {
         let numb;
+        let multiHits = 1;
+        if (move.hits) {
+            if (move.name == "Double Bite") hits = 2;
+            if (move.name == "Quad Strike") hits = 4;
+            multiDmg = multiDmg / (hits - 1);
+            multiHits = hits - 1;
+        }
         for (let i = 0.915; i < 1.116; i += 0.01) {
             numb = i.toFixed(3);
             if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * numb) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
                 multi = 2;
                 stuffUsed.item1 = itemA;
             }
-            possibleDmg.push(Math.floor(dmg * multi * numb + multiDmg * i));
+            possibleDmg.push(Math.floor(dmg * multi * numb + Math.floor(multiDmg * numb) * multiHits));
             multi = 1;
         }
         if (move.name == "Boo!" || move.name == "Body Throw") {
@@ -2407,14 +2418,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             }
         }
         if (foulHit) {
-            return [dmg, possibleDmg];f
+            return [dmg, possibleDmg];
         }
         if (shardSurge) return dmg;
         possibleDmg[21] = stuffUsed;
         return [possibleDmg, possibleFoulDmg];
     }
 
-    if (!ul) multi *= 1.115;
+    if (!ul && !detailed) multi *= 1.115;
     dmg = Math.floor(dmg * multi);
     multi = 1;
 
