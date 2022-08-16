@@ -2026,7 +2026,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
     }
 
-    if (move.name == "Wind Shear" && stats1.spd > stats2.spd) {
+    if (move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd)) {
         multi *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
@@ -2048,7 +2048,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Gloomy" && tempType == "Dark") ||
        (ability1 == "Savage" && tempType == "Beast") ||
-       (ability1 == "Vengeance" && stats1.spd < stats2.spd)) {
+       (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2148,7 +2148,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability2 == "Exoskeleton" && move.contact) ||
-        (ability2 == "Royal Decree" && stats1.spd > stats2.spd)) {
+        (ability2 == "Royal Decree" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
     }

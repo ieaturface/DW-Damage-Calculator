@@ -476,9 +476,9 @@ var loomians = {
             hp: 100,
             attack: 86,
             defense: 65,
-            attackR: 85,
+            attackR: 45,
             defenseR: 110,
-            speed: 45
+            speed: 73
         }
     },
 
@@ -2113,7 +2113,7 @@ var loomians = {
 
     medikrow: {
         name: "Medikrow",
-        types: ["Dark", "Air"],
+        types: ["Dark", "Poison"],
         weight: 79,
         height: 62,
         baseStats: {
@@ -4825,9 +4825,9 @@ var moves = {
         power: 80,
         accuracy: 100,
         type: "Poison",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
