@@ -2049,14 +2049,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Envy" && itemA == "None") || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Gloomy" && tempType == "Dark") ||
-       (ability1 == "Savage" && tempType == "Beast") ||
        (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
-       (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light")) {
+       (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
+       (ability1 == "Savage" && !isStab(types1, { type: tempType }))) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2073,7 +2073,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability1 == "Air Current" && stats1.hpPercent == 100) ||
+    if ((ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
        (ability1 == "Overbite" && move.bite) ||
        (ability1 == "Rapier" && move.priority) ||
        (ability1 == "Slash Expert" && move.slash)) {
