@@ -6000,6 +6000,16 @@ var helmets = {
         speed: 6,
     },
 
+    'horned headband': {
+        name: "Horned Headband",
+        health: 15,
+        attack: -5,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'epic shades': {
         name: "Epic Shades",
         health: 15,
@@ -6142,6 +6152,16 @@ var artifacts = {
         mAttack: 15,
         mDefense: 0,
         speed: -15,
+    },
+
+    'pizza slice': {
+        name: "Pizza Slice",
+        health: 0,
+        attack: 0,
+        defense: 10,
+        mAttack: 0,
+        mDefense: 10,
+        speed: 0,
     },
 
     'beach ball': {
