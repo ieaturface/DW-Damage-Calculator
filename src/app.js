@@ -1043,27 +1043,41 @@ function loadStats() {
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
 
+    let multi = 1;
+
     statHP1.innerHTML = hp1;
-    statAtk1.innerHTML = atk1;
-    if (ability1 == "Hidden Strength") statAtk1.innerHTML = Math.floor(atk1 * 2);
-    statDef1.innerHTML = def1;
+    if (ability1 == "Hidden Strength") multi *= 2;
+    statAtk1.innerHTML = Math.floor(atk1 * multi);
+    multi = 1;
+    if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
+    statDef1.innerHTML = Math.floor(def1 * multi);
+    multi = 1;
     statAtkR1.innerHTML = atkR1;
-    statDefR1.innerHTML = defR1;
-    if (ability1 == "Spell Shield") statDefR1.innerHTML = Math.floor(defR1 * 2);
-    statSpd1.innerHTML = spd1;
-    if (ability1 == "Rush") statSpd1.innerHTML = Math.floor(spd1 * 1.2);
-    else if (ability1 == "Vitality" && percentHP1.value > 50) statSpd1.innerHTML = Math.floor(spd1 * 1.5);
+    if (ability1 == "Spell Shield") multi *= 2;
+    if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
+    statDefR1.innerHTML = Math.floor(defR1 * multi);
+    multi = 1;
+    if (ability1 == "Rush") multi *= 1.2;
+    else if (ability1 == "Vitality" && percentHP1.value > 50) multi *= 1.5;
+    statSpd1.innerHTML = Math.floor(spd1 * multi);
+    multi = 1;
 
     statHP2.innerHTML = hp2;
-    statAtk2.innerHTML = atk2;
-    if (ability2 == "Hidden Strength") statAtk2.innerHTML = Math.floor(atk2 * 2);
-    statDef2.innerHTML = def2;
+    if (ability2 == "Hidden Strength") multi *= 2;
+    statAtk2.innerHTML = Math.floor(atk2 * multi);
+    multi = 1;
+    if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
+    statDef2.innerHTML = Math.floor(def2 * multi);
+    multi = 1;
     statAtkR2.innerHTML = atkR2;
-    statDefR2.innerHTML = defR2;
-    if (ability2 == "Spell Shield") statDefR2.innerHTML = Math.floor(defR2 * 2);
-    statSpd2.innerHTML = spd2;
-    if (ability2 == "Rush") statSpd2.innerHTML = Math.floor(spd2 * 1.2);
-    else if (ability2 == "Vitality" && percentHP2.value > 50) statSpd2.innerHTML = Math.floor(spd2 * 1.5);
+    if (ability2 == "Spell Shield") multi *= 2;
+    if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
+    statDefR2.innerHTML = Math.floor(defR2 * multi);
+    multi = 1;
+    if (ability2 == "Rush") multi *= 1.2;
+    else if (ability2 == "Vitality" && percentHP2.value > 50) multi *= 1.5;
+    statSpd2.innerHTML = Math.floor(spd2 * multi);
+    multi = 1;
 
     hpEV1.value = equipment1.health;
     atkEV1.value = equipment1.attack;
@@ -1920,11 +1934,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let stats1;
     let stats2;
     if (second) {
-        stats1 = {atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
-        stats2 = {atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        stats1 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        stats2 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
     } else {
-        stats1 = {atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
-        stats2 = {atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        stats1 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        stats2 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
     }
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -1966,6 +1980,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Moratorium") {
+        itemB = "None";
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability2 == "Moratorium") {
+        itemA = "None";
+        stuffUsed.ability2 = ability2;
+    }
+
     if (move.name == "Shard Surge" && !shardSurge) {
         let water = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Water");
         let crystal = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Crystal");
@@ -1994,6 +2018,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+    if (move.name == "Starbreaker") {
+        tempPower = Number(tempPower) - (stats1.stars - 1) * 20;
+        stuffUsed.extra1 += " (" + tempPower + " BP)"; 
+    }
+
 
     //Base ------------------------------------
 
@@ -2006,8 +2035,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Galvanize" && tempType == "Typeless") {
+    if (ability1 == "Galvanize" && tempType == "Basic") {
         tempType = "Spark";
+        multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Apparition" && move.sound) {
@@ -2129,7 +2159,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         (move.name == "Hexblade" && stat2 != "healthy") ||
         (move.name == "Ill Will" && stat1 != "healthy") ||
         (move.name == "Soulfire" && stat2 == "cursed") ||
-        (move.name == "Shatter" && (wall || shield)) ||
         (move.name == "Just Desserts" && stats1.hpPercent < 50) ||
         (move.name == "Toxic Bomb" && (stat2 == "poisoned" || stat2 == "diseased")) ||
         (move.name == "Pursuit" && btl1) ||
@@ -2211,15 +2240,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
+    if ((itemA == "Gold Laminate" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) ||
+        (itemA == "Cursed Cloak" && move.mr1 == "Ranged Defense")) {
+        multi *= 1.5;
+        stuffUsed.item1 = itemA;
+    }
 
     tempAtk.atk = pokeRound(tempAtk.atk * multi);
     multi = 1;
 
     //Defense ----------------------------------------------------
 
-    /*if (crit && tempDef.stage > 0) {
+    if (crit && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
-    }*/
+    }
     if (ability1 == "Apathetic" || ability1 == "Ignorant") {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
@@ -2227,6 +2261,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (ability2 == "Spell Shield" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
+    }
+    if ((itemB == "Gold Laminate" && loom2.finalEvo == false) ||
+        (itemB == "Cursed Cloak" && move.mr2 == "Ranged Defense")) {
+        multi *= 1.5;
+        stuffUsed.item2 = itemB;
     }
 
     tempDef.def = pokeRound(tempDef.def * multi);

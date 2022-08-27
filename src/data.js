@@ -1745,12 +1745,12 @@ var loomians = {
         weight: 15,
         height: 67,
         baseStats: {
-            hp: 75,
-            attack: 90,
-            defense: 60,
-            attackR: 90,
-            defenseR: 60,
-            speed: 105
+            hp: 85,
+            attack: 100,
+            defense: 70,
+            attackR: 55,
+            defenseR: 85,
+            speed: 95
         }
     },
 
@@ -2359,6 +2359,53 @@ var loomians = {
         }
     },
 
+    sharpup: {
+        name: "Sharpup",
+        types: ["Water", "Metal"],
+        finalEvo: false,
+        weight: 4,
+        height: 3,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 50,
+            attackR: 45,
+            defenseR: 50,
+            speed: 50
+        }
+    },
+
+    sharazor: {
+        name: "Sharazor",
+        types: ["Water", "Metal"],
+        finalEvo: false,
+        weight: 4,
+        height: 3,
+        baseStats: {
+            hp: 65,
+            attack: 90,
+            defense: 80,
+            attackR: 55,
+            defenseR: 60,
+            speed: 70
+        }
+    },
+
+    serrafin: {
+        name: "Serrafin",
+        types: ["Water", "Metal"],
+        weight: 4,
+        height: 3,
+        baseStats: {
+            hp: 95,
+            attack: 110,
+            defense: 95,
+            attackR: 65,
+            defenseR: 75,
+            speed: 80
+        }
+    },
+
     kowosu: {
         name: "Kowosu",
         types: ["Melee", "Insect"],
@@ -2526,6 +2573,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    starbreaker: {
+        name: "Starbreaker",
+        power: 120,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     tailSmack: {
         name: "Tail Smack",
         power: 60,
@@ -2571,6 +2629,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    shieldBash: {
+        name: "Shield Bash",
+        power: 75,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Defense",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     slash: {
@@ -4344,9 +4413,9 @@ var moves = {
         power: 90,
         accuracy: 100,
         type: "Metal",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -5753,6 +5822,14 @@ var moves = {
         mr: "Support"
     },
 
+    jealousy: {
+        name: "Jealousy",
+        power: 0,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Support"
+    },
+
     royalIce: {
         name: "Royal Ice",
         power: 0,
@@ -6384,7 +6461,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Opportunist", "Overbite", "Parry", "Pecking Order", "Poison Absorb", "Poisonous Skin", "Pollen Armor", "Possession", "Precise", "Premonition", "Puncture", "Rapier", "Reaper", "Reflective", "Rejuvenator", "Relentless", "Restless", "Retaliate",
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
-                 "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion"];
+                 "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
+                 "Moratorium", "Levitate", "Razor Skin"];
 
 var typeModAbilities = {
     adipose: {
@@ -6471,6 +6549,12 @@ var typeModAbilities = {
         powerMod: true
     },
 
+    levitate: {
+        name: "Levitate",
+        typeModifier: { type: "Earth", modifier: 0 },
+        powerMod: false
+    },
+
     waterAbsorb: {
         name: "Water Absorb",
         typeModifier: { type: "Water", modifier: 0 },
@@ -6480,7 +6564,7 @@ var typeModAbilities = {
 }
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
-             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing"];
+             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
