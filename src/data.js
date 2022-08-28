@@ -6159,6 +6159,26 @@ var amulets = {
         speed: 10,
     },
 
+    'ruby pendant': {
+        name: "Ruby Pendant",
+        health: 0,
+        attack: 7,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 5,
+    },
+
+    'stone necklace': {
+        name: "Stone Necklace",
+        health: 6,
+        attack: 6,
+        defense: 6,
+        mAttack: 6,
+        mDefense:6,
+        speed: -20,
+    },
+
     'crystal shard': {
         name: "Crystal Shard",
         health: 0,
@@ -6229,6 +6249,26 @@ var artifacts = {
         mAttack: 15,
         mDefense: 0,
         speed: -15,
+    },
+
+    'white chocolate': {
+        name: "White Chocolate",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 10,
+    },
+
+    'scrapped cardboard': {
+        name: "Scrapped Cardboard",
+        health: -7,
+        attack: 7,
+        defense: 0,
+        mAttack: 7,
+        mDefense: 0,
+        speed: 7,
     },
 
     'pizza slice': {
