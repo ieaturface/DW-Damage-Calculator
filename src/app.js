@@ -264,6 +264,8 @@ let percentHP1 = document.getElementById("percentHP1");
 let percentHP2 = document.getElementById("percentHP2");
 
 let singleDouble = document.getElementById("singleDouble");
+let levelCheck = document.getElementById("levelCheck");
+levelCheck.value = "Level 100";
 
 let firstLoomian;
 let hp1;
@@ -655,6 +657,22 @@ $(".trait").change(function() {
     } else traitGroupObj.children(".repeating").hide();
 });
 
+function updateLevel() {
+    if (levelCheck.value == "Level 36") {
+        level1.value = 36;
+        level2.value = 36;
+        update();
+    } else if (levelCheck.value == "Level 50") {
+        level1.value = 50;
+        level2.value = 50;
+        update();
+    } else {
+        level1.value = 100;
+        level2.value = 100;
+        update();
+    }
+}
+
 function importSets() {
     let importedSets;
     let newSets = [];
@@ -685,7 +703,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         let posNat1 = document.getElementById("posNat1");
         let negNat1 = document.getElementById("negNat1");
 
-        level1.value = set1.level;
+        level1.value = levelCheck.value.split(' ')[1];
         stars1.value = set1.stars;
 
         $("#moveOne1").val(set1.moves.move1);
@@ -733,7 +751,7 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         let posNat2 = document.getElementById("posNat2");
         let negNat2 = document.getElementById("negNat2");
 
-        level2.value = set2.level;
+        level2.value = levelCheck.value.split(' ')[1];
         stars2.value = set2.stars;
 
         $("#moveOne2").val(set2.moves.move1);

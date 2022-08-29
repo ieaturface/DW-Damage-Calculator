@@ -178,11 +178,11 @@ var loomians = {
         weight: 157,
         height: 84,
         baseStats: {
-            hp: 100,
-            attack: 135,
+            hp: 95,
+            attack: 125,
             defense: 100,
-            attackR: 55,
-            defenseR: 80,
+            attackR: 75,
+            defenseR: 75,
             speed: 55
         }
     },
@@ -2829,7 +2829,7 @@ var moves = {
 
     triElementalSlash: {
         name: "Tri-Elemental Slash",
-        power: 75,
+        power: 70,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
