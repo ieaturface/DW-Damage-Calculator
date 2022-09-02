@@ -1083,8 +1083,8 @@ var loomians = {
             hp: 90,
             attack: 90,
             defense: 100,
-            attackR: 80,
-            defenseR: 80,
+            attackR: 90,
+            defenseR: 90,
             speed: 35
         }
     },
@@ -2126,6 +2126,52 @@ var loomians = {
         }
     },
 
+    shmellow: {
+        name: "Shmellow",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 10,
+        height: 14,
+        baseStats: {
+            hp: 70,
+            attack: 40,
+            defense: 60,
+            attackR: 50,
+            defenseR: 60,
+            speed: 30
+        }
+    },
+
+    marshore: {
+        name: "Marshore",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 10,
+        height: 14,
+        baseStats: {
+            hp: 90,
+            attack: 60,
+            defense: 70,
+            attackR: 70,
+            defenseR: 70,
+            speed: 50
+        }
+    },
+
+    caramellow: {
+        name: "Caramellow",
+        types: ["Food", "Beast"],
+        weight: 10,
+        height: 14,
+        baseStats: {
+            hp: 120,
+            attack: 77,
+            defense: 88,
+            attackR: 107,
+            defenseR: 83,
+            speed: 72
+        }
+    },
 
     swoptar: {
         name: "Swoptar",
@@ -2540,6 +2586,21 @@ var loomians = {
             attackR: 90,
             defenseR: 65,
             speed: 85
+        }
+    },
+
+    squonk: {
+        name: "Squonk",
+        types: ["Plant", "Spirit"],
+        weight: 9,
+        height: 12,
+        baseStats: {
+            hp: 95,
+            attack: 60,
+            defense: 105,
+            attackR: 60,
+            defenseR: 105,
+            speed: 50
         }
     },
 
@@ -3245,6 +3306,17 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    pumpkinSpin: {
+        name: "Pumpkin Spin",
+        power: 50,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     branchLaunch: {
         name: "Branch Launch",
         power: 70,
@@ -3452,8 +3524,8 @@ var moves = {
         secondaryEffect: true
     },
 
-    beastialWrath: {
-        name: "Beastial Wrath",
+    bestialWrath: {
+        name: "Bestial Wrath",
         power: 100,
         accuracy: 100,
         type: "Beast",
@@ -3461,6 +3533,17 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        secondaryEffect: true
+    },
+
+    bestialRoar: {
+        name: "Bestial Roar",
+        power: 85,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -4718,8 +4801,8 @@ var moves = {
 
     siphonSoul: {
         name: "Siphon Soul",
-        power: 70,
-        accuracy: 100,
+        power: 100,
+        accuracy: 70,
         type: "Dark",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -5312,6 +5395,14 @@ var moves = {
 
     focus: {
         name: "Focus",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
+    armorBreak: {
+        name: "Armor Break",
         power: 0,
         accuracy: 100,
         type: "Basic",
@@ -6116,6 +6207,16 @@ var helmets = {
         mDefense: 0,
         speed: -8,
     },
+
+    'marshmellow fedora': {
+        name: "Marshmellow Fedora",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 10,
+        mDefense: 5,
+        speed: 0,
+    },
 };
 
 var amulets = {
@@ -6157,6 +6258,16 @@ var amulets = {
         mAttack: 0,
         mDefense: -10,
         speed: 10,
+    },
+
+    'vial of tears': {
+        name: "Vial of Tears",
+        health: 10,
+        attack: -10,
+        defense: 10,
+        mAttack: -10,
+        mDefense: 10,
+        speed: 0,
     },
 
     'ruby pendant': {
@@ -6502,7 +6613,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly"];
 
 var typeModAbilities = {
     adipose: {
@@ -6604,7 +6715,8 @@ var typeModAbilities = {
 }
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
-             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze"];
+             "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
+             "Espresso"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");

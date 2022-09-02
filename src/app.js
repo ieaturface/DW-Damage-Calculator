@@ -1023,8 +1023,8 @@ function loadStats() {
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
 
-    equipment1 = calculateEquipment(firstHelmet, firstAmulet, firstArtifact);
-    equipment2 = calculateEquipment(secondHelmet, secondAmulet, secondArtifact);
+    equipment1 = calculateEquipment(firstHelmet, firstAmulet, firstArtifact, firstLoom);
+    equipment2 = calculateEquipment(secondHelmet, secondAmulet, secondArtifact, secondLoom);
 
     hp1 = calculateStat(baseHP1.value, equipment1.health, level1.value, stars1.value, true, posNat1, negNat1, "Health", nat1Mod1.value, nat2Mod1.value);
     atk1 = calculateStat(baseAtk1.value, equipment1.attack, level1.value, stars1.value, undefined, posNat1, negNat1, "AttackM", nat1Mod1.value, nat2Mod1.value);
@@ -1113,8 +1113,25 @@ function loadStats() {
 
 }
 
-function calculateEquipment(helmet, amulet, artifact) {
+function calculateEquipment(helmet, amulet, artifact, doodle) {
     let equipment = {health: 0, attack: 0, defense: 0, mAttack: 0, mDefense: 0, speed: 0};
+    if (helmet.name == "Marshmellow Fedora") {
+        if (doodle.name == "Partybug") {
+            helmet.health = 0;
+            helmet.attack = 20;
+            helmet.defense = 0;
+            helmet.mAttack = 20;
+            helmet.mDefense = 0;
+            helmet.speed = 10;
+        } else {
+            helmet.health = 0;
+            helmet.attack = 0;
+            helmet.defense = 0;
+            helmet.mAttack = 10;
+            helmet.mDefense = 5;
+            helmet.speed = 0;
+    }
+    }
 
     equipment.health = equipment.health + parseInt(helmet.health) + parseInt(amulet.health) + parseInt(artifact.health);
     equipment.attack = equipment.attack + parseInt(helmet.attack) + parseInt(amulet.attack) + parseInt(artifact.attack);
@@ -2008,6 +2025,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
+    if (ability2 == "Rejuvenator") {
+        stuffUsed.ability2 = ability2;
+    }
+
     if (move.name == "Shard Surge" && !shardSurge) {
         let water = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Water");
         let crystal = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Crystal");
@@ -2149,7 +2170,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((itemA == "Lucky Pebble" && tempType == "Earth") ||
        (itemA == "Battery" && tempType == "Spark") ||
        (itemA == "Ice Pack" && tempType == "Ice") ||
-       (itemA == "Used Timbers" && tempType == "Fire") ||
+       (itemA == "Used Timber" && tempType == "Fire") ||
        (itemA == "Bubblegum" && tempType == "Food") ||
        (itemA == "Small Sprout" && tempType == "Plant") ||
        (itemA == "Delicate Wing" && tempType == "Insect")) {
@@ -2224,7 +2245,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.weather += " in Acid Rain";
     }
     if (chocolateRain.checked && tempType == "Food") {
-        multi *= 1.5;
+        multi *= 1.25;
         stuffUsed.weather += " in Chocolate Rain";
     }
     if (darkExpansion.checked && tempType == "Dark") {
@@ -2381,6 +2402,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((stat1 == "cursed" && move.mr == "Magic" && types1.primary != "Spirit" && types1.secondary != "Spirit") ||
         (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && types1.primary != "Fire" && types1.secondary != "Fire")) multi *= 0.75;
+
+    if (ability1 == "Crispy" && stat1 == "burned" && types1.primary != "Fire" && types1.secondary != "Fire") {
+        multi *= 1.75;
+        stuffUsed.ability1 = ability1;
+    }    
 
     dmg = Math.floor(dmg * multi);
     multi = 1;
@@ -2788,8 +2814,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") {
-        if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 8);
-        newHP += Math.floor(hp1 * 1 / 16);
+        if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
+        if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 4);
+        newHP += Math.floor(hp1 * 1 / 12);
         hazardString += "burn damage and ";
     }
 
