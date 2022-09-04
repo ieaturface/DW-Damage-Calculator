@@ -2130,8 +2130,8 @@ var loomians = {
         name: "Shmellow",
         types: ["Food"],
         finalEvo: false,
-        weight: 10,
-        height: 14,
+        weight: 5,
+        height: 11,
         baseStats: {
             hp: 70,
             attack: 40,
@@ -2146,8 +2146,8 @@ var loomians = {
         name: "Marshore",
         types: ["Food"],
         finalEvo: false,
-        weight: 10,
-        height: 14,
+        weight: 45,
+        height: 50,
         baseStats: {
             hp: 90,
             attack: 60,
@@ -2161,8 +2161,8 @@ var loomians = {
     caramellow: {
         name: "Caramellow",
         types: ["Food", "Beast"],
-        weight: 10,
-        height: 14,
+        weight: 45,
+        height: 50,
         baseStats: {
             hp: 120,
             attack: 77,
@@ -3030,8 +3030,8 @@ var moves = {
 
     fieryBite: {
         name: "Fiery Bite",
-        power: 80,
-        accuracy: 80,
+        power: 70,
+        accuracy: 90,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3211,7 +3211,7 @@ var moves = {
 
     ripCurrent: {
         name: "Rip Current",
-        power: 50,
+        power: 40,
         accuracy: 100,
         type: "Water",
         mr: "Melee",
@@ -3475,8 +3475,8 @@ var moves = {
 
     electroBite: {
         name: "Electro Bite",
-        power: 80,
-        accuracy: 80,
+        power: 70,
+        accuracy: 90,
         type: "Spark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -3500,7 +3500,7 @@ var moves = {
 
     crunch: {
         name: "Crunch",
-        power: 85,
+        power: 80,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
@@ -4038,18 +4038,6 @@ var moves = {
         secondaryEffect: true
     },
 
-    toughen: {
-        name: "Toughen",
-        power: 60,
-        accuracy: 100,
-        type: "Melee",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
-        contact: true,
-        secondaryEffect: true
-    },
-
     clumsySwing: {
         name: "Clumsy Swing",
         power: 85,
@@ -4200,7 +4188,7 @@ var moves = {
     glazePunch: {
         name: "Glaze Punch",
         power: 70,
-        accuracy: 95,
+        accuracy: 100,
         type: "Food",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -4527,7 +4515,7 @@ var moves = {
 
     hexblade: {
         name: "Hexblade",
-        power: 70,
+        power: 65,
         accuracy: 90,
         type: "Spirit",
         mr: "Melee",
@@ -4697,8 +4685,8 @@ var moves = {
 
     icyBite: {
         name: "Icy Bite",
-        power: 80,
-        accuracy: 80,
+        power: 70,
+        accuracy: 90,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -5761,6 +5749,14 @@ var moves = {
         mr: "Support"
     },
 
+    toughen: {
+        name: "Toughen",
+        power: 0,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Support"
+    },
+
     challenge: {
         name: "Challenge",
         power: 0,
@@ -6716,7 +6712,7 @@ var typeModAbilities = {
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
-             "Espresso"];
+             "Espresso", "Pretty Seashell"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");

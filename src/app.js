@@ -2118,6 +2118,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Envy" && itemA == "None") || 
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Gloomy" && tempType == "Dark") ||
+       (ability1 == "Overbite" && move.bite) ||
        (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
@@ -2137,7 +2138,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if(ability2 == "Gloomy" && tempType == "Dark") {
+    if (ability2 == "Gloomy" && tempType == "Dark") {
         multi *= 1.3;
         stuffUsed.ability2 = ability2;
     }
@@ -2173,7 +2174,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Used Timber" && tempType == "Fire") ||
        (itemA == "Bubblegum" && tempType == "Food") ||
        (itemA == "Small Sprout" && tempType == "Plant") ||
-       (itemA == "Delicate Wing" && tempType == "Insect")) {
+       (itemA == "Delicate Wing" && tempType == "Insect") ||
+       (itemA == "Pretty Seashell" && tempType == "Water")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2803,12 +2805,8 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             }
         }
         if (chocolateRain.checked) {
-            newHP -= Math.floor(hp1 * 1 / 16 * multi);
+            newHP -= Math.floor(hp1 * 1 / 12 * multi);
             hazardString += "chocolate rain recovery and ";
-        }
-        if (ability == "Stitching") {
-            newHP -= Math.floor(hp1 * 1 / 16 * multi);
-            hazardString += "stitching recovery and ";
         }
     }
     
@@ -2830,16 +2828,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "sandstorm damage and ";
     }
 
-    if (status == "poisoned" && !loom2.types.includes("Poison")) {
+    if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal")) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
-    if(status == "diseased" && !loom2.types.includes("Poison")) {
+    if(status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal")) {
         newHP += Math.floor(hp1 * (disease + counter) / 16);
         hazardString += "disease damage and ";
     }
 
-    if (status == "frozen" && otherAbility == "Hypothermia") {
+    if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice")) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "hypothermia damage and ";
     }
