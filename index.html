@@ -424,14 +424,9 @@
                         <select class="trait" id="ability1" onchange="update()">
                             <option>None</option>
                         </select>
-                        <select class="repeating" id="repeating1" style="display: none;" onchange="update()">
-                            <option>0 times</option>
-                            <option>1 time</option>
-                            <option>2 times</option>
-                            <option>3 times</option>
-                            <option>4 times</option>
-                            <option>5 times</option>
-                        </select> 
+                        <input class="repeating" id="repeating1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input type="checkbox" id="immuneBoost1" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
                     </div>
 
@@ -1170,14 +1165,9 @@
                         <select class="trait" id="ability2" onchange="update()">
                             <option>None</option>
                         </select>
-                        <select class="repeating" id="repeating2" style="display: none;" onchange="update()">
-                            <option>0 times</option>
-                            <option>1 time</option>
-                            <option>2 times</option>
-                            <option>3 times</option>
-                            <option>4 times</option>
-                            <option>5 times</option>
-                        </select> 
+                        <input class="repeating" id="repeating2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
                         <input type="checkbox" id="immuneBoost2" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
                     </div>
 
