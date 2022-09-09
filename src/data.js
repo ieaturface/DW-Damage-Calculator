@@ -598,11 +598,11 @@ var loomians = {
         weight: 105,
         height: 43,
         baseStats: {
-            hp: 82,
+            hp: 72,
             attack: 57,
-            defense: 105,
+            defense: 90,
             attackR: 67,
-            defenseR: 87,
+            defenseR: 77,
             speed: 47
         }
     },
@@ -1067,7 +1067,7 @@ var loomians = {
         baseStats: {
             hp: 95,
             attack: 80,
-            defense: 65,
+            defense: 85,
             attackR: 120,
             defenseR: 80,
             speed: 35
@@ -2452,6 +2452,37 @@ var loomians = {
         }
     },
 
+    slibble: {
+        name: "Slibble",
+        types: ["Mind", "Poison"],
+        finalEvo: false,
+        weight: 14,
+        height: 17,
+        baseStats: {
+            hp: 50,
+            attack: 15,
+            defense: 65,
+            attackR: 65,
+            defenseR: 80,
+            speed: 10
+        }
+    },
+
+    cerebopod: {
+        name: "Cerebopod",
+        types: ["Mind", "Poison"],
+        weight: 14,
+        height: 17,
+        baseStats: {
+            hp: 80,
+            attack: 35,
+            defense: 80,
+            attackR: 90,
+            defenseR: 100,
+            speed: 20
+        }
+    },
+
     kowosu: {
         name: "Kowosu",
         types: ["Melee", "Insect"],
@@ -2595,12 +2626,12 @@ var loomians = {
         weight: 9,
         height: 12,
         baseStats: {
-            hp: 95,
-            attack: 60,
+            hp: 70,
+            attack: 70,
             defense: 105,
-            attackR: 60,
+            attackR: 70,
             defenseR: 105,
-            speed: 50
+            speed: 55
         }
     },
 
@@ -3544,7 +3575,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        sound: true
     },
 
     doubleBite: {
@@ -5741,6 +5773,14 @@ var moves = {
         mr: "Support"
     },
 
+    traitExchange: {
+        name: "Trait Exchange",
+        power: 0,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Support"
+    },
+
     adrenaline: {
         name: "Adrenaline",
         power: 0,
@@ -5958,7 +5998,7 @@ var moves = {
     },
 
     shadowStep: {
-        name: "Shadow Step",
+        name: "Shadowstep",
         power: 0,
         accuracy: 100,
         type: "Dark",
@@ -6609,7 +6649,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed"];
 
 var typeModAbilities = {
     adipose: {

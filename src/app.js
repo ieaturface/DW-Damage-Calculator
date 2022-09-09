@@ -1032,6 +1032,7 @@ function loadStats() {
     atkR1 = calculateStat(baseAtkR1.value, equipment1.mAttack, level1.value, stars1.value, undefined, posNat1, negNat1, "AttackR", nat1Mod1.value, nat2Mod1.value);
     defR1 = calculateStat(baseDefR1.value, equipment1.mDefense, level1.value, stars1.value, undefined, posNat1, negNat1, "DefenseR", nat1Mod1.value, nat2Mod1.value);
     spd1 = calculateStat(baseSpd1.value, equipment1.speed, level1.value, stars1.value, undefined, posNat1, negNat1, "Speed", nat1Mod1.value, nat2Mod1.value);
+    if (ability1 == "Snailspeed") spd1 = 1;
 
     hp2 = calculateStat(baseHP2.value, equipment2.health, level2.value, stars2.value, true, posNat2, negNat2, "Health", nat1Mod2.value, nat2Mod2.value);
     atk2 = calculateStat(baseAtk2.value, equipment2.attack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackM", nat1Mod2.value, nat2Mod2.value);
@@ -1039,6 +1040,7 @@ function loadStats() {
     atkR2 = calculateStat(baseAtkR2.value, equipment2.mAttack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackR", nat1Mod2.value, nat2Mod2.value);
     defR2 = calculateStat(baseDefR2.value, equipment2.mDefense, level2.value, stars2.value, undefined, posNat2, negNat2, "DefenseR", nat1Mod2.value, nat2Mod2.value);
     spd2 = calculateStat(baseSpd2.value, equipment2.speed, level2.value, stars2.value, undefined, posNat2, negNat2, "Speed", nat1Mod2.value, nat2Mod2.value);
+    if (ability2 == "Snailspeed") spd2 = 1;
     
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
@@ -2151,12 +2153,19 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    /* if (ability1 == "Chanting" && move.sound) {
-        repeat = repeat.charAt(0);
-        tempPower = Number(tempPower) * (1 + (0.1 * repeat));
+     if (ability1 == "Chanting" && move.sound) {
+        console.log(repeat);
+        let chanting = 1;
+        if (repeat == 2) {
+            chanting = 1.5;
+            multi *= 1.5;
+        } else if (repeat > 2) {
+            chanting = 1.5 + 0.1 * (repeat - 2);
+            multi *= chanting;
+        }
         stuffUsed.ability1 = ability1;
-        stuffUsed.extra1 += " (" + tempPower + " BP)"; 
-    } */
+        stuffUsed.extra1 += " (" + tempPower * chanting + " BP)";
+    }
 
     if (ability1 == "Courteous" && tempPower >= 100) {
         multi *= 0.75;
@@ -2264,9 +2273,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Attack -------------------------------------------
 
-    /*if (crit && tempAtk.stage < 0) {
+    if (crit && tempAtk.stage < 0) {
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
-    }*/
+    }
 
     if (ability2 == "Apathetic" || ability2 == "Ignorant") {
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
