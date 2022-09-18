@@ -1032,7 +1032,6 @@ function loadStats() {
     atkR1 = calculateStat(baseAtkR1.value, equipment1.mAttack, level1.value, stars1.value, undefined, posNat1, negNat1, "AttackR", nat1Mod1.value, nat2Mod1.value);
     defR1 = calculateStat(baseDefR1.value, equipment1.mDefense, level1.value, stars1.value, undefined, posNat1, negNat1, "DefenseR", nat1Mod1.value, nat2Mod1.value);
     spd1 = calculateStat(baseSpd1.value, equipment1.speed, level1.value, stars1.value, undefined, posNat1, negNat1, "Speed", nat1Mod1.value, nat2Mod1.value);
-    if (ability1 == "Snailspeed") spd1 = 1;
 
     hp2 = calculateStat(baseHP2.value, equipment2.health, level2.value, stars2.value, true, posNat2, negNat2, "Health", nat1Mod2.value, nat2Mod2.value);
     atk2 = calculateStat(baseAtk2.value, equipment2.attack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackM", nat1Mod2.value, nat2Mod2.value);
@@ -1040,7 +1039,6 @@ function loadStats() {
     atkR2 = calculateStat(baseAtkR2.value, equipment2.mAttack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackR", nat1Mod2.value, nat2Mod2.value);
     defR2 = calculateStat(baseDefR2.value, equipment2.mDefense, level2.value, stars2.value, undefined, posNat2, negNat2, "DefenseR", nat1Mod2.value, nat2Mod2.value);
     spd2 = calculateStat(baseSpd2.value, equipment2.speed, level2.value, stars2.value, undefined, posNat2, negNat2, "Speed", nat1Mod2.value, nat2Mod2.value);
-    if (ability2 == "Snailspeed") spd2 = 1;
     
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
@@ -1059,6 +1057,10 @@ function loadStats() {
         status2.value = "healthy";
     }
     checkStages();
+    if (ability1 == "Snailspeed") spd1 = 1;
+    if (ability2 == "Snailspeed") spd2 = 1;
+    
+
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
@@ -1078,7 +1080,7 @@ function loadStats() {
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
     if (ability1 == "Rush") multi *= 1.2;
-    else if (ability1 == "Vitality" && percentHP1.value > 50) multi *= 1.5;
+    else if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25)) multi *= 1.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1095,7 +1097,7 @@ function loadStats() {
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
     if (ability2 == "Rush") multi *= 1.2;
-    else if (ability2 == "Vitality" && percentHP2.value > 50) multi *= 1.5;
+    else if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25)) multi *= 1.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 
@@ -2015,6 +2017,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Bully" && loom1.height > loom2.height)) {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
+    }
+    if ((ability2 == "Nullify") || 
+       (ability2 == "Bully" && loom2.height > loom1.height)) {
+        ability1 = "None";
+        stuffUsed.ability2 = ability2;
     }
 
     if (ability1 == "Moratorium") {

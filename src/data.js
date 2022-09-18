@@ -2483,6 +2483,37 @@ var loomians = {
         }
     },
 
+    impling: {
+        name: "Impling",
+        types: ["Fire", "Spirit"],
+        finalEvo: false,
+        weight: 8,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 40,
+            defense: 45,
+            attackR: 75,
+            defenseR: 50,
+            speed: 50
+        }
+    },
+
+    daeferno: {
+        name: "Daeferno",
+        types: ["Fire", "Spirit"],
+        weight: 42,
+        height: 57,
+        baseStats: {
+            hp: 80,
+            attack: 60,
+            defense: 65,
+            attackR: 110,
+            defenseR: 80,
+            speed: 85
+        }
+    },
+
     kowosu: {
         name: "Kowosu",
         types: ["Melee", "Insect"],
@@ -6649,7 +6680,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind"];
 
 var typeModAbilities = {
     adipose: {
@@ -6722,12 +6753,6 @@ var typeModAbilities = {
         name: "Rubber Tissue",
         typeModifier: { type: "Spark", modifier: 0 },
         powerMod: false
-    },
-
-    savage: {
-        name: "Savage",
-        typeModifier: { type: "Beast", modifier: 1.3 },
-        powerMod: true
     },
 
     spool: {
