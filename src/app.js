@@ -1074,7 +1074,8 @@ function loadStats() {
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
-    statAtkR1.innerHTML = atkR1;
+    statAtkR1.innerHTML = Math.floor(atkR1 * multi);
+    multi = 1;
     if (ability1 == "Spell Shield") multi *= 2;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
@@ -1091,7 +1092,8 @@ function loadStats() {
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
-    statAtkR2.innerHTML = atkR2;
+    statAtkR2.innerHTML = Math.floor(atkR2 * multi);
+    multi = 1;
     if (ability2 == "Spell Shield") multi *= 2;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
@@ -2128,7 +2130,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Gloomy" && tempType == "Dark") ||
        (ability1 == "Overbite" && move.bite) ||
-       (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd))) {
+       (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd)) ||
+       (ability1 == "Sand Surge" && sandstorm.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2288,7 +2291,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
         stuffUsed.ability2 = ability2;
     }
-    if (ability1 == "Trump Card" && stat1 != "healthy" && move.mr1 == "Melee Attack") {
+    if ((ability1 == "Trump Card" && stat1 != "healthy" && move.mr == "Melee") ||
+        (ability1 == "Dauntless" && stat1 != "healthy" && move.mr == "Magic")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2418,7 +2422,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Status ------------------------
 
-    if ((stat1 == "cursed" && move.mr == "Magic" && types1.primary != "Spirit" && types1.secondary != "Spirit") ||
+    if ((stat1 == "cursed" && move.mr == "Magic" && ability1 != "Dauntless" && types1.primary != "Spirit" && types1.secondary != "Spirit") ||
         (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && types1.primary != "Fire" && types1.secondary != "Fire")) multi *= 0.75;
 
     if (ability1 == "Crispy" && stat1 == "burned" && types1.primary != "Fire" && types1.secondary != "Fire") {

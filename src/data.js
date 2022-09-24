@@ -2514,6 +2514,37 @@ var loomians = {
         }
     },
 
+    eftue: {
+        name: "Eftue",
+        types: ["Earth", "Mind"],
+        finalEvo: false,
+        weight: 8,
+        height: 14,
+        baseStats: {
+            hp: 40,
+            attack: 40,
+            defense: 80,
+            attackR: 55,
+            defenseR: 65,
+            speed: 10
+        }
+    },
+
+    runewt: {
+        name: "Runewt",
+        types: ["Earth", "Mind"],
+        weight: 307,
+        height: 78,
+        baseStats: {
+            hp: 75,
+            attack: 85,
+            defense: 90,
+            attackR: 115,
+            defenseR: 80,
+            speed: 25
+        }
+    },
+
     kowosu: {
         name: "Kowosu",
         types: ["Melee", "Insect"],
@@ -6680,7 +6711,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge"];
 
 var typeModAbilities = {
     adipose: {
