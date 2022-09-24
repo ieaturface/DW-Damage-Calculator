@@ -6226,6 +6226,16 @@ var helmets = {
         speed: 0,
     },
 
+    'smoldering hood': {
+        name: "Smoldering Hood",
+        health: -6,
+        attack: 16,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'feathered hat': {
         name: "Feathered Hat",
         health: 0,
