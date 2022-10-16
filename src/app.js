@@ -2084,6 +2084,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= typeModAbility1.typeModifier.modifier;
         stuffUsed.ability1 = ability1;
     }
+    else if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type2 && typeModAbility1.powerMod == true) {
+        multi *= typeModAbility1.typeModifier.modifier;
+        stuffUsed.ability1 = ability1;
+    }
+    if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type3 && typeModAbility1.powerMod == true) {
+        multi *= typeModAbility1.typeModifier.modifier;
+        stuffUsed.ability1 = ability1;
+    }
 
     if (ability1 == "Galvanize" && tempType == "Basic") {
         tempType = "Spark";
@@ -2369,19 +2377,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Type -------------------------------
 
-    if (ability1 == "Nullify") {
-        typeModAbility2 = undefined;
-    }
-
-    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
-        multi *= typeModAbility2.typeModifier.modifier;
-        stuffUsed.ability2 = ability2;
-    }
-    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
-        multi *= typeModAbility2.typeModifier.modifier;
-        stuffUsed.ability2 = ability2;
-    }
-
     if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
@@ -2411,6 +2406,19 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     effectiveness = multi;
+
+    if (ability1 == "Nullify") {
+        typeModAbility2 = undefined;
+    }
+
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
+        multi *= typeModAbility2.typeModifier.modifier;
+        stuffUsed.ability2 = ability2;
+    }
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
+        multi *= typeModAbility2.typeModifier.modifier;
+        stuffUsed.ability2 = ability2;
+    }
 
     if (ability1 == "Rule of Cool" && effectiveness < 1) {
         multi *= 2;

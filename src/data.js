@@ -304,7 +304,7 @@ var loomians = {
         height: 12,
         baseStats: {
             hp: 70,
-            attack: 80,
+            attack: 100,
             defense: 60,
             attackR: 55,
             defenseR: 90,
@@ -1754,9 +1754,9 @@ var loomians = {
         }
     },
 
-    appurition: {
-        name: "Appurition",
-        types: ["Spirit"],
+    apurrition: {
+        name: "Apurrition",
+        types: ["Spirit", "Mind"],
         finalEvo: false,
         weight: 1,
         height: 14,
@@ -2002,8 +2002,8 @@ var loomians = {
         }
     },
 
-    kelpmier: {
-        name: "Kelpmier",
+    kelpimer: {
+        name: "Kelpimer",
         types: ["Water", "Spirit"],
         weight: 139,
         height: 76,
@@ -2118,9 +2118,9 @@ var loomians = {
         height: 62,
         baseStats: {
             hp: 80,
-            attack: 60,
+            attack: 70,
             defense: 85,
-            attackR: 115,
+            attackR: 105,
             defenseR: 85,
             speed: 80
         }
@@ -2409,8 +2409,8 @@ var loomians = {
         name: "Sharpup",
         types: ["Water", "Metal"],
         finalEvo: false,
-        weight: 4,
-        height: 3,
+        weight: 13,
+        height: 15,
         baseStats: {
             hp: 50,
             attack: 60,
@@ -2425,8 +2425,8 @@ var loomians = {
         name: "Sharazor",
         types: ["Water", "Metal"],
         finalEvo: false,
-        weight: 4,
-        height: 3,
+        weight: 13,
+        height: 15,
         baseStats: {
             hp: 65,
             attack: 90,
@@ -2440,8 +2440,8 @@ var loomians = {
     serrafin: {
         name: "Serrafin",
         types: ["Water", "Metal"],
-        weight: 4,
-        height: 3,
+        weight: 1043,
+        height: 240,
         baseStats: {
             hp: 95,
             attack: 110,
@@ -2542,6 +2542,21 @@ var loomians = {
             attackR: 115,
             defenseR: 80,
             speed: 25
+        }
+    },
+
+    hattrix: {
+        name: "Hattrix",
+        types: ["Dark", "Mind"],
+        weight: 16,
+        height: 43,
+        baseStats: {
+            hp: 55,
+            attack: 50,
+            defense: 65,
+            attackR: 95,
+            defenseR: 90,
+            speed: 85
         }
     },
 
@@ -3111,6 +3126,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    incinerate: {
+        name: "Incinerate",
+        power: 30,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        knockOff: true
+    },
+
     foxfire: {
         name: "Foxfire",
         power: 80,
@@ -3643,7 +3669,7 @@ var moves = {
 
     doubleBite: {
         name: "Double Bite",
-        power: 50,
+        power: 40,
         accuracy: 90,
         type: "Beast",
         mr: "Melee",
@@ -6721,7 +6747,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster"];
 
 var typeModAbilities = {
     adipose: {
@@ -6739,6 +6765,12 @@ var typeModAbilities = {
     caloricDeficit: {
         name: "Caloric Deficit",
         typeModifier: { type: "Food", modifier: 1.3 },
+        powerMod: true
+    },
+
+    spellcaster: {
+        name: "Spellcaster",
+        typeModifier: { type: "Spark", type2: "Ice", type3: "Fire", modifier: 1.25 },
         powerMod: true
     },
 
