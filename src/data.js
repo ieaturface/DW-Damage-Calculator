@@ -225,12 +225,12 @@ var loomians = {
         weight: 18,
         height: 34,
         baseStats: {
-            hp: 60,
-            attack: 90,
+            hp: 70,
+            attack: 105,
             defense: 80,
-            attackR: 90,
+            attackR: 75,
             defenseR: 80,
-            speed: 85
+            speed: 75
         }
     },
 
@@ -2554,7 +2554,7 @@ var loomians = {
             hp: 55,
             attack: 50,
             defense: 65,
-            attackR: 95,
+            attackR: 105,
             defenseR: 90,
             speed: 85
         }
@@ -5757,6 +5757,14 @@ var moves = {
         mr: "Support"
     },
 
+    insectInstinct: {
+        name: "Insect Instinct",
+        power: 0,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Support"
+    },
+
     sandstorm: {
         name: "Sandstorm",
         power: 0,
@@ -6655,7 +6663,7 @@ var types = {
     },
 
     dark: {
-        weaknesses: ["beast", "light"],
+        weaknesses: ["beast", "light", "insect"],
         resistances: ["dark", "spirit"],
         immunities: ["mind"],
         otherName: "shade"
@@ -6663,7 +6671,7 @@ var types = {
 
     insect: {
         weaknesses: ["fire", "air", "spark", "beast"],
-        resistances: ["earth", "plant", "melee"],
+        resistances: ["earth", "plant", "melee", "dark"],
         immunities: [],
         otherName: "web"
     },
@@ -6747,7 +6755,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless"];
 
 var typeModAbilities = {
     adipose: {
