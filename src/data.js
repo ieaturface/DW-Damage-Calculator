@@ -2560,6 +2560,37 @@ var loomians = {
         }
     },
 
+    azupion: {
+        name: "Azupion",
+        types: ["Food", "Poison"],
+        finalEvo: false,
+        weight: 12,
+        height: 11,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 50,
+            attackR: 60,
+            defenseR: 50,
+            speed: 60
+        }
+    },
+
+    skorpiruli: {
+        name: "Skorpiruli",
+        types: ["Food", "Poison"],
+        weight: 52,
+        height: 46,
+        baseStats: {
+            hp: 79,
+            attack: 110,
+            defense: 80,
+            attackR: 80,
+            defenseR: 60,
+            speed: 90
+        }
+    },
+
     kowosu: {
         name: "Kowosu",
         types: ["Melee", "Insect"],
@@ -4305,6 +4336,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    takeout: {
+        name: "Takeout",
+        power: 70,
+        accuracy: 100,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     glazePunch: {
         name: "Glaze Punch",
         power: 70,
@@ -5051,6 +5093,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    foodPoisoning: {
+        name: "Food Poisoning",
+        power: 70,
+        accuracy: 100,
+        type: "Poison",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        typeModifier: { type: "Food", modifier: 2 }
     },
 
     venomousSting: {
@@ -6359,6 +6413,16 @@ var helmets = {
         mDefense: 5,
         speed: 0,
     },
+
+    'candy headphones': {
+        name: "Candy Headphones",
+        health: -20,
+        attack: 10,
+        defense: -20,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 15,
+    },
 };
 
 var amulets = {
@@ -6755,7 +6819,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down"];
 
 var typeModAbilities = {
     adipose: {

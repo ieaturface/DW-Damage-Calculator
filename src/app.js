@@ -1082,6 +1082,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Rush") multi *= 1.2;
     else if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25)) multi *= 1.5;
+    else if (ability1 == "Scarf Down" && chocolateRain.checked) multi *= 2;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1100,6 +1101,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Rush") multi *= 1.2;
     else if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25)) multi *= 1.5;
+    else if (ability2 == "Scarf Down" && chocolateRain.checked) multi *= 2;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 
