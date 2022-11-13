@@ -2210,7 +2210,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (itemA == "Magical Jelly" && withoutSlapDown && move.mr == "Magic") {
-        multi *= 1.3;
+        if (ability1 == "Jelly Enhancer") {
+            multi *= 1.6;
+            stuffUsed.ability1 = ability1;
+        }else multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
 
@@ -2453,8 +2456,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
-    if (effectiveness > 1 && itemB == "Defensive Jelly") {
-        multi *= 0.75;
+    if (effectiveness > 1 && itemB == "Defensive Jelly" && withoutSlapDown) {
+        if (ability2 == "Jelly Enhancer") {
+            multi *= 0.3;
+            stuffUsed.ability2 = ability2;
+        } else multi *= 0.85;
         stuffUsed.item2 = itemB;
     }
     if (effectiveness > 1 && sandstorm.checked && shale) {
@@ -2521,7 +2527,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         for (let i = 0.915; i < 1.116; i += 0.01) {
             numb = i.toFixed(3);
             if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * numb) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-                multi = 2;
+                if (ability1 == "Jelly Enhancer") {
+                    multi = 3;
+                    stuffUsed.ability1 = ability1;
+                } else multi = 2;
                 stuffUsed.item1 = itemA;
             }
             possibleDmg.push(Math.floor(dmg * multi * numb + Math.floor(multiDmg * numb) * multiHits));
@@ -2545,7 +2554,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     multi = 1;
 
     if (itemA == "Strength Jelly" && withoutSlapDown && dmg < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-        multi *= 2;
+        ability1 == "Jelly Enhancer" ? multi *= 3 : multi *= 2;
     }
     dmg = (Math.floor(dmg * multi + multiDmg));
 

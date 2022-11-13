@@ -2582,10 +2582,10 @@ var loomians = {
         weight: 52,
         height: 46,
         baseStats: {
-            hp: 79,
-            attack: 110,
+            hp: 69,
+            attack: 102,
             defense: 80,
-            attackR: 80,
+            attackR: 70,
             defenseR: 60,
             speed: 90
         }
@@ -2634,6 +2634,21 @@ var loomians = {
             attackR: 60,
             defenseR: 75,
             speed: 60
+        }
+    },
+
+    jellupy: {
+        name: "Jellupy",
+        types: ["Food", "Metal"],
+        weight: 52,
+        height: 46,
+        baseStats: {
+            hp: 70,
+            attack: 75,
+            defense: 65,
+            attackR: 65,
+            defenseR: 78,
+            speed: 90
         }
     },
 
@@ -5971,6 +5986,14 @@ var moves = {
         mr: "Support"
     },
 
+    createJelly: {
+        name: "Create Jelly",
+        power: 0,
+        accuracy: 100,
+        type: "Food",
+        mr: "Support"
+    },
+
     fattenUp: {
         name: "Fatten Up",
         power: 0,
@@ -6819,7 +6842,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer"];
 
 var typeModAbilities = {
     adipose: {
