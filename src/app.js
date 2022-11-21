@@ -178,6 +178,8 @@ let sandstorm = document.getElementById("sandstorm");
 
 let darkExpansion = document.getElementById("darkExpansion");
 
+let lightOrb = document.getElementById("lightOrb");
+
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
@@ -1060,7 +1062,24 @@ function loadStats() {
     if (ability1 == "Snailspeed") spd1 = 1;
     if (ability2 == "Snailspeed") spd2 = 1;
     
+    if (firstItem == "Edible Storm in a Bottle" || secondItem == "Edible Storm in a Bottle" || ability1 == "Chocolate Drizzle" || ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
+    else chocolateRain.checked = false;
+    if (firstItem == "Sandstorm in a Bottle" || secondItem == "Sandstorm in a Bottle") sandstorm.checked = true;
+    else sandstorm.checked = false;
+    if (firstItem == "Storm in a Bottle" || secondItem == "Storm in a Bottle") rain.checked = true;
+    else rain.checked = false;
+    if (ability1 == "Poison Precipitation" || ability2 == "Poison Precipitation") acidRain.checked = true;
+    else acidRain.checked = false;
+    if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
+    else lightOrb.checked = false;
 
+    if (firstItem == "Unwashed Plushie" && !firstLoom.types.includes("Poison") && !firstLoom.types.includes("Crystal") && !firstLoom.types.includes("Metal")) status1.value = "diseased";
+    else if (firstItem == "Lighter" && !firstLoom.types.includes("Fire")) status1.value = "burned";
+    else status1.value = "healthy";
+
+    if (secondItem == "Unwashed Plushie" && !secondLoom.types.includes("Poison") && !secondLoom.types.includes("Crystal") && !secondLoom.types.includes("Metal")) status2.value = "diseased";
+    else if (secondItem == "Lighter" && !secondLoom.types.includes("Fire")) status2.value = "burned";
+    else status2.value = "healthy";
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
@@ -2204,7 +2223,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Bubblegum" && tempType == "Food") ||
        (itemA == "Small Sprout" && tempType == "Plant") ||
        (itemA == "Delicate Wing" && tempType == "Insect") ||
-       (itemA == "Pretty Seashell" && tempType == "Water")) {
+       (itemA == "Pretty Seashell" && tempType == "Water") ||
+       (itemA == "Perfect Alloy" && tempType == "Metal") ||
+       (itemA == "Crooked Talon" && tempType == "Beast") ||
+       (itemA == "Moon Charm" && tempType == "Dark") ||
+       (itemA == "Refractive Prism" && tempType == "Light")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2266,6 +2289,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (Combo Support)"
     }
 
+    if (ability2 == "Light Orb" && tempType == "Dark" && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
+
     if (rain.checked && tempType == "Water") {
         multi *= 1.5;
         stuffUsed.weather += " in Rain";
@@ -2289,6 +2317,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (darkExpansion.checked && tempType == "Light" && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " in Darkness Expansion";
+    }
+    if (lightOrb.checked && tempType == "Dark" && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.weather += " with Light Orb";
     }
 
     tempPower = pokeRound(tempPower * multi);

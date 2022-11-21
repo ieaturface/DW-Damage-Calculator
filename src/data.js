@@ -1344,9 +1344,9 @@ var loomians = {
         height: 24,
         baseStats: {
             hp: 93,
-            attack: 58,
+            attack: 48,
             defense: 84,
-            attackR: 93,
+            attackR: 103,
             defenseR: 91,
             speed: 65
         }
@@ -2303,11 +2303,11 @@ var loomians = {
         weight: 67,
         height: 216,
         baseStats: {
-            hp: 110,
-            attack: 85,
+            hp: 100,
+            attack: 80,
             defense: 100,
-            attackR: 85,
-            defenseR: 90,
+            attackR: 80,
+            defenseR: 75,
             speed: 40
         }
     },
@@ -2582,12 +2582,43 @@ var loomians = {
         weight: 52,
         height: 46,
         baseStats: {
-            hp: 69,
-            attack: 102,
+            hp: 74,
+            attack: 106,
             defense: 80,
-            attackR: 70,
+            attackR: 75,
             defenseR: 60,
             speed: 90
+        }
+    },
+
+    dewaffe: {
+        name: "Dewaffe",
+        types: ["Plant", "Poison"],
+        finalEvo: false,
+        weight: 20,
+        height: 28,
+        baseStats: {
+            hp: 62,
+            attack: 72,
+            defense: 66,
+            attackR: 70,
+            defenseR: 64,
+            speed: 66
+        }
+    },
+
+    girasera: {
+        name: "Girasera",
+        types: ["Plant", "Poison"],
+        weight: 245,
+        height: 132,
+        baseStats: {
+            hp: 95,
+            attack: 92,
+            defense: 80,
+            attackR: 90,
+            defenseR: 74,
+            speed: 80
         }
     },
 
@@ -2643,11 +2674,11 @@ var loomians = {
         weight: 52,
         height: 46,
         baseStats: {
-            hp: 70,
-            attack: 75,
-            defense: 65,
-            attackR: 65,
-            defenseR: 78,
+            hp: 75,
+            attack: 85,
+            defense: 70,
+            attackR: 77,
+            defenseR: 83,
             speed: 90
         }
     },
@@ -2725,6 +2756,21 @@ var loomians = {
             attackR: 120,
             defenseR: 90,
             speed: 140
+        }
+    },
+
+    qilintel: {
+        name: "Qilintel",
+        types: ["Light", "Metal"],
+        weight: 780,
+        height: 71,
+        baseStats: {
+            hp: 120,
+            attack: 100,
+            defense: 90,
+            attackR: 100,
+            defenseR: 90,
+            speed: 58
         }
     },
 
@@ -3471,6 +3517,17 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    hemlockHit: {
+        name: "Hemlock Hit",
+        power: 80,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
     pumpkinSpin: {
         name: "Pumpkin Spin",
         power: 50,
@@ -4025,6 +4082,17 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    rustyRoots: {
+        name: "Rusty Roots",
+        power: 70,
+        accuracy: 90,
+        type: "Earth",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
     earthLance: {
         name: "Earth Lance",
         power: 70,
@@ -4446,6 +4514,17 @@ var moves = {
     abyssBreaker: {
         name: "Abyss Breaker",
         power: 100,
+        accuracy: 100,
+        type: "Light",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    flashbang: {
+        name: "Flashbang",
+        power: 40,
         accuracy: 100,
         type: "Light",
         mr: "Magic",
@@ -6558,6 +6637,16 @@ var amulets = {
         mDefense: 7,
         speed: 0,
     },
+
+    'sticky pendant': {
+        name: "Sticky Pendant",
+        health: 7,
+        attack: 7,
+        defense: 0,
+        mAttack: 7,
+        mDefense: 0,
+        speed: 0,
+    },
 };
 
 var artifacts = {
@@ -6685,6 +6774,16 @@ var artifacts = {
         name: "Stick",
         health: -10,
         attack: 0,
+        defense: 0,
+        mAttack: 15,
+        mDefense: 0,
+        speed: 0,
+    },
+
+    'luminous orb': {
+        name: "Luminous Orb",
+        health: 0,
+        attack: -12,
         defense: 0,
         mAttack: 15,
         mDefense: 0,
@@ -6842,7 +6941,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Routine", "Royal Decree", "Rubber Tissue", "Rugged", "Rule of Cool", "Rush", "Savage", "Scavenge", "Scorch", "Serenade", "Sharp Fangs", "Sharp Reflexes", "Sickly Sweet", "Slash Expert", "Spell Shield", "Spooky", "Spool", "Steam Guard", "Sticky",
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
-                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer"];
+                 "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
+                 "Insatiable Greed"];
 
 var typeModAbilities = {
     adipose: {
@@ -6945,7 +7045,7 @@ var typeModAbilities = {
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
-             "Espresso", "Pretty Seashell"];
+             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
