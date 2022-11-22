@@ -623,6 +623,52 @@ function update(updatePower = false, updateBaseStats = false) {
     }
 }
 
+function updateItem(item) {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    if (item == "item1") {
+        if (item1.value == "Edible Storm in a Bottle" ) chocolateRain.checked = true;
+        else chocolateRain.checked = false;
+        if (item1.value == "Sandstorm in a Bottle") sandstorm.checked = true;
+        else sandstorm.checked = false;
+        if (item1.value == "Storm in a Bottle") rain.checked = true;
+        else rain.checked = false;
+        if (item1.value == "Unwashed Plushie" && !firstLoom.types.includes("Poison") && !firstLoom.types.includes("Crystal") && !firstLoom.types.includes("Metal")) status1.value = "diseased";
+        else if (item1.value == "Lighter" && !firstLoom.types.includes("Fire")) status1.value = "burned";
+        else status1.value = "healthy";
+    } else if (item == "item2") {
+        if (item2.value == "Edible Storm in a Bottle" ) chocolateRain.checked = true;
+        else chocolateRain.checked = false;
+        if (item2.value == "Sandstorm in a Bottle") sandstorm.checked = true;
+        else sandstorm.checked = false;
+        if (item2.value == "Storm in a Bottle") rain.checked = true;
+        else rain.checked = false;
+        if (item2.value == "Unwashed Plushie" && !secondLoom.types.includes("Poison") && !secondLoom.types.includes("Crystal") && !secondLoom.types.includes("Metal")) status2.value = "diseased";
+        else if (item2.value == "Lighter" && !secondLoom.types.includes("Fire")) status2.value = "burned";
+        else status2.value = "healthy";
+    }
+}
+
+function updateAbility(ability) {
+    let ability1 = abilities.find((x) => x == abilityDropdown1.value);
+    let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    if (ability == "ability1") {
+        if (ability1 == "Chocolate Drizzle") chocolateRain.checked = true;
+        else chocolateRain.checked = false;
+        if (ability1 == "Poison Precipitation") acidRain.checked = true;
+        else acidRain.checked = false;
+        if (ability1 == "Light Orb") lightOrb.checked = true;
+        else lightOrb.checked = false;
+    } else if (ability = "ability2") {
+        if (ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
+        else chocolateRain.checked = false;
+        if (ability2 == "Poison Precipitation") acidRain.checked = true;
+        else acidRain.checked = false;
+        if (ability2 == "Light Orb") lightOrb.checked = true;
+        else lightOrb.checked = false;
+    }
+}
+
 $(".moveSelect").change(function() {
     let moveName = $(this).val();
     let move = findMove(moveName);
@@ -1061,25 +1107,6 @@ function loadStats() {
     checkStages();
     if (ability1 == "Snailspeed") spd1 = 1;
     if (ability2 == "Snailspeed") spd2 = 1;
-    
-    if (firstItem == "Edible Storm in a Bottle" || secondItem == "Edible Storm in a Bottle" || ability1 == "Chocolate Drizzle" || ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
-    else chocolateRain.checked = false;
-    if (firstItem == "Sandstorm in a Bottle" || secondItem == "Sandstorm in a Bottle") sandstorm.checked = true;
-    else sandstorm.checked = false;
-    if (firstItem == "Storm in a Bottle" || secondItem == "Storm in a Bottle") rain.checked = true;
-    else rain.checked = false;
-    if (ability1 == "Poison Precipitation" || ability2 == "Poison Precipitation") acidRain.checked = true;
-    else acidRain.checked = false;
-    if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
-    else lightOrb.checked = false;
-
-    if (firstItem == "Unwashed Plushie" && !firstLoom.types.includes("Poison") && !firstLoom.types.includes("Crystal") && !firstLoom.types.includes("Metal")) status1.value = "diseased";
-    else if (firstItem == "Lighter" && !firstLoom.types.includes("Fire")) status1.value = "burned";
-    else status1.value = "healthy";
-
-    if (secondItem == "Unwashed Plushie" && !secondLoom.types.includes("Poison") && !secondLoom.types.includes("Crystal") && !secondLoom.types.includes("Metal")) status2.value = "diseased";
-    else if (secondItem == "Lighter" && !secondLoom.types.includes("Fire")) status2.value = "burned";
-    else status2.value = "healthy";
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
