@@ -2668,6 +2668,37 @@ var loomians = {
         }
     },
 
+    fledgeo: {
+        name: "Fledgeo",
+        types: ["Air", "Earth"],
+        finalEvo: false,
+        weight: 15,
+        height: 17,
+        baseStats: {
+            hp: 60,
+            attack: 55,
+            defense: 70,
+            attackR: 45,
+            defenseR: 60,
+            speed: 70
+        }
+    },
+
+    roadterra: {
+        name: "Roadterra",
+        types: ["Air", "Earth"],
+        weight: 62,
+        height: 55,
+        baseStats: {
+            hp: 75,
+            attack: 80,
+            defense: 90,
+            attackR: 65,
+            defenseR: 80,
+            speed: 111
+        }
+    },
+
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
@@ -6942,7 +6973,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence"];
 
 var typeModAbilities = {
     adipose: {
