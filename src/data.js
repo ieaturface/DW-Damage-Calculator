@@ -566,12 +566,12 @@ var loomians = {
         weight: 127,
         height: 90,
         baseStats: {
-            hp: 95,
-            attack: 120,
+            hp: 89,
+            attack: 115,
             defense: 75,
             attackR: 87,
             defenseR: 83,
-            speed: 75
+            speed: 66
         }
     },
 
@@ -1375,10 +1375,10 @@ var loomians = {
         height: 53,
         baseStats: {
             hp: 120,
-            attack: 60,
-            defense: 75,
+            attack: 55,
+            defense: 80,
             attackR: 100,
-            defenseR: 85,
+            defenseR: 90,
             speed: 45
         }
     },
@@ -2307,7 +2307,7 @@ var loomians = {
             attack: 80,
             defense: 100,
             attackR: 80,
-            defenseR: 75,
+            defenseR: 85,
             speed: 40
         }
     },
@@ -6973,7 +6973,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed", "Splintered Shards", "Confidence"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous"];
 
 var typeModAbilities = {
     adipose: {
@@ -7069,6 +7069,12 @@ var typeModAbilities = {
     waterAbsorb: {
         name: "Water Absorb",
         typeModifier: { type: "Water", modifier: 0 },
+        powerMod: false
+    },
+
+    caliginous: {
+        name: "Caliginous",
+        typeModifier: { type: "Light", modifier: 0 },
         powerMod: false
     },
     
