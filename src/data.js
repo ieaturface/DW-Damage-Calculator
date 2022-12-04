@@ -2699,6 +2699,131 @@ var loomians = {
         }
     },
 
+    akhet: {
+        name: "Akhet",
+        types: ["Insect", "Earth"],
+        finalEvo: false,
+        weight: 6,
+        height: 12,
+        baseStats: {
+            hp: 30,
+            attack: 30,
+            defense: 73,
+            attackR: 20,
+            defenseR: 42,
+            speed: 30
+        }
+    },
+
+    sarcoon: {
+        name: "Sarcoon",
+        types: ["Insect", "Earth"],
+        finalEvo: false,
+        weight: 14,
+        height: 19,
+        baseStats: {
+            hp: 70,
+            attack: 10,
+            defense: 70,
+            attackR: 10,
+            defenseR: 70,
+            speed: 15
+        }
+    },
+
+    anubeetle: {
+        name: "Anubeetle",
+        types: ["Insect", "Earth"],
+        weight: 20,
+        height: 25,
+        baseStats: {
+            hp: 70,
+            attack: 87,
+            defense: 100,
+            attackR: 65,
+            defenseR: 70,
+            speed: 78
+        }
+    },
+
+    potunk: {
+        name: "Potunk",
+        types: ["Earth"],
+        finalEvo: false,
+        weight: 8,
+        height: 10,
+        baseStats: {
+            hp: 50,
+            attack: 30,
+            defense: 75,
+            attackR: 45,
+            defenseR: 85,
+            speed: 10
+        }
+    },
+
+    claydance: {
+        name: "Claydance",
+        types: ["Earth"],
+        finalEvo: false,
+        weight: 20,
+        height: 30,
+        baseStats: {
+            hp: 70,
+            attack: 50,
+            defense: 75,
+            attackR: 60,
+            defenseR: 85,
+            speed: 25
+        }
+    },
+
+    potterfiend: {
+        name: "Potterfiend",
+        types: ["Earth", "Dark"],
+        weight: 100,
+        height: 62,
+        baseStats: {
+            hp: 80,
+            attack: 60,
+            defense: 95,
+            attackR: 75,
+            defenseR: 105,
+            speed: 50
+        }
+    },
+
+    grunkul: {
+        name: "Grunkul",
+        types: ["Earth"],
+        finalEvo: false,
+        weight: 20,
+        height: 22,
+        baseStats: {
+            hp: 50,
+            attack: 50,
+            defense: 60,
+            attackR: 35,
+            defenseR: 65,
+            speed: 20
+        }
+    },
+
+    taryonix: {
+        name: "Taryonix",
+        types: ["Earth", "Beast"],
+        weight: 137,
+        height: 63,
+        baseStats: {
+            hp: 80,
+            attack: 135,
+            defense: 70,
+            attackR: 55,
+            defenseR: 75,
+            speed: 40
+        }
+    },
+
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
@@ -2802,6 +2927,21 @@ var loomians = {
             attackR: 100,
             defenseR: 90,
             speed: 58
+        }
+    },
+
+    ostigon: {
+        name: "Ostigon",
+        types: ["Poison", "Beast"],
+        weight: 44,
+        height: 37,
+        baseStats: {
+            hp: 75,
+            attack: 95,
+            defense: 85,
+            attackR: 80,
+            defenseR: 90,
+            speed: 80
         }
     },
 
@@ -4014,7 +4154,7 @@ var moves = {
 
     swarm: {
         name: "Swarm",
-        power: 50,
+        power: 60,
         accuracy: 95,
         type: "Insect",
         mr: "Melee",
@@ -5144,8 +5284,8 @@ var moves = {
 
     frenziedDarkness: {
         name: "Frenzied Darkness",
-        power: 95,
-        accuracy: 90,
+        power: 85,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6678,6 +6818,16 @@ var amulets = {
         mDefense: 0,
         speed: 0,
     },
+
+    'ornate necklace': {
+        name: "Ornate Necklace",
+        health: 10,
+        attack: 5,
+        defense: 5,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
 };
 
 var artifacts = {
@@ -6973,7 +7123,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sandscreen", "Tar Body", "Crude", "Oil Spill", "Antivenom"];
 
 var typeModAbilities = {
     adipose: {

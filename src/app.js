@@ -647,26 +647,22 @@ function updateItem(item) {
         else if (item2.value == "Lighter" && !secondLoom.types.includes("Fire")) status2.value = "burned";
         else status2.value = "healthy";
     }
+    update();
 }
 
 function updateAbility(ability) {
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
-    if (ability == "ability1") {
-        if (ability1 == "Chocolate Drizzle") chocolateRain.checked = true;
-        else chocolateRain.checked = false;
-        if (ability1 == "Poison Precipitation") acidRain.checked = true;
-        else acidRain.checked = false;
-        if (ability1 == "Light Orb") lightOrb.checked = true;
-        else lightOrb.checked = false;
-    } else if (ability = "ability2") {
-        if (ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
-        else chocolateRain.checked = false;
-        if (ability2 == "Poison Precipitation") acidRain.checked = true;
-        else acidRain.checked = false;
-        if (ability2 == "Light Orb") lightOrb.checked = true;
-        else lightOrb.checked = false;
-    }
+
+    if (ability1 == "Chocolate Drizzle" || ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
+    else chocolateRain.checked = false;
+    if (ability1 == "Poison Precipitation" || ability2 == "Poison Precipitation") acidRain.checked = true;
+    else acidRain.checked = false;
+    if (ability1 == "Dust Storm" || ability2 == "Dust Storm") sandstorm.checked = true;
+    else sandstorm.checked = false;
+    if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
+    else lightOrb.checked = false;
+    update();
 }
 
 $(".moveSelect").change(function() {
@@ -1128,7 +1124,7 @@ function loadStats() {
     multi = 1;
     if (ability1 == "Rush") multi *= 1.2;
     else if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25)) multi *= 1.5;
-    else if (ability1 == "Scarf Down" && chocolateRain.checked) multi *= 2;
+    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked)) multi *= 2;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1147,7 +1143,7 @@ function loadStats() {
     multi = 1;
     if (ability2 == "Rush") multi *= 1.2;
     else if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25)) multi *= 1.5;
-    else if (ability2 == "Scarf Down" && chocolateRain.checked) multi *= 2;
+    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked)) multi *= 2;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 
@@ -2112,7 +2108,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (move.name == "Swarm" || move.name == "Necromancy") {
         swarm = parseInt(swarm.charAt(0));
-        tempPower = Number(tempPower) + 12.5 * swarm;
+        tempPower = Number(tempPower) + 15 * swarm;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
