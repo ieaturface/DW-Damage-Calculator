@@ -2530,6 +2530,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.3;
         stuffUsed.extra2 += " Vulnerable";
     }
+    if (ability2 == "Sand Screen" && sandstorm.checked) {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
     if (wall && move.mr == "Melee") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Crystal Wall";
