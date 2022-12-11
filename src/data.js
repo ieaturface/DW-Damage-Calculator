@@ -2975,6 +2975,21 @@ var loomians = {
         }
     },
 
+    hollihare: {
+        name: "Hollihare",
+        types: ["Plant", "Ice"],
+        weight: 9,
+        height: 12,
+        baseStats: {
+            hp: 72,
+            attack: 65,
+            defense: 72,
+            attackR: 82,
+            defenseR: 112,
+            speed: 72
+        }
+    },
+
 
 };
 
@@ -3410,6 +3425,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    forestFire: {
+        name: "Forest Fire",
+        power: 70,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Plant", modifier: 2 }
+    },
+
     fieryBite: {
         name: "Fiery Bite",
         power: 70,
@@ -3561,7 +3587,7 @@ var moves = {
         name: "Tainted Water",
         power: 90,
         accuracy: 75,
-        type: "Water",
+        type: "Poison",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -3941,6 +3967,17 @@ var moves = {
         sound: true
     },
 
+    feralfury: {
+        name: "Feral Fury",
+        power: 70,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+    },
+
     doubleBite: {
         name: "Double Bite",
         power: 40,
@@ -3956,14 +3993,13 @@ var moves = {
 
     savageBlow: {
         name: "Savage Blow",
-        power: 80,
+        power: 90,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
     },
 
     sharpClaws: {
@@ -4695,7 +4731,7 @@ var moves = {
 
     flashbang: {
         name: "Flashbang",
-        power: 40,
+        power: 30,
         accuracy: 100,
         type: "Light",
         mr: "Magic",
@@ -5248,7 +5284,7 @@ var moves = {
 
     choke: {
         name: "Choke",
-        power: 0,
+        power: 100,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -6828,6 +6864,17 @@ var amulets = {
         mDefense: 0,
         speed: 0,
     },
+
+    'festive bow': {
+        name: "Festive Bow",
+        health: 0,
+        attack: -10,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 20,
+        speed: 0,
+    },
+
 };
 
 var artifacts = {
@@ -7123,7 +7170,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense"];
 
 var typeModAbilities = {
     adipose: {

@@ -157,6 +157,9 @@ let atkRStages2 = document.getElementById("atkRStages2");
 let defRStages2 = document.getElementById("defRStages2");
 let spdStages2 = document.getElementById("spdStages2");
 
+let spdStar1 = document.getElementById("spdStar1");
+let spdStar2 = document.getElementById("spdStar2");
+
 let level1 = document.getElementById("level1");
 let level2 = document.getElementById("level2");
 
@@ -1063,6 +1066,8 @@ function loadStats() {
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
     let negNat2 = document.getElementById("negNat2").value;
+    let starSpd1 = (spdStar1.checked ? 6 : stars1.value);
+    let starSpd2 = (spdStar2.checked ? 6 : stars2.value);
 
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
@@ -1075,14 +1080,14 @@ function loadStats() {
     def1 = calculateStat(baseDef1.value, equipment1.defense, level1.value, stars1.value, undefined, posNat1, negNat1, "DefenseM", nat1Mod1.value, nat2Mod1.value);
     atkR1 = calculateStat(baseAtkR1.value, equipment1.mAttack, level1.value, stars1.value, undefined, posNat1, negNat1, "AttackR", nat1Mod1.value, nat2Mod1.value);
     defR1 = calculateStat(baseDefR1.value, equipment1.mDefense, level1.value, stars1.value, undefined, posNat1, negNat1, "DefenseR", nat1Mod1.value, nat2Mod1.value);
-    spd1 = calculateStat(baseSpd1.value, equipment1.speed, level1.value, stars1.value, undefined, posNat1, negNat1, "Speed", nat1Mod1.value, nat2Mod1.value);
+    spd1 = calculateStat(baseSpd1.value, equipment1.speed, level1.value, starSpd1, undefined, posNat1, negNat1, "Speed", nat1Mod1.value, nat2Mod1.value);
 
     hp2 = calculateStat(baseHP2.value, equipment2.health, level2.value, stars2.value, true, posNat2, negNat2, "Health", nat1Mod2.value, nat2Mod2.value);
     atk2 = calculateStat(baseAtk2.value, equipment2.attack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackM", nat1Mod2.value, nat2Mod2.value);
     def2 = calculateStat(baseDef2.value, equipment2.defense, level2.value, stars2.value, undefined, posNat2, negNat2, "DefenseM", nat1Mod2.value, nat2Mod2.value);
     atkR2 = calculateStat(baseAtkR2.value, equipment2.mAttack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackR", nat1Mod2.value, nat2Mod2.value);
     defR2 = calculateStat(baseDefR2.value, equipment2.mDefense, level2.value, stars2.value, undefined, posNat2, negNat2, "DefenseR", nat1Mod2.value, nat2Mod2.value);
-    spd2 = calculateStat(baseSpd2.value, equipment2.speed, level2.value, stars2.value, undefined, posNat2, negNat2, "Speed", nat1Mod2.value, nat2Mod2.value);
+    spd2 = calculateStat(baseSpd2.value, equipment2.speed, level2.value, starSpd2, undefined, posNat2, negNat2, "Speed", nat1Mod2.value, nat2Mod2.value);
     
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
@@ -1125,6 +1130,7 @@ function loadStats() {
     if (ability1 == "Rush") multi *= 1.2;
     else if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25)) multi *= 1.5;
     else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked)) multi *= 2;
+    if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
@@ -1144,6 +1150,7 @@ function loadStats() {
     if (ability2 == "Rush") multi *= 1.2;
     else if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25)) multi *= 1.5;
     else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked)) multi *= 2;
+    if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 
@@ -2054,8 +2061,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
-    if (move.name == "Tsunami Drop") {
+    if (move.name == "Tsunami Drop" || move.name == "Body Throw") {
         tempPower = getTripRootPower(loom2.weight);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
+    if (move.name == "Boo!") {
+        tempPower = getSpeedPower(stats1.spd, stats2.spd);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -2115,6 +2127,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.name == "Starbreaker") {
         tempPower = Number(tempPower) - (stats1.stars - 1) * 20;
         stuffUsed.extra1 += " (" + tempPower + " BP)"; 
+    }
+
+    if (move.name == "Choke") {
+        tempPower = Math.max(Math.round(tempPower * stats2.hpPercent / 100), 40);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
 
@@ -2443,13 +2460,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         multi *= 2;
     }
-    if (stat2 != "vulnerable") {
-        if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
-            multi *= 0.5;
-        }
-        if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
-            multi *= 0.5;
-        }
+    if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+        multi *= 0.5;
+    }
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
+        multi *= 0.5;
     }
     if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;
@@ -2527,7 +2542,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.75;
     }
     if (stat2 == "vulnerable") {
-        multi *= 1.3;
+        multi *= 1.5;
         stuffUsed.extra2 += " Vulnerable";
     }
     if (ability2 == "Sand Screen" && sandstorm.checked) {
@@ -2595,11 +2610,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             possibleDmg.push(Math.floor(dmg * multi * numb + Math.floor(multiDmg * numb) * multiHits));
             multi = 1;
         }
-        if (move.name == "Boo!" || move.name == "Body Throw") {
-            for (let i = 0; i < possibleDmg.length; i++) {
-                possibleDmg[i] = parseInt(level);
-            }
-        }
         if (foulHit) {
             return [dmg, possibleDmg];
         }
@@ -2616,8 +2626,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         ability1 == "Jelly Enhancer" ? multi *= 3 : multi *= 2;
     }
     dmg = (Math.floor(dmg * multi + multiDmg));
-
-    if (move.name == "Boo!" || move.name == "Body Throw") dmg = parseInt(level);
 
     if (shardSurge) return dmg;
 
@@ -2761,6 +2769,14 @@ function getTripRootPower(weight) {
     if (weight < 200) {
         return 100;
     }
+    return 120;
+}
+
+function getSpeedPower(spd1, spd2) {
+    if (spd1 / spd2 < 0.5) return 40;
+    if (spd1 / spd2 < 1 && spd1 / spd2 >= 0.5) return 60;
+    if (spd1 / spd2 < 1.5 && spd1 / spd2 >= 1) return 80;
+    if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 100;
     return 120;
 }
 
