@@ -1065,11 +1065,11 @@ var loomians = {
         weight: 3,
         height: 38,
         baseStats: {
-            hp: 95,
-            attack: 80,
-            defense: 85,
-            attackR: 120,
-            defenseR: 80,
+            hp: 85,
+            attack: 70,
+            defense: 80,
+            attackR: 150,
+            defenseR: 75,
             speed: 35
         }
     },
@@ -1715,8 +1715,8 @@ var loomians = {
         height: 57,
         baseStats: {
             hp: 84,
-            attack: 76,
-            defense: 65,
+            attack: 56,
+            defense: 85,
             attackR: 108,
             defenseR: 95,
             speed: 74
@@ -2536,11 +2536,11 @@ var loomians = {
         weight: 307,
         height: 78,
         baseStats: {
-            hp: 75,
+            hp: 85,
             attack: 85,
             defense: 90,
             attackR: 115,
-            defenseR: 80,
+            defenseR: 95,
             speed: 25
         }
     },
@@ -5632,6 +5632,14 @@ var moves = {
         mr: "Support"
     },
 
+    scram: {
+        name: "Scram",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
     scrutinize: {
         name: "Scrutinize",
         power: 0,
@@ -7170,7 +7178,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle"];
 
 var typeModAbilities = {
     adipose: {

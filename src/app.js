@@ -705,9 +705,9 @@ $(".trait").change(function() {
 });
 
 function updateLevel() {
-    if (levelCheck.value == "Level 36") {
-        level1.value = 36;
-        level2.value = 36;
+    if (levelCheck.value == "Level 44") {
+        level1.value = 44;
+        level2.value = 44;
         update();
     } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
@@ -2511,7 +2511,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (ability1 == "Crispy" && stat1 == "burned" && types1.primary != "Fire" && types1.secondary != "Fire") {
         multi *= 1.75;
         stuffUsed.ability1 = ability1;
-    }    
+    }
 
     dmg = Math.floor(dmg * multi);
     multi = 1;
@@ -2556,6 +2556,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (shield && move.mr == "Magic") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Magical Shield";
+    }
+
+    if (ability1 == "Confidence") {
+        multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
+        stuffUsed.ability1 = ability1;
+    }
+    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.ability2 = ability2;
     }
 
     if (itemB == "Used Crayons" || itemB == "Dark Chocolate") stuffUsed.item2 = itemB;
@@ -2753,6 +2762,15 @@ function getTypes(second) {
     return obj;
 }
 
+function confidenceBoost(loom1, loom2) {
+    let totalStats1 = loom1.hp + loom1.attack + loom1.defense + loom1.attackR + loom1.defenseR + loom1.speed;
+    let totalStats2 = loom2.hp + loom2.attack + loom2.defense + loom2.attackR + loom2.defenseR + loom2.speed;
+
+    if (totalStats1 < totalStats2) return 1.5;
+
+    return 1;
+}
+
 function getTripRootPower(weight) {
     if (weight < 10) {
         return 20;
@@ -2877,7 +2895,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") multi *= 0.5;
     
     if (!loom2.types.includes("Plant") && sap.defender == true) {
-        newHP += Math.floor(hp1 * 1 / 16);
+        newHP += Math.floor(hp1 * 1 / 10);
         hazardString += "parasitic seeds damage and ";
     }
 
@@ -2898,7 +2916,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
     if (!OHKO) {
         if (!loom1.types.includes("Plant") && sap.attacker == true) {
-            newHP -= Math.floor(hp2 * 1 / 16 * multi);
+            newHP -= Math.floor(hp2 * 1 / 10 * multi);
             hazardString += "parasitic seeds recovery and ";
         }
         if (softWater) {
