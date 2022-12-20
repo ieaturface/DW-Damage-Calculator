@@ -566,12 +566,12 @@ var loomians = {
         weight: 127,
         height: 90,
         baseStats: {
-            hp: 89,
-            attack: 115,
-            defense: 75,
+            hp: 95,
+            attack: 125,
+            defense: 70,
             attackR: 87,
             defenseR: 83,
-            speed: 66
+            speed: 75
         }
     },
 
@@ -739,9 +739,9 @@ var loomians = {
         height: 43,
         baseStats: {
             hp: 75,
-            attack: 90,
+            attack: 105,
             defense: 70,
-            attackR: 90,
+            attackR: 85,
             defenseR: 70,
             speed: 95
         }
@@ -1066,9 +1066,9 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 85,
-            attack: 70,
+            attack: 80,
             defense: 80,
-            attackR: 150,
+            attackR: 140,
             defenseR: 75,
             speed: 35
         }
@@ -1715,8 +1715,8 @@ var loomians = {
         height: 57,
         baseStats: {
             hp: 84,
-            attack: 56,
-            defense: 85,
+            attack: 65,
+            defense: 76,
             attackR: 108,
             defenseR: 95,
             speed: 74
@@ -2585,7 +2585,7 @@ var loomians = {
             hp: 74,
             attack: 106,
             defense: 80,
-            attackR: 75,
+            attackR: 70,
             defenseR: 60,
             speed: 90
         }
@@ -2945,6 +2945,21 @@ var loomians = {
         }
     },
 
+    owol: {
+        name: "Owol",
+        types: ["Air"],
+        weight: 39,
+        height: 30,
+        baseStats: {
+            hp: 76,
+            attack: 71,
+            defense: 91,
+            attackR: 73,
+            defenseR: 87,
+            speed: 73
+        }
+    },
+
     junipyro: {
         name: "Junipyro",
         types: ["Fire", "Plant"],
@@ -3300,6 +3315,16 @@ var moves = {
     pirouette: {
         name: "Pirouette",
         power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    climateShot: {
+        name: "Climate Shot",
+        power: 80,
         accuracy: 100,
         type: "Basic",
         mr: "Magic",
@@ -4583,7 +4608,7 @@ var moves = {
 
     nutrientDrain: {
         name: "Nutrient Drain",
-        power: 90,
+        power: 80,
         accuracy: 100,
         type: "Food",
         mr: "Magic",
@@ -5241,7 +5266,7 @@ var moves = {
 
     chaoticBolt: {
         name: "Chaotic Bolt",
-        power: 75,
+        power: 85,
         accuracy: 100,
         type: "Dark",
         mr: "Magic",
@@ -6088,6 +6113,14 @@ var moves = {
         mr: "Support"
     },
 
+    eagleEye: {
+        name: "Eagle Eye",
+        power: 0,
+        accuracy: 100,
+        type: "Air",
+        mr: "Support"
+    },
+
     shiftingWinds: {
         name: "Shifting Winds",
         power: 0,
@@ -6883,6 +6916,16 @@ var amulets = {
         speed: 0,
     },
 
+    'sapphire amulet': {
+        name: "Sapphire Amulet",
+        health: 10,
+        attack: 0,
+        defense: 0,
+        mAttack: 5,
+        mDefense: 5,
+        speed: 0,
+    },
+
 };
 
 var artifacts = {
@@ -7021,7 +7064,7 @@ var artifacts = {
         health: 0,
         attack: -12,
         defense: 0,
-        mAttack: 15,
+        mAttack: 12,
         mDefense: 0,
         speed: 0,
     },
@@ -7178,7 +7221,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Stinky", "Stitching", "Stonefaced", "Storm Surge", "Stormwater", "Strong Armor", "Tangled", "Thievery", "Time Paralysis", "Time Stop", "Titanium Bucket", "True Power", "Trump Card", "Unbreakable", "Unraveling", "Vengeance", "Virulent Venom",
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
-                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle"];
+                 "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
+                 "Owolspeed", "The Flock"];
 
 var typeModAbilities = {
     adipose: {
@@ -7287,7 +7331,7 @@ var typeModAbilities = {
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
-             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie"];
+             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
