@@ -2177,14 +2177,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "The Flock" && tempType == "Air") {
-        let flock = (second == false ? owol1.value : owol2.value);
-        flock = (1 + 0.2 * flock);
-        multi *= flock;
-        stuffUsed.ability1 = ability1;
-        stuffUsed.extra1 += " (" + tempPower * flock + " BP)";
-    }
-
     if (ability1 == "Galvanize" && tempType == "Basic") {
         tempType = "Spark";
         multi *= 1.3;
@@ -2577,6 +2569,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (effectiveness > 1 && sandstorm.checked && shale) {
         multi *= 0.5;
         stuffUsed.weather += " through Shale";
+    }
+
+    if (ability1 == "The Flock") {
+        let flock = (second == false ? owol1.value : owol2.value);
+        flock = (1 + 0.2 * flock);
+        multi *= flock;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra1 += " (" + tempPower * flock + " BP)";
     }
 
     if (isDouble && guardian) {
