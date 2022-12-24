@@ -3005,6 +3005,21 @@ var loomians = {
         }
     },
 
+    koriyu: {
+        name: "Koriyu",
+        types: ["Ice", "Dark"],
+        weight: 286,
+        height: 114,
+        baseStats: {
+            hp: 85,
+            attack: 115,
+            defense: 70,
+            attackR: 95,
+            defenseR: 90,
+            speed: 105
+        }
+    },
+
 
 };
 
@@ -5139,6 +5154,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    subzeroBlizzard: {
+        name: "Subzero Blizzard",
+        power: 130,
+        accuracy: 95,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
+    },
+
     flashFreeze: {
         name: "Flash Freeze",
         power: 150,
@@ -6926,6 +6952,16 @@ var amulets = {
         speed: 0,
     },
 
+    'dusty bandana': {
+        name: "Dusty Bandana",
+        health: -15,
+        attack: 5,
+        defense: 0,
+        mAttack: 0,
+        mDefense: -5,
+        speed: 10,
+    },
+
 };
 
 var artifacts = {
@@ -7066,6 +7102,16 @@ var artifacts = {
         defense: 0,
         mAttack: 12,
         mDefense: 0,
+        speed: 0,
+    },
+
+    'broken clay': {
+        name: "Broken Clay",
+        health: 0,
+        attack: 0,
+        defense: 8,
+        mAttack: 8,
+        mDefense: 8,
         speed: 0,
     },
 };
@@ -7222,7 +7268,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock"];
+                 "Owolspeed", "The Flock", "Divine Beast"];
 
 var typeModAbilities = {
     adipose: {
@@ -7326,12 +7372,18 @@ var typeModAbilities = {
         typeModifier: { type: "Light", modifier: 0 },
         powerMod: false
     },
+
+    divineBeast: {
+        name: "Divine Beast",
+        typeModifier: { type: "Beast", modifier: 0 },
+        powerMod: false
+    },
     
 }
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
-             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack"];
+             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");

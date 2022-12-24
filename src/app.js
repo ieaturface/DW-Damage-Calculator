@@ -2291,7 +2291,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Crooked Talon" && tempType == "Beast") ||
        (itemA == "Moon Charm" && tempType == "Dark") ||
        (itemA == "Refractive Prism" && tempType == "Light") ||
-       (itemA == "Empowered Ring" && (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase()) || (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase()))))) {
+       (itemA == "Empowered Ring" && (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase()) || (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())))) ||
+       (itemA == "Decorative Fan" && tempType == "Air")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
