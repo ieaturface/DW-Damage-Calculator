@@ -2359,11 +2359,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (Combo Support)"
     }
 
-    if (ability2 == "Light Orb" && tempType == "Dark" && withoutSlapDown) {
-        multi *= 0.5;
-        stuffUsed.ability2 = ability2;
-    }
-
     if (rain.checked && tempType == "Water") {
         multi *= 1.5;
         stuffUsed.weather += " in Rain";
@@ -2388,7 +2383,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.weather += " in Darkness Expansion";
     }
-    if (lightOrb.checked && tempType == "Dark" && withoutSlapDown) {
+    if (tempType == "Dark" && lightOrb.checked && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " with Light Orb";
     }

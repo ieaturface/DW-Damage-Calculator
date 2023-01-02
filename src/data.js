@@ -3263,7 +3263,7 @@ var moves = {
         name: "Body Throw",
         power: -1,
         accuracy: 100,
-        type: "Basic",
+        type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -4481,7 +4481,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        recoil: 1/4
+        recoil: 1/3
     },
 
     solidCharge: {
@@ -7109,9 +7109,9 @@ var artifacts = {
         name: "Broken Clay",
         health: 0,
         attack: 0,
-        defense: 8,
+        defense: 5,
         mAttack: 8,
-        mDefense: 8,
+        mDefense: 5,
         speed: 0,
     },
 };
@@ -7383,7 +7383,8 @@ var typeModAbilities = {
 
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
-             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan"];
+             "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
+             "Riot Shield"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
