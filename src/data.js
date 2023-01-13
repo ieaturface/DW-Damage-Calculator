@@ -3627,7 +3627,7 @@ var moves = {
         name: "Tainted Water",
         power: 80,
         accuracy: 100,
-        type: "Poison",
+        type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
