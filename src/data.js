@@ -3625,8 +3625,8 @@ var moves = {
 
     taintedWater: {
         name: "Tainted Water",
-        power: 90,
-        accuracy: 75,
+        power: 80,
+        accuracy: 100,
         type: "Poison",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -3922,7 +3922,7 @@ var moves = {
 
     lightningKicks: {
         name: "Lightning Kicks",
-        power: 25,
+        power: 20,
         accuracy: 90,
         type: "Spark",
         mr: "Melee",
@@ -4777,7 +4777,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        priority: true
     },
 
     auroraFlash: {
@@ -4984,7 +4985,7 @@ var moves = {
 
     mineralCannon: {
         name: "Mineral Cannon",
-        power: 90,
+        power: 85,
         accuracy: 100,
         type: "Metal",
         mr: "Magic",

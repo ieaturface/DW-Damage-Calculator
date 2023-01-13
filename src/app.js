@@ -1133,8 +1133,7 @@ function loadStats() {
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
-    if (ability1 == "Rush") multi *= 1.2;
-    else if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25)) multi *= 1.5;
+    if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
     else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked)) multi *= 2;
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
@@ -1157,8 +1156,7 @@ function loadStats() {
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
-    if (ability2 == "Rush") multi *= 1.2;
-    else if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25)) multi *= 1.5;
+    if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
     else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked)) multi *= 2;
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
