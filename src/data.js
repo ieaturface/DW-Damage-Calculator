@@ -7148,7 +7148,7 @@ var types = {
 
     spark: {
         weaknesses: ["crystal", "earth"],
-        resistances: ["spark", "metal", "air", "light"],
+        resistances: ["spark", "metal", "air", "light", "beast"],
         immunities: [],
         otherName: "volt"
     },
@@ -7269,7 +7269,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard"];
 
 var typeModAbilities = {
     adipose: {

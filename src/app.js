@@ -1125,6 +1125,7 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
+    if (ability1 == "Misery Guard" && status1.value != "healthy") multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
@@ -1148,6 +1149,7 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
+    if (ability2 == "Misery Guard" && status2.value != "healthy") multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
@@ -2221,7 +2223,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Gloomy" && tempType == "Dark") ||
        (ability1 == "Overbite" && move.bite) ||
        (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd)) ||
-       (ability1 == "Sand Surge" && sandstorm.checked)) {
+       (ability1 == "Sand Surge" && sandstorm.checked) ||
+       (ability1 == "Vocalist" && move.sound)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2235,7 +2238,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Covetous" && itemB != "None") ||
        (ability1 == "Dimwitted") ||
-       (ability1 == "Opportunist" && stat2 != "healthy")) {
+       (ability1 == "Opportunist" && stat2 != "healthy") ||
+       (ability1 == "Nitelite" && tempType == "Light")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -2246,7 +2250,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
-       (ability1 == "Overbite" && move.bite) ||
        (ability1 == "Rapier" && move.priority) ||
        (ability1 == "Slash Expert" && move.slash)) {
         multi *= 1.2;
@@ -2431,6 +2434,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
+    if (ability2 == "Misery Guard" && stat2 != "healthy") {
+        multi *= 1.5;
+        stuffUsed.ability2 = ability2;
+    }
     if ((itemB == "Gold Laminate" && loom2.finalEvo == false) ||
         (itemB == "Cursed Cloak" && move.mr2 == "Ranged Defense")) {
         multi *= 1.5;
@@ -2549,7 +2556,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
-    if (effectiveness > 1 && ability2 == "Unbreakable") {
+    if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
+        (ability2 == "Guardian" && immuneBoostCheck2)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
@@ -2597,8 +2605,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
         stuffUsed.ability1 = ability1;
     }
-    if ((ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown) ||
-        (ability2 == "Guardian" && immuneBoostCheck2)) {
+    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
