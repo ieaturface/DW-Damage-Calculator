@@ -2039,12 +2039,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let gen2 = gender2.value;
     let stats1;
     let stats2;
+    let boosts1;
+    let boosts2;
     if (second) {
         stats1 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        boosts1 = [atkStages2.value, defStages2.value, atkRStages2.value, defRStages2.value, spdStages2.value];
         stats2 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        boosts2 = [atkStages1.value, defStages1.value, atkRStages1.value, defRStages1.value, spdStages1.value];
     } else {
         stats1 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
+        boosts1 = [atkStages1.value, defStages1.value, atkRStages1.value, defRStages1.value, spdStages1.value];
         stats2 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
+        boosts2 = [atkStages2.value, defStages2.value, atkRStages2.value, defRStages2.value, spdStages2.value];
     }
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -2157,6 +2163,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
+    if (move.name == "Blessed Blade") {
+        tempPower = Number(tempPower) + 20 * countBoosts(boosts1);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
 
     //Base ------------------------------------
 
@@ -2231,7 +2242,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
-       (ability1 == "Savage" && !isStab(types1, { type: tempType }))) {
+       (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
+       (ability1 == "Kindling" && stat2 == "burned")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2803,6 +2815,15 @@ function getTypes(second) {
     obj.secondLoom.secondary = secondaryTypeDropdown2.value;
 
     return obj;
+}
+
+function countBoosts(boost) {
+    let count = 0;
+    for (let i = 0; i < boost.length; i++) {
+        if (boost[i] == "--") boost[i] = 0;
+        else count = count + parseInt(boost[i]);
+    }
+    return count;
 }
 
 function confidenceBoost(loom1, loom2) {

@@ -2824,6 +2824,53 @@ var loomians = {
         }
     },
 
+    nimbell: {
+        name: "Nimbell",
+        types: ["Light"],
+        weight: 1,
+        height: 38,
+        baseStats: {
+            hp: 85,
+            attack: 55,
+            defense: 75,
+            attackR: 90,
+            defenseR: 100,
+            speed: 90
+        }
+    },
+
+    foyal: {
+        name: "Foyal",
+        types: ["Metal"],
+        finalEvo: false,
+        weight: 1,
+        height: 4,
+        baseStats: {
+            hp: 47,
+            attack: 57,
+            defense: 37,
+            attackR: 27,
+            defenseR: 47,
+            speed: 107
+        }
+    },
+
+    aluminja: {
+        name: "Aluminja",
+        types: ["Metal", "Melee"],
+        finalEvo: false,
+        weight: 1,
+        height: 58,
+        baseStats: {
+            hp: 77,
+            attack: 117,
+            defense: 67,
+            attackR: 57,
+            defenseR: 77,
+            speed: 117
+        }
+    },
+
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
@@ -4009,7 +4056,7 @@ var moves = {
 
     feralfury: {
         name: "Feral Fury",
-        power: 70,
+        power: 75,
         accuracy: 100,
         type: "Beast",
         mr: "Magic",
@@ -4846,6 +4893,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         priority: true
+    },
+
+    blessedBlade: {
+        name: "Blessed Blade",
+        power: 20,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     crystalDust: {
@@ -6661,6 +6719,14 @@ var moves = {
         mr: "Support"
     },
 
+    louisPrayer: {
+        name: "Louis Prayer",
+        power: 0,
+        accuracy: 100,
+        type: "Mythic",
+        mr: "Support"
+    },
+
     theWorld: {
         name: "The World",
         power: 0,
@@ -7270,7 +7336,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn"];
 
 var typeModAbilities = {
     adipose: {
@@ -7379,6 +7445,18 @@ var typeModAbilities = {
         name: "Divine Beast",
         typeModifier: { type: "Beast", modifier: 0 },
         powerMod: false
+    },
+
+    skyborn: {
+        name: "Skyborn",
+        typeModifier: { type: "Air", modifier: 0 },
+        powerMod: false
+    },
+
+    nimbostratus: {
+        name: "Nimbostratus",
+        typeModifier: { type: "Water", modifier: 1.5 },
+        powerMod: true
     },
     
 }
