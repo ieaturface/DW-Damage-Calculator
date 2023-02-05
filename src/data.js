@@ -1683,10 +1683,10 @@ var loomians = {
         weight: 48,
         height: 48,
         baseStats: {
-            hp: 107,
+            hp: 95,
             attack: 63,
             defense: 80,
-            attackR: 91,
+            attackR: 95,
             defenseR: 80,
             speed: 59
         }
@@ -2863,7 +2863,7 @@ var loomians = {
         height: 58,
         baseStats: {
             hp: 77,
-            attack: 117,
+            attack: 107,
             defense: 67,
             attackR: 57,
             defenseR: 77,
@@ -3067,6 +3067,21 @@ var loomians = {
         }
     },
 
+    exiled: {
+        name: "Exiled",
+        types: ["Light", "Beast"],
+        weight: 97,
+        height: 80,
+        baseStats: {
+            hp: 90,
+            attack: 120,
+            defense: 85,
+            attackR: 85,
+            defenseR: 99,
+            speed: 81
+        }
+    },
+
 
 };
 
@@ -3095,6 +3110,17 @@ var moves = {
         contact: true,
         priority: true,
         secondaryEffect: true
+    },
+
+    dispose: {
+        name: "Dispose",
+        power: 50,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
     },
 
     starbreaker: {
@@ -3791,6 +3817,16 @@ var moves = {
         secondaryEffect: true
     },
 
+    vineGrasp: {
+        name: "Vine Grasp",
+        power: 85,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Melee Defense"
+    },
+
     needleSpike: {
         name: "Needle Spike",
         power: 50,
@@ -3889,6 +3925,17 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    thornyThwack: {
+        name: "Thorny Thwack",
+        power: 80,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     electrify: {
         name: "Electrify",
         power: 30,
@@ -3897,6 +3944,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
+    },
+
+    jolt: {
+        name: "Jolt",
+        power: 40,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        priority: true
     },
 
     shock: {
@@ -4113,6 +4171,17 @@ var moves = {
         contact: true
     },
 
+    ferociousOnslaught: {
+        name: "Ferocious Onslaught",
+        power: 70,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     airStrike: {
         name: "Air Strike",
         power: 60,
@@ -4283,7 +4352,8 @@ var moves = {
         type: "Insect",
         mr: "Melee",
         mr1: "Melee Attack",
-        mr2: "Melee Defense"
+        mr2: "Melee Defense",
+        aoe: true
     },
 
     nibble: {
@@ -4490,7 +4560,7 @@ var moves = {
 
     psychokineticLaunch: {
         name: "Psychokinetic Launch",
-        power: 95,
+        power: 85,
         accuracy: 100,
         type: "Mind",
         mr: "Magic",
@@ -4666,6 +4736,17 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        contact: true
+    },
+
+    chiBlast: {
+        name: "Chi Blast",
+        power: 120,
+        accuracy: 70,
+        type: "Melee",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         contact: true
     },
 
@@ -4906,6 +4987,18 @@ var moves = {
         contact: true,
     },
 
+    relinquishTheDark: {
+        name: "Relinquish The Dark",
+        power: 90,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     crystalDust: {
         name: "Crystal Dust",
         power: 40,
@@ -4915,6 +5008,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    opalPulse: {
+        name: "Opal Pulse",
+        power: 75,
+        accuracy: 100,
+        type: "Crystal",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     crystalStorm: {
@@ -5004,6 +5108,16 @@ var moves = {
         secondaryEffect: true
     },
 
+    precisionDart: {
+        name: "Precision Dart",
+        power: 75,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
+    },
+
     binaryBlitz: {
         name: "Binary Blitz",
         power: 120,
@@ -5053,6 +5167,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    mercuryPuddle: {
+        name: "Mercury Puddle",
+        power: 65,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     stab: {
         name: "Stab",
         power: 50,
@@ -5085,6 +5210,17 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    hexPunch: {
+        name: "Hex Punch",
+        power: 60,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     shadowLurk: {
@@ -5214,6 +5350,29 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    snapFreeze: {
+        name: "Snap Freeze",
+        power: 60,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Water", modifier: 4 }
+    },
+
+    chillingChorus: {
+        name: "Chilling Chorus",
+        power: 75,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        sound: true,
+        aoe: true
+    },
+
     subzeroBlizzard: {
         name: "Subzero Blizzard",
         power: 130,
@@ -5260,13 +5419,25 @@ var moves = {
     icyBite: {
         name: "Icy Bite",
         power: 70,
-        accuracy: 90,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
         bite: true,
+        secondaryEffect: true
+    },
+
+    icyPunch: {
+        name: "Icy Punch",
+        power: 70,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -5319,8 +5490,8 @@ var moves = {
 
     icySlash: {
         name: "Icy Slash",
-        power: 80,
-        accuracy: 90,
+        power: 90,
+        accuracy: 100,
         type: "Ice",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -5418,8 +5589,8 @@ var moves = {
 
     darkSlash: {
         name: "Dark Slash",
-        power: 75,
-        accuracy: 90,
+        power: 80,
+        accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -5528,6 +5699,16 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         secondaryEffect: true
+    },
+
+    chemicalCleave: {
+        name: "Chemical Cleave",
+        power: 50,
+        accuracy: 100,
+        type: "Poison",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense"
     },
 
     poisonIvy: {
@@ -6241,6 +6422,14 @@ var moves = {
 
     insectInstinct: {
         name: "Insect Instinct",
+        power: 0,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Support"
+    },
+
+    beeSummon: {
+        name: "Bee Summon",
         power: 0,
         accuracy: 100,
         type: "Insect",
@@ -7336,7 +7525,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil"];
 
 var typeModAbilities = {
     adipose: {

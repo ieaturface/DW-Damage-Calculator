@@ -273,7 +273,7 @@ let percentHP2 = document.getElementById("percentHP2");
 
 let singleDouble = document.getElementById("singleDouble");
 let levelCheck = document.getElementById("levelCheck");
-levelCheck.value = "Level 100";
+levelCheck.value = "Level 50";
 
 let firstLoomian;
 let hp1;
@@ -581,7 +581,7 @@ function update(updatePower = false, updateBaseStats = false) {
 
     updatePercent();
 
-    if (iceTrap1.checked == true) {
+    /*if (iceTrap1.checked == true) {
         halfIce1.style.visibility = "visible";
         halfStyle1.style.visibility = "visible";
     } else {
@@ -597,7 +597,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.style.visibility = "hidden";
         halfStyle2.style.visibility = "hidden";
         halfIce2.checked = false;
-    }
+    }*/
 
     if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian") {
         immuneAbilityBoost1.style.visibility = "visible";
@@ -857,7 +857,7 @@ function addSet(set, builtIn = false) {
     let tempSet = set;
 
     if (tempSet.level == undefined) {
-        tempSet.level = 100;
+        tempSet.level = 50;
     }
     if (!builtIn) sets.push(tempSet);
     opt1.set = tempSet;
@@ -907,7 +907,7 @@ function makeBlankSet(loomian) {
         mod2: 10,
         ability: "None",
         item: "None",
-        level: 100
+        level: 50
     }
     return set;
 }
@@ -1830,8 +1830,8 @@ function detailedReport() {
     let addedDmg = 0;
 
     if (ice) {
-        addedDmg = 12.5;
-        if (halfIce) addedDmg = 6.25;
+        addedDmg = Math.floor(.125 * hp) / maxHP * 100;
+        /*if (halfIce) addedDmg = 6.25;
 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
             addedDmg *= 2;
@@ -1851,7 +1851,7 @@ function detailedReport() {
         }
         if (secondLoom.types.includes("Ice")) {
             addedDmg *= 0
-        }
+        }*/
     }
 
     if (barb > 0 && !secondLoom.levitate) {
@@ -2334,9 +2334,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = (ability2 == "Ward" ? ability2 : stuffUsed.ability2);
     }
 
-    if ((move.name == "Hex" && stat2 != "healthy") ||
-        (move.name == "Hexblade" && stat2 != "healthy") ||
-        (move.name == "Ill Will" && stat1 != "healthy") ||
+    if (((move.name == "Hex" || move.name == "Hexblade" || move.name == "Hex Punch") && stat2 != "healthy") ||
         (move.name == "Soulfire" && stat2 == "cursed") ||
         (move.name == "Just Desserts" && stats1.hpPercent < 50) ||
         (move.name == "Toxic Bomb" && (stat2 == "poisoned" || stat2 == "diseased")) ||
@@ -2346,7 +2344,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + (tempPower * 2) + " BP)";
     }
 
-    if (move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) {
+    if ((move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) ||
+        (move.name == "Ferocious Onslaught" && btl1)) {
         multi *= 1.5;
         stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
     }
@@ -2435,7 +2434,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Defense ----------------------------------------------------
 
-    if (crit && tempDef.stage > 0) {
+    if ((crit && tempDef.stage > 0) || move.name == "Precision Dart") {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
     }
     if (ability1 == "Apathetic" || ability1 == "Ignorant") {
@@ -2925,16 +2924,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
     disease = parseInt(disease);
 
-    if (ice && !(loom2.types.includes("Ice"))) {
-        if (loom2.types.includes("Fire") || halfIce) {
+    if (ice) {
+        /*if (loom2.types.includes("Fire") || halfIce) {
             if (loom2.types.includes("Fire") && halfIce){
             } else {
                 hazardString += "halved icicle trap and "
             }
-        }    
-        else {
-            hazardString += "icicle trap and ";
-        }
+        }*/
+        //else {
+            hazardString += "bee summon and ";
+        //}
         if (onlyIncludeIceTrap) {
             hazardString = hazardString.substr(0, hazardString.length - 5);
             hazardString = " after " + hazardString;
