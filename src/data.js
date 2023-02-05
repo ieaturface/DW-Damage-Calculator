@@ -3696,6 +3696,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    boilBomb: {
+        name: "Boil Bomb",
+        power: 70,
+        accuracy: 100,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     taintedWater: {
         name: "Tainted Water",
         power: 80,
