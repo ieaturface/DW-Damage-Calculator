@@ -2874,8 +2874,8 @@ var loomians = {
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
-        weight: 52,
-        height: 46,
+        weight: 11,
+        height: 18,
         baseStats: {
             hp: 75,
             attack: 85,
@@ -4966,7 +4966,7 @@ var moves = {
 
     flashingStrike: {
         name: "Flashing Strike",
-        power: 75,
+        power: 80,
         accuracy: 100,
         type: "Light",
         mr: "Melee",
@@ -5545,8 +5545,8 @@ var moves = {
 
     siphonSoul: {
         name: "Siphon Soul",
-        power: 100,
-        accuracy: 70,
+        power: 70,
+        accuracy: 100,
         type: "Dark",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -6958,6 +6958,16 @@ var helmets = {
         speed: 0,
     },
 
+    'npc buff': {
+        name: "NPC Buff",
+        health: 8,
+        attack: 8,
+        defense: 8,
+        mAttack: 8,
+        mDefense: 8,
+        speed: 8,
+    },
+
     'smoldering hood': {
         name: "Smoldering Hood",
         health: -6,
@@ -7078,6 +7088,16 @@ var amulets = {
         mAttack: 0,
         mDefense: 0,
         speed: 0,
+    },
+
+    'npc buff': {
+        name: "NPC Buff",
+        health: 8,
+        attack: 8,
+        defense: 8,
+        mAttack: 8,
+        mDefense: 8,
+        speed: 8,
     },
 
     'swag juice': {
@@ -7241,6 +7261,16 @@ var artifacts = {
         mAttack: 0,
         mDefense: 0,
         speed: 0,
+    },
+
+    'npc buff': {
+        name: "NPC Buff",
+        health: 8,
+        attack: 8,
+        defense: 8,
+        mAttack: 8,
+        mDefense: 8,
+        speed: 8,
     },
 
     'oakwood staff': {

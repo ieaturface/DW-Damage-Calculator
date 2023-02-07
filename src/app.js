@@ -1113,7 +1113,9 @@ function loadStats() {
     }
     checkStages();
     if (ability1 == "Snailspeed") spd1 = 1;
+    else if (ability1 == "Time Stop") spd1 = 999;
     if (ability2 == "Snailspeed") spd2 = 1;
+    else if (ability2 == "Time Stop") spd2 = 999;
 
     (wasMaxHP1 ? currentHP1.value = hp1 : null);
     (wasMaxHP2 ? currentHP2.value = hp2 : null);
@@ -2437,7 +2439,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((crit && tempDef.stage > 0) || move.name == "Precision Dart") {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
     }
-    if (ability1 == "Apathetic" || ability1 == "Ignorant") {
+    if (ability1 == "Apathetic" || ability1 == "Ignorant" || (ability1 == "Nihil" && !withoutSlapDown)) {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
     }
