@@ -138,7 +138,7 @@
 
                     <div>
                         <label class="divAlign">Level: </label>
-                        <input id="level1" value=100 type=number min=1 max=100
+                        <input id="level1" value=50 type=number min=1 max=100
                             onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
                     </div>
                     <div>
@@ -677,6 +677,21 @@
                 <div class="fieldTraps">
                     <div>
                         <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap1" title="Is this side affected by Bee Summon">Bee Summon</label>
+                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle1" style="width: 3em; display: none" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle2" style="width: 3em; display:  none;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap2" title="Is this side affected by Bee Summon">Bee Summon</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
                             <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
                             <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
                         </div>
@@ -796,21 +811,6 @@
                     </div>
                     <div>
                         <div class="left">
-                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" style="display: none;" for="iceTrap1" title="Is this side affected by Icicle Trap">Icicle Trap</label>
-                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
-                            <label class="radiolbl fieldlbl" id="halfStyle1" style="width: 3em;" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
-                        </div>
-
-                        <div class="right">
-                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
-                            <label class="radiolbl fieldlbl" id="halfStyle2" style="width: 3em;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
-                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" style="display: none;" for="iceTrap2" title="Is this side affected by Icicle Trap">Icicle Trap</label>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="left">
                             <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
                             <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="leftBarb0">0</label>
                             <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
@@ -890,7 +890,7 @@
 
                     <div>
                         <label class="divAlign">Level: </label>
-                        <input id="level2" value=100 type=number min=1 max=100
+                        <input id="level2" value=50 type=number min=1 max=100
                             onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
                     </div>
                     <div>
