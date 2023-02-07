@@ -3551,7 +3551,7 @@ var moves = {
 
     fieryBite: {
         name: "Fiery Bite",
-        power: 70,
+        power: 65,
         accuracy: 90,
         type: "Fire",
         mr: "Melee",
@@ -4025,7 +4025,7 @@ var moves = {
 
     electroSlash: {
         name: "Electro Slash",
-        power: 75,
+        power: 80,
         accuracy: 100,
         type: "Spark",
         mr: "Melee",
@@ -4050,7 +4050,7 @@ var moves = {
 
     electroBite: {
         name: "Electro Bite",
-        power: 70,
+        power: 65,
         accuracy: 90,
         type: "Spark",
         mr: "Melee",
@@ -5429,7 +5429,7 @@ var moves = {
 
     icyBite: {
         name: "Icy Bite",
-        power: 70,
+        power: 65,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
@@ -5501,7 +5501,7 @@ var moves = {
 
     icySlash: {
         name: "Icy Slash",
-        power: 90,
+        power: 80,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
