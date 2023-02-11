@@ -599,7 +599,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -607,7 +607,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -2237,7 +2237,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Overbite" && move.bite) ||
        (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd)) ||
        (ability1 == "Sand Surge" && sandstorm.checked) ||
-       (ability1 == "Vocalist" && move.sound)) {
+       (ability1 == "Vocalist" && move.sound) ||
+       (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air")) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2263,8 +2264,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
-       (ability1 == "Rapier" && move.priority) ||
+    if ((ability1 == "Rapier" && move.priority) ||
        (ability1 == "Slash Expert" && move.slash)) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
@@ -2436,7 +2436,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Defense ----------------------------------------------------
 
-    if ((crit && tempDef.stage > 0) || move.name == "Precision Dart") {
+    if ((crit || move.name == "Precision Dart" || move.name == "Piercing Ice") && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
     }
     if (ability1 == "Apathetic" || ability1 == "Ignorant" || (ability1 == "Nihil" && !withoutSlapDown)) {
@@ -2592,6 +2592,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= flock;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + tempPower * flock + " BP)";
+    }
+
+    if (ability1 == "Alacrity") {
+        if (immuneBoostCheck1) multi *= 0.8;
+        else multi *= 1.2;
+        stuffUsed.ability1 = ability1;
     }
 
     if (isDouble && guardian) {
