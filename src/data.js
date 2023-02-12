@@ -3143,6 +3143,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    ftlAssault: {
+        name: "FTL Assault",
+        power: 80,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true,
+    },
+
     dispose: {
         name: "Dispose",
         power: 50,
@@ -3975,7 +3987,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        secondaryEffect: true
     },
 
     electrify: {
@@ -7620,7 +7633,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve"];
 
 var typeModAbilities = {
     adipose: {
