@@ -711,19 +711,20 @@ $(".trait").change(function() {
 });
 
 function updateLevel() {
-    if (levelCheck.value == "Level 44") {
+    if (levelCheck.value == "Level 5") {
+        level1.value = 5;
+        level2.value = 5;
+    } else if (levelCheck.value == "Level 44") {
         level1.value = 44;
         level2.value = 44;
-        update();
     } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
         level2.value = 50;
-        update();
     } else {
         level1.value = 100;
         level2.value = 100;
-        update();
     }
+    update();
 }
 
 function importSets() {
