@@ -2699,8 +2699,8 @@ var loomians = {
         }
     },
 
-    akhet: {
-        name: "Akhet",
+    ahket: {
+        name: "Ahket",
         types: ["Insect", "Earth"],
         finalEvo: false,
         weight: 6,
