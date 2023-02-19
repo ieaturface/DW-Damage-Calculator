@@ -1386,7 +1386,8 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
         loadStats();
     }
     if ((tempGender2 != gender2.value && secondLoom.name == "Staligant") ||
-        ((tempAbility2 != ability2 && ((tempAbility2 == "Vigor" || ability2 == "Vigor") || (tempAbility2 == "Elegance" || ability2 == "Elegance"))))) {
+        ((tempAbility2 != ability2 && ((tempAbility2 == "Vigor" || ability2 == "Vigor") || (tempAbility2 == "Elegance" || ability2 == "Elegance")))) ||
+        (((tempAbility2 == "Vigor" || tempAbility2 == "Elegance") || (ability2 == "Vigor" || ability2 == "Elegance")) && immuneAbilityBoost2)) {
         loadBaseStats(2);
         loadStats();
     }
