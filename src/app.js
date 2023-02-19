@@ -283,6 +283,7 @@ let atkR1;
 let defR1;
 let spd1;
 let tempAbility1;
+let tempGender1;
 let equipment1;
 
 let secondLoomian;
@@ -293,6 +294,7 @@ let atkR2;
 let defR2;
 let spd2;
 let tempAbility2;
+let tempGender2;
 let equipment2;
 
 let darkMode = document.getElementById("darkMode");
@@ -599,7 +601,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -607,7 +609,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -972,8 +974,10 @@ function loadBaseStats(side) {
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
-    tempAbility1 = gender1.value;
-    tempAbility2 = gender2.value;
+    tempAbility1 = abilities.find((x) => x == abilityDropdown1.value);
+    tempAbility2 = abilities.find((x) => x == abilityDropdown2.value);
+    tempGender1 = gender1.value;
+    tempGender2 = gender2.value;
     
     if (side == 1 || side == undefined) {
         baseHP1.value = firstLoom.baseStats.hp;
@@ -988,6 +992,12 @@ function loadBaseStats(side) {
             baseAtkR1.value = firstLoom.baseStats.attack;
             baseDefR1.value = firstLoom.baseStats.defense;
         }
+        if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneAbilityBoost1.checked) {
+            baseAtk1.value = firstLoom.baseStats.defense;
+            baseDef1.value = firstLoom.baseStats.attack;
+            baseAtkR1.value = firstLoom.baseStats.defenseR;
+            baseDefR1.value = firstLoom.baseStats.attackR;
+        }
     }
     if (side == 2 || side == undefined) {
         baseHP2.value = secondLoom.baseStats.hp;
@@ -1001,6 +1011,12 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
             baseDefR2.value = secondLoom.baseStats.defense;
+        }
+        if ((ability2 == "Vigor" || ability2 == "Elegance") && immuneAbilityBoost2.checked) {
+            baseAtk2.value = secondLoom.baseStats.defense;
+            baseDef2.value = secondLoom.baseStats.attack;
+            baseAtkR2.value = secondLoom.baseStats.defenseR;
+            baseDefR2.value = secondLoom.baseStats.attackR;
         }
     }
 }
@@ -1128,7 +1144,7 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
-    if (ability1 == "Misery Guard" && status1.value != "healthy") multi *= 1.5;
+    if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 33)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
@@ -1152,7 +1168,7 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
-    if (ability2 == "Misery Guard" && status2.value != "healthy") multi *= 1.5;
+    if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 33)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
@@ -1363,11 +1379,14 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
 
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
-    if (tempAbility1 != gender1.value && firstLoom.name == "Staligant") {
+    if ((tempGender1 != gender1.value && firstLoom.name == "Staligant") ||
+        ((tempAbility1 != ability1 && ((tempAbility1 == "Vigor" || ability1 == "Vigor") || (tempAbility1 == "Elegance" || ability1 == "Elegance")))) ||
+        (((tempAbility1 == "Vigor" || tempAbility1 == "Elegance") || (ability1 == "Vigor" || ability1 == "Elegance")) && immuneAbilityBoost1)) {
         loadBaseStats(1);
         loadStats();
     }
-    if (tempAbility2 != gender2.value && secondLoom.name == "Staligant") {
+    if ((tempGender2 != gender2.value && secondLoom.name == "Staligant") ||
+        ((tempAbility2 != ability2 && ((tempAbility2 == "Vigor" || ability2 == "Vigor") || (tempAbility2 == "Elegance" || ability2 == "Elegance"))))) {
         loadBaseStats(2);
         loadStats();
     }
@@ -2426,8 +2445,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
-    if ((itemA == "Gold Laminate" && loom1.finalEvo == false && (move.mr1 == "Melee Defense" || move.mr1 == "Ranged Defense")) ||
-        (itemA == "Cursed Cloak" && move.mr1 == "Ranged Defense")) {
+    if (itemA == "Cursed Cloak" && move.mr1 == "Ranged Defense") {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }
@@ -2448,7 +2466,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Misery Guard" && stat2 != "healthy") {
+    if ((ability2 == "Misery Guard" && stat2 != "healthy") ||
+        (ability2 == "Bandit" && stats2.hpPercent < 33)) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2627,6 +2646,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
     if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown) {
         multi *= 0.5;
+        stuffUsed.ability2 = ability2;
+    }
+    if (ability2 == "Bulwark" && move.priority) {
+        multi *= 0;
         stuffUsed.ability2 = ability2;
     }
 
@@ -3012,6 +3035,10 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             newHP -= Math.floor(hp1 * 1 / 12 * multi);
             hazardString += "chocolate rain recovery and ";
         }
+
+        if (sandstorm.checked && ability == "Desert Body") {
+            newHP -= Math.floor(hp1 * 1 / 10);
+        }
     }
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -3027,7 +3054,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "acid rain damage and ";
     }
 
-    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal")) {
+    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "sandstorm damage and ";
     }
@@ -3068,6 +3095,7 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
     if (move.recoil) {
+        if (ability == "Tenacious") return "";
         let recoilL = Math.max(Math.floor(l * move.recoil), 1);
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";

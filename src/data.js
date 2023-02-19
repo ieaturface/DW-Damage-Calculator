@@ -476,9 +476,9 @@ var loomians = {
             hp: 100,
             attack: 86,
             defense: 65,
-            attackR: 45,
+            attackR: 55,
             defenseR: 110,
-            speed: 73
+            speed: 63
         }
     },
 
@@ -2334,12 +2334,12 @@ var loomians = {
         weight: 15,
         height: 20,
         baseStats: {
-            hp: 75,
-            attack: 40,
+            hp: 60,
+            attack: 45,
             defense: 115,
             attackR: 95,
             defenseR: 110,
-            speed: 35
+            speed: 45
         }
     },
 
@@ -2914,6 +2914,193 @@ var loomians = {
             attackR: 77,
             defenseR: 83,
             speed: 90
+        }
+    },
+
+    gekotta: {
+        name: "Gekotta",
+        types: ["Earth"],
+        finalEvo: false,
+        weight: 7,
+        height: 10,
+        baseStats: {
+            hp: 50,
+            attack: 45,
+            defense: 60,
+            attackR: 20,
+            defenseR: 50,
+            speed: 20
+        }
+    },
+
+    duraje: {
+        name: "Duraje",
+        types: ["Earth"],
+        finalEvo: false,
+        weight: 20,
+        height: 24,
+        baseStats: {
+            hp: 68,
+            attack: 67,
+            defense: 82,
+            attackR: 43,
+            defenseR: 58,
+            speed: 42
+        }
+    },
+
+    craglidae: {
+        name: "Craglidae",
+        types: ["Earth", "Melee"],
+        weight: 39,
+        height: 50,
+        baseStats: {
+            hp: 82,
+            attack: 96,
+            defense: 112,
+            attackR: 53,
+            defenseR: 78,
+            speed: 54
+        }
+    },
+
+    mauspunch: {
+        name: "Mauspunch",
+        types: ["Melee"],
+        finalEvo: false,
+        weight: 6,
+        height: 5,
+        baseStats: {
+            hp: 35,
+            attack: 75,
+            defense: 40,
+            attackR: 25,
+            defenseR: 30,
+            speed: 75
+        }
+    },
+
+    suomous: {
+        name: "Suomous",
+        types: ["Melee"],
+        weight: 16,
+        height: 21,
+        baseStats: {
+            hp: 58,
+            attack: 93,
+            defense: 87,
+            attackR: 48,
+            defenseR: 68,
+            speed: 83
+        }
+    },
+
+    megglit: {
+        name: "Megglit",
+        types: ["Spark"],
+        finalEvo: false,
+        weight: 5,
+        height: 6,
+        baseStats: {
+            hp: 30,
+            attack: 5,
+            defense: 110,
+            attackR: 5,
+            defenseR: 90,
+            speed: 5
+        }
+    },
+
+    cubreal: {
+        name: "Cubreal",
+        types: ["Spark", "Earth"],
+        finalEvo: false,
+        weight: 24,
+        height: 29,
+        baseStats: {
+            hp: 60,
+            attack: 60,
+            defense: 75,
+            attackR: 65,
+            defenseR: 65,
+            speed: 40
+        }
+    },
+
+    sursablit: {
+        name: "Sursablit",
+        types: ["Spark", "Earth"],
+        weight: 148,
+        height: 75,
+        baseStats: {
+            hp: 110,
+            attack: 80,
+            defense: 95,
+            attackR: 85,
+            defenseR: 85,
+            speed: 65
+        }
+    },
+
+    threasant: {
+        name: "Threasant",
+        types: ["Spirit"],
+        finalEvo: false,
+        weight: 1,
+        height: 9,
+        baseStats: {
+            hp: 53,
+            attack: 53,
+            defense: 43,
+            attackR: 53,
+            defenseR: 43,
+            speed: 43
+        }
+    },
+
+    seamsquire: {
+        name: "Seamsquire",
+        types: ["Spirit", "Metal"],
+        finalEvo: false,
+        weight: 5,
+        height: 26,
+        baseStats: {
+            hp: 73,
+            attack: 73,
+            defense: 63,
+            attackR: 73,
+            defenseR: 73,
+            speed: 63
+        }
+    },
+
+    seamstress: {
+        name: "Seamstress",
+        types: ["Spirit", "Metal"],
+        weight: 39,
+        height: 55,
+        baseStats: {
+            hp: 50,
+            attack: 45,
+            defense: 120,
+            attackR: 45,
+            defenseR: 120,
+            speed: 105
+        }
+    },
+
+    seamknight: {
+        name: "Seamknight",
+        types: ["Spirit", "Metal"],
+        weight: 46,
+        height: 58,
+        baseStats: {
+            hp: 105,
+            attack: 45,
+            defense: 120,
+            attackR: 45,
+            defenseR: 120,
+            speed: 50
         }
     },
 
@@ -3678,7 +3865,7 @@ var moves = {
 
     tsunami: {
         name: "Tsunami",
-        power: 80,
+        power: 85,
         accuracy: 100,
         type: "Water",
         mr: "Magic",
@@ -4514,6 +4701,18 @@ var moves = {
         mr2: "Melee Defense"
     },
 
+    stampede: {
+        name: "Stampede",
+        power: 130,
+        accuracy: 80,
+        type: "Earth",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/2
+    },
+
     rustyRoots: {
         name: "Rusty Roots",
         power: 70,
@@ -4666,7 +4865,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        recoil: 1/3
+        recoil: 1/4
     },
 
     solidCharge: {
@@ -4724,6 +4923,18 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    daze: {
+        name: "Daze",
+        power: 75,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     flurry: {
@@ -5223,7 +5434,7 @@ var moves = {
 
     swordSweep: {
         name: "Sword Sweep",
-        power: 100,
+        power: 85,
         accuracy: 100,
         type: "Metal",
         mr: "Melee",
@@ -6450,6 +6661,14 @@ var moves = {
         mr: "Support"
     },
 
+    warCry: {
+        name: "War Cry",
+        power: 0,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Support"
+    },
+
     sylphid: {
         name: "Sylphid",
         power: 0,
@@ -6650,6 +6869,14 @@ var moves = {
         mr: "Support"
     },
 
+    readyToFight: {
+        name: "Ready to Fight",
+        power: 0,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Support"
+    },
+
     swiftShield: {
         name: "Swift Shield",
         power: 0,
@@ -6756,6 +6983,14 @@ var moves = {
 
     chainImprisonment: {
         name: "Chain Imprisonment",
+        power: 0,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Support"
+    },
+
+    scissorGuard: {
+        name: "Scissor Guard",
         power: 0,
         accuracy: 100,
         type: "Metal",
@@ -7025,6 +7260,16 @@ var helmets = {
         speed: 0,
     },
 
+    'eggshell helmet': {
+        name: "Eggshell Helmet",
+        health: 0,
+        attack: 0,
+        defense: 13,
+        mAttack: 0,
+        mDefense: 0,
+        speed: -3,
+    },
+
     'npc buff': {
         name: "NPC Buff",
         health: 8,
@@ -7142,6 +7387,16 @@ var helmets = {
         defense: -20,
         mAttack: 0,
         mDefense: 0,
+        speed: 15,
+    },
+
+    'pale sunbonnet': {
+        name: "Pale Sunbonnet",
+        health: -10,
+        attack: 0,
+        defense: 0,
+        mAttack: 5,
+        mDefense: -10,
         speed: 15,
     },
 };
@@ -7317,6 +7572,26 @@ var amulets = {
         speed: 10,
     },
 
+    'diy pin': {
+        name: "DIY Pin",
+        health: 0,
+        attack: 5,
+        defense: 5,
+        mAttack: 5,
+        mDefense: 5,
+        speed: 0,
+    },
+
+    'sandstone necklace': {
+        name: "Sandstone Necklace",
+        health: -15,
+        attack: 0,
+        defense: -7,
+        mAttack: 7,
+        mDefense: 0,
+        speed: 10,
+    },
+
 };
 
 var artifacts = {
@@ -7460,6 +7735,16 @@ var artifacts = {
         speed: 0,
     },
 
+    coal: {
+        name: "Coal",
+        health: -10,
+        attack: -10,
+        defense: -10,
+        mAttack: -10,
+        mDefense: -10,
+        speed: -10,
+    },
+
     'luminous orb': {
         name: "Luminous Orb",
         health: 0,
@@ -7478,6 +7763,16 @@ var artifacts = {
         mAttack: 8,
         mDefense: 5,
         speed: 0,
+    },
+
+    'potted cactus': {
+        name: "Potted Cactus",
+        health: 0,
+        attack: 10,
+        defense: -10,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 7,
     },
 };
 
@@ -7633,7 +7928,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark"];
 
 var typeModAbilities = {
     adipose: {
