@@ -2949,8 +2949,8 @@ var loomians = {
         }
     },
 
-    craglidae: {
-        name: "Craglidae",
+    cragildae: {
+        name: "Cragildae",
         types: ["Earth", "Melee"],
         weight: 39,
         height: 50,
@@ -3350,7 +3350,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        secondaryEffect: true
     },
 
     starbreaker: {

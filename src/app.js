@@ -2649,7 +2649,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && move.priority) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent > 74))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
