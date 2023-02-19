@@ -2136,8 +2136,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if (ability2 == "Rejuvenator") {
+    if ((ability2 == "Rejuvenator") ||
+        ((ability2 == "Vigor" || ability2 == "Elegance") && immuneBoostCheck2)) {
         stuffUsed.ability2 = ability2;
+    }
+
+    if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneBoostCheck1) {
+        stuffUsed.ability1 = ability1;
     }
 
     if (move.name == "Shard Surge" && !shardSurge) {
