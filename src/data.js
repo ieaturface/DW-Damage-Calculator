@@ -5514,7 +5514,7 @@ var moves = {
 
     shadowLurk: {
         name: "Shadow Lurk",
-        power: 60,
+        power: 40,
         accuracy: 100,
         type: "Spirit",
         mr: "Melee",
