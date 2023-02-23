@@ -7769,7 +7769,7 @@ var artifacts = {
     'potted cactus': {
         name: "Potted Cactus",
         health: 0,
-        attack: 12,
+        attack: 10,
         defense: -10,
         mAttack: 0,
         mDefense: 0,
