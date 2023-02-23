@@ -1144,7 +1144,7 @@ function loadStats() {
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
-    if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 33)) multi *= 1.5;
+    if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
@@ -1168,7 +1168,7 @@ function loadStats() {
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
-    if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 33)) multi *= 1.5;
+    if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
@@ -2332,14 +2332,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Crooked Talon" && tempType == "Beast") ||
        (itemA == "Moon Charm" && tempType == "Dark") ||
        (itemA == "Refractive Prism" && tempType == "Light") ||
-       (itemA == "Empowered Ring" && (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase()) || (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())))) ||
        (itemA == "Decorative Fan" && tempType == "Air")) {
         multi *= 1.2;
-        stuffUsed.item1 = itemA;
-    }
-
-    if (itemA == "Lethal Ornament") {
-        multi *= 1.3;
         stuffUsed.item1 = itemA;
     }
 
@@ -2384,7 +2378,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability2 == "Exoskeleton" && move.contact) ||
+    if ((ability2 == "Exoskeleton" && move.contact && ability1 != "Outboxer") ||
         (ability2 == "Royal Decree" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
@@ -2442,7 +2436,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if ((ability1 == "Trump Card" && stat1 != "healthy" && move.mr == "Melee") ||
-        (ability1 == "Dauntless" && stat1 != "healthy" && move.mr == "Magic")) {
+        (ability1 == "Dauntless" && stat1 != "healthy" && move.mr == "Magic") ||
+        (ability1 == "Bandit" && stats1.hpPercent < 50 && move.mr1 == "Melee Defense")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2473,7 +2468,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if ((ability2 == "Misery Guard" && stat2 != "healthy") ||
-        (ability2 == "Bandit" && stats2.hpPercent < 33)) {
+        (ability2 == "Bandit" && stats2.hpPercent < 50)) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2596,7 +2591,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item2 = itemB;
     }
     if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
-        (ability2 == "Guardian" && immuneBoostCheck2)) {
+        (ability2 == "Guardian" && immuneBoostCheck2) ||
+        (ability2 == "Resilience" && effectiveness < 1)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
@@ -2610,6 +2606,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (effectiveness > 1 && sandstorm.checked && shale) {
         multi *= 0.5;
         stuffUsed.weather += " through Shale";
+    }
+
+    if (itemA == "Lethal Ornament") {
+        multi *= 1.3;
+        stuffUsed.item1 = itemA;
+    }
+
+    if (itemA == "Empowered Ring" && effectiveness > 1) {
+        multi *= 1.2;
+        stuffUsed.item1 = itemA;
     }
 
     if (ability1 == "The Flock") {
@@ -2857,7 +2863,7 @@ function getTypes(second) {
 function countBoosts(boost) {
     let count = 0;
     for (let i = 0; i < boost.length; i++) {
-        if (boost[i] == "--") boost[i] = 0;
+        if (boost[i] == "--" || boost[i] < 0) boost[i] = 0;
         else count = count + parseInt(boost[i]);
     }
     return count;
@@ -3086,6 +3092,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 }
 
 function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
+    if (l == 0 && u == 0) return "";
     if (move.drain || (ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
         let drain = move.drain;
         if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
@@ -3102,7 +3109,7 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
     }
     if (move.recoil) {
         if (ability == "Tenacious") return "";
-        let recoilL = Math.max(Math.floor(l * move.recoil), 1);
+        let recoilL = (Math.max(Math.floor(l * move.recoil), 1));
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";
     }

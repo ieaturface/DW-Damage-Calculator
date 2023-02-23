@@ -5436,7 +5436,7 @@ var moves = {
     swordSweep: {
         name: "Sword Sweep",
         power: 85,
-        accuracy: 100,
+        accuracy: 85,
         type: "Metal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -7769,7 +7769,7 @@ var artifacts = {
     'potted cactus': {
         name: "Potted Cactus",
         health: 0,
-        attack: 10,
+        attack: 12,
         defense: -10,
         mAttack: 0,
         mDefense: 0,
@@ -7929,7 +7929,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Vitality", "Ward", "Water Absorb", "Whimsical", "Wish For Wealth", "Wish For Experience", "Wish For Power", "Hunter", "Marked Territory", "Courteous", "Hard Candy", "Envy", "Covetous", "Ramming Speed", "Chef", "Accelerate", "Tainted", "Contagion",
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
-                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark"];
+                 "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
+                 "Resilience"];
 
 var typeModAbilities = {
     adipose: {
