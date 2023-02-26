@@ -2902,21 +2902,6 @@ var loomians = {
         }
     },
 
-    jellupy: {
-        name: "Jellupy",
-        types: ["Food", "Metal"],
-        weight: 11,
-        height: 18,
-        baseStats: {
-            hp: 75,
-            attack: 85,
-            defense: 70,
-            attackR: 77,
-            defenseR: 83,
-            speed: 90
-        }
-    },
-
     gekotta: {
         name: "Gekotta",
         types: ["Earth"],
@@ -3101,6 +3086,68 @@ var loomians = {
             attackR: 45,
             defenseR: 120,
             speed: 50
+        }
+    },
+
+    jellupy: {
+        name: "Jellupy",
+        types: ["Food", "Metal"],
+        weight: 11,
+        height: 18,
+        baseStats: {
+            hp: 75,
+            attack: 85,
+            defense: 70,
+            attackR: 77,
+            defenseR: 83,
+            speed: 90
+        }
+    },
+
+    weecub: {
+        name: "Weecub",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 1,
+        height: 9,
+        baseStats: {
+            hp: 39,
+            attack: 31,
+            defense: 26,
+            attackR: 67,
+            defenseR: 43,
+            speed: 67
+        }
+    },
+
+    embheir: {
+        name: "Embheir",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 1,
+        height: 9,
+        baseStats: {
+            hp: 59,
+            attack: 51,
+            defense: 46,
+            attackR: 77,
+            defenseR: 63,
+            speed: 77
+        }
+    },
+
+    emperoflame: {
+        name: "Emperoflame",
+        types: ["Fire"],
+        weight: 83,
+        height: 58,
+        baseStats: {
+            hp: 79,
+            attack: 84,
+            defense: 66,
+            attackR: 107,
+            defenseR: 79,
+            speed: 92
         }
     },
 
@@ -6894,6 +6941,14 @@ var moves = {
         mr: "Support"
     },
 
+    cakeWalk: {
+        name: "Cake Walk",
+        power: 0,
+        accuracy: 100,
+        type: "Food",
+        mr: "Support"
+    },
+
     createJelly: {
         name: "Create Jelly",
         power: 0,
@@ -7930,7 +7985,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience"];
+                 "Resilience", "Lithe", "Extinguisher"];
 
 var typeModAbilities = {
     adipose: {
