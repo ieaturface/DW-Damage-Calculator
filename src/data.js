@@ -3151,6 +3151,37 @@ var loomians = {
         }
     },
 
+    feesh: {
+        name: "Feesh",
+        types: ["Water", "Basic"],
+        finalEvo: false,
+        weight: 8,
+        height: 19,
+        baseStats: {
+            hp: 75,
+            attack: 45,
+            defense: 40,
+            attackR: 55,
+            defenseR: 55,
+            speed: 45
+        }
+    },
+
+    schemeesh: {
+        name: "Schemeesh",
+        types: ["Water", "Basic"],
+        weight: 13,
+        height: 23,
+        baseStats: {
+            hp: 100,
+            attack: 62,
+            defense: 68,
+            attackR: 77,
+            defenseR: 77,
+            speed: 72
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -3387,6 +3418,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         priority: true,
+    },
+
+    boomBoom: {
+        name: "Boom Boom",
+        power: 200,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true
     },
 
     dispose: {
@@ -3920,6 +3962,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
     },
+
+    theFlood: {
+        name: "The Flood",
+        power: 10,
+        accuracy: 100,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        statBuff: true
+    },
+
 
     hydroBurst: {
         name: "Hydro Burst",
@@ -5322,6 +5376,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        statBuff: true
     },
 
     relinquishTheDark: {
@@ -6175,6 +6230,14 @@ var moves = {
 
     equality: {
         name: "Equality",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
+    attackMastery: {
+        name: "Attack Mastery",
         power: 0,
         accuracy: 100,
         type: "Basic",
@@ -7985,7 +8048,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy"];
 
 var typeModAbilities = {
     adipose: {

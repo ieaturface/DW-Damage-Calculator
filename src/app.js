@@ -2191,8 +2191,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
-    if (move.name == "Blessed Blade") {
-        tempPower = Number(tempPower) + 20 * countBoosts(boosts1);
+    if (move.statBuff) {
+        if (move.name == "Blessed Blade") {
+            tempPower = Number(tempPower) + 20 * countBoosts(boosts1);
+        } else if (move.name == "The Flood") {
+            tempPower = Number(tempPower) + 10 * countBoosts(boosts1);
+        }
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
