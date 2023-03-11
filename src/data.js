@@ -7405,7 +7405,7 @@ var helmets = {
     },
 
     'drenched sunhat': {
-        name: "Drench Sunhat",
+        name: "Drenched Sunhat",
         health: 0,
         attack: 0,
         defense: 0,
