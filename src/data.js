@@ -3348,6 +3348,21 @@ var loomians = {
         }
     },
 
+    fluppy: {
+        name: "Fluppy",
+        types: ["Light", "Plant"],
+        weight: 10,
+        height: 19,
+        baseStats: {
+            hp: 70,
+            attack: 60,
+            defense: 65,
+            attackR: 103,
+            defenseR: 70,
+            speed: 107
+        }
+    },
+
     koriyu: {
         name: "Koriyu",
         types: ["Ice", "Dark"],
@@ -5315,6 +5330,16 @@ var moves = {
     laser: {
         name: "Laser",
         power: 50,
+        accuracy: 100,
+        type: "Light",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    continuousSheen: {
+        name: "Continuous Sheen",
+        power: 30,
         accuracy: 100,
         type: "Light",
         mr: "Magic",
@@ -7379,6 +7404,16 @@ var helmets = {
         speed: 0,
     },
 
+    'drenched sunhat': {
+        name: "Drench Sunhat",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 15,
+        mDefense: 0,
+        speed: -8,
+    },
+
     'eggshell helmet': {
         name: "Eggshell Helmet",
         health: 0,
@@ -7569,6 +7604,16 @@ var amulets = {
         mAttack: 0,
         mDefense: -10,
         speed: 10,
+    },
+
+    'helpful lanturn': {
+        name: "Helpful Lanturn",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 7,
+        mDefense: 0,
+        speed: 5,
     },
 
     'vial of tears': {
@@ -8048,7 +8093,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal"];
 
 var typeModAbilities = {
     adipose: {
