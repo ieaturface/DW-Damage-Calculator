@@ -2282,7 +2282,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd)) ||
        (ability1 == "Sand Surge" && sandstorm.checked) ||
        (ability1 == "Vocalist" && move.sound) ||
-       (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air")) {
+       (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
+       (ability1 == "Chef" && loom2.types.includes("Food"))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2620,7 +2621,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         } else multi *= 0.85;
         stuffUsed.item2 = itemB;
     }
-    if (effectiveness > 1 && sandstorm.checked && shale) {
+    if (effectiveness > 1 && sandstorm.checked && shale && ability1 != "Bypass") {
         multi *= 0.5;
         stuffUsed.weather += " through Shale";
     }
@@ -2660,11 +2661,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (wall && move.mr == "Melee") {
+    if (wall && move.mr == "Melee" && ability1 != "Bypass") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Crystal Wall";
     }
-    if (shield && move.mr == "Magic") {
+    if (shield && move.mr == "Magic" && ability1 != "Bypass") {
         if (isDouble == false ? multi *= 0.5 : multi *= 2/3);
         stuffUsed.weather += " through Magical Shield";
     }
