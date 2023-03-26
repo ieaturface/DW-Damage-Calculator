@@ -234,6 +234,23 @@ var loomians = {
         }
     },
 
+    'mawthra-awakened': {
+        name: "Mawthra-Awakened",
+        types: ["Metal", "Poison"],
+        weight: 18,
+        height: 34,
+        ability: "Levitate",
+        item: "Mawthra Rune",
+        baseStats: {
+            hp: 70,
+            attack: 135,
+            defense: 120,
+            attackR: 75,
+            defenseR: 130,
+            speed: 55
+        }
+    },
+
     rosebug: {
         name: "Rosebug",
         types: ["Insect"],
@@ -278,6 +295,23 @@ var loomians = {
             attackR: 75,
             defenseR: 60,
             speed: 110
+        }
+    },
+
+    'thornet-awakened': {
+        name: "Thornet-Awakened",
+        types: ["Metal", "Plant"],
+        weight: 20,
+        height: 39,
+        ability: "Retaliate",
+        item: "Thornet Rune",
+        baseStats: {
+            hp: 65,
+            attack: 135,
+            defense: 105,
+            attackR: 85,
+            defenseR: 105,
+            speed: 90
         }
     },
 
@@ -479,6 +513,23 @@ var loomians = {
             attackR: 55,
             defenseR: 110,
             speed: 63
+        }
+    },
+
+    'groato-awakened': {
+        name: "Groato-Awakened",
+        types: ["Basic", "Water"],
+        weight: 157,
+        height: 42,
+        ability: "Water Absorb",
+        item: "Groato Rune",
+        baseStats: {
+            hp: 100,
+            attack: 126,
+            defense: 95,
+            attackR: 75,
+            defenseR: 130,
+            speed: 53
         }
     },
 
@@ -1334,6 +1385,23 @@ var loomians = {
             attackR: 90,
             defenseR: 70,
             speed: 110
+        }
+    },
+
+    'cryotera-awakened': {
+        name: "Cryotera-Awakened",
+        types: ["Dark", "Ice"],
+        weight: 71,
+        height: 56,
+        ability: "Bypass",
+        item: "Cryotera Rune",
+        baseStats: {
+            hp: 60,
+            attack: 110,
+            defense: 90,
+            attackR: 110,
+            defenseR: 90,
+            speed: 130
         }
     },
 
@@ -2560,6 +2628,23 @@ var loomians = {
         }
     },
 
+    'hattrix-awakened': {
+        name: "Hattrix-Awakened",
+        types: ["Dark", "Mind"],
+        weight: 16,
+        height: 43,
+        ability: "Spell Shield",
+        item: "Hattrix Rune",
+        baseStats: {
+            hp: 55,
+            attack: 80,
+            defense: 65,
+            attackR: 135,
+            defenseR: 105,
+            speed: 105
+        }
+    },
+
     azupion: {
         name: "Azupion",
         types: ["Food", "Poison"],
@@ -3393,6 +3478,133 @@ var loomians = {
         }
     },
 
+    reliconis: {
+        name: "Reliconis",
+        types: ["Beast", "Spirit"],
+        weight: 9,
+        height: 32,
+        baseStats: {
+            hp: 60,
+            attack: 80,
+            defense: 60,
+            attackR: 80,
+            defenseR: 60,
+            speed: 70
+        },
+        formStats: {
+            hp: 60,
+            attack: 125,
+            defense: 80,
+            attackR: 125,
+            defenseR: 80,
+            speed: 110
+        }
+    },
+
+    meiolicant: {
+        name: "Meiolicant",
+        types: ["Poison"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 83,
+            attack: 110,
+            defense: 115,
+            attackR: 50,
+            defenseR: 60,
+            speed: 53
+        }
+    },
+
+    velodo: {
+        name: "Velodo",
+        types: ["Beast", "Air"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 60,
+            attack: 90,
+            defense: 80,
+            attackR: 85,
+            defenseR: 80,
+            speed: 82
+        }
+    },
+
+    arthopex: {
+        name: "Arthopex",
+        types: ["Insect", "Beast"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 100,
+            attack: 100,
+            defense: 90,
+            attackR: 60,
+            defenseR: 90,
+            speed: 55
+        }
+    },
+
+    exoskelis: {
+        name: "Exoskelis",
+        types: ["Insect", "Dark"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 64,
+            attack: 84,
+            defense: 74,
+            attackR: 74,
+            defenseR: 64,
+            speed: 84
+        }
+    },
+
+    tasmarauder: {
+        name: "Tasmarauder",
+        types: ["Beast", "Melee"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 72,
+            attack: 121,
+            defense: 73,
+            attackR: 40,
+            defenseR: 60,
+            speed: 99
+        }
+    },
+
+    rhinostone: {
+        name: "Rhinostone",
+        types: ["Crystal", "Earth"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 75,
+            attack: 125,
+            defense: 120,
+            attackR: 40,
+            defenseR: 40,
+            speed: 70
+        }
+    },
+
+    gyornaw: {
+        name: "Gyornaw",
+        types: ["Water", "Beast"],
+        weight: 10,
+        height: 10,
+        baseStats: {
+            hp: 78,
+            attack: 92,
+            defense: 60,
+            attackR: 122,
+            defenseR: 83,
+            speed: 93
+        }
+    },
 
 };
 
@@ -6198,6 +6410,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    meteorShower: {
+        name: "Meteor Shower",
+        power: 100,
+        accuracy: 95,
+        type: "Mythic",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Beast", modifier: 2 }
+    },
+
     playtimesOver: {
         name: "Playtime's Over",
         power: 30,
@@ -8093,7 +8316,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm"];
 
 var typeModAbilities = {
     adipose: {
@@ -8226,6 +8449,10 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Candy Cube");
+}
+
+for (let doo in loomians) {
+    if (loomians[doo].item) items.push(loomians[doo].item);
 }
 
 var sets = [];

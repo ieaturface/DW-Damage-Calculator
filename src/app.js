@@ -601,7 +601,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -609,7 +609,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -779,7 +779,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         nat1Mod1.value = set1.mod1;
         nat2Mod1.value = set1.mod2;
         abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
+        if (firstLoom.ability) abilityDropdown1.value = firstLoom.ability;
         item1.value = (set1.item == undefined ? "none" : set1.item);
+        if (firstLoom.item) item1.value = firstLoom.item;
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
@@ -827,7 +829,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         nat1Mod2.value = set2.mod1;
         nat2Mod2.value = set2.mod2;
         abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
+        if (secondLoom.ability) abilityDropdown2.value = secondLoom.ability;
         item2.value = (set2.item == undefined ? "none" : set2.item);
+        if (secondLoom.item) item2.value = secondLoom.item;
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
@@ -991,6 +995,12 @@ function loadBaseStats(side) {
             baseDef1.value = firstLoom.baseStats.defenseR;
             baseAtkR1.value = firstLoom.baseStats.attack;
             baseDefR1.value = firstLoom.baseStats.defense;
+        } else if (firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) {
+            baseAtk1.value = firstLoom.formStats.attack;
+            baseDef1.value = firstLoom.formStats.defense;
+            baseAtkR1.value = firstLoom.formStats.attackR;
+            baseDefR1.value = firstLoom.formStats.defenseR;
+            baseSpd1.value = firstLoom.formStats.speed;
         }
         if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneAbilityBoost1.checked) {
             baseAtk1.value = firstLoom.baseStats.defense;
@@ -1011,6 +1021,12 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
             baseDefR2.value = secondLoom.baseStats.defense;
+        } else if (secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) {
+            baseAtk2.value = secondLoom.formStats.attack;
+            baseDef2.value = secondLoom.formStats.defense;
+            baseAtkR2.value = secondLoom.formStats.attackR;
+            baseDefR2.value = secondLoom.formStats.defenseR;
+            baseSpd2.value = secondLoom.formStats.speed;
         }
         if ((ability2 == "Vigor" || ability2 == "Elegance") && immuneAbilityBoost2.checked) {
             baseAtk2.value = secondLoom.baseStats.defense;
@@ -1149,7 +1165,6 @@ function loadStats() {
     multi = 1;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
-    if (ability1 == "Spell Shield") multi *= 2;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1173,7 +1188,6 @@ function loadStats() {
     multi = 1;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
-    if (ability2 == "Spell Shield") multi *= 2;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -1380,14 +1394,14 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if ((tempGender1 != gender1.value && firstLoom.name == "Staligant") ||
-        ((tempAbility1 != ability1 && ((tempAbility1 == "Vigor" || ability1 == "Vigor") || (tempAbility1 == "Elegance" || ability1 == "Elegance")))) ||
-        (((tempAbility1 == "Vigor" || tempAbility1 == "Elegance") || (ability1 == "Vigor" || ability1 == "Elegance")) && immuneAbilityBoost1)) {
+        (((tempAbility1 == "Vigor" || tempAbility1 == "Elegance") || (ability1 == "Vigor" || ability1 == "Elegance")) && immuneAbilityBoost1) ||
+        ((tempAbility1 == "Reformation" || ability1 == "Reformation") && firstLoom.name == "Reliconis" && immuneAbilityBoost1)) {
         loadBaseStats(1);
         loadStats();
     }
     if ((tempGender2 != gender2.value && secondLoom.name == "Staligant") ||
-        ((tempAbility2 != ability2 && ((tempAbility2 == "Vigor" || ability2 == "Vigor") || (tempAbility2 == "Elegance" || ability2 == "Elegance")))) ||
-        (((tempAbility2 == "Vigor" || tempAbility2 == "Elegance") || (ability2 == "Vigor" || ability2 == "Elegance")) && immuneAbilityBoost2)) {
+        (((tempAbility2 == "Vigor" || tempAbility2 == "Elegance") || (ability2 == "Vigor" || ability2 == "Elegance")) && immuneAbilityBoost2) ||
+        ((tempAbility2 == "Reformation" || ability2 == "Reformation") && secondLoom.name == "Reliconis" && immuneAbilityBoost2)) {
         loadBaseStats(2);
         loadStats();
     }
@@ -2354,7 +2368,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
-    if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Ward")) {
+    if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Ward") && !(itemB.includes("Rune"))) {
         multi *= 2;
         stuffUsed.item2 = itemB;
         stuffUsed.ability2 = (ability2 == "Ward" ? ability2 : stuffUsed.ability2);
@@ -2435,7 +2449,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
     }
 
-    if (ability2 == "Apathetic" || ability2 == "Ignorant") {
+    if (ability2 == "Apathetic" || ability2 == "Ignorant" || ability2 == "Calm") {
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
         stuffUsed.ability2 = ability2;
     }
@@ -2445,8 +2459,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if ((move.mr1 == "Ranged Defense" && ability1 == "Spell Shield") ||
-        (move.mr1 == "Melee Attack" && ability1 == "Hidden Strength")) {
+    if ((move.mr1 == "Melee Attack" && ability1 == "Hidden Strength")) {
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
@@ -2463,7 +2476,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((crit || move.name == "Precision Dart" || move.name == "Piercing Ice") && tempDef.stage > 0) {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
     }
-    if (ability1 == "Apathetic" || ability1 == "Ignorant" || (ability1 == "Nihil" && !withoutSlapDown)) {
+    if (ability1 == "Apathetic" || ability1 == "Ignorant" || ability1 == "Calm" || (ability1 == "Nihil" && !withoutSlapDown)) {
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
     }
@@ -2471,8 +2484,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
-    if ((ability2 == "Misery Guard" && stat2 != "healthy") ||
-        (ability2 == "Bandit" && stats2.hpPercent < 50)) {
+    if ((ability2 == "Misery Guard" && stat2 != "healthy" && move.mr2 == "Melee Defense") ||
+        (ability2 == "Bandit" && stats2.hpPercent < 50 && move.mr2 == "Melee Defense")) {
         multi *= 1.5;
         stuffUsed.ability2 = ability2;
     }
