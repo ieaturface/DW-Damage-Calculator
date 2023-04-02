@@ -3149,6 +3149,7 @@ var loomians = {
         types: ["Spirit", "Metal"],
         weight: 39,
         height: 55,
+        ability: "Elegance",
         baseStats: {
             hp: 50,
             attack: 45,
@@ -3164,6 +3165,7 @@ var loomians = {
         types: ["Spirit", "Metal"],
         weight: 46,
         height: 58,
+        ability: "Vigor",
         baseStats: {
             hp: 105,
             attack: 45,
@@ -3483,6 +3485,7 @@ var loomians = {
         types: ["Beast", "Spirit"],
         weight: 9,
         height: 32,
+        ability: "Reformation",
         baseStats: {
             hp: 60,
             attack: 80,
