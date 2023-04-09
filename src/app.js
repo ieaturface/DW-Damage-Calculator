@@ -2351,7 +2351,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Crooked Talon" && tempType == "Beast") ||
        (itemA == "Moon Charm" && tempType == "Dark") ||
        (itemA == "Refractive Prism" && tempType == "Light") ||
-       (itemA == "Decorative Fan" && tempType == "Air")) {
+       (itemA == "Decorative Fan" && tempType == "Air") ||
+       (itemA == "Homemade Plush" && tempType == "Basic") ||
+       (itemA == "Refined Crystal" && tempType == "Crystal") ||
+       (itemA == "Imbued Relic" && tempType == "Mind") ||
+       (itemA == "Studded Fang" && tempType == "Mythic") ||
+       (itemA == "Questionable Sludge" && tempType == "Poison") ||
+       (itemA == "Gauze Wrap" && tempType == "Melee") ||
+       (itemA == "Conductor's Baton" && move.sound)) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
@@ -2581,7 +2588,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if (ability1 == "Rule of Cool" && effectiveness < 1) {
+    if ((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -3111,9 +3118,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
         let drain = move.drain;
-        if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
+        if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Vampire" && move.type == "Dark")) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }
@@ -3126,7 +3133,7 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
     if (move.recoil) {
-        if (ability == "Tenacious") return "";
+        if (ability == "Tenacious" || ability == "Direct Combatant") return "";
         let recoilL = (Math.max(Math.floor(l * move.recoil), 1));
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";

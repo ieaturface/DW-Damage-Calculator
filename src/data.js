@@ -84,7 +84,7 @@ var loomians = {
         weight: 171,
         height: 258,
         baseStats: {
-            hp: 125,
+            hp: 115,
             attack: 77,
             defense: 70,
             attackR: 122,
@@ -711,7 +711,7 @@ var loomians = {
         weight: 198,
         height: 53,
         baseStats: {
-            hp: 130,
+            hp: 120,
             attack: 85,
             defense: 90,
             attackR: 105,
@@ -3056,8 +3056,8 @@ var loomians = {
         weight: 16,
         height: 21,
         baseStats: {
-            hp: 58,
-            attack: 93,
+            hp: 63,
+            attack: 98,
             defense: 87,
             attackR: 48,
             defenseR: 68,
@@ -3480,6 +3480,21 @@ var loomians = {
         }
     },
 
+    jestwirl: {
+        name: "Jestwirl",
+        types: ["Basic", "Mind"],
+        weight: 16,
+        height: 41,
+        baseStats: {
+            hp: 90,
+            attack: 80,
+            defense: 90,
+            attackR: 100,
+            defenseR: 90,
+            speed: 100
+        }
+    },
+
     reliconis: {
         name: "Reliconis",
         types: ["Beast", "Spirit"],
@@ -3504,11 +3519,27 @@ var loomians = {
         }
     },
 
+    cranigunk: {
+        name: "Cranigunk",
+        types: ["Poison"],
+        finalEvo: false,
+        weight: 32,
+        height: 24,
+        baseStats: {
+            hp: 55,
+            attack: 60,
+            defense: 70,
+            attackR: 40,
+            defenseR: 40,
+            speed: 50
+        }
+    },
+
     meiolicant: {
         name: "Meiolicant",
         types: ["Poison"],
-        weight: 10,
-        height: 10,
+        weight: 258,
+        height: 73,
         baseStats: {
             hp: 83,
             attack: 110,
@@ -3519,11 +3550,27 @@ var loomians = {
         }
     },
 
+    dodotor: {
+        name: "Dodotor",
+        types: ["Beast", "Air"],
+        finalEvo: false,
+        weight: 23,
+        height: 42,
+        baseStats: {
+            hp: 40,
+            attack: 50,
+            defense: 40,
+            attackR: 50,
+            defenseR: 40,
+            speed: 70
+        }
+    },
+
     velodo: {
         name: "Velodo",
         types: ["Beast", "Air"],
-        weight: 10,
-        height: 10,
+        weight: 197,
+        height: 71,
         baseStats: {
             hp: 80,
             attack: 90,
@@ -3534,11 +3581,27 @@ var loomians = {
         }
     },
 
+    griblo: {
+        name: "Griblo",
+        types: ["Insect", "Beast"],
+        weight: 14,
+        height: 27,
+        finalEvo: false,
+        baseStats: {
+            hp: 30,
+            attack: 25,
+            defense: 30,
+            attackR: 25,
+            defenseR: 30,
+            speed: 25
+        }
+    },
+
     arthopex: {
         name: "Arthopex",
         types: ["Insect", "Beast"],
-        weight: 10,
-        height: 10,
+        weight: 84,
+        height: 86,
         baseStats: {
             hp: 100,
             attack: 100,
@@ -3549,11 +3612,27 @@ var loomians = {
         }
     },
 
+    skitis: {
+        name: "Skitis",
+        types: ["Insect", "Dark"],
+        finalEvo: false,
+        weight: 9,
+        height: 12,
+        baseStats: {
+            hp: 40,
+            attack: 40,
+            defense: 30,
+            attackR: 40,
+            defenseR: 30,
+            speed: 40
+        }
+    },
+
     exoskelis: {
         name: "Exoskelis",
         types: ["Insect", "Dark"],
-        weight: 10,
-        height: 10,
+        weight: 96,
+        height: 58,
         baseStats: {
             hp: 64,
             attack: 84,
@@ -3564,26 +3643,58 @@ var loomians = {
         }
     },
 
+    tasjoney: {
+        name: "Tasjoney",
+        types: ["Beast", "Melee"],
+        finalEvo: false,
+        weight: 20,
+        height: 32,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 40,
+            attackR: 30,
+            defenseR: 40,
+            speed: 55
+        }
+    },
+
     tasmarauder: {
         name: "Tasmarauder",
         types: ["Beast", "Melee"],
-        weight: 10,
-        height: 10,
+        weight: 36,
+        height: 63,
         baseStats: {
             hp: 72,
             attack: 121,
             defense: 73,
             attackR: 40,
-            defenseR: 60,
+            defenseR: 57,
             speed: 99
+        }
+    },
+
+    rheode: {
+        name: "Rheode",
+        types: ["Crystal", "Earth"],
+        finalEvo: false,
+        weight: 154,
+        height: 25,
+        baseStats: {
+            hp: 45,
+            attack: 75,
+            defense: 70,
+            attackR: 20,
+            defenseR: 20,
+            speed: 40
         }
     },
 
     rhinostone: {
         name: "Rhinostone",
         types: ["Crystal", "Earth"],
-        weight: 10,
-        height: 10,
+        weight: 1588,
+        height: 75,
         baseStats: {
             hp: 75,
             attack: 130,
@@ -3594,11 +3705,27 @@ var loomians = {
         }
     },
 
+    prarnaw: {
+        name: "Prarnaw",
+        types: ["Water", "Beast"],
+        finalEvo: false,
+        weight: 15,
+        height: 17,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 30,
+            attackR: 50,
+            defenseR: 30,
+            speed: 50
+        }
+    },
+
     gyornaw: {
         name: "Gyornaw",
         types: ["Water", "Beast"],
-        weight: 10,
-        height: 10,
+        weight: 161,
+        height: 59,
         baseStats: {
             hp: 78,
             attack: 92,
@@ -3606,6 +3733,146 @@ var loomians = {
             attackR: 122,
             defenseR: 83,
             speed: 93
+        }
+    },
+
+    maximutt: {
+        name: "Maximutt",
+        types: ["Basic", "Dark"],
+        finalEvo: false,
+        weight: 5,
+        height: 12,
+        baseStats: {
+            hp: 40,
+            attack: 70,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 50
+        }
+    },
+
+    desdog: {
+        name: "Desdog",
+        types: ["Basic", "Dark"],
+        weight: 14,
+        height: 40,
+        baseStats: {
+            hp: 75,
+            attack: 100,
+            defense: 80,
+            attackR: 60,
+            defenseR: 60,
+            speed: 100
+        }
+    },
+
+    cthuwu: {
+        name: "Cthuwu",
+        types: ["Water", "Dark"],
+        finalEvo: false,
+        weight: 14,
+        height: 16,
+        baseStats: {
+            hp: 45,
+            attack: 35,
+            defense: 60,
+            attackR: 55,
+            defenseR: 45,
+            speed: 40
+        }
+    },
+
+    cruthulhu: {
+        name: "Cruthulhu",
+        types: ["Water", "Dark"],
+        finalEvo: false,
+        weight: 29,
+        height: 50,
+        baseStats: {
+            hp: 65,
+            attack: 55,
+            defense: 80,
+            attackR: 75,
+            defenseR: 65,
+            speed: 50
+        }
+    },
+
+    ctholos: {
+        name: "Ctholos",
+        types: ["Water", "Dark"],
+        weight: 73,
+        height: 68,
+        baseStats: {
+            hp: 85,
+            attack: 75,
+            defense: 100,
+            attackR: 110,
+            defenseR: 75,
+            speed: 55
+        }
+    },
+
+    alptusk: {
+        name: "Alptusk",
+        types: ["Ice"],
+        finalEvo: false,
+        weight: 9,
+        height: 32,
+        baseStats: {
+            hp: 70,
+            attack: 60,
+            defense: 50,
+            attackR: 50,
+            defenseR: 60,
+            speed: 50
+        }
+    },
+
+    mammolten: {
+        name: "Mammolten",
+        types: ["Ice"],
+        weight: 658,
+        height: 87,
+        baseStats: {
+            hp: 80,
+            attack: 100,
+            defense: 80,
+            attackR: 110,
+            defenseR: 80,
+            speed: 85
+        }
+    },
+
+    grom: {
+        name: "Grom",
+        types: ["Dark"],
+        finalEvo: false,
+        weight: 10,
+        height: 14,
+        baseStats: {
+            hp: 30,
+            attack: 25,
+            defense: 30,
+            attackR: 25,
+            defenseR: 30,
+            speed: 25
+        }
+    },
+
+    grimantle: {
+        name: "Grimantle",
+        types: ["Dark", "Poison"],
+        weight: 19,
+        height: 40,
+        baseStats: {
+            hp: 90,
+            attack: 65,
+            defense: 80,
+            attackR: 85,
+            defenseR: 120,
+            speed: 75
         }
     },
 
@@ -3841,8 +4108,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
-        knockOff: true
+        contact: true
     },
 
     swipe: {
@@ -4017,7 +4283,7 @@ var moves = {
     flamesOfGehenna: {
         name: "Flames of Gehenna",
         power: 120,
-        accuracy: 60,
+        accuracy: 50,
         type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -4074,8 +4340,7 @@ var moves = {
         type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense",
-        knockOff: true
+        mr2: "Ranged Defense"
     },
 
     foxfire: {
@@ -4262,7 +4527,7 @@ var moves = {
         name: "Boil Bomb",
         power: 70,
         accuracy: 100,
-        type: "Water",
+        type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
@@ -4659,6 +4924,18 @@ var moves = {
         contact: true,
         bite: true,
         secondaryEffect: true
+    },
+
+    ravenousRush: {
+        name: "Ravenous Rush",
+        power: 40,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true
     },
 
     bite: {
@@ -5143,6 +5420,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    psychoCrush: {
+        name: "Psycho Crush",
+        power: 90,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Earth", modifier: 2 }
     },
 
     mindPower: {
@@ -5984,13 +6272,13 @@ var moves = {
 
     snapFreeze: {
         name: "Snap Freeze",
-        power: 60,
+        power: 80,
         accuracy: 100,
         type: "Ice",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        typeModifier: { type: "Water", modifier: 4 }
+        typeModifier: { type: "Water", modifier: 2 }
     },
 
     chillingChorus: {
@@ -6194,6 +6482,18 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    malletCrush: {
+        name: "Mallet Crush",
+        power: 75,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     choke: {
@@ -7842,6 +8142,16 @@ var amulets = {
         speed: 5,
     },
 
+    'dark brooch': {
+        name: "Dark Brooch",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 12,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'vial of tears': {
         name: "Vial of Tears",
         health: 10,
@@ -8319,7 +8629,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption"];
 
 var typeModAbilities = {
     adipose: {
@@ -8447,7 +8757,7 @@ var typeModAbilities = {
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
-             "Riot Shield"];
+             "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
