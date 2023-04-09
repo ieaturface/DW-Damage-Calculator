@@ -3645,7 +3645,7 @@ var loomians = {
 
     tasjoney: {
         name: "Tasjoney",
-        types: ["Beast", "Melee"],
+        types: ["Beast"],
         finalEvo: false,
         weight: 20,
         height: 32,
