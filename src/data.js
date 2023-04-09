@@ -5490,8 +5490,8 @@ var moves = {
         recoil: 1/4
     },
 
-    boneRush: {
-        name: "Bone Rush",
+    boneClub: {
+        name: "Bone Club",
         power: 95,
         accuracy: 85,
         type: "Melee",
