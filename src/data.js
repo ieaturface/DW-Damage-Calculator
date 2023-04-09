@@ -3820,6 +3820,7 @@ var loomians = {
         finalEvo: false,
         weight: 9,
         height: 32,
+        ability: "Deepfreeze",
         baseStats: {
             hp: 70,
             attack: 60,
@@ -3835,6 +3836,7 @@ var loomians = {
         types: ["Ice"],
         weight: 658,
         height: 87,
+        ability: "Eruption",
         baseStats: {
             hp: 80,
             attack: 100,
@@ -5486,6 +5488,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1/4
+    },
+
+    boneRush: {
+        name: "Bone Rush",
+        power: 95,
+        accuracy: 85,
+        type: "Melee",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     solidCharge: {

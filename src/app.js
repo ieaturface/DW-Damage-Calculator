@@ -2488,7 +2488,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
     }
-    if (ability2 == "Spell Shield" && (move.mr2 == "Ranged Defense" || adaptive.mr2 == "Ranged Defense")) {
+    if (ability2 == "Spell Shield" && (move.mr == "Magic" || adaptive.mr2 == "Ranged Defense")) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
     }
