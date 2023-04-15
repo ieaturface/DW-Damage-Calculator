@@ -2544,16 +2544,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     //Type -------------------------------
 
     if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
-        multi *= 2;
+        if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
+        else multi *= 2;
     }
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
-        multi *= 2;
+        if (ability2 == "Apex" && types2.secondary == "Beast") stuffUsed.ability2 = ability2;
+        else multi *= 2;
     }
     if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
-        multi *= 0.5;
+        if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
+        else multi *= 0.5;
     }
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
-        multi *= 0.5;
+        if (ability2 == "Apex" && types2.secondary == "Beast") stuffUsed.ability2 = ability2;
+        else multi *= 0.5;
     }
     if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
         multi *= 0;

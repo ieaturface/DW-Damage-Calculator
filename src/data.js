@@ -84,7 +84,7 @@ var loomians = {
         weight: 171,
         height: 258,
         baseStats: {
-            hp: 115,
+            hp: 125,
             attack: 77,
             defense: 70,
             attackR: 122,
@@ -711,7 +711,7 @@ var loomians = {
         weight: 198,
         height: 53,
         baseStats: {
-            hp: 120,
+            hp: 130,
             attack: 85,
             defense: 90,
             attackR: 105,
@@ -2633,7 +2633,7 @@ var loomians = {
         types: ["Dark", "Mind"],
         weight: 16,
         height: 43,
-        ability: "Spell Shield",
+        ability: "Elemental Resist",
         item: "Hattrix Rune",
         baseStats: {
             hp: 55,
@@ -2641,7 +2641,7 @@ var loomians = {
             defense: 65,
             attackR: 135,
             defenseR: 105,
-            speed: 105
+            speed: 95
         }
     },
 
@@ -6500,14 +6500,13 @@ var moves = {
 
     malletCrush: {
         name: "Mallet Crush",
-        power: 75,
+        power: 50,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
-        secondaryEffect: true
+        contact: true
     },
 
     choke: {
@@ -7833,6 +7832,14 @@ var moves = {
         mr: "Support"
     },
 
+    insult: {
+        name: "Insult",
+        power: 0,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Support"
+    },
+
     belch: {
         name: "Belch",
         power: 0,
@@ -8643,7 +8650,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex"];
 
 var typeModAbilities = {
     adipose: {
