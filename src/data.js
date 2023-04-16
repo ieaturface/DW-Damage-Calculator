@@ -3878,6 +3878,37 @@ var loomians = {
         }
     },
 
+    scorm: {
+        name: "Scorm",
+        types: ["Crystal"],
+        finalEvo: false,
+        weight: 5,
+        height: 14,
+        baseStats: {
+            hp: 40,
+            attack: 20,
+            defense: 83,
+            attackR: 40,
+            defenseR: 93,
+            speed: 20
+        }
+    },
+
+    jaelect: {
+        name: "Jaelect",
+        types: ["Crystal"],
+        weight: 22,
+        height: 39,
+        baseStats: {
+            hp: 54,
+            attack: 50,
+            defense: 103,
+            attackR: 70,
+            defenseR: 133,
+            speed: 40
+        }
+    },
+
 };
 
 
