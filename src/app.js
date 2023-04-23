@@ -2572,6 +2572,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
+    if (ability1 == "Bird of Prey" && tempType == "Air" && (types2.primary == "Air" || types2.secondary == "Air")) {
+        multi *= 2;
+        stuffUsed.ability1 = ability1;
+    }
     if ((types1.primary == "Food" || types1.secondary == "Food") && seasoned) {
         multi *= 1.3;
         stuffUsed.extra2 += " Seasoned"
@@ -2902,7 +2906,7 @@ function confidenceBoost(loom1, loom2) {
     let totalStats1 = loom1.hp + loom1.attack + loom1.defense + loom1.attackR + loom1.defenseR + loom1.speed;
     let totalStats2 = loom2.hp + loom2.attack + loom2.defense + loom2.attackR + loom2.defenseR + loom2.speed;
 
-    if (totalStats1 < totalStats2) return 1.5;
+    if (totalStats1 < totalStats2) return 1.3;
 
     return 1;
 }

@@ -665,7 +665,7 @@ var loomians = {
         height: 80,
         baseStats: {
             hp: 92,
-            attack: 57,
+            attack: 80,
             defense: 123,
             attackR: 72,
             defenseR: 88,
@@ -1448,6 +1448,23 @@ var loomians = {
             attackR: 100,
             defenseR: 90,
             speed: 45
+        }
+    },
+
+    'mourveil-awakened': {
+        name: "Mourveil-Awakened",
+        types: ["Dark", "Plant"],
+        weight: 22,
+        height: 53,
+        ability: "Spore Armor",
+        item: "Mourveil Rune",
+        baseStats: {
+            hp: 120,
+            attack: 75,
+            defense: 90,
+            attackR: 145,
+            defenseR: 115,
+            speed: 50
         }
     },
 
@@ -2637,11 +2654,11 @@ var loomians = {
         item: "Hattrix Rune",
         baseStats: {
             hp: 55,
-            attack: 80,
+            attack: 85,
             defense: 65,
             attackR: 135,
             defenseR: 105,
-            speed: 95
+            speed: 100
         }
     },
 
@@ -2776,8 +2793,8 @@ var loomians = {
         height: 55,
         baseStats: {
             hp: 75,
-            attack: 80,
-            defense: 90,
+            attack: 90,
+            defense: 80,
             attackR: 65,
             defenseR: 80,
             speed: 111
@@ -3783,8 +3800,8 @@ var loomians = {
         }
     },
 
-    cruthulhu: {
-        name: "Cruthulhu",
+    cruthulu: {
+        name: "Cruthulu",
         types: ["Water", "Dark"],
         finalEvo: false,
         weight: 29,
@@ -5447,7 +5464,7 @@ var moves = {
     recombobulate: {
         name: "Recombobulate",
         power: 60,
-        accuracy: 100,
+        accuracy: 90,
         type: "Mind",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -8681,7 +8698,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey"];
 
 var typeModAbilities = {
     adipose: {
