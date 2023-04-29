@@ -3052,7 +3052,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         }
     }
 
-    if (ability == "Rejuvenator") {
+    if (ability == "Rejuvenator" || item == "Sponge") {
         multi *= 1.25;
     }
 
