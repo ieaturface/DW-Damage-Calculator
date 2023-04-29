@@ -2310,8 +2310,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
-       (ability1 == "Kindling" && stat2 == "burned") ||
-       (ability1 == "Delicate" && tempPower <= 60)) {
+       (ability1 == "Kindling" && stat2 == "burned")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2466,6 +2465,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (tempType == "Dark" && lightOrb.checked && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " with Light Orb";
+    }
+
+    tempPower = pokeRound(tempPower * multi);
+    multi = 1;
+
+    if (ability1 == "Delicate" && tempPower <= 60) {
+        multi *= 1.5;
+        stuffUsed.ability1 = ability1;
     }
 
     tempPower = pokeRound(tempPower * multi);
