@@ -3169,7 +3169,7 @@ function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
         }
         let drainStat = (stat1 == "burned" ? 0.5 : 1);
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);
-        let drainMA = (ability == "Rejuvenator" ? 1.25 : 1); 
+        let drainMA = ((ability == "Rejuvenator" || item == "Sponge") ? 1.25 : 1); 
         let drainL = Math.max(Math.floor(l * drain * drainMI * drainMA * drainStat), 1);
         let drainU = Math.max(Math.floor(u * drain * drainMI * drainMA * drainStat), 1);
         if (ability2 == "Tainted") return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recoil damage)";
