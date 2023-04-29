@@ -262,6 +262,9 @@ let guardian2 = document.getElementById("guardian2");
 let tagTeam1 = document.getElementById("tagTeam1");
 let tagTeam2 = document.getElementById("tagTeam2");
 
+let archmage1 = document.getElementById("archmage1");
+let archmage2 = document.getElementById("archmage2");
+
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
 
@@ -664,6 +667,10 @@ function updateAbility(ability) {
     else sandstorm.checked = false;
     if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
     else lightOrb.checked = false;
+    if (ability1 == "Archmage") archmage1.checked = true;
+    else archmage1.checked = false;
+    if (ability2 == "Archmage") archmage2.checked = true;
+    else archmage2.checked = false;
     update();
 }
 
@@ -779,7 +786,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         nat1Mod1.value = set1.mod1;
         nat2Mod1.value = set1.mod2;
         abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
-        if (firstLoom.ability) abilityDropdown1.value = firstLoom.ability;
+        if (firstLoom.ability) {
+            abilityDropdown1.value = firstLoom.ability;
+            updateAbility(firstLoom.ability);
+        }    
         item1.value = (set1.item == undefined ? "none" : set1.item);
         if (firstLoom.item) item1.value = firstLoom.item;
 
@@ -829,7 +839,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         nat1Mod2.value = set2.mod1;
         nat2Mod2.value = set2.mod2;
         abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
-        if (secondLoom.ability) abilityDropdown2.value = secondLoom.ability;
+        if (secondLoom.ability) {
+            abilityDropdown2.value = secondLoom.ability;
+            updateAbility(secondLoom.ability);
+        }    
         item2.value = (set2.item == undefined ? "none" : set2.item);
         if (secondLoom.item) item2.value = secondLoom.item;
 
@@ -1169,7 +1182,7 @@ function loadStats() {
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
     if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
-    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None")) multi *= 2;
+    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked)) multi *= 2;
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
         multi *= (1 + .25 * owolspeed);
@@ -1192,7 +1205,7 @@ function loadStats() {
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
     if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
-    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None")) multi *= 2;
+    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked)) multi *= 2;
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
         multi *= (1 + .25 * owolspeed);
@@ -1220,7 +1233,7 @@ function loadStats() {
 function calculateEquipment(helmet, amulet, artifact, doodle) {
     let equipment = {health: 0, attack: 0, defense: 0, mAttack: 0, mDefense: 0, speed: 0};
     if (helmet.name == "Marshmellow Fedora") {
-        if (doodle.name == "Partybug") {
+        if (doodle.name == "Partybug" || doodle.name == "Partybug-Awakened") {
             helmet.health = 0;
             helmet.attack = 20;
             helmet.defense = 0;
@@ -2107,6 +2120,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let isDouble = (singleDouble.value == "singles" ? false : true);
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
+    let archmage = (second == false ? archmage2.checked : archmage1.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -2239,6 +2253,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
+    if (ability1 == "Toxicity" && move.mr == "Melee") {
+        tempType = "Poison";
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
     if (ability1 == "Apparition" && move.sound) {
         tempType = "Spirit";
         stuffUsed.ability1 = ability1;
@@ -2291,7 +2310,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
-       (ability1 == "Kindling" && stat2 == "burned")) {
+       (ability1 == "Kindling" && stat2 == "burned") ||
+       (ability1 == "Delicate" && tempPower <= 60)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2399,7 +2419,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability2 == "Courteous" && tempPower >= 100) ||
-        (ability2 == "Pecking Order" && tempPower <= 50)) {
+        (ability2 == "Pecking Order" && tempPower <= 60)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
@@ -2420,7 +2440,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (rain.checked && tempType == "Water") {
-        multi *= 1.5;
+        multi *= 1.25;
         stuffUsed.weather += " in Rain";
     }
     if (rain.checked && tempType == "Fire") {
@@ -2501,6 +2521,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         (itemB == "Cursed Cloak" && move.mr2 == "Ranged Defense")) {
         multi *= 1.5;
         stuffUsed.item2 = itemB;
+    }
+    if (archmage && move.mr2 == "Ranged Defense") {
+        multi *= 1.1;
+        stuffUsed.weather += " through Archmage";
     }
 
     tempDef.def = pokeRound(tempDef.def * multi);
@@ -3126,11 +3150,15 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic")) {
         let drain = move.drain;
         if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Vampire" && move.type == "Dark")) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
+        }
+        if (ability == "The Fungus" && move.mr == "Magic") {
+            if (!drain) drain = 1/4;
+            else drain += 1/4;
         }
         let drainStat = (stat1 == "burned" ? 0.5 : 1);
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);

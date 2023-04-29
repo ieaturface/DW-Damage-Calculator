@@ -470,6 +470,23 @@ var loomians = {
         }
     },
 
+    'partybug-awakened': {
+        name: "Partybug-Awakened",
+        types: ["Mind"],
+        weight: 112,
+        height: 77,
+        ability: "Archmage",
+        item: "Partybug Rune",
+        baseStats: {
+            hp: 65,
+            attack: 87,
+            defense: 100,
+            attackR: 135,
+            defenseR: 80,
+            speed: 86
+        }
+    },
+
     springling: {
         name: "Springling",
         types: ["Plant", "Basic"],
@@ -758,12 +775,29 @@ var loomians = {
         weight: 5,
         height: 20,
         baseStats: {
-            hp: 90,
-            attack: 90,
-            defense: 90,
-            attackR: 90,
-            defenseR: 90,
-            speed: 90
+            hp: 85,
+            attack: 85,
+            defense: 85,
+            attackR: 85,
+            defenseR: 85,
+            speed: 85
+        }
+    },
+
+    'tulenna-awakened': {
+        name: "Tulenna-Awakened",
+        types: ["Plant", "Poison"],
+        weight: 5,
+        height: 20,
+        ability: "Toxicity",
+        item: "Tulenna Rune",
+        baseStats: {
+            hp: 85,
+            attack: 125,
+            defense: 75,
+            attackR: 125,
+            defenseR: 75,
+            speed: 105
         }
     },
 
@@ -1456,13 +1490,13 @@ var loomians = {
         types: ["Dark", "Plant"],
         weight: 22,
         height: 53,
-        ability: "Spore Armor",
+        ability: "The Fungus",
         item: "Mourveil Rune",
         baseStats: {
             hp: 120,
             attack: 75,
-            defense: 90,
-            attackR: 145,
+            defense: 85,
+            attackR: 140,
             defenseR: 115,
             speed: 50
         }
@@ -1836,6 +1870,23 @@ var loomians = {
             attackR: 55,
             defenseR: 85,
             speed: 95
+        }
+    },
+
+    'archopos-awakened': {
+        name: "Archopos-Awakened",
+        types: ["Spirit", "Metal"],
+        weight: 15,
+        height: 67,
+        ability: "Delicate",
+        item: "Archopos Rune",
+        baseStats: {
+            hp: 85,
+            attack: 142,
+            defense: 80,
+            attackR: 73,
+            defenseR: 95,
+            speed: 115
         }
     },
 
@@ -2385,8 +2436,8 @@ var loomians = {
     gigarlic: {
         name: "Gigarlic",
         types: ["Food", "Fire"],
-        weight: 67,
-        height: 216,
+        weight: 216,
+        height: 67,
         baseStats: {
             hp: 100,
             attack: 80,
@@ -3747,7 +3798,7 @@ var loomians = {
             hp: 78,
             attack: 92,
             defense: 60,
-            attackR: 122,
+            attackR: 112,
             defenseR: 83,
             speed: 93
         }
@@ -7999,6 +8050,26 @@ var helmets = {
         speed: 0,
     },
 
+    'decorated hairclip': {
+        name: "Decorated Hairclip",
+        health: 0,
+        attack: 10,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 5,
+    },
+
+    'scuba goggles': {
+        name: "Scuba Goggles",
+        health: 0,
+        attack: 10,
+        defense: -10,
+        mAttack: 10,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'drenched sunhat': {
         name: "Drenched Sunhat",
         health: 0,
@@ -8159,6 +8230,26 @@ var amulets = {
         mAttack: 0,
         mDefense: 0,
         speed: 0,
+    },
+
+    'toxic vial': {
+        name: "Toxic Vial",
+        health: 0,
+        attack: 10,
+        defense: 10,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
+    'geode pendant': {
+        name: "Geode Pendant",
+        health: 4,
+        attack: 4,
+        defense: 4,
+        mAttack: 4,
+        mDefense: 4,
+        speed: -14,
     },
 
     'npc buff': {
@@ -8372,6 +8463,26 @@ var artifacts = {
         mAttack: 0,
         mDefense: 0,
         speed: 0,
+    },
+
+    'chewed up bone': {
+        name: "Chewed Up Bone",
+        health: 0,
+        attack: 15,
+        defense: 0,
+        mAttack: -15,
+        mDefense: 0,
+        speed: 0,
+    },
+
+    'fluffy feather': {
+        name: "Fluffy Feather",
+        health: -5,
+        attack: 0,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 15,
     },
 
     'npc buff': {
@@ -8698,7 +8809,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Moratorium", "Levitate", "Razor Skin", "Crispy", "Viscosity", "Robust", "Ugly", "Refresh", "Snailspeed", "Second Wind", "Dauntless", "Sand Surge", "Spellcaster", "Merciless", "Botulism", "Scarf Down", "Jelly Enhancer", "Poison Precipitation", "Light Orb",
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
-                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey"];
+                 "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
+                 "Toxicity", "Archmage", "Delicate", "The Fungus"];
 
 var typeModAbilities = {
     adipose: {
@@ -8826,7 +8938,7 @@ var typeModAbilities = {
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
-             "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap"];
+             "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
