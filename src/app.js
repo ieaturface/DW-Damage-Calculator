@@ -2529,7 +2529,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (archmage && move.mr2 == "Ranged Defense") {
+    if (archmage && move.mr2 == "Ranged Defense" && ability1 != "Bypass") {
         multi *= 1.1;
         stuffUsed.weather += " through Archmage";
     }
