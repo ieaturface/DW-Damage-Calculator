@@ -643,6 +643,23 @@ var loomians = {
         }
     },
 
+    'tufflaze-awakened': {
+        name: "Tufflaze-Awakened",
+        types: ["Beast", "Fire"],
+        weight: 127,
+        height: 90,
+        ability: "Annihilation",
+        item: "Tufflaze Rune",
+        baseStats: {
+            hp: 95,
+            attack: 140,
+            defense: 80,
+            attackR: 92,
+            defenseR: 88,
+            speed: 115
+        }
+    },
+
     tortles: {
         name: "Tortles",
         types: ["Plant"],
@@ -1150,12 +1167,29 @@ var loomians = {
         weight: 3,
         height: 38,
         baseStats: {
-            hp: 85,
-            attack: 80,
+            hp: 90,
+            attack: 70,
             defense: 80,
             attackR: 140,
-            defenseR: 75,
+            defenseR: 80,
             speed: 35
+        }
+    },
+
+    'maskomedy-awakened': {
+        name: "Maskomedy-Awakened",
+        types: ["Light", "Dark"],
+        weight: 3,
+        height: 38,
+        ability: "Cardinal Sins",
+        item: "Maskomedy Rune",
+        baseStats: {
+            hp: 90,
+            attack: 105,
+            defense: 105,
+            attackR: 150,
+            defenseR: 105,
+            speed: 40
         }
     },
 
@@ -1171,6 +1205,23 @@ var loomians = {
             attackR: 90,
             defenseR: 90,
             speed: 35
+        }
+    },
+
+    'theaterror-awakened': {
+        name: "Theaterror-Awakened",
+        types: ["Dark", "Light"],
+        weight: 5,
+        height: 35,
+        ability: "Spiteful",
+        item: "Theaterror Rune",
+        baseStats: {
+            hp: 90,
+            attack: 105,
+            defense: 150,
+            attackR: 105,
+            defenseR: 105,
+            speed: 40
         }
     },
 
@@ -8810,7 +8861,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful"];
 
 var typeModAbilities = {
     adipose: {

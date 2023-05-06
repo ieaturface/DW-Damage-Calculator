@@ -2144,7 +2144,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Nullify") || 
-       (ability1 == "Bully" && loom1.height > loom2.height)) {
+       (ability1 == "Annihilation")) {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
     }
@@ -2302,7 +2302,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Sand Surge" && sandstorm.checked) ||
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
-       (ability1 == "Chef" && loom2.types.includes("Food"))) {
+       (ability1 == "Chef" && loom2.types.includes("Food")) ||
+       (ability1 == "Spiteful" && countBoosts(boosts2) > 0) ||
+       (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2614,7 +2616,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     effectiveness = multi;
 
-    if (ability1 == "Nullify") {
+    if ((ability1 == "Nullify") ||
+        (ability1 == "Annihilation")) {
         typeModAbility2 = undefined;
     }
 
