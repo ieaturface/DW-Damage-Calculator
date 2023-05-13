@@ -2142,6 +2142,23 @@ var loomians = {
         }
     },
 
+    'voltenchant-awakened': {
+        name: "Voltenchant-Awakened",
+        types: ["Spark"],
+        weight: 34,
+        height: 52,
+        ability: "Downpour",
+        item: "Voltenchant Rune",
+        baseStats: {
+            hp: 90,
+            attack: 111,
+            defense: 89,
+            attackR: 127,
+            defenseR: 98,
+            speed: 79
+        }
+    },
+
     cocosquid: {
         name: "Cocosquid",
         types: ["Water"],
@@ -2667,6 +2684,23 @@ var loomians = {
             attackR: 90,
             defenseR: 100,
             speed: 20
+        }
+    },
+
+    'cerebopod-awakened': {
+        name: "Cerebopod-Awakened",
+        types: ["Mind", "Poison"],
+        weight: 14,
+        height: 17,
+        ability: "Refreshed Resilience",
+        item: "Cerebopod Rune",
+        baseStats: {
+            hp: 80,
+            attack: 80,
+            defense: 100,
+            attackR: 90,
+            defenseR: 120,
+            speed: 55
         }
     },
 
@@ -8861,7 +8895,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience"];
 
 var typeModAbilities = {
     adipose: {

@@ -659,6 +659,8 @@ function updateAbility(ability) {
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
 
+    if (ability1 == "Downpour" || ability2 == "Downpour") rain.checked = true;
+    else rain.checked = false;
     if (ability1 == "Chocolate Drizzle" || ability2 == "Chocolate Drizzle") chocolateRain.checked = true;
     else chocolateRain.checked = false;
     if (ability1 == "Poison Precipitation" || ability2 == "Poison Precipitation") acidRain.checked = true;
@@ -2659,7 +2661,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
     if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
         (ability2 == "Guardian" && immuneBoostCheck2) ||
-        (ability2 == "Resilience" && effectiveness < 1)) {
+        ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
