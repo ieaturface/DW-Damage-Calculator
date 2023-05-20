@@ -824,6 +824,17 @@
                     </div>
                     <div>
                         <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="luminosity1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="luminosity1" title="Is Luminosity currently active?">Luminosity</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="luminosity2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="luminosity2" title="Is Luminosity currently active?">Luminosity</label>
+                        </div>
+                    </div>    
+                    <div>
+                        <div class="left">
                             <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
                             <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="leftBarb0">0</label>
                             <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
