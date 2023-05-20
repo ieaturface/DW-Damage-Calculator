@@ -265,6 +265,9 @@ let tagTeam2 = document.getElementById("tagTeam2");
 let archmage1 = document.getElementById("archmage1");
 let archmage2 = document.getElementById("archmage2");
 
+let luminosity1 = document.getElementById("luminosity1");
+let luminosity2 = document.getElementById("luminosity2");
+
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
 
@@ -669,6 +672,10 @@ function updateAbility(ability) {
     else sandstorm.checked = false;
     if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
     else lightOrb.checked = false;
+    if (ability1 == "Luminosity") luminosity1.checked = true;
+    else luminosity1.checked = false;
+    if (ability2 == "Luminosity") luminosity2.checked = true;
+    else luminosity2.checked = false;
     if (ability1 == "Archmage") archmage1.checked = true;
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
@@ -2123,6 +2130,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
     let archmage = (second == false ? archmage2.checked : archmage1.checked);
+    let luminosity = (second == false ? luminosity1.checked : luminosity2.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -2469,6 +2477,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (tempType == "Dark" && lightOrb.checked && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " with Light Orb";
+    }
+    if (tempType == "Light" && luminosity && withoutSlapDown) {
+        multi *= 1.5;
+        stuffUsed.weather += " with Luminosity";
     }
 
     tempPower = pokeRound(tempPower * multi);

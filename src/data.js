@@ -656,7 +656,7 @@ var loomians = {
             defense: 80,
             attackR: 92,
             defenseR: 88,
-            speed: 115
+            speed: 109
         }
     },
 
@@ -1584,6 +1584,23 @@ var loomians = {
         }
     },
 
+    'grufflin-awakened': {
+        name: "Grufflin-Awakened",
+        types: ["Food", "Air"],
+        weight: 54,
+        height: 32,
+        ability: "Analytical",
+        item: "Grufflin Rune",
+        baseStats: {
+            hp: 80,
+            attack: 110,
+            defense: 80,
+            attackR: 100,
+            defenseR: 90,
+            speed: 100
+        }
+    },
+
     indigoo: {
         name: "Indigoo",
         types: ["Food"],
@@ -1933,7 +1950,7 @@ var loomians = {
         item: "Archopos Rune",
         baseStats: {
             hp: 85,
-            attack: 142,
+            attack: 137,
             defense: 80,
             attackR: 73,
             defenseR: 95,
@@ -2280,6 +2297,23 @@ var loomians = {
             attackR: 125,
             defenseR: 100,
             speed: 50
+        }
+    },
+
+    'somberock-awakened': {
+        name: "Somberock-Awakened",
+        types: ["Food", "Crystal"],
+        weight: 110,
+        height: 84,
+        ability: "Luminosity",
+        item: "Somberock Rune",
+        baseStats: {
+            hp: 85,
+            attack: 103,
+            defense: 101,
+            attackR: 131,
+            defenseR: 105,
+            speed: 75
         }
     },
 
@@ -2786,7 +2820,7 @@ var loomians = {
         types: ["Dark", "Mind"],
         weight: 16,
         height: 43,
-        ability: "Elemental Resist",
+        ability: "Spell Shield",
         item: "Hattrix Rune",
         baseStats: {
             hp: 55,
@@ -4393,8 +4427,8 @@ var moves = {
 
     bodySlam: {
         name: "Body Slam",
-        power: 90,
-        accuracy: 95,
+        power: 85,
+        accuracy: 100,
         type: "Basic",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6195,6 +6229,17 @@ var moves = {
         name: "Crystal Cut",
         power: 80,
         accuracy: 90,
+        type: "Crystal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    jewelJab: {
+        name: "Jewel Jab",
+        power: 60,
+        accuracy: 100,
         type: "Crystal",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -8304,6 +8349,26 @@ var helmets = {
         mDefense: -10,
         speed: 15,
     },
+
+    'aviator helmet': {
+        name: "Aviator Helmet",
+        health: 0,
+        attack: 0,
+        defense: 10,
+        mAttack: 0,
+        mDefense: 3,
+        speed: 0,
+    },
+
+    'tinfoil hat': {
+        name: "Tinfoil Hat",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 10,
+        speed: 5,
+    },
 };
 
 var amulets = {
@@ -8895,7 +8960,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity"];
 
 var typeModAbilities = {
     adipose: {
