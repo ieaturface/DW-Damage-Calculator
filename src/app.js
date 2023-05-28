@@ -1185,8 +1185,10 @@ function loadStats() {
     if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
+    if (archmage1.checked) multi *= 1.1;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
+    if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1208,8 +1210,10 @@ function loadStats() {
     if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
+    if (archmage2.checked) multi *= 1.1;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
+    if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -2129,7 +2133,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let isDouble = (singleDouble.value == "singles" ? false : true);
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
-    let archmage = (second == false ? archmage2.checked : archmage1.checked);
+    let archmageOne = (second == false ? archmage1.checked : archmage2.checked);
+    let archmageTwo = (second == false ? archmage2.checked : archmage1.checked);
     let luminosity = (second == false ? luminosity1.checked : luminosity2.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
@@ -2314,7 +2319,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
        (ability1 == "Chef" && loom2.types.includes("Food")) ||
        (ability1 == "Spiteful" && countBoosts(boosts2) > 0) ||
-       (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
+       (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
+       (ability1 == "Pugilist" && move.punch)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2504,6 +2510,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
         stuffUsed.ability2 = ability2;
     }
+    if (archmageOne && move.mr == "Magic") {
+        multi *= 1.1;
+        stuffUsed.weather += " with Archmage";
+    }
     if ((ability1 == "Trump Card" && stat1 != "healthy" && move.mr == "Melee") ||
         (ability1 == "Dauntless" && stat1 != "healthy" && move.mr == "Magic") ||
         (ability1 == "Bandit" && stats1.hpPercent < 50 && move.mr1 == "Melee Defense")) {
@@ -2545,7 +2555,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (archmage && move.mr2 == "Ranged Defense" && ability1 != "Bypass") {
+    if (archmageTwo && move.mr2 == "Ranged Defense" && ability1 != "Bypass") {
         multi *= 1.1;
         stuffUsed.weather += " through Archmage";
     }

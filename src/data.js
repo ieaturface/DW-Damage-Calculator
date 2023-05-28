@@ -472,7 +472,7 @@ var loomians = {
 
     'partybug-awakened': {
         name: "Partybug-Awakened",
-        types: ["Mind"],
+        types: ["Mind", "Beast"],
         weight: 112,
         height: 77,
         ability: "Archmage",
@@ -543,9 +543,9 @@ var loomians = {
         baseStats: {
             hp: 100,
             attack: 126,
-            defense: 95,
-            attackR: 75,
-            defenseR: 130,
+            defense: 85,
+            attackR: 65,
+            defenseR: 150,
             speed: 53
         }
     },
@@ -1597,7 +1597,7 @@ var loomians = {
             defense: 80,
             attackR: 100,
             defenseR: 90,
-            speed: 100
+            speed: 115
         }
     },
 
@@ -3689,7 +3689,7 @@ var loomians = {
         height: 32,
         ability: "Reformation",
         baseStats: {
-            hp: 60,
+            hp: 70,
             attack: 80,
             defense: 60,
             attackR: 80,
@@ -3697,10 +3697,10 @@ var loomians = {
             speed: 70
         },
         formStats: {
-            hp: 60,
-            attack: 125,
+            hp: 70,
+            attack: 140,
             defense: 80,
-            attackR: 125,
+            attackR: 140,
             defenseR: 80,
             speed: 110
         }
@@ -4093,6 +4093,37 @@ var loomians = {
             attackR: 70,
             defenseR: 133,
             speed: 40
+        }
+    },
+
+    lizzerts: {
+        name: "Lizzerts",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 3,
+        height: 12,
+        baseStats: {
+            hp: 46,
+            attack: 34,
+            defense: 36,
+            attackR: 54,
+            defenseR: 44,
+            speed: 36
+        }
+    },
+
+    hangryphus: {
+        name: "Hangryphus",
+        types: ["Food", "Melee"],
+        weight: 47,
+        height: 60,
+        baseStats: {
+            hp: 74,
+            attack: 111,
+            defense: 73,
+            attackR: 45,
+            defenseR: 88,
+            speed: 96
         }
     },
 
@@ -4606,7 +4637,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        punch: true
     },
 
     ragingBonfire: {
@@ -5118,7 +5150,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        punch: true
     },
 
     cracklingStatic: {
@@ -5844,7 +5877,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        punch: true
     },
 
     lifeEnder: {
@@ -5945,7 +5979,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        punch: true
     },
 
     sugarKiss: {
@@ -6384,6 +6419,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        punch: true
     },
 
     shadowLurk: {
@@ -6601,7 +6637,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        punch: true
     },
 
     quickIce: {
@@ -6906,7 +6943,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        punch: true
     },
 
     venomBite: {
@@ -8960,7 +8998,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist"];
 
 var typeModAbilities = {
     adipose: {
