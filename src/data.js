@@ -4127,6 +4127,84 @@ var loomians = {
         }
     },
 
+    foresatl: {
+        name: "Foresatl",
+        types: ["Plant", "Beast"],
+        finalEvo: false,
+        weight: 5,
+        height: 40,
+        baseStats: {
+            hp: 70,
+            attack: 45,
+            defense: 35,
+            attackR: 65,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    feracoatl: {
+        name: "Feracoatl",
+        types: ["Plant", "Beast"],
+        weight: 63,
+        height: 100,
+        baseStats: {
+            hp: 106,
+            attack: 78,
+            defense: 63,
+            attackR: 128,
+            defenseR: 93,
+            speed: 50
+        }
+    },
+
+    cinderling: {
+        name: "Cinderling",
+        types: ["Fire", "Air"],
+        finalEvo: false,
+        weight: 11,
+        height: 20,
+        baseStats: {
+            hp: 45,
+            attack: 50,
+            defense: 30,
+            attackR: 65,
+            defenseR: 30,
+            speed: 80
+        }
+    },
+
+    volcidian: {
+        name: "Volcidian",
+        types: ["Fire", "Air"],
+        finalEvo: false,
+        weight: 14,
+        height: 37,
+        baseStats: {
+            hp: 55,
+            attack: 70,
+            defense: 50,
+            attackR: 85,
+            defenseR: 50,
+            speed: 110
+        }
+    },
+
+    wyvernal: {
+        name: "Wyvernal",
+        types: ["Fire", "Air"],
+        weight: 46,
+        height: 71,
+        baseStats: {
+            hp: 68,
+            attack: 92,
+            defense: 65,
+            attackR: 110,
+            defenseR: 75,
+            speed: 125
+        }
+    },
+
 };
 
 
@@ -8998,7 +9076,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious"];
 
 var typeModAbilities = {
     adipose: {
