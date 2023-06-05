@@ -4573,7 +4573,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        sound: true
+        sound: true,
+        aoe: true
     },
 
     hyperScream: {
@@ -4785,7 +4786,8 @@ var moves = {
         type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     theFlood: {
@@ -4818,7 +4820,8 @@ var moves = {
         type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     sirenSong: {
@@ -4872,7 +4875,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     capsize: {
@@ -5617,7 +5621,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     shellCrash: {
@@ -5705,7 +5710,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     shatter: {
@@ -6429,7 +6435,8 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         slash: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     mineralCannon: {
@@ -6571,7 +6578,8 @@ var moves = {
         type: "Spirit",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     vagueVortex: {
@@ -6953,7 +6961,8 @@ var moves = {
         type: "Poison",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     sulfurPlume: {
