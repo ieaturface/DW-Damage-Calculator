@@ -1179,6 +1179,7 @@ function loadStats() {
 
     statHP1.innerHTML = hp1;
     if (ability1 == "Hidden Strength") multi *= 2;
+    if (firstItem == "Enchanted Ruby") multi *= 1.5;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
@@ -1186,6 +1187,7 @@ function loadStats() {
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
     if (archmage1.checked) multi *= 1.1;
+    if (firstItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
     if (archmage1.checked) multi *= 1.1;
@@ -1199,11 +1201,13 @@ function loadStats() {
         multi *= (1 + .25 * owolspeed);
     }
     if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.5;
+    if (firstItem == "Enchanted Emerald") multi *= 1.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
 
     statHP2.innerHTML = hp2;
     if (ability2 == "Hidden Strength") multi *= 2;
+    if (secondItem == "Enchanted Ruby") multi *= 1.5;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
@@ -1211,6 +1215,7 @@ function loadStats() {
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
     if (archmage2.checked) multi *= 1.1;
+    if (secondItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
     if (archmage2.checked) multi *= 1.1;
@@ -1224,6 +1229,7 @@ function loadStats() {
         multi *= (1 + .25 * owolspeed);
     }
     if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.5;
+    if (secondItem == "Enchanted Emerald") multi *= 1.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
 
@@ -2320,7 +2326,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Chef" && loom2.types.includes("Food")) ||
        (ability1 == "Spiteful" && countBoosts(boosts2) > 0) ||
        (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
-       (ability1 == "Pugilist" && move.punch)) {
+       (ability1 == "Pugilist" && move.punch) ||
+       (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
+       (ability1 == "Rain Power" && (chocolateRain.checked || rain.checked || acidRain.checked))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2524,7 +2532,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability1 = ability1
     }
-    if (itemA == "Cursed Cloak" && move.mr1 == "Ranged Defense") {
+    if ((itemA == "Cursed Cloak" && move.mr1 == "Ranged Defense") ||
+        (itemA == "Enchanted Sapphire" && move.mr == "Magic") ||
+        (itemA == "Enchanted Ruby" && move.mr == "Melee")) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
     }

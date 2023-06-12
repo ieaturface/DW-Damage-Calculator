@@ -239,7 +239,7 @@ var loomians = {
         types: ["Metal", "Poison"],
         weight: 18,
         height: 34,
-        ability: "Levitate",
+        ability: "Unbreakable",
         item: "Mawthra Rune",
         baseStats: {
             hp: 70,
@@ -1482,10 +1482,10 @@ var loomians = {
         item: "Cryotera Rune",
         baseStats: {
             hp: 60,
-            attack: 110,
-            defense: 90,
-            attackR: 110,
-            defenseR: 90,
+            attack: 115,
+            defense: 85,
+            attackR: 115,
+            defenseR: 85,
             speed: 130
         }
     },
@@ -3244,11 +3244,11 @@ var loomians = {
         height: 21,
         baseStats: {
             hp: 63,
-            attack: 98,
+            attack: 108,
             defense: 87,
             attackR: 48,
             defenseR: 68,
-            speed: 83
+            speed: 93
         }
     },
 
@@ -3453,6 +3453,130 @@ var loomians = {
             attackR: 77,
             defenseR: 77,
             speed: 72
+        }
+    },
+
+    hippop: {
+        name: "Hippop",
+        types: ["Water", "Earth"],
+        finalEvo: false,
+        weight: 91,
+        height: 28,
+        baseStats: {
+            hp: 80,
+            attack: 60,
+            defense: 60,
+            attackR: 65,
+            defenseR: 60,
+            speed: 20
+        }
+    },
+
+    bubbull: {
+        name: "Bubbull",
+        types: ["Water", "Earth"],
+        weight: 1806,
+        height: 92,
+        baseStats: {
+            hp: 95,
+            attack: 105,
+            defense: 93,
+            attackR: 95,
+            defenseR: 79,
+            speed: 55
+        }
+    },
+
+    skoplet: {
+        name: "Skoplet",
+        types: ["Water", "Insect"],
+        finalEvo: false,
+        weight: 9,
+        height: 22,
+        baseStats: {
+            hp: 40,
+            attack: 40,
+            defense: 35,
+            attackR: 70,
+            defenseR: 50,
+            speed: 50
+        }
+    },
+
+    libelagua: {
+        name: "Libelagua",
+        types: ["Water", "Insect"],
+        weight: 20,
+        height: 30,
+        baseStats: {
+            hp: 63,
+            attack: 80,
+            defense: 65,
+            attackR: 90,
+            defenseR: 65,
+            speed: 120
+        }
+    },
+
+    prophant: {
+        name: "Prophant",
+        types: ["Mind", "Light"],
+        finalEvo: false,
+        weight: 23,
+        height: 33,
+        baseStats: {
+            hp: 70,
+            attack: 20,
+            defense: 30,
+            attackR: 80,
+            defenseR: 70,
+            speed: 65
+        }
+    },
+
+    elefortune: {
+        name: "Elefortune",
+        types: ["Mind", "Light"],
+        weight: 23,
+        height: 33,
+        baseStats: {
+            hp: 101,
+            attack: 51,
+            defense: 62,
+            attackR: 113,
+            defenseR: 124,
+            speed: 90
+        }
+    },
+
+    auron: {
+        name: "Auron",
+        types: ["Fire", "Metal"],
+        finalEvo: false,
+        weight: 40,
+        height: 33,
+        baseStats: {
+            hp: 60,
+            attack: 65,
+            defense: 70,
+            attackR: 60,
+            defenseR: 40,
+            speed: 60
+        }
+    },
+
+    bronzoch: {
+        name: "Bronzoch",
+        types: ["Fire", "Metal"],
+        weight: 312,
+        height: 66,
+        baseStats: {
+            hp: 90,
+            attack: 100,
+            defense: 100,
+            attackR: 80,
+            defenseR: 60,
+            speed: 100
         }
     },
 
@@ -4118,12 +4242,12 @@ var loomians = {
         weight: 47,
         height: 60,
         baseStats: {
-            hp: 74,
-            attack: 111,
+            hp: 84,
+            attack: 101,
             defense: 73,
             attackR: 45,
             defenseR: 88,
-            speed: 96
+            speed: 91
         }
     },
 
@@ -4431,7 +4555,7 @@ var moves = {
 
     disarm: {
         name: "Disarm",
-        power: 40,
+        power: 60,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -4773,6 +4897,16 @@ var moves = {
         name: "Tsunami Drop",
         power: -1,
         accuracy: 100,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
+    aquaCannon: {
+        name: "Aqua Cannon",
+        power: 140,
+        accuracy: 90,
         type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -9085,7 +9219,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Insatiable Greed", "Splintered Shards", "Confidence", "Foam Guard", "Caliginous", "Dust Dash", "Dust Storm", "Sand Screen", "Tar Body", "Crude", "Oil Spill", "Antivenom", "Berry Good", "Seed Defense", "Sugar Coating", "Entangle", "Guardian",
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
-                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious"];
+                 "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
+                 "Burning Body", "Brainwash", "Bubble Blaster"];
 
 var typeModAbilities = {
     adipose: {
@@ -9213,7 +9348,8 @@ var typeModAbilities = {
 var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery", "Grease", "Determination Headband", "Champion Belt", "Speed Jelly", "Strength Jelly", "Cure Jelly", "Magical Jelly", "Defensive Jelly", "Determination Jelly", "Heal Jelly",
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
-             "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge"];
+             "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
+             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -9226,4 +9362,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Made damage calculations more accurate to what they are in game.";
+var changelog = "Balance Changes + some Oasis Doodles.";
