@@ -2783,7 +2783,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.915;
     }
 
-    dmg = Math.floor(dmg * multi);
+    dmg = (dmg * multi);
     multi = 1;
 
     
