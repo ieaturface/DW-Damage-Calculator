@@ -1966,11 +1966,11 @@ var loomians = {
         height: 14,
         baseStats: {
             hp: 50,
-            attack: 60,
+            attack: 40,
             defense: 40,
             attackR: 60,
             defenseR: 40,
-            speed: 65
+            speed: 85
         }
     },
 
@@ -9180,7 +9180,7 @@ var types = {
 
     melee: {
         weaknesses: ["air", "food", "mind"],
-        resistances: ["insect", "beast"],
+        resistances: ["insect", "beast", "ice"],
         immunities: [],
         otherName: "martial"
     },
