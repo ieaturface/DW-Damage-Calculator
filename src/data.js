@@ -1364,6 +1364,23 @@ var loomians = {
         }
     },
 
+    'cacmeow-awakened': {
+        name: "Cacmeow-Awakened",
+        types: ["Plant", "Earth"],
+        weight: 9,
+        height: 30,
+        ability: "Vicious",
+        item: "Cacmeow Rune",
+        baseStats: {
+            hp: 90,
+            attack: 115,
+            defense: 85,
+            attackR: 100,
+            defenseR: 85,
+            speed: 115
+        }
+    },
+
     needling: {
         name: "Needling",
         types: ["Plant"],
@@ -1918,10 +1935,10 @@ var loomians = {
         height: 40,
         baseStats: {
             hp: 55,
-            attack: 51,
-            defense: 40,
-            attackR: 78,
-            defenseR: 40,
+            attack: 71,
+            defense: 50,
+            attackR: 41,
+            defenseR: 50,
             speed: 85
         }
     },
@@ -3580,6 +3597,53 @@ var loomians = {
         }
     },
 
+    allicute: {
+        name: "Allicute",
+        types: ["Spark", "Metal"],
+        finalEvo: false,
+        weight: 50,
+        height: 25,
+        baseStats: {
+            hp: 65,
+            attack: 40,
+            defense: 55,
+            attackR: 65,
+            defenseR: 50,
+            speed: 30
+        }
+    },
+
+    gaductor: {
+        name: "Gaductor",
+        types: ["Spark", "Metal"],
+        finalEvo: false,
+        weight: 82,
+        height: 40,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 75,
+            attackR: 85,
+            defenseR: 70,
+            speed: 50
+        }
+    },
+
+    montor: {
+        name: "Montor",
+        types: ["Spark", "Metal"],
+        weight: 254,
+        height: 71,
+        baseStats: {
+            hp: 91,
+            attack: 78,
+            defense: 97,
+            attackR: 113,
+            defenseR: 101,
+            speed: 58
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -4703,8 +4767,8 @@ var moves = {
 
     hyperScream: {
         name: "Hyper Scream",
-        power: 130,
-        accuracy: 85,
+        power: 110,
+        accuracy: 80,
         type: "Basic",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -7808,6 +7872,14 @@ var moves = {
         mr: "Support"
     },
 
+    magnetRise: {
+        name: "Magnet Rise",
+        power: 0,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Support"
+    },
+
     callOfTheWild: {
         name: "Call of the Wild",
         power: 0,
@@ -9220,7 +9292,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge"];
 
 var typeModAbilities = {
     adipose: {
@@ -9349,7 +9421,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
-             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald"];
+             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");

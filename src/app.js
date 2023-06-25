@@ -607,7 +607,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -615,7 +615,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -2336,7 +2336,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
-       (ability1 == "Kindling" && stat2 == "burned")) {
+       (ability1 == "Kindling" && stat2 == "burned") ||
+       (ability1 == "Battery Charge" && immuneBoostCheck1 && tempType == "Spark")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2403,7 +2404,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Studded Fang" && tempType == "Mythic") ||
        (itemA == "Questionable Sludge" && tempType == "Poison") ||
        (itemA == "Gauze Wrap" && tempType == "Melee") ||
-       (itemA == "Conductor's Baton" && move.sound)) {
+       (itemA == "Conductor's Baton" && move.sound) ||
+       (itemA == "Spirit Jar" && tempType == "Spirit")) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
     }
