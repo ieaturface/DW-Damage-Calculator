@@ -538,7 +538,7 @@ var loomians = {
         types: ["Basic", "Water"],
         weight: 157,
         height: 42,
-        ability: "Water Absorb",
+        ability: "Extinguisher",
         item: "Groato Rune",
         baseStats: {
             hp: 100,
@@ -3554,15 +3554,15 @@ var loomians = {
     elefortune: {
         name: "Elefortune",
         types: ["Mind", "Light"],
-        weight: 23,
-        height: 33,
+        weight: 242,
+        height: 52,
         baseStats: {
             hp: 101,
             attack: 51,
             defense: 62,
-            attackR: 113,
-            defenseR: 124,
-            speed: 90
+            attackR: 107,
+            defenseR: 120,
+            speed: 80
         }
     },
 
@@ -4337,12 +4337,12 @@ var loomians = {
         weight: 63,
         height: 100,
         baseStats: {
-            hp: 106,
-            attack: 78,
-            defense: 63,
+            hp: 86,
+            attack: 88,
+            defense: 83,
             attackR: 128,
-            defenseR: 93,
-            speed: 50
+            defenseR: 83,
+            speed: 93
         }
     },
 
@@ -9292,7 +9292,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm"];
 
 var typeModAbilities = {
     adipose: {

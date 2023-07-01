@@ -732,9 +732,9 @@ function updateLevel() {
     if (levelCheck.value == "Level 5") {
         level1.value = 5;
         level2.value = 5;
-    } else if (levelCheck.value == "Level 44") {
-        level1.value = 44;
-        level2.value = 44;
+    } else if (levelCheck.value == "Level 47") {
+        level1.value = 47;
+        level2.value = 47;
     } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
         level2.value = 50;
@@ -2668,6 +2668,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) {
         multi *= 2;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability1 == "Overwhelm" && effectiveness > 1) {
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
 
