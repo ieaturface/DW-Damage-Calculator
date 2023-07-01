@@ -5088,6 +5088,18 @@ var moves = {
         contact: true
     },
 
+    hydraulicCrash: {
+        name: "Hydraulic Crash",
+        power: 120,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        recoil: 1/3
+    },
+
     tidalSlam: {
         name: "Tidal Slam",
         power: 100,
