@@ -3870,6 +3870,21 @@ var loomians = {
         }
     },
 
+    infurnius: {
+        name: "Infurnius",
+        types: ["Fire", "Light"],
+        weight: 286,
+        height: 118,
+        baseStats: {
+            hp: 110,
+            attack: 90,
+            defense: 80,
+            attackR: 115,
+            defenseR: 80,
+            speed: 85
+        }
+    },
+
     reliconis: {
         name: "Reliconis",
         types: ["Beast", "Spirit"],
@@ -7007,6 +7022,16 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    fatalFlaw: {
+        name: "Fatal Flaw",
+        power: 75,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
     nightNight: {
         name: "Night Night",
         power: 70,
@@ -9304,7 +9329,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios"];
 
 var typeModAbilities = {
     adipose: {

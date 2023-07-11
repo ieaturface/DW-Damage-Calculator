@@ -303,6 +303,9 @@ let tempAbility2;
 let tempGender2;
 let equipment2;
 
+let trueStats1;
+let trueStats2;
+
 let darkMode = document.getElementById("darkMode");
 $(document).ready(load);
 
@@ -607,7 +610,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -615,7 +618,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1129,6 +1132,8 @@ function loadStats() {
     let negNat2 = document.getElementById("negNat2").value;
     let starSpd1 = (spdStar1.checked ? 6 : stars1.value);
     let starSpd2 = (spdStar2.checked ? 6 : stars2.value);
+    trueStats1 = {atk: 0, def: 0, atkR: 0, defR: 0, spd: 0};
+    trueStats2 = {atk: 0, def: 0, atkR: 0, defR: 0, spd: 0};
 
     let wasMaxHP1 = (currentHP1.value == hp1 ? true : false);
     let wasMaxHP2 = (currentHP2.value == hp2 ? true : false);
@@ -1178,22 +1183,28 @@ function loadStats() {
     let multi = 1;
 
     statHP1.innerHTML = hp1;
+    trueStats1.hp = hp1;
+    trueStats1.atk = atk1;
     if (ability1 == "Hidden Strength") multi *= 2;
     if (firstItem == "Enchanted Ruby") multi *= 1.5;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
     multi = 1;
+    trueStats1.def = def1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
     if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     multi = 1;
+    trueStats1.atkR = atkR1;
     if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
+    trueStats1.defR = defR1;
     if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
+    trueStats1.spd = spd1;
     if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
     else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked)) multi *= 2;
     else if (ability1 == "Owolspeed") {
@@ -1206,22 +1217,28 @@ function loadStats() {
     multi = 1;
 
     statHP2.innerHTML = hp2;
+    trueStats2.hp = hp2;
+    trueStats2.atk = atk2;
     if (ability2 == "Hidden Strength") multi *= 2;
     if (secondItem == "Enchanted Ruby") multi *= 1.5;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
     multi = 1;
+    trueStats2.def = def2;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
     if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     multi = 1;
+    trueStats2.atkR = atkR2;
     if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
+    trueStats2.defR = defR2;
     if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
+    trueStats2.spd = spd2;
     if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
     else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked)) multi *= 2;
     else if (ability2 == "Owolspeed") {
@@ -1558,6 +1575,8 @@ function detailedReport() {
     let halfIce = halfIce2.checked;
     barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
     let barb = barbs[1];
+    let stats1 = trueStats1;
+    let stats2 = trueStats2;
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -1610,6 +1629,8 @@ function detailedReport() {
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
+        stats1 = trueStats2;
+        stats2 = trueStats1;
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
@@ -1626,6 +1647,8 @@ function detailedReport() {
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
+        stats1 = trueStats2;
+        stats2 = trueStats1;
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
@@ -1642,6 +1665,8 @@ function detailedReport() {
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
+        stats1 = trueStats2;
+        stats2 = trueStats1;
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
@@ -1658,6 +1683,8 @@ function detailedReport() {
         ice = iceTrap1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
+        stats1 = trueStats2;
+        stats2 = trueStats1;
     }
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
@@ -1670,10 +1697,10 @@ function detailedReport() {
     let counter = 0;
     let adaptive = { mr: "", mr1: "", mr2: ""};
     let atkDef;
-    if (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack){
+    if (move.name == "Fatal Flaw" && secondLoom.baseStats.defense > secondLoom.baseStats.defenseR){
         adaptive.mr = "Magical";
         adaptive.mr1 = "Ranged Attack";
-        adaptive.mr2 = "Ranged Defense";
+        adaptive.mr2 = "Melee Defense";
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
@@ -1802,6 +1829,22 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "Atk";           
         } 
     }
+    else if (move.mr2 == "Melee Defense" || (move.name == "Fatal Flaw" && stats2.defR > stats2.def)) {
+        if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 > 0)) {
+            defPlus = "+";
+        }
+        //Negatives
+        if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 < 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 < 0)) {
+            defPlus = "-";
+        }
+        //Used Stat
+        if (second) {
+            tempDef = tempDef + defEV1.value + " " + defPlus + "Def";
+        }
+        else {
+            tempDef = tempDef + defEV2.value + " " + defPlus + "Def";           
+        } 
+    }
     else if (move.mr2 == "Ranged Defense" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
         if ((atkDef.defense.posNat == "mDefense" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "mDefense" && atkDef.defense.mod2 > 0)) {
             defPlus = "+";
@@ -1816,22 +1859,6 @@ function detailedReport() {
         }
         else {
             tempDef = tempDef + defREV2.value + " " + defPlus + "MDef";           
-        } 
-    }
-    else if (move.mr2 == "Melee Defense") {
-        if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 > 0)) {
-            defPlus = "+";
-        }
-        //Negatives
-        if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 < 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 < 0)) {
-            defPlus = "-";
-        }
-        //Used Stat
-        if (second) {
-            tempDef = tempDef + defEV1.value + " " + defPlus + "Def";
-        }
-        else {
-            tempDef = tempDef + defEV2.value + " " + defPlus + "Def";           
         } 
     }
     else if (move.mr2 == "Speed") {
@@ -2110,16 +2137,22 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let stats2;
     let boosts1;
     let boosts2;
+    let theStats1;
+    let theStats2;
     if (second) {
         stats1 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
         boosts1 = [atkStages2.value, defStages2.value, atkRStages2.value, defRStages2.value, spdStages2.value];
         stats2 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
         boosts2 = [atkStages1.value, defStages1.value, atkRStages1.value, defRStages1.value, spdStages1.value];
+        theStats1 = trueStats2;
+        theStats2 = trueStats1;
     } else {
         stats1 = {stars: stars1.value, atk: statAtk1.innerHTML, def: statDef1.innerHTML, atkR: statAtkR1.innerHTML, defR: statDefR1.innerHTML, spd: statSpd1.innerHTML, hpPercent: percentHP1.value, totalHP: totalHP1.innerHTML};
         boosts1 = [atkStages1.value, defStages1.value, atkRStages1.value, defRStages1.value, spdStages1.value];
         stats2 = {stars: stars2.value, atk: statAtk2.innerHTML, def: statDef2.innerHTML, atkR: statAtkR2.innerHTML, defR: statDefR2.innerHTML, spd: statSpd2.innerHTML, hpPercent: percentHP2.value, totalHP: totalHP2.innerHTML};
         boosts2 = [atkStages2.value, defStages2.value, atkRStages2.value, defRStages2.value, spdStages2.value];
+        theStats1 = trueStats1;
+        theStats2 = trueStats2;
     }
     let ability1 = (second == false ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let ability2 = (second == false ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -2150,7 +2183,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
     let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
 
-    tempStats = getTempAtkDef(second, move);
+    if (move.name == "Fatal Flaw") {
+        if (theStats2.defR > theStats2.def) {
+            adaptive.mr = "Magic";
+            adaptive.mr1 = "Ranged Attack";
+            adaptive.mr2 = "Melee Defense";
+        } else {
+            adaptive.mr = "Magic";
+            adaptive.mr1 = "Ranged Attack";
+            adaptive.mr2 = "Ranged Defense";
+        }
+        tempStats = getTempAtkDef(second, adaptive);
+    } else tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
@@ -2337,7 +2381,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
        (ability1 == "Kindling" && stat2 == "burned") ||
-       (ability1 == "Battery Charge" && immuneBoostCheck1 && tempType == "Spark")) {
+       (ability1 == "Battery Charge" && immuneBoostCheck1 && tempType == "Spark") ||
+       (ability1 == "High Value Target" && immuneBoostCheck1)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2641,7 +2686,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
-    if (ability1 == "Bird of Prey" && tempType == "Air" && (types2.primary == "Air" || types2.secondary == "Air")) {
+    if ((ability1 == "Bird of Prey" && tempType == "Air" && loom2.types.includes("Air")) ||
+        (ability1 == "Helios" && tempType == "Fire" && loom2.types.includes("Earth"))) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -2651,6 +2697,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     effectiveness = multi;
+    if (move.name == "Pursuit") {
+        multi = 1;
+        effectiveness = 1;
+    }
 
     if ((ability1 == "Nullify") ||
         (ability1 == "Annihilation")) {
