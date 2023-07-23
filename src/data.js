@@ -1887,7 +1887,7 @@ var loomians = {
         weight: 48,
         height: 48,
         baseStats: {
-            hp: 95,
+            hp: 105,
             attack: 63,
             defense: 80,
             attackR: 95,
@@ -3698,7 +3698,7 @@ var loomians = {
         baseStats: {
             hp: 130,
             attack: 120,
-            defense: 80,
+            defense: 90,
             attackR: 90,
             defenseR: 80,
             speed: 40
@@ -3892,15 +3892,15 @@ var loomians = {
         height: 32,
         ability: "Reformation",
         baseStats: {
-            hp: 70,
+            hp: 80,
             attack: 80,
             defense: 60,
             attackR: 80,
             defenseR: 60,
-            speed: 70
+            speed: 80
         },
         formStats: {
-            hp: 70,
+            hp: 80,
             attack: 140,
             defense: 80,
             attackR: 140,
@@ -4801,6 +4801,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    solarFlare: {
+        name: "Solar Flare",
+        power: 130,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        aoe: true
     },
 
     flameRattle: {
@@ -6519,7 +6530,7 @@ var moves = {
 
     crystalStorm: {
         name: "Crystal Storm",
-        power: 120,
+        power: 100,
         accuracy: 85,
         type: "Crystal",
         mr: "Magic",
@@ -9329,7 +9340,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion"];
 
 var typeModAbilities = {
     adipose: {
