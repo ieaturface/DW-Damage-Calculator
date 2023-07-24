@@ -2651,6 +2651,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     else if (isStab(types1, { type: tempType })) {
         multi *= 1.5;
     }
+    else if (ability1 == "Harlequin") {
+        multi *= 1.25;
+        stuffUsed.ability1 = ability1;
+    }
 
     dmg = Math.floor(dmg * multi);
     multi = 1;
