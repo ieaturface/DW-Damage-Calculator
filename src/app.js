@@ -2367,12 +2367,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Sand Surge" && sandstorm.checked) ||
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
-       (ability1 == "Chef" && loom2.types.includes("Food")) ||
+       (ability1 == "Chef" && (loom2.types.includes("Food") || chocolateRain.checked)) ||
        (ability1 == "Spiteful" && countBoosts(boosts2) > 0) ||
        (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
        (ability1 == "Pugilist" && move.punch) ||
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
-       (ability1 == "Rain Power" && (chocolateRain.checked || rain.checked || acidRain.checked))) {
+       (ability1 == "Rain Power" && rain.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -2523,7 +2523,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.25;
         stuffUsed.weather += " in Acid Rain";
     }
-    if (chocolateRain.checked && tempType == "Food") {
+    if (chocolateRain.checked && (tempType == "Food" || tempType == "Water")) {
         multi *= 1.25;
         stuffUsed.weather += " in Chocolate Rain";
     }
@@ -3206,7 +3206,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             }
         }
         if (chocolateRain.checked) {
-            newHP -= Math.floor(hp1 * 1 / 12 * multi);
+            newHP -= Math.floor(hp1 * 1 / 16 * multi);
             hazardString += "chocolate rain recovery and ";
         }
 
