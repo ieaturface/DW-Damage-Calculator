@@ -9528,4 +9528,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Bubbull.";
+var changelog = "Added Awakened Bubbull and Marking Shot.";
