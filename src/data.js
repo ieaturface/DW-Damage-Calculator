@@ -4797,6 +4797,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    markingShot: {
+        name: "Marking Shot",
+        power: 40,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     hyperVoice: {
         name: "Hyper Voice",
         power: 90,
