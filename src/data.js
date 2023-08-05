@@ -1896,6 +1896,23 @@ var loomians = {
         }
     },
 
+    'skadean-awakened': {
+        name: "Skadean-Awakened",
+        types: ["Water", "Ice"],
+        ability: "Sea Goddess Disciple",
+        item: "Skadean Rune",
+        weight: 48,
+        height: 48,
+        baseStats: {
+            hp: 105,
+            attack: 98,
+            defense: 110,
+            attackR: 100,
+            defenseR: 110,
+            speed: 80
+        }
+    },
+
     lilbulb: {
         name: "Lilbulb",
         types: ["Light"],
@@ -3661,6 +3678,37 @@ var loomians = {
         }
     },
 
+    dizipore: {
+        name: "Dizipore",
+        types: ["Mind", "Plant"],
+        finalEvo: false,
+        weight: 10,
+        height: 13,
+        baseStats: {
+            hp: 60,
+            attack: 25,
+            defense: 60,
+            attackR: 60,
+            defenseR: 60,
+            speed: 50
+        }
+    },
+
+    hypnotl: {
+        name: "Hypnotl",
+        types: ["Mind", "Plant"],
+        weight: 38,
+        height: 49,
+        baseStats: {
+            hp: 85,
+            attack: 75,
+            defense: 85,
+            attackR: 80,
+            defenseR: 85,
+            speed: 90
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -3849,7 +3897,7 @@ var loomians = {
         height: 114,
         baseStats: {
             hp: 85,
-            attack: 115,
+            attack: 105,
             defense: 70,
             attackR: 95,
             defenseR: 90,
@@ -3893,7 +3941,7 @@ var loomians = {
         weight: 286,
         height: 118,
         baseStats: {
-            hp: 110,
+            hp: 100,
             attack: 90,
             defense: 80,
             attackR: 115,
@@ -5647,13 +5695,14 @@ var moves = {
 
     ferociousOnslaught: {
         name: "Ferocious Onslaught",
-        power: 70,
+        power: 30,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        hits: 4
     },
 
     airStrike: {
@@ -5716,7 +5765,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        priority: true
+        priority: true,
+        contact: true
     },
 
     peck: {
@@ -7936,6 +7986,14 @@ var moves = {
         mr: "Support"
     },
 
+    armillaria: {
+        name: "Armillaria",
+        power: 0,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Support"
+    },
+
     energized: {
         name: "Energized",
         power: 0,
@@ -9380,7 +9438,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple"];
 
 var typeModAbilities = {
     adipose: {
@@ -9508,6 +9566,12 @@ var typeModAbilities = {
         typeModifier: { type: "Ice", modifier: 0 },
         powerMod: false
     },
+
+    puffball: {
+        name: "Puffball",
+        typeModifier: { type: "Air", modifier: 0.25 },
+        powerMod: false
+    },
     
 }
 
@@ -9528,4 +9592,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Bubbull and Marking Shot.";
+var changelog = "Added Awakened Skadean and Hypnotl line.";
