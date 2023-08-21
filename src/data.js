@@ -2287,6 +2287,23 @@ var loomians = {
         }
     },
 
+    'malotrick-awakened': {
+        name: "Malotrick-Awakened",
+        types: ["Dark", "Mind"],
+        weight: 91,
+        height: 96,
+        ability: "Gaseous Form",
+        item: "Malotrick Rune",
+        baseStats: {
+            hp: 65,
+            attack: 140,
+            defense: 70,
+            attackR: 140,
+            defenseR: 90,
+            speed: 75
+        }
+    },
+
     grimsugar: {
         name: "Grimsugar",
         types: ["Food", "Dark"],
@@ -3706,6 +3723,37 @@ var loomians = {
             attackR: 80,
             defenseR: 85,
             speed: 90
+        }
+    },
+
+    sobbuoy: {
+        name: "Sobbuoy",
+        types: ["Water", "Melee"],
+        finalEvo: false,
+        weight: 18,
+        height: 24,
+        baseStats: {
+            hp: 45,
+            attack: 60,
+            defense: 45,
+            attackR: 30,
+            defenseR: 50,
+            speed: 60
+        }
+    },
+
+    vigimante: {
+        name: "Vigimante",
+        types: ["Water", "Melee"],
+        weight: 157,
+        height: 42,
+        baseStats: {
+            hp: 78,
+            attack: 95,
+            defense: 80,
+            attackR: 50,
+            defenseR: 75,
+            speed: 105
         }
     },
 
@@ -5725,6 +5773,16 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    gust: {
+        name: "Gust",
+        power: 40,
+        accuracy: 100,
+        type: "Air",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     aeroStorm: {
@@ -7866,8 +7924,8 @@ var moves = {
         mr: "Support"
     },
 
-    aquajel: {
-        name: "Aquajel",
+    aquagel: {
+        name: "Aquagel",
         power: 0,
         accuracy: 100,
         type: "Water",
@@ -9438,7 +9496,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness"];
 
 var typeModAbilities = {
     adipose: {
@@ -9572,6 +9630,12 @@ var typeModAbilities = {
         typeModifier: { type: "Air", modifier: 0.25 },
         powerMod: false
     },
+
+    secretDarkness: {
+        name: "Secret Darkness",
+        typeModifier: { type: "Dark", modifier: 1.5 },
+        powerMod: true
+    },
     
 }
 
@@ -9592,4 +9656,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Skadean and Hypnotl line.";
+var changelog = "Added Awakened Malotrick and Vigimante line.";

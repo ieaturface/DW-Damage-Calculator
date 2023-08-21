@@ -2801,7 +2801,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.extra2 += " Vulnerable";
     }
-    if (ability2 == "Sand Screen" && sandstorm.checked) {
+    if ((ability2 == "Sand Screen" && sandstorm.checked) ||
+        (ability2 == "Gaseous Form" && move.contact)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
