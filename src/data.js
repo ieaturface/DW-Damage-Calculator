@@ -3745,8 +3745,8 @@ var loomians = {
     vigimante: {
         name: "Vigimante",
         types: ["Water", "Melee"],
-        weight: 157,
-        height: 42,
+        weight: 36,
+        height: 49,
         baseStats: {
             hp: 78,
             attack: 95,
@@ -3754,6 +3754,99 @@ var loomians = {
             attackR: 50,
             defenseR: 75,
             speed: 105
+        }
+    },
+
+    gauzli: {
+        name: "Gauzli",
+        types: ["Mind"],
+        finalEvo: false,
+        weight: 1,
+        height: 5,
+        baseStats: {
+            hp: 75,
+            attack: 30,
+            defense: 45,
+            attackR: 40,
+            defenseR: 50,
+            speed: 60
+        }
+    },
+
+    ribbotl: {
+        name: "Ribbotl",
+        types: ["Mind"],
+        weight: 2,
+        height: 24,
+        baseStats: {
+            hp: 125,
+            attack: 55,
+            defense: 75,
+            attackR: 90,
+            defenseR: 80,
+            speed: 50
+        }
+    },
+
+    sizzlrimp: {
+        name: "Sizzlrimp",
+        types: ["Fire", "Water"],
+        finalEvo: false,
+        weight: 2,
+        height: 8,
+        baseStats: {
+            hp: 45,
+            attack: 82,
+            defense: 60,
+            attackR: 50,
+            defenseR: 35,
+            speed: 35
+        }
+    },
+
+    mantiscald: {
+        name: "Mantiscald",
+        types: ["Fire", "Water"],
+        weight: 2,
+        height: 8,
+        baseStats: {
+            hp: 60,
+            attack: 115,
+            defense: 80,
+            attackR: 95,
+            defenseR: 60,
+            speed: 60
+        }
+    },
+
+    tyki: {
+        name: "Tyki",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 7,
+        height: 14,
+        baseStats: {
+            hp: 60,
+            attack: 50,
+            defense: 30,
+            attackR: 50,
+            defenseR: 30,
+            speed: 75
+        }
+    },
+
+    umaisho: {
+        name: "Umaisho",
+        types: ["Food"],
+        weight: 22,
+        height: 61,
+        baseStats: {
+            hp: 105,
+            attack: 82,
+            defense: 73,
+            attackR: 77,
+            defenseR: 82,
+            speed: 64
         }
     },
 
@@ -5248,6 +5341,19 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    boilingBullet: {
+        name: "Boiling Bullet",
+        power: 65,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        punch: true,
+        secondaryEffect: true
     },
 
     hydraulicCrash: {
@@ -9496,7 +9602,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Owolspeed", "The Flock", "Divine Beast", "Vocalist", "Trickster", "Misery Guard", "Nimbostratus", "Skyborn", "Nihil", "Alacrity", "Turbulent", "Resolve", "Desert Body", "Ferocity", "Tenacious", "Vigor", "Elegance", "Bandit", "Outboxer", "Bulwark",
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
-                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness"];
+                 "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
+                 "Hammer Claw"];
 
 var typeModAbilities = {
     adipose: {
@@ -9636,6 +9743,12 @@ var typeModAbilities = {
         typeModifier: { type: "Dark", modifier: 1.5 },
         powerMod: true
     },
+
+    basicCare: {
+        name: "Basic Care",
+        typeModifier: { type: "Basic", modifier: 0 },
+        powerMod: false
+    },
     
 }
 
@@ -9656,4 +9769,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Malotrick and Vigimante line.";
+var changelog = "Added new fishing Doodle lines.";
