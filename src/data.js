@@ -4635,6 +4635,7 @@ var loomians = {
         name: "Trilosect",
         types: ["Insect"],
         finalEvo: false,
+        trait: "Enfeeble"
         weight: 11,
         height: 18,
         baseStats: {
@@ -4651,6 +4652,7 @@ var loomians = {
         name: "Trilagid",
         types: ["Insect", "Ice"],
         finalEvo: false,
+        trait: "Enfeeble"
         weight: 20,
         height: 32,
         baseStats: {
@@ -4668,6 +4670,7 @@ var loomians = {
         types: ["Insect", "Ice"],
         weight: 38,
         height: 60,
+        trait: "Enfeeble"
         baseStats: {
             hp: 75,
             attack: 150,
