@@ -394,11 +394,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -450,7 +450,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -626,6 +626,18 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost2.checked = false;
     }
 
+    if (abilityDropdown1.value == "Mental Momentum" || abilityDropdown1.value == "Chanting") repeating1.style.display = "inline";
+    else {
+        repeating1.style.display = "none";
+        repeating1.value = 1;
+    }
+
+    if (abilityDropdown2.value == "Mental Momentum" || abilityDropdown2.value == "Chanting") repeating2.style.display = "inline";
+    else {
+        repeating2.style.display = "none";
+        repeating2.value = 1;
+    }
+
     if (status1.value == "diseased") {
         diseased1.style.visibility = "visible";
     } else {
@@ -638,6 +650,21 @@ function update(updatePower = false, updateBaseStats = false) {
         diseased2.style.visibility = "hidden";
         diseased2.value = "1/16";
     }
+}
+
+function updateGender(gender) {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+
+    if (gender = "gender1" && firstLoom.name == "Staligant-Awakened") {
+        if (gender1.value == "Female") abilityDropdown1.value = "Mental Momentum"; 
+        else abilityDropdown1.value = "Mental Depletion";
+    
+    } else if (gender = "gender2" && secondLoom.name == "Staligant-Awakened") {
+        if (gender2.value == "Female") abilityDropdown2.value = "Mental Momentum";
+        else abilityDropdown2.value = "Mental Depletion";
+    }
+    update();
 }
 
 function updateItem(item) {
@@ -683,6 +710,7 @@ function updateAbility(ability) {
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
     else archmage2.checked = false;
+
     update();
 }
 
@@ -716,13 +744,7 @@ $(".moveSelect").change(function() {
 
 $(".trait").change(function() {
     let trait = $(this).val();
-    let traitGroupObj = $(this).parent();
-    if (trait == "Chanting") {
-        traitGroupObj.children(".repeating").show();
-    } else {
-        traitGroupObj.children(".repeating").hide();
-        traitGroupObj.children(".repeating").val(0);
-    }    
+    let traitGroupObj = $(this).parent();    
     if (trait == "Owolspeed" || trait == "The Flock") {
         traitGroupObj.children(".owol").show();
     } else {
@@ -2372,14 +2394,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
        (ability1 == "Pugilist" && move.punch) ||
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
-       (ability1 == "Rain Power" && rain.checked)) {
+       (ability1 == "Rain Power" && rain.checked) ||
+       (ability1 == "Savage" && !isStab(types1, { type: tempType }))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
-       (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
        (ability1 == "Kindling" && stat2 == "burned") ||
        (ability1 == "Battery Charge" && immuneBoostCheck1 && tempType == "Spark") ||
        (ability1 == "High Value Target" && immuneBoostCheck1)) {
@@ -2416,7 +2438,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             multi *= chanting;
         }
         stuffUsed.ability1 = ability1;
-        stuffUsed.extra1 += " (" + tempPower * chanting + " BP)";
+        stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
+    }
+
+    if (ability1 == "Mental Momentum" && tempType == "Mind") {
+        let chanting = Math.min((1 + 0.1 * (repeat - 1)), 2);
+        multi *= chanting;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
     }
 
     if (ability1 == "Courteous" && tempPower >= 100) {
@@ -2800,6 +2829,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (stat2 == "vulnerable") {
         multi *= 1.5;
         stuffUsed.extra2 += " Vulnerable";
+    }
+    if (ability1 == "Enfeeble" && stats1.hpPercent < 50) {
+        multi *= 0.5;
+        stuffUsed.ability1 = ability1;
     }
     if ((ability2 == "Sand Screen" && sandstorm.checked) ||
         (ability2 == "Gaseous Form" && move.contact)) {

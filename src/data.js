@@ -1852,7 +1852,7 @@ var loomians = {
 
     staligant: {
         name: "Staligant",
-        types: ["Crystal", "Mind"],
+        types: ["Mind", "Crystal"],
         weight: 86,
         height: 54,
         baseStats: {
@@ -1862,6 +1862,23 @@ var loomians = {
             attackR: 66,
             defenseR: 71,
             speed: 95
+        }
+    },
+
+    'staligant-awakened': {
+        name: "Staligant-Awakened",
+        types: ["Mind", "Crystal"],
+        weight: 86,
+        height: 54,
+        ability: "Mental Depletion",
+        item: "Staligant Rune",
+        baseStats: {
+            hp: 63,
+            attack: 120,
+            defense: 98,
+            attackR: 120,
+            defenseR: 98,
+            speed: 101
         }
     },
 
@@ -4611,6 +4628,84 @@ var loomians = {
             attackR: 110,
             defenseR: 75,
             speed: 125
+        }
+    },
+
+    trilosect: {
+        name: "Trilosect",
+        types: ["Insect"],
+        finalEvo: false,
+        weight: 11,
+        height: 18,
+        baseStats: {
+            hp: 40,
+            attack: 100,
+            defense: 40,
+            attackR: 40,
+            defenseR: 40,
+            speed: 45
+        }
+    },
+
+    trilagid: {
+        name: "Trilagid",
+        types: ["Insect", "Ice"],
+        finalEvo: false,
+        weight: 20,
+        height: 32,
+        baseStats: {
+            hp: 55,
+            attack: 125,
+            defense: 55,
+            attackR: 55,
+            defenseR: 55,
+            speed: 60
+        }
+    },
+
+    glacigash: {
+        name: "Glacigash",
+        types: ["Insect", "Ice"],
+        weight: 38,
+        height: 60,
+        baseStats: {
+            hp: 75,
+            attack: 150,
+            defense: 75,
+            attackR: 75,
+            defenseR: 75,
+            speed: 85
+        }
+    },
+
+    squinana: {
+        name: "Squinana",
+        types: ["Plant", "Food"],
+        finalEvo: false,
+        weight: 8,
+        height: 14,
+        baseStats: {
+            hp: 45,
+            attack: 50,
+            defense: 30,
+            attackR: 65,
+            defenseR: 30,
+            speed: 80
+        }
+    },
+
+    banautilus: {
+        name: "Banautilus",
+        types: ["Plant", "Food"],
+        weight: 38,
+        height: 37,
+        baseStats: {
+            hp: 62,
+            attack: 40,
+            defense: 110,
+            attackR: 40,
+            defenseR: 110,
+            speed: 45
         }
     },
 
@@ -8638,6 +8733,14 @@ var moves = {
         mr: "Support"
     },
 
+    absoluteZero: {
+        name: "Absolute Zero",
+        power: 0,
+        accuracy: 80,
+        type: "Ice",
+        mr: "Support"
+    },
+
     shadowStep: {
         name: "Shadowstep",
         power: 0,
@@ -9603,7 +9706,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
-                 "Hammer Claw"];
+                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble"];
 
 var typeModAbilities = {
     adipose: {
@@ -9769,4 +9872,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added new fishing Doodle lines.";
+var changelog = "Added Awakened Staligant and 2 new Runic Doodles.";
