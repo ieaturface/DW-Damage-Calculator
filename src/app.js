@@ -656,11 +656,11 @@ function updateGender(gender) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
 
-    if (gender = "gender1" && firstLoom.name == "Staligant-Awakened") {
+    if (gender == "gender1" && firstLoom.name == "Staligant-Awakened") {
         if (gender1.value == "Female") abilityDropdown1.value = "Mental Momentum"; 
         else abilityDropdown1.value = "Mental Depletion";
     
-    } else if (gender = "gender2" && secondLoom.name == "Staligant-Awakened") {
+    } else if (gender == "gender2" && secondLoom.name == "Staligant-Awakened") {
         if (gender2.value == "Female") abilityDropdown2.value = "Mental Momentum";
         else abilityDropdown2.value = "Mental Depletion";
     }
