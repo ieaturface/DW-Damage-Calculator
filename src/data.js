@@ -1748,15 +1748,15 @@ var loomians = {
         types: ["Insect", "Crystal"],
         weight: 63,
         height: 67,
-        ability: "Accelerate",
+        ability: "Speed of Swag",
         item: "Spectatik Rune",
         baseStats: {
             hp: 100,
             attack: 125,
             defense: 135,
-            attackR: 65,
+            attackR: 75,
             defenseR: 90,
-            speed: 80
+            speed: 70
         }
     },
 
@@ -9820,7 +9820,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
-                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox"];
+                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag"];
 
 var typeModAbilities = {
     adipose: {
@@ -9986,4 +9986,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Oasis Part 2 update.";
+var changelog = "Spectatik-A emergency nerf.";
