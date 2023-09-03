@@ -451,16 +451,11 @@ function load() {
 function saveCookie() {
     let json = JSON.stringify(sets);
     let encoded = pako.deflate(json, { to: "string" });
-    let seenChangelongCookie = getCookie("changelog1").substring(11);
+
     localStorage.setItem("setData", btoa(encoded));
 
-    if (seenChangelongCookie != "true") {
-        document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-        document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
-    } else {
-        document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-        document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
-    }    
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
