@@ -1743,6 +1743,23 @@ var loomians = {
         }
     },
 
+    'spectatik-awakened': {
+        name: "Spectatik-Awakened",
+        types: ["Insect", "Crystal"],
+        weight: 63,
+        height: 67,
+        ability: "Accelerate",
+        item: "Spectatik Rune",
+        baseStats: {
+            hp: 100,
+            attack: 125,
+            defense: 135,
+            attackR: 65,
+            defenseR: 90,
+            speed: 80
+        }
+    },
+
     louis: {
         name: "Louis",
         types: ["Basic"],
@@ -3867,6 +3884,84 @@ var loomians = {
         }
     },
 
+    parabite: {
+        name: "Parabite",
+        types: ["Water", "Dark"],
+        finalEvo: false,
+        weight: 3,
+        height: 2,
+        baseStats: {
+            hp: 45,
+            attack: 80,
+            defense: 35,
+            attackR: 60,
+            defenseR: 45,
+            speed: 50
+        }
+    },
+
+    lurkelid: {
+        name: "Lurkelid",
+        types: ["Water", "Dark"],
+        weight: 34,
+        height: 44,
+        baseStats: {
+            hp: 59,
+            attack: 100,
+            defense: 58,
+            attackR: 95,
+            defenseR: 68,
+            speed: 110
+        }
+    },
+
+    pubu: {
+        name: "Pubu",
+        types: ["Dark"],
+        finalEvo: false,
+        weight: 24,
+        height: 28,
+        baseStats: {
+            hp: 49,
+            attack: 56,
+            defense: 49,
+            attackR: 56,
+            defenseR: 49,
+            speed: 49
+        }
+    },
+
+    lobol: {
+        name: "Lobol",
+        types: ["Dark"],
+        finalEvo: false,
+        weight: 36,
+        height: 41,
+        baseStats: {
+            hp: 66,
+            attack: 69,
+            defense: 66,
+            attackR: 69,
+            defenseR: 66,
+            speed: 66
+        }
+    },
+
+    irikil: {
+        name: "Irikil",
+        types: ["Dark"],
+        weight: 60,
+        height: 63,
+        baseStats: {
+            hp: 86,
+            attack: 101,
+            defense: 81,
+            attackR: 101,
+            defenseR: 81,
+            speed: 85
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -3955,6 +4050,21 @@ var loomians = {
             attackR: 100,
             defenseR: 90,
             speed: 58
+        }
+    },
+
+    zerzura: {
+        name: "Zerzura",
+        types: ["Water", "Air"],
+        weight: 46,
+        height: 92,
+        baseStats: {
+            hp: 100,
+            attack: 75,
+            defense: 99,
+            attackR: 108,
+            defenseR: 91,
+            speed: 85
         }
     },
 
@@ -4703,11 +4813,11 @@ var loomians = {
         weight: 38,
         height: 37,
         baseStats: {
-            hp: 62,
-            attack: 40,
-            defense: 110,
-            attackR: 40,
-            defenseR: 110,
+            hp: 72,
+            attack: 50,
+            defense: 115,
+            attackR: 50,
+            defenseR: 115,
             speed: 45
         }
     },
@@ -5339,6 +5449,16 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         aoe: true
+    },
+
+    tearsOfSorrow: {
+        name: "Tears of Sorrow",
+        power: 120,
+        accuracy: 75,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     theFlood: {
@@ -7448,6 +7568,17 @@ var moves = {
         contact: true
     },
 
+    expectorate: {
+        name: "Expectorate",
+        power: 90,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
     malletCrush: {
         name: "Mallet Crush",
         power: 50,
@@ -8967,16 +9098,6 @@ var helmets = {
         speed: -3,
     },
 
-    'npc buff': {
-        name: "NPC Buff",
-        health: 8,
-        attack: 8,
-        defense: 8,
-        mAttack: 8,
-        mDefense: 8,
-        speed: 8,
-    },
-
     'smoldering hood': {
         name: "Smoldering Hood",
         health: -6,
@@ -9147,16 +9268,6 @@ var amulets = {
         mAttack: 4,
         mDefense: 4,
         speed: -14,
-    },
-
-    'npc buff': {
-        name: "NPC Buff",
-        health: 8,
-        attack: 8,
-        defense: 8,
-        mAttack: 8,
-        mDefense: 8,
-        speed: 8,
     },
 
     'swag juice': {
@@ -9362,6 +9473,16 @@ var artifacts = {
         speed: 0,
     },
 
+    'pure tear': {
+        name: "Pure Tear",
+        health: 15,
+        attack: 0,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'chewed up bone': {
         name: "Chewed Up Bone",
         health: 0,
@@ -9380,16 +9501,6 @@ var artifacts = {
         mAttack: 0,
         mDefense: 0,
         speed: 15,
-    },
-
-    'npc buff': {
-        name: "NPC Buff",
-        health: 8,
-        attack: 8,
-        defense: 8,
-        mAttack: 8,
-        mDefense: 8,
-        speed: 8,
     },
 
     'oakwood staff': {
@@ -9709,7 +9820,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
-                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble"];
+                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox"];
 
 var typeModAbilities = {
     adipose: {
@@ -9875,4 +9986,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Staligant and 2 new Runic Doodles.";
+var changelog = "Oasis Part 2 update.";

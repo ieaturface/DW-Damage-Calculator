@@ -253,6 +253,9 @@ let quicksand2 = document.getElementById("quicksand2");
 let buzzolen1 = document.getElementById("buzzolen1");
 let buzzolen2 = document.getElementById("buzzolen2");
 
+let sorrow1 = document.getElementById("sorrow1");
+let sorrow2 = document.getElementById("sorrow2");
+
 let softWater1 = document.getElementById("softWater1");
 let softWater2 = document.getElementById("softWater2");
 
@@ -394,11 +397,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -450,7 +453,7 @@ function saveCookie() {
     let encoded = pako.deflate(json, { to: "string" });
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -757,12 +760,12 @@ function updateLevel() {
     if (levelCheck.value == "Level 5") {
         level1.value = 5;
         level2.value = 5;
-    } else if (levelCheck.value == "Level 47") {
-        level1.value = 47;
-        level2.value = 47;
     } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
         level2.value = 50;
+    } else if (levelCheck.value == "Level 52") {
+        level1.value = 52;
+        level2.value = 52;
     } else {
         level1.value = 100;
         level2.value = 100;
@@ -2404,7 +2407,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        (ability1 == "Kindling" && stat2 == "burned") ||
        (ability1 == "Battery Charge" && immuneBoostCheck1 && tempType == "Spark") ||
-       (ability1 == "High Value Target" && immuneBoostCheck1)) {
+       (ability1 == "High Value Target" && immuneBoostCheck1) ||
+       (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -2835,7 +2839,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
     if ((ability2 == "Sand Screen" && sandstorm.checked) ||
-        (ability2 == "Gaseous Form" && move.contact)) {
+        (ability2 == "Gaseous Form" && move.contact) ||
+        (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -3145,6 +3150,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let pestilence = pestilence2.checked;
     let quicksand = quicksand2.checked;
     let buzzolen = buzzolen2.checked;
+    let sorrow = sorrow2.checked;
     let softWater = softWater2.checked;
     let disease = diseased2.value;
     let hazardString = "";
@@ -3159,6 +3165,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         pestilence = pestilence1.checked;
         quicksand = quicksand1.checked;
         buzzolen = buzzolen1.checked;
+        sorrow = sorrow1.checked;
         softWater = softWater1.checked;
         disease = diseased1.value;
     }
@@ -3217,6 +3224,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "gehenna damage and ";
     }
 
+    if (sorrow) {
+        newHP += Math.floor(hp1 * 1 / 12);
+        hazardString += "sorrow damage and ";
+    }
+
     if (!OHKO) {
         if (!loom1.types.includes("Plant") && sap.attacker == true) {
             newHP -= Math.floor(hp2 * 1 / 10 * multi);
@@ -3246,6 +3258,17 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
         if (sandstorm.checked && ability == "Desert Body") {
             newHP -= Math.floor(hp1 * 1 / 10);
+            hazardString += "Desert Body recovery and ";
+        }
+
+        if (status == "poisoned" && ability == "Detox") {
+            newHP -= Math.floor(hp1 * 1 / 8);
+            hazardString += "Detox recovery and ";
+        }
+
+        if (status == "diseased" && ability == "Detox") {
+            newHP -= Math.floor(hp1 * (disease + counter) / 16);
+            hazardString += "Detox recovery and "
         }
     }
     
@@ -3262,16 +3285,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "acid rain damage and ";
     }
 
-    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body") {
+    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body" && ability != "Oasis Deity") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "sandstorm damage and ";
     }
 
-    if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal")) {
+    if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
-    if(status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal")) {
+    if(status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
         newHP += Math.floor(hp1 * (disease + counter) / 16);
         hazardString += "disease damage and ";
     }
@@ -3289,9 +3312,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || (ability == "Hirudotherapy" && move.bite)) {
         let drain = move.drain;
-        if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Vampire" && move.type == "Dark")) {
+        if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Vampire" && move.type == "Dark") || (ability == "Hirudotherapy" && move.bite)) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }
