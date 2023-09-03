@@ -4922,7 +4922,7 @@ var moves = {
 
     quickStrike: {
         name: "Quick Strike",
-        power: 50,
+        power: 40,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -6141,7 +6141,7 @@ var moves = {
 
     jetStrike: {
         name: "Jet Strike",
-        power: 50,
+        power: 40,
         accuracy: 100,
         type: "Air",
         mr: "Melee",
