@@ -189,6 +189,9 @@ let lightOrb = document.getElementById("lightOrb");
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
 
+let pylon1 = document.getElementById("pylon1");
+let pylon2 = document.getElementById("pylon2");
+
 let halfIce1 = document.getElementById("halfIce1");
 let halfStyle1 = document.getElementById("halfStyle1");
 let halfIce2 = document.getElementById("halfIce2");
@@ -397,11 +400,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -454,8 +457,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -615,7 +618,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -623,7 +626,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1060,6 +1063,10 @@ function loadBaseStats(side) {
             baseAtkR1.value = firstLoom.baseStats.defenseR;
             baseDefR1.value = firstLoom.baseStats.attackR;
         }
+        /*if (ability1 == "Sand Swap" && sandstorm.checked) {
+            baseAtk1.value = firstLoom.baseStats.defense;
+            baseDef1.value = firstLoom.baseStats.attack;
+        }*/
     }
     if (side == 2 || side == undefined) {
         baseHP2.value = secondLoom.baseStats.hp;
@@ -1085,6 +1092,10 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.attack;
             baseAtkR2.value = secondLoom.baseStats.defenseR;
             baseDefR2.value = secondLoom.baseStats.attackR;
+        }
+        if (ability2 == "Sand Swap" && sandstorm.checked) {
+            baseAtk2.value = secondLoom.baseStats.defense;
+            baseDef2.value = secondLoom.baseStats.attack;
         }
     }
 }
@@ -1181,7 +1192,7 @@ function loadStats() {
     atkR2 = calculateStat(baseAtkR2.value, equipment2.mAttack, level2.value, stars2.value, undefined, posNat2, negNat2, "AttackR", nat1Mod2.value, nat2Mod2.value);
     defR2 = calculateStat(baseDefR2.value, equipment2.mDefense, level2.value, stars2.value, undefined, posNat2, negNat2, "DefenseR", nat1Mod2.value, nat2Mod2.value);
     spd2 = calculateStat(baseSpd2.value, equipment2.speed, level2.value, starSpd2, undefined, posNat2, negNat2, "Speed", nat1Mod2.value, nat2Mod2.value);
-    
+
     if (firstLoomian && firstLoomian != firstLoom) {
         atkStages1.value = "--";
         defStages1.value = "--";
@@ -1212,14 +1223,17 @@ function loadStats() {
     statHP1.innerHTML = hp1;
     trueStats1.hp = hp1;
     trueStats1.atk = atk1;
+    if (archmage1.checked) multi *= 1.1;
     if (ability1 == "Hidden Strength") multi *= 2;
     if (firstItem == "Enchanted Ruby") multi *= 1.5;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
+    let swapAtk1 = Math.floor(atk1 * multi);
     multi = 1;
     trueStats1.def = def1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
     if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
+    let swapDef1 = Math.floor(def1 * multi);
     multi = 1;
     trueStats1.atkR = atkR1;
     if (archmage1.checked) multi *= 1.1;
@@ -1227,7 +1241,6 @@ function loadStats() {
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
     trueStats1.defR = defR1;
-    if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1242,18 +1255,25 @@ function loadStats() {
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
+    if (ability1 == "Sand Swap" && sandstorm.checked) {
+        statAtk1.innerHTML = swapDef1;
+        statDef1.innerHTML = swapAtk1;
+    }
 
     statHP2.innerHTML = hp2;
     trueStats2.hp = hp2;
     trueStats2.atk = atk2;
+    if (archmage2.checked) multi *= 1.1;
     if (ability2 == "Hidden Strength") multi *= 2;
     if (secondItem == "Enchanted Ruby") multi *= 1.5;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
+    let swapAtk2 = Math.floor(atk2 * multi);
     multi = 1;
     trueStats2.def = def2;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
     if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
+    let swapDef2 = Math.floor(def2 * multi);
     multi = 1;
     trueStats2.atkR = atkR2;
     if (archmage2.checked) multi *= 1.1;
@@ -1261,7 +1281,6 @@ function loadStats() {
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
     trueStats2.defR = defR2;
-    if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -1276,6 +1295,10 @@ function loadStats() {
     if (secondItem == "Enchanted Emerald") multi *= 1.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
+    if (ability2 == "Sand Swap" && sandstorm.checked) {
+        statAtk2.innerHTML = swapDef2;
+        statDef2.innerHTML = swapAtk2;
+    }
 
     hpEV1.value = equipment1.health;
     atkEV1.value = equipment1.attack;
@@ -1599,6 +1622,7 @@ function detailedReport() {
     let level = level1.value;
     let hp;
     let ice = iceTrap2.checked;
+    let pylons = pylon2.checked;
     let halfIce = halfIce2.checked;
     barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
     let barb = barbs[1];
@@ -1654,6 +1678,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        pylons = pylon1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
         stats1 = trueStats2;
@@ -1672,6 +1697,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        pylons = pylon1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
         stats1 = trueStats2;
@@ -1690,6 +1716,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        pylons = pylon1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
         stats1 = trueStats2;
@@ -1708,6 +1735,7 @@ function detailedReport() {
         secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
         level = level2.value;
         ice = iceTrap1.checked;
+        pylons = pylon1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
         stats1 = trueStats2;
@@ -1951,9 +1979,10 @@ function detailedReport() {
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
     let addedDmg = 0;
+    let pylonDmg = 0;
 
     if (ice) {
-        addedDmg = Math.floor(.125 * hp) / maxHP * 100;
+        addedDmg = 10;
         /*if (halfIce) addedDmg = 6.25;
 
         if (types[secondLoom.types[0].toLowerCase()].weaknesses.includes("ice")) {
@@ -1975,6 +2004,10 @@ function detailedReport() {
         if (secondLoom.types.includes("Ice")) {
             addedDmg *= 0
         }*/
+    }
+
+    if (pylons) {
+        addedDmg += getMultiplier(firstLoom, secondLoom, findMove("Shock"), movePower, crit, repeat, hits, elemental, swarm, false, level, undefined, second, true, true, undefined, undefined, undefined, true) / maxHP * 100;
     }
 
     if (barb > 0 && !secondLoom.levitate) {
@@ -2141,7 +2174,7 @@ function isStab(userTypes, move) {
     return false;
 }
 
-function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, hitConfirmer = false, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false, foulHit = false, shardSurge = false) {
+function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, hitConfirmer = false, level, ul = false, second = false, detailed = false, withoutSlapDown = true, takeSecondaryType = false, foulHit = false, shardSurge = false, pylons = false) {
     if (move.power == 0 && detailed) return [0];
     if (move.power == 0) return 0;
 
@@ -2206,9 +2239,27 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
     let adaptive = { mr: "", mr1: "", mr2: ""};
+    let bees = (second == false ? iceTrap2.checked : iceTrap1.checked);
+    let pylon = (second == false ? pylon2.checked : pylon1.checked);
+    if (pylons) pylon = false;
 
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
     let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
+
+    if (pylons) {
+        ability1 = "None";
+        itemA = "None";
+        tempPower = 40;
+    }
+
+    if (loom1.name == "Mammolten" && ability1 == "Eruption" && immuneBoostCheck1) {
+        types1.secondary = "Fire";
+        stuffUsed.ability1 = ability1;
+    }
+    if (loom2.name == "Mammolten" && ability2 == "Eruption" && immuneBoostCheck2) {
+        types2.secondary = "Fire";
+        stuffUsed.ability2 = ability2;
+    }
 
     if (move.name == "Fatal Flaw") {
         if (theStats2.defR > theStats2.def) {
@@ -2224,6 +2275,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     } else tempStats = getTempAtkDef(second, move);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
+
+    if (pylons) {
+        tempAtk.atk = calculateStat(80, 0, tempDef.level, tempDef.stars, undefined, "none", "none", "None", tempAtk.mod1, tempAtk.mod2);
+        level = tempDef.level;
+    }    
 
     if (move.name == "Tsunami Drop" || move.name == "Body Throw") {
         tempPower = getTripRootPower(loom2.weight);
@@ -2350,7 +2406,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
-    if (ability1 == "Apparition" && move.sound) {
+    if (ability1 == "Apparition" && tempType == "Basic") {
         tempType = "Spirit";
         stuffUsed.ability1 = ability1;
     }
@@ -2600,7 +2656,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempAtk.atk = calculateStat(tempAtk.base, tempAtk.equip, tempAtk.level, tempAtk.stars, undefined, tempAtk.posNat, tempAtk.negNat, tempAtk.name, tempAtk.mod1, tempAtk.mod2);
         stuffUsed.ability2 = ability2;
     }
-    if (archmageOne && move.mr == "Magic") {
+    if (archmageOne) {
         multi *= 1.1;
         stuffUsed.weather += " with Archmage";
     }
@@ -2647,10 +2703,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
-    if (archmageTwo && move.mr2 == "Ranged Defense" && ability1 != "Bypass") {
-        multi *= 1.1;
-        stuffUsed.weather += " through Archmage";
-    }
 
     tempDef.def = pokeRound(tempDef.def * multi);
     multi = 1;
@@ -2683,7 +2735,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
-    else if (isStab(types1, { type: tempType })) {
+    else if (isStab(types1, { type: tempType }) && !pylons) {
         multi *= 1.5;
     }
     else if (ability1 == "Harlequin") {
@@ -2787,6 +2839,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
+    if (ability2 == "Guardian" && !immuneBoostCheck2) {
+        multi *= 1.25;
+        stuffUsed.ability2 = ability2;
+    }
     if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
         (ability2 == "Guardian" && immuneBoostCheck2) ||
         ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1)) {
@@ -2800,7 +2856,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         } else multi *= 0.85;
         stuffUsed.item2 = itemB;
     }
-    if (effectiveness > 1 && sandstorm.checked && shale && ability1 != "Bypass") {
+    if (effectiveness > 1 && shale && ability1 != "Bypass") {
         multi *= 0.5;
         stuffUsed.weather += " through Shale";
     }
@@ -2840,8 +2896,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability1 = ability1;
     }
-    if ((ability2 == "Sand Screen" && sandstorm.checked) ||
-        (ability2 == "Gaseous Form" && move.contact) ||
+    if (ability2 == "Sand Screen" && sandstorm.checked) {
+        multi *= 0.7;
+        stuffUsed.ability2 = ability2;
+    }
+    if ((ability2 == "Gaseous Form" && move.contact) ||
         (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
@@ -2859,7 +2918,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
         stuffUsed.ability1 = ability1;
     }
-    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown) {
+    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2881,7 +2940,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if (ul) {
+    if (ul && !pylons) {
         multi *= 0.915;
     }
 
@@ -2923,12 +2982,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (foulHit) {
             return [dmg, possibleDmg];
         }
-        if (shardSurge) return dmg;
+        if (shardSurge || pylons) return dmg;
         possibleDmg[21] = stuffUsed;
         return [possibleDmg, possibleFoulDmg];
     }
 
-    if (!ul && !detailed) multi *= 1.115;
+    if (!ul && !detailed && !pylons) multi *= 1.115;
     dmg = Math.floor(dmg * multi);
     multi = 1;
 
@@ -3145,6 +3204,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     let newHP = 0;
     let multi = 1;
     let ice = iceTrap2.checked;
+    let pylons = pylon2.checked;
     let halfIce = halfIce2.checked;
     barbs = [~~$("input:radio[name='barbsL']:checked").val(), ~~$("input:radio[name='barbsR']:checked").val()];
     let barb = barbs[1];
@@ -3161,6 +3221,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         loom1 = loomians[pokeDropdown2.value.toLowerCase()];
         loom2 = loomians[pokeDropdown1.value.toLowerCase()];
         ice = iceTrap1.checked;
+        pylons = pylon1.checked;
         halfIce = halfIce1.checked;
         barb = barbs[0];
         sap = { attacker: sapPlant2.checked, defender: sapPlant1.checked };
@@ -3189,6 +3250,8 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             return [hp1, hazardString];
         }
     }
+
+    if (pylons) hazardString += "pylons and ";
 
     if (barb > 0  && !loom2.levitate) {
         if (barb == 1) {
@@ -3263,6 +3326,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             hazardString += "Desert Body recovery and ";
         }
 
+        if (acidRain.checked && ability == "Healthy Toxins") {
+            newHP -= Math.floor(hp1 * 1 / 10);
+            hazardString += "Healthy Toxins recovery and ";
+        }
+
         if ((status == "poisoned" || status == "diseased") && ability == "Detox") {
             newHP -= Math.floor(hp1 * 1 / 8);
             hazardString += "Detox recovery and ";
@@ -3277,12 +3345,12 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         hazardString += "burn damage and ";
     }
 
-    if (acidRain.checked && !loom2.types.includes("Poison")) {
+    if (acidRain.checked && !loom2.types.includes("Poison") && ability != "Healthy Toxins") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "acid rain damage and ";
     }
 
-    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body" && ability != "Oasis Deity") {
+    if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body" && ability != "Oasis Deity" && ability != "Dust Storm") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "sandstorm damage and ";
     }

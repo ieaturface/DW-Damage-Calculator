@@ -415,7 +415,7 @@ var loomians = {
         weight: 37,
         height: 38,
         baseStats: {
-            hp: 107,
+            hp: 100,
             attack: 88,
             defense: 75,
             attackR: 80,
@@ -447,8 +447,8 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 110,
-            attack: 90,
-            defense: 70,
+            attack: 95,
+            defense: 80,
             attackR: 90,
             defenseR: 80,
             speed: 60
@@ -542,8 +542,8 @@ var loomians = {
         item: "Groato Rune",
         baseStats: {
             hp: 100,
-            attack: 126,
-            defense: 85,
+            attack: 115,
+            defense: 80,
             attackR: 65,
             defenseR: 150,
             speed: 53
@@ -606,7 +606,7 @@ var loomians = {
             hp: 100,
             attack: 58,
             defense: 83,
-            attackR: 62,
+            attackR: 72,
             defenseR: 97,
             speed: 40
         }
@@ -699,10 +699,10 @@ var loomians = {
         height: 80,
         baseStats: {
             hp: 92,
-            attack: 80,
+            attack: 95,
             defense: 123,
-            attackR: 72,
-            defenseR: 88,
+            attackR: 77,
+            defenseR: 80,
             speed: 58
         }
     },
@@ -810,9 +810,9 @@ var loomians = {
         item: "Tulenna Rune",
         baseStats: {
             hp: 85,
-            attack: 125,
+            attack: 120,
             defense: 75,
-            attackR: 125,
+            attackR: 120,
             defenseR: 75,
             speed: 105
         }
@@ -1266,7 +1266,7 @@ var loomians = {
             hp: 80,
             attack: 80,
             defense: 57,
-            attackR: 120,
+            attackR: 110,
             defenseR: 90,
             speed: 85
         }
@@ -1294,12 +1294,12 @@ var loomians = {
         weight: 115,
         height: 62,
         baseStats: {
-            hp: 73,
+            hp: 78,
             attack: 72,
             defense: 75,
             attackR: 113,
             defenseR: 95,
-            speed: 87
+            speed: 97
         }
     },
 
@@ -1814,7 +1814,7 @@ var loomians = {
         baseStats: {
             hp: 105,
             attack: 45,
-            defense: 90,
+            defense: 95,
             attackR: 85,
             defenseR: 105,
             speed: 80
@@ -1859,9 +1859,9 @@ var loomians = {
         height: 43,
         baseStats: {
             hp: 80,
-            attack: 75,
+            attack: 85,
             defense: 85,
-            attackR: 80,
+            attackR: 90,
             defenseR: 100,
             speed: 70
         }
@@ -1940,9 +1940,9 @@ var loomians = {
         baseStats: {
             hp: 105,
             attack: 99,
-            defense: 110,
+            defense: 105,
             attackR: 101,
-            defenseR: 110,
+            defenseR: 105,
             speed: 80
         }
     },
@@ -1969,9 +1969,9 @@ var loomians = {
         weight: 5,
         height: 57,
         baseStats: {
-            hp: 84,
+            hp: 94,
             attack: 65,
-            defense: 76,
+            defense: 81,
             attackR: 108,
             defenseR: 95,
             speed: 74
@@ -2109,8 +2109,8 @@ var loomians = {
         weight: 13,
         height: 31,
         baseStats: {
-            hp: 75,
-            attack: 65,
+            hp: 85,
+            attack: 55,
             defense: 95,
             attackR: 100,
             defenseR: 115,
@@ -2396,7 +2396,7 @@ var loomians = {
             hp: 85,
             attack: 103,
             defense: 101,
-            attackR: 131,
+            attackR: 136,
             defenseR: 105,
             speed: 75
         }
@@ -2506,8 +2506,8 @@ var loomians = {
             attack: 115,
             defense: 90,
             attackR: 63,
-            defenseR: 55,
-            speed: 90
+            defenseR: 65,
+            speed: 97
         }
     },
 
@@ -3052,7 +3052,7 @@ var loomians = {
             defense: 80,
             attackR: 65,
             defenseR: 80,
-            speed: 111
+            speed: 105
         }
     },
 
@@ -3142,9 +3142,9 @@ var loomians = {
         height: 62,
         baseStats: {
             hp: 80,
-            attack: 60,
+            attack: 70,
             defense: 95,
-            attackR: 75,
+            attackR: 80,
             defenseR: 105,
             speed: 50
         }
@@ -3174,10 +3174,10 @@ var loomians = {
         baseStats: {
             hp: 80,
             attack: 135,
-            defense: 70,
+            defense: 75,
             attackR: 55,
-            defenseR: 75,
-            speed: 40
+            defenseR: 70,
+            speed: 50
         }
     },
 
@@ -3333,7 +3333,7 @@ var loomians = {
             defense: 87,
             attackR: 48,
             defenseR: 68,
-            speed: 93
+            speed: 105
         }
     },
 
@@ -3639,8 +3639,8 @@ var loomians = {
     elefortune: {
         name: "Elefortune",
         types: ["Mind", "Light"],
-        weight: 242,
-        height: 52,
+        weight: 4317,
+        height: 114,
         baseStats: {
             hp: 101,
             attack: 51,
@@ -3971,7 +3971,7 @@ var loomians = {
             hp: 200,
             attack: 70,
             defense: 40,
-            attackR: 90,
+            attackR: 100,
             defenseR: 120,
             speed: 20
         }
@@ -4296,11 +4296,11 @@ var loomians = {
         height: 71,
         baseStats: {
             hp: 80,
-            attack: 90,
+            attack: 95,
             defense: 80,
             attackR: 85,
             defenseR: 80,
-            speed: 82
+            speed: 92
         }
     },
 
@@ -4486,7 +4486,7 @@ var loomians = {
             defense: 80,
             attackR: 60,
             defenseR: 60,
-            speed: 100
+            speed: 94
         }
     },
 
@@ -4533,7 +4533,7 @@ var loomians = {
             defense: 100,
             attackR: 110,
             defenseR: 75,
-            speed: 55
+            speed: 60
         }
     },
 
@@ -4596,7 +4596,7 @@ var loomians = {
             attack: 65,
             defense: 80,
             attackR: 85,
-            defenseR: 120,
+            defenseR: 115,
             speed: 75
         }
     },
@@ -4835,7 +4835,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        recoil: 1/2
     },
 
     subterfuge: {
@@ -5326,7 +5327,7 @@ var moves = {
 
     foxfire: {
         name: "Foxfire",
-        power: 80,
+        power: 65,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -6811,8 +6812,8 @@ var moves = {
 
     sugarRush: {
         name: "Sugar Rush",
-        power: 100,
-        accuracy: 75,
+        power: 85,
+        accuracy: 100,
         type: "Food",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6853,6 +6854,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        bite: true
     },
 
     abyssBreaker: {
@@ -7883,6 +7885,14 @@ var moves = {
         mr: "Support"
     },
 
+    somnambulism: {
+        name: "Somnambulism",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
     attackMastery: {
         name: "Attack Mastery",
         power: 0,
@@ -8405,6 +8415,14 @@ var moves = {
 
     taser: {
         name: "Taser",
+        power: 0,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Support"
+    },
+
+    pylons: {
+        name: "Pylons",
         power: 0,
         accuracy: 100,
         type: "Spark",
@@ -9820,7 +9838,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
-                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag"];
+                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna"];
 
 var typeModAbilities = {
     adipose: {
@@ -9966,6 +9984,12 @@ var typeModAbilities = {
         typeModifier: { type: "Basic", modifier: 0 },
         powerMod: false
     },
+
+    karna: {
+        name: "Karna",
+        typeModifier: { type: "Earth", modifier: 0.5 },
+        powerMod: false
+    },
     
 }
 
@@ -9986,4 +10010,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Spectatik-A emergency nerf.";
+var changelog = "Season 1 Balance Patch.";
