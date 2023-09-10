@@ -191,6 +191,8 @@ let iceTrap2 = document.getElementById("iceTrap2");
 
 let pylon1 = document.getElementById("pylon1");
 let pylon2 = document.getElementById("pylon2");
+let pylonCalc1 = document.getElementById("pylonCalc1");
+let pylonCalc2 = document.getElementById("pylonCalc2");
 
 let halfIce1 = document.getElementById("halfIce1");
 let halfStyle1 = document.getElementById("halfStyle1");
@@ -400,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -457,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1314,6 +1316,9 @@ function loadStats() {
     defREV2.value = equipment2.mDefense;
     spdEV2.value = equipment2.speed;
 
+    pylonButton();
+    pylonButton(true);
+
 }
 
 function calculateEquipment(helmet, amulet, artifact, doodle) {
@@ -1628,6 +1633,7 @@ function detailedReport() {
     let barb = barbs[1];
     let stats1 = trueStats1;
     let stats2 = trueStats2;
+    let pylonDmg;
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
         moveName = document.getElementById("moveOneLbl1").innerHTML;
@@ -1947,6 +1953,10 @@ function detailedReport() {
         tempHealth = tempHealth + hpEV2.value + " " + healthPlus + "HP / ";          
     } 
 
+    if (pylons) {
+        pylonDmg = pylonButton(second,true);
+    }
+
     if (move.power == 0) {
         let str = tempAtk + " " + firstLoom.name + " " + move.name + " vs. " + tempHealth + tempDef + " " + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
 
@@ -1979,7 +1989,6 @@ function detailedReport() {
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
     let addedDmg = 0;
-    let pylonDmg = 0;
 
     if (ice) {
         addedDmg = 10;
@@ -2006,15 +2015,6 @@ function detailedReport() {
         }*/
     }
 
-    if (pylons) {
-        pylonDmg = getMultiplier(firstLoom, secondLoom, findMove("Shock"), movePower, crit, repeat, hits, elemental, swarm, false, level, undefined, second, true, true, undefined, undefined, undefined, true)[0];
-        pylonDmg.pop();
-        for (let i = 0; i < pylonDmg.length; i++) {
-            pylonDmg[i] = Math.min(pylonDmg[i], Math.floor(maxHP / 5));
-        }
-        foulDamage = pylonDmg;
-    }
-
     if (barb > 0 && !secondLoom.levitate) {
         if (barb == 1) {
             addedDmg += 12.5;
@@ -2033,6 +2033,12 @@ function detailedReport() {
     let tickOHKOs = [];
     let THKOs = [];
     let TRHKOs = [];
+
+    if (pylonDmg && pylonDmg.length == possibleDmg.length) {
+        for (let i = 0; i < possibleDmg.length; i++) {
+            possibleDmg[i] = possibleDmg[i] + pylonDmg[i];
+        }
+    }
 
     if (foulDamage && foulDamage.length == possibleDmg.length) {
         for (let i = 0; i < possibleDmg.length; i++) {
@@ -3125,6 +3131,39 @@ function getTypes(second) {
     obj.secondLoom.secondary = secondaryTypeDropdown2.value;
 
     return obj;
+}
+
+function pylonButton(second = false, calc = false) {
+    let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
+    let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    let level = level1.value;
+    let maxHP = hp2;
+    let pylonDmg;
+    if (second) {
+        firstLoom = loomians[pokeDropdown2.value.toLowerCase()];
+        secondLoom = loomians[pokeDropdown1.value.toLowerCase()];
+        level = level2.value;
+        maxHP = hp1;
+    }
+
+    pylonDmg = getMultiplier(firstLoom, secondLoom, findMove("Shock"), "50", false, undefined, undefined, undefined, undefined, false, level, undefined, second, true, true, undefined, undefined, undefined, true)[0];
+    pylonDmg.pop();
+    for (let i = 0; i < pylonDmg.length; i++) {
+        pylonDmg[i] = Math.min(pylonDmg[i], Math.floor(maxHP / 5));
+    }
+    let lowerPylon = (pylonDmg[0] / maxHP * 100).toFixed(1);
+    let upperPylon = (pylonDmg[20] / maxHP * 100).toFixed(1);
+    if (second) {
+        pylonCalc1.innerHTML = lowerPylon + "-" + upperPylon + "%";
+    } else {
+        pylonCalc2.innerHTML = lowerPylon + "-" + upperPylon + "%";
+    }
+    if (pylon1.checked) pylonCalc1.style.visibility = "visible";
+    else pylonCalc1.style.visibility = "hidden";
+    if (pylon2.checked) pylonCalc2.style.visibility = "visible";
+    else pylonCalc2.style.visibility = "hidden";
+
+    if (calc) return pylonDmg;
 }
 
 function countBoosts(boost) {
