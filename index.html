@@ -693,13 +693,15 @@
                     </div>
                     <div>
                         <div class="left">
-                            <input type="checkbox" class="hiddenToUser" id="pylon1" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="pylon1" title="Is this side affected by Pylons?">Pylons</label>
+                            <input type="checkbox" class="hiddenToUser" id="pylon1" onchange="pylonButton(true)">
+                            <label class="radiolbl fieldlbl icetrap" style="width: 4em;" for="pylon1" title="Is this side affected by Pylons?">Pylons</label>
+                            <span style="visibility: hidden;" id="pylonCalc1">20-20%</span>
                         </div>
 
                         <div class="right">
-                            <input type="checkbox" class="hiddenToUser" id="pylon2" onchange="update()">
-                            <label class="radiolbl fieldlbl icetrap" for="pylon2" title="Is this side affected by Pylons?">Pylons</label>
+                            <span style="visibility: hidden;" id="pylonCalc2">20-20%</span>
+                            <input type="checkbox" class="hiddenToUser" id="pylon2" onchange="pylonButton()">
+                            <label class="radiolbl fieldlbl icetrap" style="width: 4em;" for="pylon2" title="Is this side affected by Pylons?">Pylons</label>
                         </div>
                     </div>
                     <div>
