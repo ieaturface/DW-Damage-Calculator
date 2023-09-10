@@ -1316,8 +1316,8 @@ function loadStats() {
     defREV2.value = equipment2.mDefense;
     spdEV2.value = equipment2.speed;
 
-    pylonButton();
-    pylonButton(true);
+    pylonButton(false, false, true);
+    pylonButton(true, false, true)
 
 }
 
@@ -3133,7 +3133,7 @@ function getTypes(second) {
     return obj;
 }
 
-function pylonButton(second = false, calc = false) {
+function pylonButton(second = false, calc = false, statRefresh) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let level = level1.value;
@@ -3164,6 +3164,7 @@ function pylonButton(second = false, calc = false) {
     else pylonCalc2.style.visibility = "hidden";
 
     if (calc) return pylonDmg;
+    if (!statRefresh) detailedReport();
 }
 
 function countBoosts(boost) {
