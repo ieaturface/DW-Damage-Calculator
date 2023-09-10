@@ -10010,4 +10010,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 1 Balance Patch.";
+var changelog = "Season 1 Balance Patch (Pylons damage rolls now calculated).";

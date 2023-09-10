@@ -400,11 +400,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -457,8 +457,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2007,7 +2007,12 @@ function detailedReport() {
     }
 
     if (pylons) {
-        addedDmg += getMultiplier(firstLoom, secondLoom, findMove("Shock"), movePower, crit, repeat, hits, elemental, swarm, false, level, undefined, second, true, true, undefined, undefined, undefined, true) / maxHP * 100;
+        pylonDmg = getMultiplier(firstLoom, secondLoom, findMove("Shock"), movePower, crit, repeat, hits, elemental, swarm, false, level, undefined, second, true, true, undefined, undefined, undefined, true)[0];
+        pylonDmg.pop();
+        for (let i = 0; i < pylonDmg.length; i++) {
+            pylonDmg[i] = Math.min(pylonDmg[i], Math.floor(maxHP / 5));
+        }
+        foulDamage = pylonDmg;
     }
 
     if (barb > 0 && !secondLoom.levitate) {
@@ -2277,7 +2282,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     tempDef = tempStats.defense;
 
     if (pylons) {
-        tempAtk.atk = calculateStat(80, 0, tempDef.level, tempDef.stars, undefined, "none", "none", "None", tempAtk.mod1, tempAtk.mod2);
+        tempAtk.atk = calculateStat(80, 0, tempDef.level, 5, undefined, "none", "none", "None", tempAtk.mod1, tempAtk.mod2);
         level = tempDef.level;
     }    
 
@@ -2982,12 +2987,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (foulHit) {
             return [dmg, possibleDmg];
         }
-        if (shardSurge || pylons) return dmg;
+        if (shardSurge) return dmg;
         possibleDmg[21] = stuffUsed;
         return [possibleDmg, possibleFoulDmg];
     }
 
-    if (!ul && !detailed && !pylons) multi *= 1.115;
+    if (!ul && !detailed) multi *= 1.115;
     dmg = Math.floor(dmg * multi);
     multi = 1;
 
