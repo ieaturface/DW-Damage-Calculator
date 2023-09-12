@@ -2657,11 +2657,11 @@ var loomians = {
         weight: 15,
         height: 20,
         baseStats: {
-            hp: 60,
+            hp: 80,
             attack: 45,
             defense: 115,
             attackR: 95,
-            defenseR: 110,
+            defenseR: 120,
             speed: 45
         }
     },
@@ -2672,11 +2672,11 @@ var loomians = {
         weight: 2,
         height: 8,
         baseStats: {
-            hp: 50,
+            hp: 70,
             attack: 50,
             defense: 60,
             attackR: 125,
-            defenseR: 80,
+            defenseR: 90,
             speed: 100
         }
     },
@@ -5133,10 +5133,9 @@ var moves = {
         power: 60,
         accuracy: 100,
         type: "Basic",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
-        contact: true,
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -5317,7 +5316,7 @@ var moves = {
 
     incinerate: {
         name: "Incinerate",
-        power: 30,
+        power: 40,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -6336,12 +6335,13 @@ var moves = {
 
     shellCrash: {
         name: "Shell Crash",
-        power: 90,
+        power: 70,
         accuracy: 100,
         type: "Earth",
-        mr: "Magic",
-        mr1: "Ranged Attack",
-        mr2: "Ranged Defense",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -10010,4 +10010,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 1 Balance Patch (Pylon Button now displays damage rolls).";
+var changelog = "Sand Swap functions more than visually. Kibara/Kidere have correct stats.";

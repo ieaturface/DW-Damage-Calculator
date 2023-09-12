@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1095,10 +1095,10 @@ function loadBaseStats(side) {
             baseAtkR2.value = secondLoom.baseStats.defenseR;
             baseDefR2.value = secondLoom.baseStats.attackR;
         }
-        if (ability2 == "Sand Swap" && sandstorm.checked) {
+        /*if (ability2 == "Sand Swap" && sandstorm.checked) {
             baseAtk2.value = secondLoom.baseStats.defense;
             baseDef2.value = secondLoom.baseStats.attack;
-        }
+        }*/
     }
 }
 
@@ -1749,6 +1749,7 @@ function detailedReport() {
     }
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
+    let abilitys = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     move = findMove(moveName);
     let qualifier = (move.hits ? "approx." : "");
     hp = (second ? currentHP1.value : currentHP2.value);
@@ -1792,7 +1793,7 @@ function detailedReport() {
             tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "MAtk";
         }
     }
-    else if (move.mr1 == "Melee Attack") {
+    else if (move.mr1 == "Melee Attack" && !(abilitys == "Sand Swap" && sandstorm.checked)) {
         if ((atkDef.attack.posNat == "attack" && atkDef.attack.mod1 > 0) || (atkDef.attack.negNat == "attack" && atkDef.attack.mod2 > 0)) {
             atkPlus = "+";
         }
@@ -1824,7 +1825,7 @@ function detailedReport() {
             tempAtk = tempAtk + defREV1.value + " " + atkPlus + "MDef";
         } 
     }
-    else if (move.mr1 == "Melee Defense") {
+    else if (move.mr1 == "Melee Defense" || (abilitys == "Sand Swap" && sandstorm.checked && move.mr1 == "Melee Attack")) {
         if ((atkDef.attack.posNat == "defense" && atkDef.attack.mod1 > 0) || (atkDef.attack.negNat == "defense" && atkDef.attack.mod2 > 0)) {
             atkPlus = "+";
         }
@@ -1874,7 +1875,7 @@ function detailedReport() {
             tempDef = tempDef + atkREV2.value + " " + defPlus + "MAtk";           
         } 
     }
-    else if (move.mr2 == "Melee Attack") {
+    else if (move.mr2 == "Melee Attack" || (ability == "Sand Swap" && sandstorm.checked && move.mr2 == "Melee Defense")) {
         if ((atkDef.defense.posNat == "attack" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "attack" && atkDef.defense.mod2 > 0)) {
             defPlus = "+";attack
         }
@@ -2283,7 +2284,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             adaptive.mr2 = "Ranged Defense";
         }
         tempStats = getTempAtkDef(second, adaptive);
-    } else tempStats = getTempAtkDef(second, move);
+    } else tempStats = getTempAtkDef(second, move, ability1, ability2);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
 
@@ -2431,7 +2432,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
         } else if (stat2 == "burned" || stat2 == "poisoned" || stat2 == "diseased") {
             multi *= 1.25;
-            stuffUsed.extra1 += " (" + tempPower * 1.5 + " BP)";
+            stuffUsed.extra1 += " (" + tempPower * 1.25 + " BP)";
         }
     }
 
@@ -3012,7 +3013,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     return dmg + foulDmg;
 }
 
-function getTempAtkDef(second, mr) {
+function getTempAtkDef(second, mr, ability1, ability2) {
     let posNat1 = document.getElementById("posNat1").value;
     let negNat1 = document.getElementById("negNat1").value;
     let posNat2 = document.getElementById("posNat2").value;
@@ -3104,6 +3105,21 @@ function getTempAtkDef(second, mr) {
         tempHealth = { health: hp2, base: baseHP2, equip: equipment2.health, name: "Health", posNat: posNat1, negNat: negNat1, level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
     } else {
         tempHealth = { health: hp1, base: baseHP1, equip: equipment1.health, name: "Health", posNat: posNat2, negNat: negNat2, level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+    }
+
+    if (ability1 == "Sand Swap" && sandstorm.checked && mr.mr1 == "Melee Attack") {
+        if (second) {
+            tempAtk = { atk: def2, base: baseDef2.value, equip: equipment2.defense, name: "DefenseM", posNat: posNat2, negNat: negNat2, stage: parseInt(defStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+        } else {
+            tempAtk = { atk: def1, base: baseDef1.value, equip: equipment1.defense, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+        }
+    }
+    if (ability2 == "Sand Swap" && sandstorm.checked && mr.mr2 == "Melee Defense") {
+        if (second) {
+            tempDef = { def: atk1, base: baseAtk1.value, equip: equipment1.attack, name: "AttackM", posNat: posNat1, negNat: negNat1, stage: parseInt(atkStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
+        } else {
+            tempDef = { def: atk2, base: baseAtk2.value, equip: equipment2.attack, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
+        }
     }
 
     return { attack: tempAtk, defense: tempDef, health: tempHealth };
@@ -3396,7 +3412,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
 
     if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body" && ability != "Oasis Deity" && ability != "Dust Storm") {
-        newHP += Math.floor(hp1 * 1 / 16);
+        newHP += Math.floor(hp1 * 1 / 20);
         hazardString += "sandstorm damage and ";
     }
 
