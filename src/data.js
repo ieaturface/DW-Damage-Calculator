@@ -2517,12 +2517,12 @@ var loomians = {
         weight: 34,
         height: 58,
         baseStats: {
-            hp: 75,
+            hp: 80,
             attack: 110,
             defense: 80,
             attackR: 81,
             defenseR: 70,
-            speed: 99
+            speed: 93
         }
     },
 
@@ -3448,6 +3448,21 @@ var loomians = {
         }
     },
 
+    finwick: {
+        name: "Finwick",
+        types: ["Water"],
+        weight: 20,
+        height: 24,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 35,
+            attackR: 70,
+            defenseR: 35,
+            speed: 80
+        }
+    },
+
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
@@ -3757,6 +3772,23 @@ var loomians = {
             attackR: 80,
             defenseR: 85,
             speed: 90
+        }
+    },
+
+    'hypnotl-awakened': {
+        name: "Hypnotl-Awakened",
+        types: ["Mind", "Plant"],
+        weight: 38,
+        height: 49,
+        ability: "Puffball",
+        item: "Hypnotl Antigen",
+        baseStats: {
+            hp: 85,
+            attack: 75,
+            defense: 107,
+            attackR: 124,
+            defenseR: 107,
+            speed: 110
         }
     },
 
@@ -8221,6 +8253,14 @@ var moves = {
         mr: "Support"
     },
 
+    study: {
+        name: "Study",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
     armorBreak: {
         name: "Armor Break",
         power: 0,
@@ -9713,7 +9753,7 @@ var types = {
 
     spark: {
         weaknesses: ["crystal", "earth"],
-        resistances: ["spark", "metal", "air", "light", "beast"],
+        resistances: ["spark", "metal", "air", "beast"],
         immunities: [],
         otherName: "volt"
     },
@@ -9838,7 +9878,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Resilience", "Lithe", "Extinguisher", "Efficient Proxy", "Superluminal", "Bypass", "Reformation", "Daring Devil", "Bludgeon", "Revival", "Calm", "Jester Privilege", "Vampire", "Elemental Resist", "Eruption", "Apex", "Spore Armor", "Bird of Prey",
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
-                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna"];
+                 "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
+                 ];
 
 var typeModAbilities = {
     adipose: {
@@ -9997,7 +10038,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
-             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar"];
+             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -10010,4 +10051,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Sand Swap functions more than visually. Kibara/Kidere have correct stats.";
+var changelog = "Awakened Hypnotl and Finwick added.";

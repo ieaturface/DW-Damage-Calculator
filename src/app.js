@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -684,6 +684,7 @@ function updateItem(item) {
         if (item1.value == "Edible Storm in a Bottle" ) chocolateRain.checked = true;
         else if (item1.value == "Sandstorm in a Bottle") sandstorm.checked = true;
         else if (item1.value == "Storm in a Bottle") rain.checked = true;
+        else if (item1.value == "Acid Storm in a Bottle") acidRain.checked = true;
         if (item1.value == "Unwashed Plushie" && !firstLoom.types.includes("Poison") && !firstLoom.types.includes("Crystal") && !firstLoom.types.includes("Metal")) status1.value = "diseased";
         else if (item1.value == "Lighter" && !firstLoom.types.includes("Fire")) status1.value = "burned";
         else status1.value = "healthy";
@@ -691,6 +692,7 @@ function updateItem(item) {
         if (item2.value == "Edible Storm in a Bottle" ) chocolateRain.checked = true;
         else if (item2.value == "Sandstorm in a Bottle") sandstorm.checked = true;
         else if (item2.value == "Storm in a Bottle") rain.checked = true;
+        else if (item2.value == "Acid Storm in a Bottle") acidRain.checked = true;
         if (item2.value == "Unwashed Plushie" && !secondLoom.types.includes("Poison") && !secondLoom.types.includes("Crystal") && !secondLoom.types.includes("Metal")) status2.value = "diseased";
         else if (item2.value == "Lighter" && !secondLoom.types.includes("Fire")) status2.value = "burned";
         else status2.value = "healthy";
@@ -2325,11 +2327,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability2 == "Rejuvenator") ||
-        ((ability2 == "Vigor" || ability2 == "Elegance") && immuneBoostCheck2)) {
+        ((ability2 == "Vigor" || ability2 == "Elegance") && immuneBoostCheck2) ||
+        (ability2 == "Sand Swap" && sandstorm.checked)) {
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneBoostCheck1) {
+    if (((ability1 == "Vigor" || ability1 == "Elegance") && immuneBoostCheck1) ||
+        (ability1 == "Sand Swap" && sandstorm.checked)) {
         stuffUsed.ability1 = ability1;
     }
 
@@ -3384,17 +3388,22 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
         if (sandstorm.checked && ability == "Desert Body") {
             newHP -= Math.floor(hp1 * 1 / 10);
-            hazardString += "Desert Body recovery and ";
+            hazardString += "sandstorm recovery and ";
         }
 
         if (acidRain.checked && ability == "Healthy Toxins") {
             newHP -= Math.floor(hp1 * 1 / 10);
-            hazardString += "Healthy Toxins recovery and ";
+            hazardString += "acid rain recovery and ";
+        }
+
+        if (rain.checked && ability == "Fish Outta Water") {
+            newHP -= Math.floor(hp1 * 1 / 10);
+            hazardString += "rain recovery and ";
         }
 
         if ((status == "poisoned" || status == "diseased") && ability == "Detox") {
             newHP -= Math.floor(hp1 * 1 / 8);
-            hazardString += "Detox recovery and ";
+            hazardString += "detox recovery and ";
         }
     }
     
