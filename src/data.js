@@ -3785,10 +3785,10 @@ var loomians = {
         baseStats: {
             hp: 85,
             attack: 75,
-            defense: 107,
+            defense: 97,
             attackR: 124,
             defenseR: 107,
-            speed: 110
+            speed: 100
         }
     },
 
@@ -10051,4 +10051,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Hypnotl and Finwick added.";
+var changelog = "Awakened Hypnotl nerf.";

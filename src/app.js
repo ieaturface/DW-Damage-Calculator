@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2341,11 +2341,21 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         let water = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Water");
         let crystal = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Crystal");
 
-        if (water > crystal) {
-            tempType = "Water";
-        }
+        if (water > crystal) tempType = "Water";
         stuffUsed.extra1 += " (" + tempType + ")";
     } else if (move.name == "Shard Surge" && shardSurge) tempType = shardSurge;
+
+    /*if (move.name == "Tri-Elemental Slash" && !shardSurge) {
+        let fire = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Fire");
+        let spark = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Spark");
+        let ice = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, foulHit, "Ice");
+        let highest = Math.max(fire,spark,ice);
+
+        if (highest == fire) tempType = "Fire"
+        else if (highest == spark) tempType = "Spark";
+        else if (highest == ice) tempType = "Ice";
+        stuffUsed.extra1 += " (" + tempType + ")";
+    } else if (move.name == "Tri-Elemental Slash" && shardSurge) tempType = shardSurge;*/
 
     if (move.name == "Chemical Breath") {
         if (types1.secondary != "None") {
