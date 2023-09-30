@@ -3337,6 +3337,24 @@ var loomians = {
         }
     },
 
+    'suomous-awakened': {
+        name: "Suomous-Awakened",
+        types: ["Melee"],
+        weight: 16,
+        height: 21,
+        ability: "Jab Cross",
+        item: "Suomous Rune",
+        baseStats: {
+            hp: 63,
+            attack: 135,
+            defense: 107,
+            attackR: 63,
+            defenseR: 88,
+            speed: 125
+        }
+    },
+
+
     megglit: {
         name: "Megglit",
         types: ["Spark"],
@@ -3820,6 +3838,23 @@ var loomians = {
             attackR: 50,
             defenseR: 75,
             speed: 105
+        }
+    },
+
+    'vigimante-awakened': {
+        name: "Vigimante-Awakened",
+        types: ["Water", "Melee"],
+        weight: 36,
+        height: 49,
+        ability: "Ferocity",
+        item: "Vigimante Rune",
+        baseStats: {
+            hp: 78,
+            attack: 125,
+            defense: 95,
+            attackR: 60,
+            defenseR: 95,
+            speed: 115
         }
     },
 
@@ -9879,7 +9914,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 ];
+                 "Jab Cross",];
 
 var typeModAbilities = {
     adipose: {
@@ -10051,4 +10086,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Hypnotl nerf.";
+var changelog = "Awakened Suomous and Vigimante added.";

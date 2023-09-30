@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2450,7 +2450,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
     }
 
-    if (move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd)) {
+    if (move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1) {
         multi *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
@@ -2619,9 +2619,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if (foulHit) {
-        multi *= 0.25;
+    if (ability1 == "Jab Cross" && move.punch) {
+        multi *= 0.7;
     }
+    /*if (foulHit) {
+        multi *= 0.25;
+    }*/
 
     if (tagTeam && isDouble) {
         multi *= 1.5;
@@ -2944,7 +2947,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
         stuffUsed.ability1 = ability1;
     }
-    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon) {
+    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2955,7 +2958,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (itemB == "Used Crayons" || itemB == "Dark Chocolate") stuffUsed.item2 = itemB;
 
-    if (ability1 == "Double Strike" && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
+    if (ability1 == "Jab Cross" && move.punch && !foulHit && !(isDouble && move.aoe == true) && !move.hits) {
         if (detailed) {
             let foulArray = getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, true);
             foulDmg = foulArray[0];
