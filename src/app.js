@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -722,6 +722,10 @@ function updateAbility(ability) {
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
     else archmage2.checked = false;
+    if (ability1 == "Bon Appetite") seasoned2.checked = true;
+    else seasoned2.checked = false;
+    if (ability2 == "Bon Appetite") seasoned1.checked = true;
+    else seasoned1.checked = false;
 
     update();
 }
@@ -2970,7 +2974,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ul && !pylons) {
-        multi *= 0.915;
+        multi *= 0.9;
     }
 
     dmg = (dmg * multi);
@@ -2996,7 +3000,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             multiDmg = multiDmg / (hits - 1);
             multiHits = hits - 1;
         }
-        for (let i = 0.915; i < 1.116; i += 0.01) {
+        for (let i = 0.9; i < 1.11; i += 0.01) {
             numb = i.toFixed(3);
             if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * numb) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
                 if (ability1 == "Jelly Enhancer") {
@@ -3016,7 +3020,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         return [possibleDmg, possibleFoulDmg];
     }
 
-    if (!ul && !detailed) multi *= 1.115;
+    if (!ul && !detailed) multi *= 1.1;
     dmg = Math.floor(dmg * multi);
     multi = 1;
 

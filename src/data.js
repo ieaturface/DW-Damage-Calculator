@@ -6321,7 +6321,7 @@ var moves = {
     swarm: {
         name: "Swarm",
         power: 60,
-        accuracy: 95,
+        accuracy: 100,
         type: "Insect",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6344,7 +6344,7 @@ var moves = {
     itchyBite: {
         name: "Itchy Bite",
         power: 60,
-        accuracy: 95,
+        accuracy: 100,
         type: "Insect",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -10086,4 +10086,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Suomous and Vigimante added.";
+var changelog = "Fixed a slight inaccuracy with damage calculation.";
