@@ -722,9 +722,9 @@ function updateAbility(ability) {
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
     else archmage2.checked = false;
-    if (ability1 == "Bon Appetite") seasoned2.checked = true;
+    if (ability1 == "Bon Appetit") seasoned2.checked = true;
     else seasoned2.checked = false;
-    if (ability2 == "Bon Appetite") seasoned1.checked = true;
+    if (ability2 == "Bon Appetit") seasoned1.checked = true;
     else seasoned1.checked = false;
 
     update();
