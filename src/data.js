@@ -1145,6 +1145,23 @@ var loomians = {
         }
     },
 
+    'lumiline-awakened': {
+        name: "Lumiline-Awakened",
+        types: ["Light", "Crystal"],
+        weight: 18,
+        height: 29,
+        ability: "Crystallization",
+        item: "Lumiline Runestone",
+        baseStats: {
+            hp: 75,
+            attack: 65,
+            defense: 80,
+            attackR: 115,
+            defenseR: 150,
+            speed: 110
+        }
+    },
+
     dramask: {
         name: "Dramask",
         types: ["Light", "Dark"],
@@ -1818,6 +1835,23 @@ var loomians = {
             attackR: 85,
             defenseR: 105,
             speed: 80
+        }
+    },
+
+    'bionotic-awakened': {
+        name: "Bionotic-Awakened",
+        types: ["Water", "Mind"],
+        weight: 20,
+        height: 61,
+        ability: "Mind Games",
+        item: "Bionotic Runestone",
+        baseStats: {
+            hp: 105,
+            attack: 66,
+            defense: 128,
+            attackR: 108,
+            defenseR: 132,
+            speed: 92
         }
     },
 
@@ -4026,6 +4060,132 @@ var loomians = {
             attackR: 101,
             defenseR: 81,
             speed: 85
+        }
+    },
+
+    saltot: {
+        name: "Saltot",
+        types: ["Crystal"],
+        finalEvo: false,
+        weight: 18,
+        height: 14,
+        baseStats: {
+            hp: 55,
+            attack: 50,
+            defense: 60,
+            attackR: 20,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    saulte: {
+        name: "Saulte",
+        types: ["Food", "Crystal"],
+        finalEvo: false,
+        weight: 54,
+        height: 36,
+        baseStats: {
+            hp: 70,
+            attack: 65,
+            defense: 80,
+            attackR: 40,
+            defenseR: 80,
+            speed: 50
+        }
+    },
+
+    gourmesal: {
+        name: "Gourmesal",
+        types: ["Food", "Crystal"],
+        weight: 204,
+        height: 72,
+        baseStats: {
+            hp: 85,
+            attack: 90,
+            defense: 100,
+            attackR: 60,
+            defenseR: 100,
+            speed: 70
+        }
+    },
+
+    aquafi: {
+        name: "Aquafi",
+        types: ["Water", "Poison"],
+        finalEvo: false,
+        weight: 49,
+        height: 46,
+        baseStats: {
+            hp: 65,
+            attack: 55,
+            defense: 60,
+            attackR: 120,
+            defenseR: 75,
+            speed: 110
+        }
+    },
+
+    toxisui: {
+        name: "Toxisui",
+        types: ["Water", "Poison"],
+        weight: 16,
+        height: 24,
+        baseStats: {
+            hp: 40,
+            attack: 50,
+            defense: 45,
+            attackR: 60,
+            defenseR: 50,
+            speed: 60
+        }
+    },
+
+    oribirb: {
+        name: "Oribirb",
+        types: ["Air"],
+        finalEvo: false,
+        weight: 1,
+        height: 12,
+        baseStats: {
+            hp: 35,
+            attack: 50,
+            defense: 35,
+            attackR: 60,
+            defenseR: 35,
+            speed: 55
+        }
+    },
+
+    torigami: {
+        name: "Torigami",
+        types: ["Air", "Dark"],
+        finalEvo: false,
+        weight: 3,
+        height: 24,
+        baseStats: {
+            hp: 45,
+            attack: 70,
+            defense: 45,
+            attackR: 80,
+            defenseR: 55,
+            speed: 75
+        }
+    },
+
+    sukikogami: {
+        name: "Sukikogami",
+        types: ["Air", "Dark"],
+        finalEvo: false,
+        weight: 6,
+        height: 48,
+        baseStats: {
+            hp: 75,
+            attack: 98,
+            defense: 60,
+            attackR: 108,
+            defenseR: 75,
+            speed: 108
         }
     },
 
@@ -9914,7 +10074,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross",];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance"];
 
 var typeModAbilities = {
     adipose: {
@@ -10086,4 +10246,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Fixed a slight inaccuracy with damage calculation.";
+var changelog = "Added Awakened Bionotic and Lumiline as well as the three roulette lines.";
