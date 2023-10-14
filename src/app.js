@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2436,6 +2436,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
+    if (ability1 == "Your Meowjesty" && tempType == "Basic") {
+        tempType = "Air";
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
+
     if (ability1 == "Apparition" && tempType == "Basic") {
         tempType = "Spirit";
         stuffUsed.ability1 = ability1;
@@ -2620,6 +2626,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability2 == "Exoskeleton" && move.contact && ability1 != "Outboxer") ||
         (ability2 == "Royal Decree" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 0.7;
+        stuffUsed.ability2 = ability2;
+    }
+    if (ability2 == "Fur Coat" && move.contact && ability1 != "Outboxer") {
+        multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
 

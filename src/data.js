@@ -1848,9 +1848,9 @@ var loomians = {
         baseStats: {
             hp: 105,
             attack: 66,
-            defense: 128,
+            defense: 120,
             attackR: 108,
-            defenseR: 132,
+            defenseR: 124,
             speed: 92
         }
     },
@@ -4181,11 +4181,59 @@ var loomians = {
         height: 48,
         baseStats: {
             hp: 75,
-            attack: 98,
+            attack: 108,
             defense: 60,
-            attackR: 108,
+            attackR: 98,
             defenseR: 75,
             speed: 108
+        }
+    },
+
+    threec: {
+        name: "Threec",
+        types: ["Insect", "Basic"],
+        finalEvo: false,
+        weight: 1,
+        height: 1,
+        baseStats: {
+            hp: 50,
+            attack: 45,
+            defense: 40,
+            attackR: 40,
+            defenseR: 45,
+            speed: 55
+        }
+    },
+
+    nyanto: {
+        name: "Nyanto",
+        types: ["Insect", "Basic"],
+        weight: 159,
+        height: 100,
+        baseStats: {
+            hp: 85,
+            attack: 95,
+            defense: 75,
+            attackR: 85,
+            defenseR: 70,
+            speed: 96
+        }
+    },
+
+    'nyanto-awakened': {
+        name: "Nyanto-Awakened",
+        types: ["Insect", "Air"],
+        weight: 159,
+        height: 100,
+        ability: "Your Meowjesty",
+        item: "Nyanto Runestone",
+        baseStats: {
+            hp: 85,
+            attack: 110,
+            defense: 106,
+            attackR: 99,
+            defenseR: 106,
+            speed: 86
         }
     },
 
@@ -10074,7 +10122,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty"];
 
 var typeModAbilities = {
     adipose: {
@@ -10226,6 +10274,12 @@ var typeModAbilities = {
         typeModifier: { type: "Earth", modifier: 0.5 },
         powerMod: false
     },
+
+    furCoat: {
+        name: "Fur Coat",
+        typeModifier: { type: "Fire", modifier: 2 },
+        powerMod: false
+    },
     
 }
 
@@ -10246,4 +10300,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Bionotic and Lumiline as well as the three roulette lines.";
+var changelog = "Threec line added.";
