@@ -618,7 +618,7 @@ var loomians = {
         weight: 1,
         height: 3,
         ability: "Hidden Strength",
-        item: "Calamander Rune",
+        item: "Calamander Candy",
         baseStats: {
             hp: 100,
             attack: 100,
