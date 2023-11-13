@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -1764,11 +1764,19 @@ function detailedReport() {
     let currStatus = (second ? status1.value : status2.value);
     let counter = 0;
     let adaptive = { mr: "", mr1: "", mr2: ""};
+    let adaptiveResult;
     let atkDef;
-    if (move.name == "Fatal Flaw" && secondLoom.baseStats.defense > secondLoom.baseStats.defenseR){
+    if (move.name == "Fatal Flaw" && stats2.defR > stats2.defR) {
         adaptive.mr = "Magical";
         adaptive.mr1 = "Ranged Attack";
         adaptive.mr2 = "Melee Defense";
+        adaptiveResult = "melee";
+        atkDef = getTempAtkDef(second, adaptive);
+    } else if (move.name == "Spectral Ire" && stats1.atk > stats1.atkR) {
+        adaptive.mr = "Magical";
+        adaptive.mr1 = "Melee Attack";
+        adaptive.mr2 = "Ranged Defense";
+        adaptiveResult = "melee";
         atkDef = getTempAtkDef(second, adaptive);
     } else atkDef = getTempAtkDef(second, move);
     let atkPlus = "";
@@ -1783,7 +1791,7 @@ function detailedReport() {
     }
 
     //tempAtk
-    if (move.mr1 == "Ranged Attack" || (move.name == "Adaptive Assault" && firstLoom.baseStats.attackR > firstLoom.baseStats.attack)) {
+    if (move.mr1 == "Ranged Attack" && adaptiveResult != "melee") {
         if ((atkDef.attack.posNat == "mAttack" && atkDef.attack.mod1 > 0) || (atkDef.attack.negNat == "mAttack" && atkDef.attack.mod2 > 0)) {
             atkPlus = "+";
         }
@@ -1799,7 +1807,7 @@ function detailedReport() {
             tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "MAtk";
         }
     }
-    else if (move.mr1 == "Melee Attack" && !(abilitys == "Sand Swap" && sandstorm.checked)) {
+    else if ((move.mr1 == "Melee Attack" && !(abilitys == "Sand Swap" && sandstorm.checked)) || (move.name == "Spectral Ire" && adaptiveResult == "melee")) {
         if ((atkDef.attack.posNat == "attack" && atkDef.attack.mod1 > 0) || (atkDef.attack.negNat == "attack" && atkDef.attack.mod2 > 0)) {
             atkPlus = "+";
         }
@@ -2290,6 +2298,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             adaptive.mr2 = "Ranged Defense";
         }
         tempStats = getTempAtkDef(second, adaptive);
+    } else if (move.name == "Spectral Ire") {
+        if (theStats1.atk > theStats1.atkR) {
+            adaptive.mr = "Magic";
+            adaptive.mr1 = "Melee Attack";
+            adaptive.mr2 = "Ranged Defense";
+        } else {
+            adaptive.mr = "Magic";
+            adaptive.mr1 = "Ranged Attack";
+            adaptive.mr2 = "Ranged Defense";
+        }
+        tempStats = getTempAtkDef(second, adaptive);
     } else tempStats = getTempAtkDef(second, move, ability1, ability2);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
@@ -2381,9 +2400,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
-    if (move.name == "Swarm" || move.name == "Necromancy") {
+    if (move.name == "Swarm") {
         swarm = parseInt(swarm.charAt(0));
         tempPower = Number(tempPower) + 15 * swarm;
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
+    if (move.name == "Necromancy") {
+        swarm = parseInt(swarm.charAt(0));
+        tempPower = Number(tempPower) + 12.5 * swarm;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -2878,7 +2903,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Other --------------------------------
 
-    if (itemB.includes(tempType) && itemB.includes("Candy Cube") && withoutSlapDown && !foulHit) {
+    if (itemB.includes(tempType) && itemB.includes("Candy Cube") && (withoutSlapDown || ability2 == "Everlasting") && !foulHit) {
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
@@ -2965,7 +2990,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent > 74) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent > 49))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent > 49))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }

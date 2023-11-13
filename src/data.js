@@ -612,6 +612,23 @@ var loomians = {
         }
     },
 
+    'calamander-awakened': {
+        name: "Calamander-Awakened",
+        types: ["Food", "Beast"],
+        weight: 1,
+        height: 3,
+        ability: "Hidden Strength",
+        item: "Calamander Rune",
+        baseStats: {
+            hp: 100,
+            attack: 100,
+            defense: 97,
+            attackR: 91,
+            defenseR: 101,
+            speed: 47
+        }
+    },
+
     ruffire: {
         name: "Ruffire",
         types: ["Beast", "Fire"],
@@ -2888,6 +2905,23 @@ var loomians = {
         }
     },
 
+    'daeferno-awakened': {
+        name: "Daeferno-Awakened",
+        types: ["Fire", "Spirit"],
+        weight: 42,
+        height: 57,
+        ability: "Revenant",
+        item: "Daeferno Rune",
+        baseStats: {
+            hp: 80,
+            attack: 100,
+            defense: 85,
+            attackR: 120,
+            defenseR: 85,
+            speed: 96
+        }
+    },
+
     eftue: {
         name: "Eftue",
         types: ["Earth", "Mind"],
@@ -4493,6 +4527,21 @@ var loomians = {
         }
     },
 
+    arachniak: {
+        name: "Arachniak",
+        types: ["Insect", "Spirit"],
+        weight: 296,
+        height: 90,
+        baseStats: {
+            hp: 100,
+            attack: 115,
+            defense: 65,
+            attackR: 115,
+            defenseR: 69,
+            speed: 96
+        }
+    },
+
     reliconis: {
         name: "Reliconis",
         types: ["Beast", "Spirit"],
@@ -5881,7 +5930,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        priority: true
+        priority: true,
+        contact: true
     },
 
     finSlash: {
@@ -7516,6 +7566,17 @@ var moves = {
     whisper: {
         name: "Whisper",
         power: 20,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    spectralIre: {
+        name: "Spectral Ire",
+        power: 90,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
@@ -10122,7 +10183,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant"];
 
 var typeModAbilities = {
     adipose: {
@@ -10300,4 +10361,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Threec line added.";
+var changelog = "Arachniak, Calamander-A, and Daeferno-A added.";
