@@ -9985,7 +9985,7 @@ var artifacts = {
 
     'amber trapped fly': {
         name: "Amber Trapped Fly",
-        health: -20,
+        health: -17,
         attack: 0,
         defense: 0,
         mAttack: 0,
