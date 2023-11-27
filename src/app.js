@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
@@ -2400,15 +2400,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + tempType + ")";
     }
 
-    if (move.name == "Swarm") {
+    if (move.name == "Swarm" || move.name == "Necromancy") {
         swarm = parseInt(swarm.charAt(0));
-        tempPower = Number(tempPower) + 15 * swarm;
-        stuffUsed.extra1 += " (" + tempPower + " BP)";
-    }
-
-    if (move.name == "Necromancy") {
-        swarm = parseInt(swarm.charAt(0));
-        tempPower = Number(tempPower) + 12.5 * swarm;
+        tempPower = Number(tempPower) + Number(tempPower) / 4 * swarm;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -2469,6 +2463,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (ability1 == "Apparition" && tempType == "Basic") {
         tempType = "Spirit";
+        multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
@@ -2507,12 +2502,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Brute Force" && move.secondaryEffect == true) ||
        (ability1 == "Gloomy" && tempType == "Dark") ||
        (ability1 == "Overbite" && move.bite) ||
-       (ability1 == "Vengeance" && parseInt(stats1.spd) < parseInt(stats2.spd)) ||
+       (ability1 == "Vengeance" && (parseInt(stats1.spd) < parseInt(stats2.spd) || (btl1 && withoutSlapDown))) ||
        (ability1 == "Sand Surge" && sandstorm.checked) ||
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
        (ability1 == "Chef" && (loom2.types.includes("Food") || chocolateRain.checked)) ||
-       (ability1 == "Spiteful" && countBoosts(boosts2) > 0) ||
        (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
        (ability1 == "Pugilist" && move.punch) ||
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
@@ -2615,9 +2609,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
-    if (itemA.includes(tempType) && itemA.includes("Taffy") && withoutSlapDown && !foulHit) {
+    if (itemA.includes(tempType) && itemA.includes("Taffy") && (withoutSlapDown || ability1 == "Trick or Treat") && !foulHit) {
         multi *= 1.5;
         stuffUsed.item1 = itemA;
+        if (ability1 == "Trick or Treat") stuffUsed.ability1 = ability1;
     }
 
     if (itemB != "None" && move.knockOff == true && (withoutSlapDown || ability2 == "Ward") && !(itemB.includes("Rune"))) {
@@ -2818,18 +2813,34 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
+        else if (ability2 == "Spiteful") {
+            multi *= 0.5;
+            stuffUsed.ability2 = ability2;
+        }
         else multi *= 2;
     }
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         if (ability2 == "Apex" && types2.secondary == "Beast") stuffUsed.ability2 = ability2;
+        else if (ability2 == "Spiteful") {
+            multi *= 0.5;
+            stuffUsed.ability2 = ability2;
+        }
         else multi *= 2;
     }
     if (types[types2.primary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
+        else if (ability2 == "Spiteful") {
+            multi *= 2;
+            stuffUsed.ability2 = ability2;
+        }
         else multi *= 0.5;
     }
     if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].resistances.includes(tempType.toLowerCase())) {
         if (ability2 == "Apex" && types2.secondary == "Beast") stuffUsed.ability2 = ability2;
+        else if (ability2 == "Spiteful") {
+            multi *= 2;
+            stuffUsed.ability2 = ability2;
+        }
         else multi *= 0.5;
     }
     if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
@@ -2857,8 +2868,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     effectiveness = multi;
     if (move.name == "Pursuit") {
-        multi = 1;
-        effectiveness = 1;
+        if (ability2 == "Escapist") {
+            multi = 0;
+            effectiveness = 0;
+            stuffUsed.ability2 = ability2;
+        } else {
+            multi = 1;
+            effectiveness = 1;
+        }    
     }
 
     if ((ability1 == "Nullify") ||
@@ -2964,12 +2981,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability1 = ability1;
     }
-    if (ability2 == "Sand Screen" && sandstorm.checked) {
+    if ((ability2 == "Sand Screen" && sandstorm.checked) ||
+        (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
     }
-    if ((ability2 == "Gaseous Form" && move.contact) ||
-        (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
+    if ((ability2 == "Gaseous Form" && move.contact)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -2986,11 +3003,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
         stuffUsed.ability1 = ability1;
     }
-    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) {
+    if ((ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) ||
+        (ability2 == "Warden" && btl1 && withoutSlapDown && !foulHit)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent > 49))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent > 74))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
@@ -3454,7 +3472,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         }
 
         if ((status == "poisoned" || status == "diseased") && ability == "Detox") {
-            newHP -= Math.floor(hp1 * 1 / 8);
+            newHP -= Math.floor(hp1 * 1 / 16);
             hazardString += "detox recovery and ";
         }
     }
@@ -3463,7 +3481,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") {
         if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
         if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 4);
-        newHP += Math.floor(hp1 * 1 / 12);
+        newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "burn damage and ";
     }
 
@@ -3473,7 +3491,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
 
     if (sandstorm.checked && !loom2.types.includes("Earth") && !loom2.types.includes("Metal") && ability != "Desert Body" && ability != "Oasis Deity" && ability != "Dust Storm") {
-        newHP += Math.floor(hp1 * 1 / 20);
+        newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "sandstorm damage and ";
     }
 
@@ -3481,7 +3499,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
-    if(status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
+    if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
         newHP += Math.floor(hp1 * (disease + counter) / 16);
         hazardString += "disease damage and ";
     }

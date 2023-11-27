@@ -239,7 +239,7 @@ var loomians = {
         types: ["Metal", "Poison"],
         weight: 18,
         height: 34,
-        ability: "Unbreakable",
+        ability: "Warden",
         item: "Mawthra Rune",
         baseStats: {
             hp: 70,
@@ -542,7 +542,7 @@ var loomians = {
         item: "Groato Rune",
         baseStats: {
             hp: 100,
-            attack: 115,
+            attack: 126,
             defense: 80,
             attackR: 65,
             defenseR: 150,
@@ -2916,7 +2916,7 @@ var loomians = {
             hp: 80,
             attack: 100,
             defense: 85,
-            attackR: 120,
+            attackR: 130,
             defenseR: 85,
             speed: 96
         }
@@ -4370,7 +4370,7 @@ var loomians = {
         baseStats: {
             hp: 100,
             attack: 75,
-            defense: 99,
+            defense: 91,
             attackR: 108,
             defenseR: 91,
             speed: 85
@@ -4777,7 +4777,7 @@ var loomians = {
             hp: 78,
             attack: 92,
             defense: 60,
-            attackR: 112,
+            attackR: 122,
             defenseR: 83,
             speed: 93
         }
@@ -5160,7 +5160,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        recoil: 1/2
+        recoil: 1/3
     },
 
     subterfuge: {
@@ -5650,7 +5650,7 @@ var moves = {
 
     foxfire: {
         name: "Foxfire",
-        power: 65,
+        power: 75,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -6221,7 +6221,7 @@ var moves = {
 
     lightningKicks: {
         name: "Lightning Kicks",
-        power: 20,
+        power: 25,
         accuracy: 90,
         type: "Spark",
         mr: "Melee",
@@ -6773,7 +6773,7 @@ var moves = {
     psychicRam: {
         name: "Psychic Ram",
         power: 80,
-        accuracy: 85,
+        accuracy: 100,
         type: "Mind",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -6884,8 +6884,8 @@ var moves = {
 
     helicopterKick: {
         name: "Helicopter Kick",
-        power: 20,
-        accuracy: 85,
+        power: 25,
+        accuracy: 90,
         type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -7029,7 +7029,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        contact: true
+        secondaryEffect: true
+    },
+
+    energyWave: {
+        name: "Energy Wave",
+        power: 80,
+        accuracy: 100,
+        type: "Melee",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     nutrientDrain: {
@@ -7267,6 +7277,18 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    lightHook: {
+        name: "Light Hook",
+        power: 80,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true
     },
 
     lightspeedFlurry: {
@@ -7619,7 +7641,7 @@ var moves = {
 
     necromancy: {
         name: "Necromancy",
-        power: 50,
+        power: 55,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
@@ -7911,9 +7933,9 @@ var moves = {
         power: 90,
         accuracy: 100,
         type: "Dark",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         secondaryEffect: true
     },
 
@@ -8565,6 +8587,22 @@ var moves = {
         mr: "Support"
     },
 
+    mockCharge: {
+        name: "Mock Charge",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
+    mortalCleanse: {
+        name: "Mortal Cleanse",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
     armorBreak: {
         name: "Armor Break",
         power: 0,
@@ -8833,7 +8871,7 @@ var moves = {
         name: "Quick Thinking",
         power: 0,
         accuracy: 100,
-        type: "Air",
+        type: "Mind",
         mr: "Support"
     },
 
@@ -9487,7 +9525,7 @@ var helmets = {
         defense: -20,
         mAttack: 0,
         mDefense: 0,
-        speed: 15,
+        speed: 12,
     },
 
     'head leaf': {
@@ -9567,7 +9605,7 @@ var helmets = {
         defense: -20,
         mAttack: 0,
         mDefense: 0,
-        speed: 15,
+        speed: 12,
     },
 
     'pale sunbonnet': {
@@ -9577,7 +9615,7 @@ var helmets = {
         defense: 0,
         mAttack: 5,
         mDefense: -10,
-        speed: 15,
+        speed: 12,
     },
 
     'aviator helmet': {
@@ -9952,7 +9990,7 @@ var artifacts = {
         defense: 0,
         mAttack: 0,
         mDefense: 0,
-        speed: 20,
+        speed: 17,
     },
 
     'decorative katana': {
@@ -10183,7 +10221,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge"];
 
 var typeModAbilities = {
     adipose: {
@@ -10361,4 +10399,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Arachniak, Calamander-A, and Daeferno-A added.";
+var changelog = "Season 2 changes added.";
