@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,14 +459,14 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2024 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2024 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2024 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2025 12:00:00 UTC";
     }
 }
 
@@ -620,7 +620,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -628,7 +628,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -2540,7 +2540,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Rapier" && move.priority) ||
-       (ability1 == "Slash Expert" && move.slash)) {
+       (ability1 == "Slash Expert" && move.slash) ||
+       (ability1 == "Grounded" && immuneBoostCheck1 && (loom2.types.includes("Air") || ability2 == "Levitate"))) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -2811,6 +2812,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     //Type -------------------------------
 
+    let spiteWeak = 1;
+
     if (types[types2.primary.toLowerCase()].weaknesses.includes(tempType.toLowerCase())) {
         if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
         else if (ability2 == "Spiteful") {
@@ -2831,6 +2834,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (ability2 == "Apex" && types2.primary == "Beast") stuffUsed.ability2 = ability2;
         else if (ability2 == "Spiteful") {
             multi *= 2;
+            spiteWeak *= 2;
             stuffUsed.ability2 = ability2;
         }
         else multi *= 0.5;
@@ -2839,15 +2843,28 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (ability2 == "Apex" && types2.secondary == "Beast") stuffUsed.ability2 = ability2;
         else if (ability2 == "Spiteful") {
             multi *= 2;
+            spiteWeak *= 2;
             stuffUsed.ability2 = ability2;
         }
         else multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
-        multi *= 0;
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !(ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) {
+        if (ability2 == "Spiteful") {
+            multi *= 2;
+            spiteWeak *= 2;
+            stuffUsed.ability2 = ability2;
+            if (spiteWeak > 2) multi = 2;
+        }
+        else multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase())) {
-        multi *= 0;
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !(ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) {
+        if (ability2 == "Spiteful") {
+            multi *= 2;
+            spiteWeak *= 2;
+            stuffUsed.ability2 = ability2;
+            if (spiteWeak > 2) multi = 2;
+        }
+        else multi *= 0;
     }
     if (itemB == "Jetpack" && tempType == "Earth" && withoutSlapDown) {
         multi *= 0;
@@ -2879,7 +2896,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Nullify") ||
-        (ability1 == "Annihilation")) {
+        (ability1 == "Annihilation") ||
+        (ability1 == "Grounded" && immuneBoostCheck1 && ability2 == "Levitate")) {
         typeModAbility2 = undefined;
     }
 
@@ -3004,7 +3022,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
     if ((ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) ||
-        (ability2 == "Warden" && btl1 && withoutSlapDown && !foulHit)) {
+        (ability2 == "Warden" && !pylon && btl1 && withoutSlapDown && !foulHit)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }

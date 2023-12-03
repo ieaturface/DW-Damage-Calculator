@@ -3374,6 +3374,23 @@ var loomians = {
         }
     },
 
+    'cragildae-awakened': {
+        name: "Cragildae-Awakened",
+        types: ["Earth", "Melee"],
+        weight: 39,
+        height: 50,
+        ability: "Grounded",
+        item: "Cragildae Rune",
+        baseStats: {
+            hp: 82,
+            attack: 122,
+            defense: 91,
+            attackR: 85,
+            defenseR: 80,
+            speed: 101
+        }
+    },
+
     mauspunch: {
         name: "Mauspunch",
         types: ["Melee"],
@@ -8599,7 +8616,7 @@ var moves = {
         name: "Mortal Cleanse",
         power: 0,
         accuracy: 100,
-        type: "Basic",
+        type: "Light",
         mr: "Support"
     },
 
@@ -10221,7 +10238,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded"];
 
 var typeModAbilities = {
     adipose: {
@@ -10399,4 +10416,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 2 changes added.";
+var changelog = "Awakened Cragildae Added.";
