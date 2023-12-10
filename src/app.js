@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2493,7 +2493,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Chlorokinesis" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
-       (ability1 == "True Power" && stats1.hpPercent <= 20)) {
+       (ability1 == "True Power" && stats1.hpPercent <= 50)) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -2969,6 +2969,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
+    if (ability1 == "Goliath" && (loom2.name.includes("-Awakened") || loom2.name.includes("-Mother"))) {
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
+
     if (itemA == "Empowered Ring" && effectiveness > 1) {
         multi *= 1.2;
         stuffUsed.item1 = itemA;
@@ -3004,7 +3009,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
     }
-    if ((ability2 == "Gaseous Form" && move.contact)) {
+    if ((ability2 == "Gaseous Form" && move.contact) ||
+        (ability2 == "Naughty List" && (loom1.name.includes("-Awakened") || loom1.name.includes("-Mother")))) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }

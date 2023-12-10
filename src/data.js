@@ -4288,6 +4288,84 @@ var loomians = {
         }
     },
 
+    yonna: {
+        name: "Yonna",
+        types: ["Beast"],
+        finalEvo: false,
+        weight: 19,
+        height: 22,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 45,
+            attackR: 70,
+            defenseR: 50,
+            speed: 43
+        }
+    },
+
+    yondr: {
+        name: "Yondr",
+        types: ["Beast"],
+        finalEvo: false,
+        weight: 69,
+        height: 52,
+        baseStats: {
+            hp: 70,
+            attack: 61,
+            defense: 60,
+            attackR: 81,
+            defenseR: 60,
+            speed: 70
+        }
+    },
+
+    yorus: {
+        name: "Yorus",
+        types: ["Beast"],
+        weight: 464,
+        height: 109,
+        baseStats: {
+            hp: 93,
+            attack: 81,
+            defense: 78,
+            attackR: 122,
+            defenseR: 79,
+            speed: 87
+        }
+    },
+
+    ciyrup: {
+        name: "Ciyrup",
+        types: ["Food", "Ice"],
+        finalEvo: false,
+        weight: 2,
+        height: 12,
+        baseStats: {
+            hp: 55,
+            attack: 40,
+            defense: 58,
+            attackR: 65,
+            defenseR: 54,
+            speed: 43
+        }
+    },
+
+    snowclowne: {
+        name: "Snowclowne",
+        types: ["Food", "Ice"],
+        weight: 23,
+        height: 40,
+        baseStats: {
+            hp: 85,
+            attack: 85,
+            defense: 65,
+            attackR: 105,
+            defenseR: 85,
+            speed: 86
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -4556,6 +4634,36 @@ var loomians = {
             attackR: 115,
             defenseR: 69,
             speed: 96
+        }
+    },
+
+    artifixie: {
+        name: "Artifixie",
+        types: ["Ice", "Mind"],
+        weight: 18,
+        height: 25,
+        baseStats: {
+            hp: 85,
+            attack: 100,
+            defense: 61,
+            attackR: 101,
+            defenseR: 67,
+            speed: 106
+        }
+    },
+
+    'artifixie-mech': {
+        name: "Artifixie-Mech",
+        types: ["Ice", "Metal"],
+        weight: 3812,
+        height: 157,
+        baseStats: {
+            hp: 85,
+            attack: 115,
+            defense: 105,
+            attackR: 120,
+            defenseR: 100,
+            speed: 75
         }
     },
 
@@ -7720,6 +7828,18 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    coneCannon: {
+        name: "Cone Cannon",
+        power: 40,
+        accuracy: 85,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        hits: 3,
+        secondaryEffect: true,
+    },
+
     snapFreeze: {
         name: "Snap Freeze",
         power: 80,
@@ -10079,6 +10199,16 @@ var artifacts = {
         mDefense: 0,
         speed: 7,
     },
+
+    scone: {
+        name: "Scone",
+        health: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 10,
+        mDefense: -10,
+        speed: 7,
+    },
 };
 
 var types = {
@@ -10238,7 +10368,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis"];
 
 var typeModAbilities = {
     adipose: {
@@ -10396,6 +10526,12 @@ var typeModAbilities = {
         typeModifier: { type: "Fire", modifier: 2 },
         powerMod: false
     },
+
+    symbiosis: {
+        name: "Symbiosis",
+        typeModifier: { type: "Insect", modifier: 1.5 },
+        powerMod: true
+    },
     
 }
 
@@ -10416,4 +10552,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Cragildae Added.";
+var changelog = "Christmas Event Doodles added.";
