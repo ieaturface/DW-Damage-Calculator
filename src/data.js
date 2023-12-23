@@ -9595,6 +9595,16 @@ var helmets = {
         speed: 0,
     },
 
+    "artificer's beanie": {
+        name: "Artificer's Beanie",
+        health: 0,
+        attack: 7,
+        defense: 0,
+        mAttack: 7,
+        mDefense: 0,
+        speed: 7,
+    },
+
     'decorated hairclip': {
         name: "Decorated Hairclip",
         health: 0,
