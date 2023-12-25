@@ -402,11 +402,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -459,8 +459,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2314,7 +2314,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     tempDef = tempStats.defense;
 
     if (pylons) {
-        tempAtk.atk = calculateStat(80, 0, tempDef.level, 5, undefined, "none", "none", "None", tempAtk.mod1, tempAtk.mod2);
+        tempAtk.atk = calculateStat(100, 0, tempDef.level, 5, undefined, "none", "none", "None", tempAtk.mod1, tempAtk.mod2);
         level = tempDef.level;
     }    
 
@@ -2655,7 +2655,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ability1 == "Jab Cross" && move.punch) {
-        multi *= 0.7;
+        multi *= 0.6;
     }
     /*if (foulHit) {
         multi *= 0.25;
@@ -2969,8 +2969,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
-    if (ability1 == "Goliath" && (loom2.name.includes("-Awakened") || loom2.name.includes("-Mother"))) {
-        multi *= 1.3;
+    if (ability1 == "Goliath" && loom1.weight > loom2.weight) {
+        multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
 

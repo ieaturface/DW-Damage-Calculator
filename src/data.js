@@ -10562,4 +10562,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Christmas Event Doodles added.";
+var changelog = "Mid Season 2 Balance Patch.";
