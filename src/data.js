@@ -7272,10 +7272,9 @@ var moves = {
         power: 80,
         accuracy: 100,
         type: "Food",
-        mr: "Melee",
-        mr1: "Melee Attack",
-        mr2: "Melee Defense",
-        contact: true,
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
         priority: true
     },
 
