@@ -237,7 +237,7 @@ var loomians = {
     'mawthra-awakened': {
         name: "Mawthra-Awakened",
         types: ["Metal", "Poison"],
-        weight: 18,
+        weight: 96,
         height: 34,
         ability: "Warden",
         item: "Mawthra Rune",
@@ -593,7 +593,7 @@ var loomians = {
             defense: 80,
             attackR: 105,
             defenseR: 80,
-            speed: 95
+            speed: 105
         }
     },
 
@@ -669,7 +669,7 @@ var loomians = {
         item: "Tufflaze Rune",
         baseStats: {
             hp: 95,
-            attack: 140,
+            attack: 150,
             defense: 80,
             attackR: 92,
             defenseR: 88,
@@ -999,9 +999,9 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 100,
-            defense: 75,
+            defense: 85,
             attackR: 60,
-            defenseR: 85,
+            defenseR: 90,
             speed: 60
         }
     },
@@ -1171,10 +1171,10 @@ var loomians = {
         item: "Lumiline Runestone",
         baseStats: {
             hp: 75,
-            attack: 65,
+            attack: 55,
             defense: 80,
-            attackR: 115,
-            defenseR: 150,
+            attackR: 135,
+            defenseR: 140,
             speed: 110
         }
     },
@@ -1375,9 +1375,9 @@ var loomians = {
         height: 24,
         baseStats: {
             hp: 113,
-            attack: 58,
+            attack: 48,
             defense: 84,
-            attackR: 73,
+            attackR: 83,
             defenseR: 91,
             speed: 65
         }
@@ -2280,7 +2280,7 @@ var loomians = {
 
     'voltenchant-awakened': {
         name: "Voltenchant-Awakened",
-        types: ["Spark"],
+        types: ["Spark", "Water"],
         weight: 34,
         height: 52,
         ability: "Downpour",
@@ -2375,7 +2375,7 @@ var loomians = {
     'malotrick-awakened': {
         name: "Malotrick-Awakened",
         types: ["Dark", "Mind"],
-        weight: 91,
+        weight: 1,
         height: 96,
         ability: "Gaseous Form",
         item: "Malotrick Rune",
@@ -2438,7 +2438,7 @@ var loomians = {
 
     'somberock-awakened': {
         name: "Somberock-Awakened",
-        types: ["Food", "Crystal"],
+        types: ["Food", "Light"],
         weight: 110,
         height: 84,
         ability: "Luminosity",
@@ -2677,10 +2677,10 @@ var loomians = {
         weight: 216,
         height: 67,
         baseStats: {
-            hp: 100,
-            attack: 80,
+            hp: 110,
+            attack: 90,
             defense: 100,
-            attackR: 80,
+            attackR: 90,
             defenseR: 85,
             speed: 40
         }
@@ -2711,9 +2711,9 @@ var loomians = {
             hp: 80,
             attack: 45,
             defense: 115,
-            attackR: 95,
+            attackR: 105,
             defenseR: 120,
-            speed: 45
+            speed: 35
         }
     },
 
@@ -2944,9 +2944,9 @@ var loomians = {
         weight: 307,
         height: 78,
         baseStats: {
-            hp: 85,
-            attack: 85,
-            defense: 90,
+            hp: 100,
+            attack: 50,
+            defense: 115,
             attackR: 115,
             defenseR: 95,
             speed: 25
@@ -3572,10 +3572,10 @@ var loomians = {
         weight: 11,
         height: 18,
         baseStats: {
-            hp: 75,
-            attack: 85,
+            hp: 90,
+            attack: 90,
             defense: 70,
-            attackR: 77,
+            attackR: 82,
             defenseR: 83,
             speed: 90
         }
@@ -3883,7 +3883,7 @@ var loomians = {
         types: ["Mind", "Plant"],
         weight: 38,
         height: 49,
-        ability: "Puffball",
+        ability: "Mushroom Maneuver",
         item: "Hypnotl Antigen",
         baseStats: {
             hp: 85,
@@ -3931,7 +3931,7 @@ var loomians = {
         types: ["Water", "Melee"],
         weight: 36,
         height: 49,
-        ability: "Ferocity",
+        ability: "Crowd Support",
         item: "Vigimante Rune",
         baseStats: {
             hp: 78,
@@ -4366,6 +4366,53 @@ var loomians = {
         }
     },
 
+    bellbird: {
+        name: "Bellbird",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 5,
+        height: 12,
+        baseStats: {
+            hp: 48,
+            attack: 30,
+            defense: 50,
+            attackR: 35,
+            defenseR: 45,
+            speed: 70
+        }
+    },
+
+    chirpine: {
+        name: "Chirpine",
+        types: ["Plant", "Air"],
+        finalEvo: false,
+        weight: 18,
+        height: 23,
+        baseStats: {
+            hp: 70,
+            attack: 40,
+            defense: 68,
+            attackR: 65,
+            defenseR: 70,
+            speed: 90
+        }
+    },
+
+    jinglark: {
+        name: "Jinglark",
+        types: ["Plant", "Air"],
+        weight: 41,
+        height: 55,
+        baseStats: {
+            hp: 97,
+            attack: 55,
+            defense: 98,
+            attackR: 75,
+            defenseR: 100,
+            speed: 112
+        }
+    },
+
     glubbie: {
         name: "Glubbie",
         types: ["Poison", "Spirit"],
@@ -4481,9 +4528,9 @@ var loomians = {
             hp: 75,
             attack: 95,
             defense: 85,
-            attackR: 80,
+            attackR: 60,
             defenseR: 90,
-            speed: 80
+            speed: 100
         }
     },
 
@@ -4658,12 +4705,12 @@ var loomians = {
         weight: 3812,
         height: 157,
         baseStats: {
-            hp: 85,
-            attack: 115,
-            defense: 105,
-            attackR: 120,
-            defenseR: 100,
-            speed: 75
+            hp: 100,
+            attack: 110,
+            defense: 110,
+            attackR: 110,
+            defenseR: 110,
+            speed: 60
         }
     },
 
@@ -4687,7 +4734,7 @@ var loomians = {
             defense: 80,
             attackR: 140,
             defenseR: 80,
-            speed: 110
+            speed: 115
         }
     },
 
@@ -4745,11 +4792,11 @@ var loomians = {
         height: 71,
         baseStats: {
             hp: 80,
-            attack: 95,
+            attack: 105,
             defense: 80,
-            attackR: 85,
+            attackR: 65,
             defenseR: 80,
-            speed: 92
+            speed: 102
         }
     },
 
@@ -5264,9 +5311,9 @@ var loomians = {
         baseStats: {
             hp: 72,
             attack: 50,
-            defense: 115,
+            defense: 130,
             attackR: 50,
-            defenseR: 115,
+            defenseR: 130,
             speed: 45
         }
     },
@@ -5360,7 +5407,7 @@ var moves = {
 
     markingBite: {
         name: "Marking Bite",
-        power: 20,
+        power: 80,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -5645,7 +5692,7 @@ var moves = {
 
     markingShot: {
         name: "Marking Shot",
-        power: 40,
+        power: 80,
         accuracy: 100,
         type: "Basic",
         mr: "Magic",
@@ -6559,6 +6606,16 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    festiveFervor: {
+        name: "Festive Fervor",
+        power: 100,
+        accuracy: 100,
+        type: "Air",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     aeroStorm: {
         name: "Aero Storm",
         power: 140,
@@ -6758,6 +6815,16 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    mudWave: {
+        name: "Mud Wave",
+        power: 70,
+        accuracy: 100,
+        type: "Earth",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     mudSpit: {
@@ -7200,6 +7267,18 @@ var moves = {
         priority: true
     },
 
+    pieGag: {
+        name: "Pie Gag",
+        power: 80,
+        accuracy: 100,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true
+    },
+
     heckle: {
         name: "Heckle",
         power: 50,
@@ -7373,8 +7452,8 @@ var moves = {
 
     radiantBeam: {
         name: "Radiant Beam",
-        power: 100,
-        accuracy: 75,
+        power: 90,
+        accuracy: 100,
         type: "Light",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -7495,6 +7574,16 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    transcendentPower: {
+        name: "Transcendent Power",
+        power: 85,
+        accuracy: 100,
+        type: "Crystal",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Melee Defense"
+    },
+
     rupture: {
         name: "Rupture",
         power: 140,
@@ -7546,6 +7635,18 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    diamondDash: {
+        name: "Diamond Dash",
+        power: 90,
+        accuracy: 100,
+        type: "Crystal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true
     },
 
     ironChomp: {
@@ -9668,11 +9769,11 @@ var helmets = {
     'magnificent tophat': {
         name: "Magnificent Tophat",
         health: 0,
-        attack: -20,
-        defense: -20,
-        mAttack: 0,
+        attack: 0,
+        defense: 0,
+        mAttack: 10,
         mDefense: 0,
-        speed: 12,
+        speed: 5,
     },
 
     'head leaf': {
@@ -9801,7 +9902,7 @@ var amulets = {
         name: "Toxic Vial",
         health: 0,
         attack: 10,
-        defense: 10,
+        defense: 15,
         mAttack: 0,
         mDefense: 0,
         speed: 0,
@@ -9809,12 +9910,12 @@ var amulets = {
 
     'geode pendant': {
         name: "Geode Pendant",
-        health: 4,
-        attack: 4,
-        defense: 4,
-        mAttack: 4,
-        mDefense: 4,
-        speed: -14,
+        health: 7,
+        attack: 7,
+        defense: 7,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
     },
 
     'swag juice': {
@@ -9840,11 +9941,11 @@ var amulets = {
     whatchamacallit: {
         name: "Whatchamacallit",
         health: 0,
-        attack: 0,
-        defense: -10,
+        attack: 12,
+        defense: 0,
         mAttack: 0,
-        mDefense: -10,
-        speed: 10,
+        mDefense: 0,
+        speed: 0,
     },
 
     'helpful lanturn': {
@@ -10070,6 +10171,16 @@ var artifacts = {
         speed: -15,
     },
 
+    'crumpled water bottle': {
+        name: "Crumpled Water Bottle",
+        health: -20,
+        attack: 6,
+        defense: 6,
+        mAttack: 6,
+        mDefense: 6,
+        speed: 6,
+    },
+
     'white chocolate': {
         name: "White Chocolate",
         health: 0,
@@ -10245,8 +10356,8 @@ var types = {
 
     plant: {
         weaknesses: ["fire", "ice", "air", "insect", "poison"],
-        resistances: ["plant", "water", "earth", "spark", "light", "food"],
-        immunities: [],
+        resistances: ["plant", "water", "earth", "spark", "food"],
+        immunities: ["light"],
         otherName: "blossom"
     },
 
@@ -10328,7 +10439,7 @@ var types = {
     },
 
     mythic: {
-        weaknesses: ["light", "food", "crystal", "mythic"],
+        weaknesses: ["light", "crystal", "mythic"],
         resistances: ["fire", "water", "plant", "beast", "spark", "basic"],
         immunities: [],
         otherName: "archaic"
@@ -10350,7 +10461,7 @@ var types = {
 
     food: {
         weaknesses: ["fire", "water", "beast", "insect"],
-        resistances: ["spark", "dark", "mythic"],
+        resistances: ["spark", "dark", "light"],
         immunities: [],
         otherName: "food"
     },
@@ -10378,7 +10489,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Toxicity", "Archmage", "Delicate", "The Fungus", "Annihilation", "Cardinal Sins", "Spiteful", "Downpour", "Refreshed Resilience", "Analytical", "Luminosity", "Ambrosia", "Pugilist", "Heavy Storms", "Nimble", "Vicious", "Annoying Insect", "Rain Power",
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
-                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis"];
+                 "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
+                 "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver"];
 
 var typeModAbilities = {
     adipose: {
@@ -10542,6 +10654,12 @@ var typeModAbilities = {
         typeModifier: { type: "Insect", modifier: 1.5 },
         powerMod: true
     },
+
+    hardCandy: {
+        name: "Hard Candy",
+        typeModifier: { type: "Fire", modifier: 0 },
+        powerMod: false
+    },
     
 }
 
@@ -10549,7 +10667,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
-             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang"];
+             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -10562,4 +10680,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Mid Season 2 Balance Patch.";
+var changelog = "Bellbird + Season 3 Balance Patch.";
