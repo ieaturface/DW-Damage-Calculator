@@ -10467,7 +10467,7 @@ var types = {
 
     beast: {
         weaknesses: ["fire", "spark", "mind", "beast"],
-        resistances: ["insect", "food"],
+        resistances: ["insect", "food", "dark"],
         immunities: [],
         otherName: "beast"
     },
