@@ -6608,8 +6608,8 @@ var moves = {
 
     festiveFervor: {
         name: "Festive Fervor",
-        power: 100,
-        accuracy: 100,
+        power: 120,
+        accuracy: 90,
         type: "Air",
         mr: "Magic",
         mr1: "Ranged Attack",
