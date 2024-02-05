@@ -399,11 +399,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -456,8 +456,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -1051,7 +1051,7 @@ function loadBaseStats(side) {
             baseDef1.value = firstLoom.baseStats.defenseR;
             baseAtkR1.value = firstLoom.baseStats.attack;
             baseDefR1.value = firstLoom.baseStats.defense;
-        } else if (firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) {
+        } else if ((firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) || (firstLoom.name == "Armaratus" && ability1 == "Soul Fortification" && percentHP1.value < 50)) {
             baseAtk1.value = firstLoom.formStats.attack;
             baseDef1.value = firstLoom.formStats.defense;
             baseAtkR1.value = firstLoom.formStats.attackR;
@@ -1081,7 +1081,7 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
             baseDefR2.value = secondLoom.baseStats.defense;
-        } else if (secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) {
+        } else if ((secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) || (secondLoom.name == "Armaratus" && ability2 == "Soul Fortification" && percentHP2.value < 50)) {
             baseAtk2.value = secondLoom.formStats.attack;
             baseDef2.value = secondLoom.formStats.defense;
             baseAtkR2.value = secondLoom.formStats.attackR;
@@ -1498,13 +1498,15 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if ((tempGender1 != gender1.value && firstLoom.name == "Staligant") ||
         (((tempAbility1 == "Vigor" || tempAbility1 == "Elegance") || (ability1 == "Vigor" || ability1 == "Elegance")) && immuneAbilityBoost1) ||
-        ((tempAbility1 == "Reformation" || ability1 == "Reformation") && firstLoom.name == "Reliconis" && immuneAbilityBoost1)) {
+        ((tempAbility1 == "Reformation" || ability1 == "Reformation") && firstLoom.name == "Reliconis" && immuneAbilityBoost1) ||
+        ((tempAbility1 == "Soul Fortification" || ability1 == "Soul Fortification") && firstLoom.name == "Armaratus")) {
         loadBaseStats(1);
         loadStats();
     }
     if ((tempGender2 != gender2.value && secondLoom.name == "Staligant") ||
         (((tempAbility2 == "Vigor" || tempAbility2 == "Elegance") || (ability2 == "Vigor" || ability2 == "Elegance")) && immuneAbilityBoost2) ||
-        ((tempAbility2 == "Reformation" || ability2 == "Reformation") && secondLoom.name == "Reliconis" && immuneAbilityBoost2)) {
+        ((tempAbility2 == "Reformation" || ability2 == "Reformation") && secondLoom.name == "Reliconis" && immuneAbilityBoost2) ||
+        ((tempAbility2 == "Soul Fortification" || ability2 == "Soul Fortification") && secondLoom.name == "Armaratus")) {
         loadBaseStats(2);
         loadStats();
     }
@@ -1559,25 +1561,25 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, repeat1, hitsOne1, elementalOne1, swarmOne1, false, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, itemA, ability1, ability2, stat1, stat2);
+    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
 
     let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, elementalTwo1, swarmTwo1, false, level1.value);
     let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, elementalTwo1, swarmTwo1, false, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, itemA, ability1, ability2, ability2, stat1, stat2);
+    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, ability2, stat1, stat2);
 
     let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, elementalThree1, swarmThree1, false, level1.value);
     let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, elementalThree1, swarmThree1, false, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, itemA, ability1, ability2, stat1, stat2);
+    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
 
     let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, elementalFour1, swarmFour1, false, level1.value);
     let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, elementalFour1, swarmFour1, false, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, itemA, ability1, ability2, stat1, stat2);
+    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
 
     //----------------------------------------------------------
 
@@ -1585,26 +1587,26 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, repeat2, hitsOne2, elementalOne2, swarmOne2, false, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, itemB, ability2, ability1, stat2, stat1);
+    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
 
     let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, elementalTwo2, swarmTwo2, false, level2.value, undefined, true);
     let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, elementalTwo2, swarmTwo2, false, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, itemB, ability2, ability1, stat2, stat1);
+    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
 
     let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, elementalThree2, swarmThree2, false, level2.value, undefined, true);
     let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, elementalThree2, swarmThree2, false, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, itemB, ability2, ability1, stat2, stat1);
+    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
 
     let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, elementalFour2, swarmFour2, false, level2.value, undefined, true);
     let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, elementalFour2, swarmFour2, false, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, itemB, ability2, ability1, stat2, stat1);
+    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
 }
 
 function detailedReport() {
@@ -3571,17 +3573,16 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     return [newHP, hazardString];
 }
 
-function checkIceTrap(move, l, u, hp, item, ability, ability2, stat1, stat2) {
+function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || (ability == "Hirudotherapy" && move.bite)) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || (ability == "Hirudotherapy" && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
         let drain = move.drain;
-        if ((ability == "Leech" && move.type == "Insect") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Vampire" && move.type == "Dark") || (ability == "Hirudotherapy" && move.bite)) {
-            if (!drain) drain = 1/2;
-            else drain += 1/2;
-        }
-        if (ability == "The Fungus" && move.mr == "Magic") {
+        if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
             if (!drain) drain = 1/4;
             else drain += 1/4;
+        } else {
+            if (!drain) drain = 1/2;
+            else drain += 1/2;
         }
         let drainStat = (stat1 == "burned" ? 0.5 : 1);
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);

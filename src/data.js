@@ -5318,6 +5318,79 @@ var loomians = {
         }
     },
 
+    perfumi: {
+        name: "Perfumi",
+        types: ["Mind"],
+        finalEvo: false,
+        weight: 2,
+        height: 20,
+        baseStats: {
+            hp: 60,
+            attack: 30,
+            defense: 75,
+            attackR: 60,
+            defenseR: 70,
+            speed: 40
+        }
+    },
+
+    fummasu: {
+        name: "Fummasu",
+        types: ["Mind", "Air"],
+        weight: 11,
+        height: 52,
+        baseStats: {
+            hp: 100,
+            attack: 75,
+            defense: 110,
+            attackR: 85,
+            defenseR: 100,
+            speed: 50
+        }
+    },
+
+    diyossua: {
+        name: "Diyossua",
+        types: ["Crystal", "Spirit"],
+        finalEvo: false,
+        weight: 23,
+        height: 24,
+        ability: "Silly",
+        baseStats: {
+            hp: 56,
+            attack: 65,
+            defense: 65,
+            attackR: 65,
+            defenseR: 65,
+            speed: 56
+        }
+    },
+
+    armaratus: {
+        name: "Armaratus",
+        types: ["Crystal", "Spirit"],
+        weight: 105,
+        height: 48,
+        ability: "Soul Fortification",
+        baseStats: {
+            hp: 90,
+            attack: 50,
+            defense: 130,
+            attackR: 80,
+            defenseR: 130,
+            speed: 10
+        },
+        formStats: {
+            hp: 90,
+            attack: 105,
+            defense: 65,
+            attackR: 105,
+            defenseR: 65,
+            speed: 82
+        }
+    },
+
+
 };
 
 
@@ -7575,7 +7648,7 @@ var moves = {
 
     transcendentPower: {
         name: "Transcendent Power",
-        power: 85,
+        power: 90,
         accuracy: 100,
         type: "Crystal",
         mr: "Magic",
@@ -10489,7 +10562,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
-                 "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver"];
+                 "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification"];
 
 var typeModAbilities = {
     adipose: {
@@ -10679,4 +10752,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Bellbird + Season 3 Balance Patch.";
+var changelog = "Fummasu and Armaratus added.";
