@@ -5695,8 +5695,8 @@ var loomians = {
         baseStats: {
             hp: 72,
             attack: 40,
-            defense: 112,
-            attackR: 140,
+            defense: 127,
+            attackR: 125,
             defenseR: 90,
             speed: 30
         }
@@ -6732,7 +6732,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        slash: true
     },
 
     plantSap: {
@@ -8884,7 +8885,7 @@ var moves = {
 
     malletCrush: {
         name: "Mallet Crush",
-        power: 50,
+        power: 80,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
