@@ -1087,12 +1087,16 @@ function loadBaseStats(side) {
         } else if (firstLoom.name == "Bungo" && ability1 == "Split" && repeating1.value > 1) {
             if (repeating1.value == 2) {
                 baseHP1.value = firstLoom.bitty.hp;
+                baseAtk1.value = firstLoom.bitty.attack;
                 baseDef1.value = firstLoom.bitty.defense;
+                baseAtkR1.value = firstLoom.bitty.attackR;
                 baseDefR1.value = firstLoom.bitty.defenseR;
                 baseSpd1.value = firstLoom.bitty.speed;
             } else if (repeating1.value == 3) {
                 baseHP1.value = firstLoom.itty.hp;
+                baseAtk1.value = firstLoom.itty.attack;
                 baseDef1.value = firstLoom.itty.defense;
+                baseAtkR1.value = firstLoom.itty.attackR;
                 baseDefR1.value = firstLoom.itty.defenseR;
                 baseSpd1.value = firstLoom.itty.speed;
             }
@@ -1129,12 +1133,16 @@ function loadBaseStats(side) {
         } else if (secondLoom.name == "Bungo" && ability2 == "Split" && repeating2.value > 1) {
             if (repeating2.value == 2) {
                 baseHP2.value = secondLoom.bitty.hp;
+                baseAtk2.value = secondLoom.bitty.attack;
                 baseDef2.value = secondLoom.bitty.defense;
+                baseAtkR2.value = secondLoom.bitty.attackR;
                 baseDefR2.value = secondLoom.bitty.defenseR;
                 baseSpd2.value = secondLoom.bitty.speed;
             } else if (repeating2.value == 3) {
                 baseHP2.value = secondLoom.itty.hp;
+                baseAtk2.value = secondLoom.itty.attack;
                 baseDef2.value = secondLoom.itty.defense;
+                baseAtkR2.value = secondLoom.itty.attackR;
                 baseDefR2.value = secondLoom.itty.defenseR;
                 baseSpd2.value = secondLoom.itty.speed;
             }
