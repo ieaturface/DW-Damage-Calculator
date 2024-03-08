@@ -2635,8 +2635,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Chlorokinesis" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
-       (ability1 == "True Power" && stats1.hpPercent <= 50) ||
-       (ability1 == "Illogical" && tempType == "Mind" && loom2.types.includes("Mind"))) {
+       (ability1 == "True Power" && stats1.hpPercent <= 50)) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -3032,12 +3031,18 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
+
+    if (ability1 == "Illogical" && tempType == "Mind" && loom2.types.includes("Mind") && ability2 != "Spiteful") {
+        multi *= 4;
+        stuffUsed.ability1 = ability1;
+    }
+
+    effectiveness = multi;
+
     if ((types1.primary == "Food" || types1.secondary == "Food") && seasoned) {
         multi *= 1.3;
         stuffUsed.extra2 += " Seasoned"
     }
-
-    effectiveness = multi;
     if (move.name == "Pursuit") {
         if (ability2 == "Escapist") {
             multi = 0;
