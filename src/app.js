@@ -408,11 +408,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -465,8 +465,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2421,6 +2421,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (move.name == "Meteor Launch") {
+        console.log(stats1.spd,stats2.spd)
         tempPower = getSpeedPower(stats1.spd, stats2.spd, "slow");
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
@@ -2627,7 +2628,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Chlorokinesis" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
        (ability1 == "True Power" && stats1.hpPercent <= 50) ||
-       (ability1 == "Illogical" && tempType == "Mind" && loom2.types.includes("Dark"))) {
+       (ability1 == "Illogical" && tempType == "Mind" && loom2.types.includes("Mind"))) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
@@ -3010,6 +3011,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (itemB == "Jetpack" && tempType == "Earth" && withoutSlapDown) {
         multi *= 0;
         stuffUsed.item2 = itemB;
+    }
+    if (ability2 == "Absorber" && tempType == "Basic") {
+        multi *= 0;
+        stuffUsed.ability2 = ability2;
     }
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
@@ -3471,11 +3476,12 @@ function getSpeedPower(spd1, spd2, ver) {
         if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 100;
         return 120;
     } else if (ver == "slow") {
-        if (spd1 / spd2 < 0.5) return 120;
-        if (spd1 / spd2 < 1 && spd1 / spd2 >= 0.5) return 100;
-        if (spd1 / spd2 < 1.5 && spd1 / spd2 >= 1) return 80;
-        if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 60;
-        return 40;
+        if (spd2 / 5 > spd1) return 120;
+        else if (spd2 / 4 > spd1) return 100;
+        else if (spd2 / 3 > spd1) return 80;
+        else if (spd2 / 2 > spd1) return 60;
+        else if (spd2 > spd1) return 40;
+        return 20
     }    
 }
 
