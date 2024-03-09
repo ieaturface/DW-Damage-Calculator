@@ -5935,6 +5935,53 @@ var loomians = {
         }
     },
 
+    jewelit: {
+        name: "Jewelit",
+        types: ["Air"],
+        finalEvo: false,
+        weight: 1,
+        height: 30,
+        baseStats: {
+            hp: 65,
+            attack: 25,
+            defense: 50,
+            attackR: 25,
+            defenseR: 50,
+            speed: 40
+        }
+    },
+
+    blubimp: {
+        name: "Blubimp",
+        types: ["Air", "Crystal"],
+        finalEvo: false,
+        weight: 23,
+        height: 48,
+        baseStats: {
+            hp: 110,
+            attack: 50,
+            defense: 75,
+            attackR: 50,
+            defenseR: 75,
+            speed: 50
+        }
+    },
+
+    aerystal: {
+        name: "Aerystal",
+        types: ["Air", "Crystal"],
+        weight: 45,
+        height: 90,
+        baseStats: {
+            hp: 140,
+            attack: 90,
+            defense: 60,
+            attackR: 90,
+            defenseR: 60,
+            speed: 80
+        }
+    },
+
 
 };
 
@@ -11206,7 +11253,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Burning Body", "Brainwash", "Bubble Blaster", "Battery Charge", "Overwhelm", "High Value Target", "Helios", "Combustion", "Harlequin", "Melting Point", "Puffball", "Sea Goddess Disciple", "Gaseous Form", "Avenger", "Secret Darkness", "Basic Care",
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
-                 "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber"];
+                 "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
+                 "Floaty", "Hardy"];
 
 var typeModAbilities = {
     adipose: {
@@ -11402,4 +11450,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Fixed Bitty stats, changed Illogical and Meteor Launch scaling. Added Absorber.";
+var changelog = "Aerystal line added.";
