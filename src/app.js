@@ -408,11 +408,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -465,8 +465,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2649,12 +2649,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
        (ability1 == "Chef" && (loom2.types.includes("Food") || chocolateRain.checked)) ||
-       (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) ||
        (ability1 == "Pugilist" && move.punch) ||
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
        (ability1 == "Rain Power" && rain.checked) ||
-       (ability1 == "Savage" && !isStab(types1, { type: tempType }))) {
+       (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
+       (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire")) {
         multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) {
+        multi *= 1.4;
         stuffUsed.ability1 = ability1;
     }
 
@@ -3113,9 +3118,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
     if (effectiveness > 1 && itemB == "Defensive Jelly" && withoutSlapDown) {
         if (ability2 == "Jelly Enhancer") {
-            multi *= 0.3;
+            multi *= 0.4;
             stuffUsed.ability2 = ability2;
-        } else multi *= 0.85;
+        } else multi *= 0.7;
         stuffUsed.item2 = itemB;
     }
     if (effectiveness > 1 && shale && ability1 != "Bypass") {
@@ -3662,7 +3667,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
             hazardString += "acid rain recovery and ";
         }
 
-        if (rain.checked && ability == "Fish Outta Water") {
+        if (rain.checked && (ability == "Fish Outta Water" || ability == "Hydration")) {
             newHP -= Math.floor(hp1 * 1 / 10);
             hazardString += "rain recovery and ";
         }
