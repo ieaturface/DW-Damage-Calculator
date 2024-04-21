@@ -6029,6 +6029,68 @@ var loomians = {
         }
     },
 
+    blossaur: {
+        name: "Blossaur",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 15,
+        height: 14,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 45,
+            attackR: 40,
+            defenseR: 50,
+            speed: 50
+        }
+    },
+
+    carnivower: {
+        name: "Carnivower",
+        types: ["Plant", "Beast"],
+        weight: 141,
+        height: 92,
+        baseStats: {
+            hp: 85,
+            attack: 110,
+            defense: 92,
+            attackR: 71,
+            defenseR: 85,
+            speed: 83
+        }
+    },
+
+    sprubble: {
+        name: "Sprubble",
+        types: ["Plant", "Earth"],
+        finalEvo: false,
+        weight: 36,
+        height: 20,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 70,
+            attackR: 40,
+            defenseR: 50,
+            speed: 20
+        }
+    },
+
+    goliage: {
+        name: "Goliage",
+        types: ["Plant", "Earth"],
+        weight: 264,
+        height: 75,
+        baseStats: {
+            hp: 95,
+            attack: 110,
+            defense: 110,
+            attackR: 75,
+            defenseR: 80,
+            speed: 48
+        }
+    },
+
 
 };
 
@@ -11534,4 +11596,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Edibebi line added. Season 5 balance patch.";
+var changelog = "Carnivower and Goliage lines added.";
