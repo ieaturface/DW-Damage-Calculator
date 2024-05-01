@@ -4729,6 +4729,53 @@ var loomians = {
         }
     },
 
+    hopolatte: {
+        name: "Hopolatte",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 9,
+        height: 22,
+        baseStats: {
+            hp: 40,
+            attack: 60,
+            defense: 45,
+            attackR: 65,
+            defenseR: 50,
+            speed: 80
+        }
+    },
+
+    hopogard: {
+        name: "Hopogard",
+        types: ["Food", "Air"],
+        finalEvo: false,
+        weight: 23,
+        height: 22,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 65,
+            attackR: 70,
+            defenseR: 70,
+            speed: 50
+        }
+    },
+
+    cherugard: {
+        name: "Cherugard",
+        types: ["Light", "Air"],
+        weight: 372,
+        height: 111,
+        baseStats: {
+            hp: 90,
+            attack: 80,
+            defense: 90,
+            attackR: 100,
+            defenseR: 90,
+            speed: 100
+        }
+    },
+
     bungo: {
         name: "Bungo",
         types: ["Poison"],
@@ -6088,6 +6135,37 @@ var loomians = {
             attackR: 75,
             defenseR: 80,
             speed: 48
+        }
+    },
+
+    mant: {
+        name: "Mant",
+        types: ["Mind", "Insect"],
+        finalEvo: false,
+        weight: 41,
+        height: 19,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 40,
+            attackR: 50,
+            defenseR: 45,
+            speed: 30
+        }
+    },
+
+    aliantion: {
+        name: "Aliantion",
+        types: ["Mind", "Insect"],
+        weight: 78,
+        height: 50,
+        baseStats: {
+            hp: 90,
+            attack: 80,
+            defense: 100,
+            attackR: 110,
+            defenseR: 80,
+            speed: 50
         }
     },
 
@@ -11394,7 +11472,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety"];
 
 var typeModAbilities = {
     adipose: {
@@ -11596,4 +11674,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Carnivower and Goliage lines added.";
+var changelog = "Cherugard and Aliantion lines added.";
