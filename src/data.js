@@ -4747,7 +4747,7 @@ var loomians = {
 
     hopogard: {
         name: "Hopogard",
-        types: ["Food", "Air"],
+        types: ["Food", "Light"],
         finalEvo: false,
         weight: 23,
         height: 22,
