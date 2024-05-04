@@ -279,6 +279,9 @@ let guardian2 = document.getElementById("guardian2");
 let tagTeam1 = document.getElementById("tagTeam1");
 let tagTeam2 = document.getElementById("tagTeam2");
 
+let basicCare1 = document.getElementById("basicCare1");
+let basicCare2 = document.getElementById("basicCare2");
+
 let archmage1 = document.getElementById("archmage1");
 let archmage2 = document.getElementById("archmage2");
 
@@ -408,11 +411,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -465,8 +468,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -626,7 +629,7 @@ function update(updatePower = false, updateBaseStats = false) {
         halfIce2.checked = false;
     }*/
 
-    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded") {
+    if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" || abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded" || abilityDropdown1.value == "Soul Link") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -634,7 +637,7 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost1.checked = false;
     }
 
-    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded") {
+    if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" || abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded" || abilityDropdown2.value == "Soul Link") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -2348,6 +2351,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let isDouble = (singleDouble.value == "singles" ? false : true);
     let guardian = (second == false ? guardian2.checked : guardian1.checked);
     let tagTeam = (second == false ? tagTeam1.checked : tagTeam2.checked);
+    let basicCare = (second == false? basicCare2.checked : basicCare1.checked);
     let archmageOne = (second == false ? archmage1.checked : archmage2.checked);
     let archmageTwo = (second == false ? archmage2.checked : archmage1.checked);
     let possibleDmg = [];
@@ -2481,7 +2485,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (((ability1 == "Vigor" || ability1 == "Elegance") && immuneBoostCheck1) ||
         (ability1 == "Sand Swap" && sandstorm.checked) ||
-        (ability1 == "Soul Fortification" && stats1.hpPercent < 50)) {
+        (ability1 == "Soul Fortification" && stats1.hpPercent < 50) ||
+        (ability1 == "Brainfreeze" && stat2 == "frozen")) {
         stuffUsed.ability1 = ability1;
     }
 
@@ -2653,7 +2658,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
        (ability1 == "Rain Power" && rain.checked) ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
-       (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire")) {
+       (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire") ||
+       (ability1 == "Soul Link" && immuneBoostCheck1)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3106,10 +3112,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Guardian" && !immuneBoostCheck2) {
-        multi *= 1.25;
-        stuffUsed.ability2 = ability2;
-    }
+
     if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
         (ability2 == "Guardian" && immuneBoostCheck2) ||
         ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1)) {
@@ -3161,7 +3164,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if (isDouble && guardian) {
+    if (isDouble && basicCare) {
         multi *= 0.75;
     }
     /*if (stat2 == "vulnerable") {
@@ -3704,6 +3707,11 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
         newHP += Math.floor(hp1 * (disease + counter) / 16);
         hazardString += "disease damage and ";
+    }
+
+    if (status == "frozen" && otherAbility == "Brainfreeze" && !loom2.types.includes("Ice")) {
+        newHP += Math.floor(hp1 * 1 / 16);
+        hazardString += "brainfreeze damage and ";
     }
 
     if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice")) {
