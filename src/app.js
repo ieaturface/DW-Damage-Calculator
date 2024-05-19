@@ -2476,6 +2476,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
+    if (loom1.name == "Lacergen" && itemA.includes("Data")) {
+        types1.secondary = itemA.slice(0,-5);
+        stuffUsed.item1 = itemA;
+    }
+
+    if (loom2.name == "Lacergen" && itemB.includes("Data")) {
+        types2.secondary = itemB.slice(0,-5);
+        stuffUsed.item2 = itemB;
+    }
+
     if ((ability2 == "Rejuvenator") ||
         ((ability2 == "Vigor" || ability2 == "Elegance") && immuneBoostCheck2) ||
         (ability2 == "Sand Swap" && sandstorm.checked) ||
@@ -3030,7 +3040,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Absorber" && tempType == "Basic") {
+    if (ability2 == "Absorber" && (tempType == "Basic" || (itemB.includes("Data") && tempType == itemB.slice(0,-5)))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
