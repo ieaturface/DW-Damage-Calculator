@@ -3040,7 +3040,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0;
         stuffUsed.item2 = itemB;
     }
-    if (ability2 == "Absorber" && (tempType == "Basic" || (itemB.includes("Data") && tempType == itemB.slice(0,-5)))) {
+    if (ability2 == "Absorber" && ((tempType == "Basic" && !(itemB.includes("Data"))) || (itemB.includes("Data") && tempType == itemB.slice(0,-5)))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
