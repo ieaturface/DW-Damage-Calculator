@@ -6169,6 +6169,37 @@ var loomians = {
         }
     },
 
+    dustoon: {
+        name: "Dustoon",
+        types: ["Basic", "Poison"],
+        finalEvo: false,
+        weight: 18,
+        height: 24,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 55,
+            attackR: 30,
+            defenseR: 55,
+            speed: 40
+        }
+    },
+
+    fancyoon: {
+        name: "Fancyoon",
+        types: ["Basic", "Poison"],
+        weight: 36,
+        height: 33,
+        baseStats: {
+            hp: 80,
+            attack: 105,
+            defense: 80,
+            attackR: 60,
+            defenseR: 80,
+            speed: 80
+        }
+    },
+
 
 };
 
@@ -8991,6 +9022,16 @@ var moves = {
         contact: true,
     },
 
+    icefall: {
+        name: "Icefall",
+        power: 65,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
     icyPunch: {
         name: "Icy Punch",
         power: 70,
@@ -11674,4 +11715,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 6 balance patch added.";
+var changelog = "Dustoon line added.";
