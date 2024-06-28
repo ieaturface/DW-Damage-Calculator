@@ -111,10 +111,8 @@
                     Doodle 1
                 </legend>
 
-                <select class="pokeselect" id="pokes1" onchange="loadSets(true)">
-                </select>
+                <select class="pokeselect" id="pokes1" onchange="loadSets(true)"></select>
                 <br id="lineBreak1" style="display: none;">
-                <button id="deleteSet1" style="display: none;" onclick="deleteSet()">Delete This Set</button>
 
                 <div class="infogroup">
 
@@ -124,6 +122,7 @@
                         <select id="secondaryType1" onchange="update()">
                             <option>None</option>
                         </select>
+                        <button id="deleteSet1" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
                     </div>
 
                     <div>
@@ -926,9 +925,7 @@
                     Doodle 2
                 </legend>
                 <select class="pokeselect" id="pokes2" onchange="loadSets(undefined, true)"></select>
-
                 <br id="lineBreak2" style="display: none;">
-                <button id="deleteSet2" style="display: none;" onclick="deleteSet(true)">Delete This Set</button>
 
                 <div class="infogroup">
 
@@ -938,6 +935,7 @@
                         <select id="secondaryType2" onchange="update()">
                             <option>None</option>
                         </select>
+                        <button id="deleteSet2" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
                     </div>
 
                     <div>
@@ -1460,7 +1458,7 @@
         <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()">
         <label class="radiolbl fieldlbl entered" for="darkMode">Dark Mode</label>
         <br>
-        Template Made By: Sioist <br>Contributors: <br>- i_eaturface <br><br><a href="https://github.com/ieaturface/DW-Damage-Calculator">GitHub Repo</a>
+        Template Made By: Sioist <br>Contributors: <br>- i_eaturface <br>- Pleadies Squadron <br><br><a href="https://github.com/ieaturface/DW-Damage-Calculator">GitHub Repo</a>
     </div>
 </body>
 <script>
