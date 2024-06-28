@@ -411,11 +411,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -440,7 +440,9 @@ function load() {
     loadSets();
     update();
 
+
     for (let i = 0; i < builtInSets.length; i++) {
+        //console.log(builtInSets[i]);
         addSet(builtInSets[i], true);
     }
 
@@ -468,8 +470,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -869,12 +871,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
 
         if (set1.setName != "Blank Set" && set1.builtIn == undefined) {
-            document.getElementById("lineBreak1").style.display = "block";
-            document.getElementById("deleteSet1").style.display = "block";
+            document.getElementById("deleteSet1").style.visibility = "visible";
         }
         else {
-            document.getElementById("lineBreak1").style.display = "none";
-            document.getElementById("deleteSet1").style.display = "none";
+            document.getElementById("deleteSet1").style.visibility = "hidden";
         }
 
         baseHP1.value = firstLoom.baseStats.hp;
@@ -922,12 +922,10 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
 
         if (set2.setName != "Blank Set" && set2.builtIn == undefined) {
-            document.getElementById("lineBreak2").style.display = "block";
-            document.getElementById("deleteSet2").style.display = "block";
+            document.getElementById("deleteSet2").style.visibility = "visible";
         }
         else {
-            document.getElementById("lineBreak2").style.display = "none";
-            document.getElementById("deleteSet2").style.display = "none";
+            document.getElementById("deleteSet2").style.visibility = "hidden";
         }
 
         baseHP2.value = secondLoom.baseStats.hp;
@@ -2433,7 +2431,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (move.name == "Meteor Launch") {
-        console.log(stats1.spd,stats2.spd)
         tempPower = getSpeedPower(stats1.spd, stats2.spd, "slow");
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }

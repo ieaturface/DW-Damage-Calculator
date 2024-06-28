@@ -6884,7 +6884,9 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        sound: true
+        sound: true,
+        secondaryEffect: true,
+        aoe: true
     },
 
     rust: {
@@ -7665,7 +7667,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        aoe: true
     },
 
     nibble: {
@@ -8352,7 +8353,8 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
+        secondaryEffect: true,
+        aoe: true
     },
 
     laser: {
@@ -10970,8 +10972,8 @@ var amulets = {
         speed: 0,
     },
 
-    'helpful lanturn': {
-        name: "Helpful Lanturn",
+    'helpful lantern': {
+        name: "Helpful Lantern",
         health: 0,
         attack: 0,
         defense: 0,
@@ -11715,4 +11717,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Dustoon line added.";
+var changelog = "Added presets for most Doodles. Sets are made by Pleadies Squadron.";
