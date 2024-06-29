@@ -1824,7 +1824,7 @@ var builtInSets = [
         builtIn: true
     },
 
-{
+	{
         name: "Kibara",
         setName: "Bulky Offense",
         helmet: "Glummish Cap",
@@ -1838,15 +1838,15 @@ var builtInSets = [
         },
         posNature: "health",
         mod1: 10,
-        negNature: "magical attack",
+        negNature: "mAttack",
         mod2: 10,
-        ability: "guilt",
-        item: "used crayons",
+        ability: "Guilt",
+        item: "Used Crayons",
         stars: 6,
         builtIn: true
     },
 
-{
+	{
         name: "Mantiscald",
         setName: "Stallbreaker",
         helmet: "Candy Headphones",
@@ -1868,7 +1868,7 @@ var builtInSets = [
         builtIn: true
     },
 
-{
+	{
         name: "Staligant",
         setName: "Female set",
         helmet: "Magnificent Tophat",
