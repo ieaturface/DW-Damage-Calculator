@@ -938,7 +938,7 @@ var builtInSets = [
             move1: "Siphon Soul",
             move2: "Nutrient Drain",
             move3: "Pie Gag",
-            move4: "Enlightenment"
+            move4: "Cake Walk"
         },
         posNature: "health",
         mod1: 10,
@@ -1199,7 +1199,7 @@ var builtInSets = [
         amulet: "Dark Brooch",
         artifact: "Scone",
         moves: {
-            move1: "Aerial",
+            move1: "Air Strike",
             move2: "Earth Surge",
             move3: "Fireball",
             move4: "Cone of Cold"
@@ -1400,7 +1400,7 @@ var builtInSets = [
             move1: "Tsunami",
             move2: "Siphon Soul",
             move3: "Storm Heal",
-            move4: "Enlightenment "
+            move4: "Enlightenment"
         },
         posNature: "health",
         mod1: 10,
@@ -1855,7 +1855,7 @@ var builtInSets = [
         moves: {
             move1: "Heat Bash",
             move2: "Rip Current",
-            move3: "Fin Slash",
+            move3: "Tidal Slam",
             move4: "Burning Orb"
         },
         posNature: "health",
