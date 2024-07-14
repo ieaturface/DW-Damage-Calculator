@@ -1651,8 +1651,8 @@ var builtInSets = [
         amulet: "Helpful Lantern",
         artifact: "Scone",
         moves: {
-            move1: "Cone of cold",
-            move2: "Siphon soul",
+            move1: "Cone of Cold",
+            move2: "Siphon Soul",
             move3: "Boo!",
             move4: "Feral Fury"
         },
