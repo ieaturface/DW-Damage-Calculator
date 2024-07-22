@@ -3307,7 +3307,7 @@ var builtInSets = [
         name: "Roadterra",
         setName: "Speedy Attacker",
         helmet: "Epic Shades",
-        amulet: "Watchamacallit",
+        amulet: "Whatchamacallit",
         artifact: "Potted Cactus",
         moves: {
             move1: "Wing Slash",
