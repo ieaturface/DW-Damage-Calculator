@@ -1856,7 +1856,7 @@ function detailedReport() {
     let adaptive = { mr: "", mr1: "", mr2: ""};
     let adaptiveResult;
     let atkDef;
-    if (move.name == "Fatal Flaw" && stats2.defR > stats2.defR) {
+    if (move.name == "Fatal Flaw" && stats2.defR > stats2.def) {
         adaptive.mr = "Magical";
         adaptive.mr1 = "Ranged Attack";
         adaptive.mr2 = "Melee Defense";
@@ -2000,7 +2000,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "Atk";           
         } 
     }
-    else if ((move.mr2 == "Melee Defense") || (move.name == "Fatal Flaw" && stats2.defR > stats2.def) || (move.name == "Transcendent Power" && adaptiveResult == "melee")) {
+    else if (move.mr2 == "Melee Defense" || (move.name == "Fatal Flaw" && stats2.defR > stats2.def) || (move.name == "Transcendent Power" && adaptiveResult == "melee")) {
         if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 > 0)) {
             defPlus = "+";
         }
@@ -3022,7 +3022,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")) || (ability1 == "Illogical" && loom2.types.includes("Dark")))) {
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")))) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
@@ -3031,7 +3031,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else */multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")) || (ability1 == "Illogical" && loom2.types.includes("Dark")))) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")))) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
@@ -3360,14 +3360,14 @@ function getTempAtkDef(second, mr, ability1, ability2) {
             tempDef = { def: atk2, base: baseAtk2.value, equip: equipment2.attack, name: "AttackM", posNat: posNat2, negNat: negNat2, stage: parseInt(atkStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
-    else if (mr.mr2 == "Ranged Defense") {
+    else if (mr.mr2 == "Ranged Defense" && !(mr.name == "Fatal Flaw" && trueStats2.defR > trueStats2.def)) {
         if (second) {
             tempDef = { def: defR1, base: baseDefR1.value, equip: equipment1.mDefense, name: "DefenseR", posNat: posNat1, negNat: negNat1, stage: parseInt(defRStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
             tempDef = { def: defR2, base: baseDefR2.value, equip: equipment2.mDefense, name: "DefenseR", posNat: posNat2, negNat: negNat2, stage: parseInt(defRStages2.value), level: level2.value, stars: stars2.value, mod1: nat1Mod2.value, mod2: nat2Mod2.value };
         }
     }
-    else if (mr.mr2 == "Melee Defense") {
+    else if (mr.mr2 == "Melee Defense" || (mr.name == "Fatal Flaw" && trueStats2.defR > trueStats2.def)) {
         if (second) {
             tempDef = { def: def1, base: baseDef1.value, equip: equipment1.defense, name: "DefenseM", posNat: posNat1, negNat: negNat1, stage: parseInt(defStages1.value), level: level1.value, stars: stars1.value, mod1: nat1Mod1.value, mod2: nat2Mod1.value };
         } else {
