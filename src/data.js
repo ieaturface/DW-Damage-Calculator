@@ -4566,6 +4566,23 @@ var loomians = {
         }
     },
 
+    'ostigon-awakened': {
+        name: "Ostigon-Awakened",
+        types: ["Dark", "Poison"],
+        weight: 44,
+        height: 37,
+        ability: "Corruption",
+        item: "Ostigon Collar",
+        baseStats: {
+            hp: 75,
+            attack: 128,
+            defense: 100,
+            attackR: 85,
+            defenseR: 100,
+            speed: 103
+        }
+    },
+
     owol: {
         name: "Owol",
         types: ["Air"],
@@ -11620,7 +11637,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption"];
 
 var typeModAbilities = {
     adipose: {
@@ -11828,4 +11845,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 8 balance changes added.";
+var changelog = "Added Awakened Ostigon";

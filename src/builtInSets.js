@@ -709,15 +709,15 @@ var builtInSets = [
 
 {
         name: "Vermorph",
-        setName: "Bulky Offense",
-        helmet: "Theatre Mask",
+        setName: "Bulky Support",
+        helmet: "Glummish Cap",
         amulet: "Sapphire Amulet",
         artifact: "Faunsprout Tail",
         moves: {
-            move1: "Jolt",
-            move2: "Shock Wave",
-            move3: "Antenna Beam",
-            move4: "Bee Summon"
+            move1: "Bee Summon",
+            move2: "Antenna Beam",
+            move3: "Shock Wave",
+            move4: "Shock Therapy"
         },
         posNature: "health",
         mod1: 10,
@@ -945,22 +945,22 @@ var builtInSets = [
         negNature: "mAttack",
         mod2: 10,
         ability: "Hard Candy",
-        item: "Lethal Ornament",
+        item: "Dark Chocolate",
         stars: 6,
         builtIn: true
     }, 
 
 {
         name: "Nyanto",
-        setName: "Fat Cat",
+        setName: "fat cat",
         helmet: "Eggshell Helmet",
         amulet: "Vial of Tears",
         artifact: "Pizza Slice",
         moves: {
-            move1: "Dispose",
-            move2: "Bee Summon",
-            move3: "Protect",
-            move4: "Louis Prayer"
+            move1: "Serrated Claws",
+            move2: "Dispose",
+            move3: "Bee summon",
+            move4: "Purrifying"
         },
         posNature: "health",
         mod1: 10,
@@ -971,6 +971,7 @@ var builtInSets = [
         stars: 6,
         builtIn: true
     },
+
 
 {
         name: "Jellupy",
@@ -1652,7 +1653,7 @@ var builtInSets = [
         artifact: "Scone",
         moves: {
             move1: "Cone of Cold",
-            move2: "Siphon Soul",
+            move2: "Crystal Storm",
             move3: "Boo!",
             move4: "Feral Fury"
         },
@@ -1745,9 +1746,9 @@ var builtInSets = [
         amulet: "Ruby Pendant",
         artifact: "Fluffy Feather",
         moves: {
-            move1: "Beastial Wraith",
+            move1: "Bestial Wrath",
             move2: "Roundhouse Kick",
-            move3: "Pursuit",
+            move3: "Quick Strike",
             move4: "Ambush"
         },
         posNature: "attack",
@@ -2448,7 +2449,7 @@ var builtInSets = [
         setName: "Bulky Support",
         helmet: "Doodad",
         amulet: "Vial of Tears",
-        artifact: "Pizza slice",
+        artifact: "Pizza Slice",
         moves: {
             move1: "Yarn Snare",
             move2: "Hex Punch",
@@ -2524,7 +2525,7 @@ var builtInSets = [
         },
         posNature: "health",
         mod1: 10,
-        negNature: "attack",
+        negNature: "mAttack",
         mod2: 10,
         ability: "Capricious",
         item: "Used Crayons",
@@ -2647,7 +2648,7 @@ var builtInSets = [
         setName: "Bulky Offense",
         helmet: "Theatre Mask",
         amulet: "Sapphire Amulet",
-        artifact: "Broken Clay",
+        artifact: "Pure Tear",
         moves: {
             move1: "Meteor Launch",
             move2: "Psychoforce",
@@ -2850,7 +2851,7 @@ var builtInSets = [
             move1: "Cone Cannon",
             move2: "Snap Freeze",
             move3: "Pie Gag",
-            move4: "Nutrient drain"
+            move4: "Nutrient Drain"
         },
         posNature: "mAttack",
         mod1: 10,
@@ -3307,7 +3308,7 @@ var builtInSets = [
         name: "Roadterra",
         setName: "Speedy Attacker",
         helmet: "Epic Shades",
-        amulet: "Whatchamacallit",
+        amulet: "Watchamacallit",
         artifact: "Potted Cactus",
         moves: {
             move1: "Wing Slash",
@@ -3369,7 +3370,7 @@ var builtInSets = [
         builtIn: true
     },
 
-    {
+{
         name: "Umaisho-Awakened",
         setName: "Weather Setter",
         helmet: "Horned Headband",
@@ -3387,6 +3388,356 @@ var builtInSets = [
         mod2: 10,
         ability: "Chocolate Drizzle",
         item: "Umaisho Matcha",
+        stars: 6,
+        builtIn: true
+    },
+ 
+{
+        name: "Carnivower",
+        setName: "Wallbreaker",
+        helmet: "Decorated Hairclip",
+        amulet: "Whatchamacallit",
+        artifact: "Potted Cactus",
+        moves: {
+            move1: "Thorny Thwack",
+            move2: "Crunch",
+            move3: "Psychic Ram",
+            move4: "Daze"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Ferocity",
+        item: "Enchanted Ruby",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Artifixie",
+        setName: "Physical Artibase(d)",
+        helmet: "Smoldering Hood",
+        amulet: "Ruby Pendant",
+        artifact: "Potted Cactus",
+        moves: {
+            move1: "Frostgrip",
+            move2: "Quick Ice",
+            move3: "Psychic Ram",
+            move4: "Earthquake"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Delicate",
+        item: "Enchanted Ruby",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Lacergen",
+        setName: "Base(d) Attacker",
+        helmet: "Decorated Hairclip",
+        amulet: "Ruby Pendant",
+        artifact: "Fluffy Feather",
+        moves: {
+            move1: "Loyalty",
+            move2: "Sharpen",
+            move3: "Fiery Slash",
+            move4: "Icy Slash"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Absorber",
+        item: "Basic Taffy",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Nyanto-Awakened",
+        setName: "Garfeild Offensive",
+        helmet: "Epic Shades",
+        amulet: "Sticky Pendant",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Careless Assault",
+            move2: "Earth Surge",
+            move3: "Infection",
+            move4: "Purrifying"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Your Meowjesty",
+        item: "Nyanto Runestone",
+        stars: 6,
+        builtIn: true
+    },
+
+
+{
+        name: "Skervidae",
+        setName: "Pivot Punisher",
+        helmet: "Theatre Mask",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Fireball",
+            move2: "Electrical Burns",
+            move3: "Jolt",
+            move4: "Shock Therapy"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Reactive Shock",
+        item: "Jetpack",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Clangutang",
+        setName: "Cloaked Attacker",
+        helmet: "Epic Shades",
+        amulet: "Swag Juice",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Shatter",
+            move2: "Iron Slash",
+            move3: "Tri-Elemental Slash",
+            move4: "Disarm"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Slash Expert",
+        item: "Cursed Cloak",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Thornet",
+        setName: "Wallbreaker",
+        helmet: "Decorated Hairclip",
+        amulet: "Ruby Pendant",
+        artifact: "Potted Cactus",
+        moves: {
+            move1: "Thorny Thwack",
+            move2: "Serrated Claws",
+            move3: "Quick Sting",
+            move4: "Hit-n-Run"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Puncture",
+        item: "Enchanted Ruby",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Thornet-Awakened",
+        setName: "Bulky Attacker",
+        helmet: "Epic Shades",
+        amulet: "Swag Juice",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Thorny Thwack",
+            move2: "Precision Dart",
+            move3: "Bee Summon",
+            move4: "Hit-n-Run"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Retaliate",
+        item: "Thornet Runestone",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Gowatt",
+        setName: "Bulky Sweeper",
+        helmet: "Decorated Hairclip",
+        amulet: "Swag Juice",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Loyalty",
+            move2: "Shatter",
+            move3: "Icefall",
+            move4: "War Cry"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Galvanize",
+        item: "Spark Taffy",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Partybug",
+        setName: "Utility",
+        helmet: "Horned Headband",
+        amulet: "Rock Candy",
+        artifact: "Pure Tear",
+        moves: {
+            move1: "Bee Summon",
+            move2: "Web Ball",
+            move3: "Burning Orb",
+            move4: "Louis Prayer"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Spell Shield",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Partybug-Awakened",
+        setName: "Wallbreaker",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Fluffy Feather",
+        moves: {
+            move1: "Psychoforce",
+            move2: "Feral Fury",
+            move3: "Cone of Cold",
+            move4: "Nutrient Drain"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Archmage",
+        item: "Partybug Runestone",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Springling",
+        setName: "Wallbreaker",
+        helmet: "Decorated Hairclip",
+        amulet: "Ruby Pendant",
+        artifact: "Potted Cactus",
+        moves: {
+            move1: "Leaf Blade",
+            move2: "Loyalty",
+            move3: "Daze",
+            move4: "Quick Strike"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Hidden Strength",
+        item: "Enchanted Ruby",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Antenaflight",
+        setName: "Speedy Attacker",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Fluffy Feather",
+        moves: {
+            move1: "Aerial",
+            move2: "Web Ball",
+            move3: "Earth Surge",
+            move4: "Hit-n-Run"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Premonition",
+        item: "Enchanted Sapphire",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Calamander-Awakened",
+        setName: "Bulky Wallbreaker",
+        helmet: "Epic Shades",
+        amulet: "Swag Juice",
+        artifact: "Chewed Up Bone",
+        moves: {
+            move1: "Sugar Rush",
+            move2: "Double Bite",
+            move3: "Loyalty",
+            move4: "Feast"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Hidden Strength",
+        item: "Calamander Candy",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Mawthra-Awakened",
+        setName: "Revenge Attacker",
+        helmet: "Epic Shades",
+        amulet: "Ornate Necklace",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Venom Lacerate",
+            move2: "Precision Dart",
+            move3: "Shatter",
+            move4: "Serrated Claws"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Warden",
+        item: "Mawthra Rune",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Skervidae",
+        setName: "Thermaled",
+        helmet: "Glummish Cap",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Electrical Burns",
+            move2: "Fireball",
+            move3: "Jolt",
+            move4: "Shock Therapy"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Thermal Energy",
+        item: "Used Crayons",
         stars: 6,
         builtIn: true
     },
