@@ -3738,6 +3738,23 @@ var loomians = {
         }
     },
 
+    'libelagua-awakened': {
+        name: "Libelagua-Awakened",
+        types: ["Water", "Insect"],
+        weight: 20,
+        height: 30,
+        ability: "Bogdown",
+        item: "Libelagua Runestone",
+        baseStats: {
+            hp: 63,
+            attack: 90,
+            defense: 100,
+            attackR: 124,
+            defenseR: 95,
+            speed: 124
+        }
+    },
+
     prophant: {
         name: "Prophant",
         types: ["Mind", "Light"],
@@ -4751,7 +4768,7 @@ var loomians = {
     'artifixie-mech': {
         name: "Artifixie-Mech",
         types: ["Ice", "Metal"],
-        weight: 3812,
+        weight: 1729,
         height: 157,
         baseStats: {
             hp: 90,
@@ -6265,6 +6282,21 @@ var loomians = {
         }
     },
 
+    mallemole: {
+        name: "Mallemole",
+        types: ["Beast", "Basic"],
+        weight: 46,
+        height: 45,
+        baseStats: {
+            hp: 81,
+            attack: 108,
+            defense: 92,
+            attackR: 60,
+            defenseR: 98,
+            speed: 72
+        }
+    },
+
 
 };
 
@@ -7415,6 +7447,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true,
+        secondaryEffect: true
+    },
+
+    jumbleClobber: {
+        name: "Jumble Clobber",
+        power: 75,
+        accuracy: 85,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
         secondaryEffect: true
     },
 
@@ -11637,7 +11680,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown"];
 
 var typeModAbilities = {
     adipose: {
@@ -11845,4 +11888,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Ostigon";
+var changelog = "Added Mallemole and Awakened Libelagua.";
