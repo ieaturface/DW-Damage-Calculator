@@ -6127,6 +6127,23 @@ var loomians = {
         }
     },
 
+    'vermorph-awakened': {
+        name: "Vermorph-Awakened",
+        types: ["Spark", "Insect"],
+        weight: 102,
+        height: 60,
+        ability: "Joltant",
+        item: "Vermorph Goggles",
+        baseStats: {
+            hp: 90,
+            attack: 90,
+            defense: 100,
+            attackR: 135,
+            defenseR: 105,
+            speed: 70
+        }
+    },
+
     blossaur: {
         name: "Blossaur",
         types: ["Plant"],
@@ -11680,7 +11697,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant"];
 
 var typeModAbilities = {
     adipose: {
@@ -11888,4 +11905,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Mallemole and Awakened Libelagua.";
+var changelog = "Added Awakened Vermorph.";

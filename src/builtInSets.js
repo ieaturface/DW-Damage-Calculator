@@ -3803,7 +3803,7 @@ var builtInSets = [
         negNature: "mAttack",
         mod2: 10,
         ability: "Jelly Lover",
-        item: "Wake-up Jelly",
+        item: "Wake-Up Jelly",
         stars: 6,
         builtIn: true
     },
@@ -4034,7 +4034,7 @@ var builtInSets = [
         amulet: "Ornate Necklace",
         artifact: "Pizza Slice",
         moves: {
-            move1: "Hemlock Kick",
+            move1: "Hemlock Hit",
             move2: "Chemical Cleave",
             move3: "Rusty Roots",
             move4: "Lingering Poison"
@@ -4353,6 +4353,176 @@ var builtInSets = [
         mod2: 10,
         ability: "Dust Storm",
         item: "Enchanted Emerald",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Cherugard",
+        setName: "Damage Dealer",
+        helmet: "Glummish Cap",
+        amulet: "Dark Brooch",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Aurora Flash",
+            move2: "Energy Wave",
+            move3: "Psychoforce",
+            move4: "Hit-n-Run"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Filial Piety",
+        item: "Enchanted Sapphire",
+        stars: 6,
+        builtIn: true
+    },
+
+{
+        name: "Cherugard",
+        setName: "Support-gard",
+        helmet: "Horned Headband",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Aurora Flash",
+            move2: "Feast",
+            move3: "Magical Shield",
+            move4: "Hit-n-Run"
+        },
+        posNature: "defense",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Silly",
+        item: "Blueprint",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Cherugard",
+        setName: "Support-Gard",
+        helmet: "Bowlcut",
+        amulet: "Vial of Tears",
+        artifact: "Beach Ball",
+        moves: {
+            move1: "Hit-n-Run",
+            move2: "Trade",
+            move3: "Shifting Winds",
+            move4: "Feast"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Filial Piety",
+        item: "Enchanted Emerald",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Artifixie",
+        setName: "Trade-Scarf",
+        helmet: "Magnificent Tophat",
+        amulet: "Dark Brooch",
+        artifact: "Scone",
+        moves: {
+            move1: "Cone of Cold",
+            move2: "Psychoforce",
+            move3: "Earth Surge",
+            move4: "Trade"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Silly",
+        item: "Enchanted Emerald",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Tulenna",
+        setName: "Stall",
+        helmet: "Glummish Cap",
+        amulet: "Rock Candy",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Life Sap",
+            move2: "Disarm",
+            move3: "Parasitic Seeds",
+            move4: "Protect"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Detox",
+        item: "Unwashed Plushie",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Henchum",
+        setName: "Cloaked Attacker",
+        helmet: "Epic Shades",
+        amulet: "Ornate Necklace",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Dark Slash",
+            move2: "Unguarded Strike",
+            move3: "Pursuit",
+            move4: "Dispose"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Premonition",
+        item: "Cursed Cloak",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Cacmeow-Awakened",
+        setName: "The Vybz Special",
+        helmet: "Decorated Hairclip",
+        amulet: "Ruby Pendant",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Sharpen",
+            move2: "Seed Assault",
+            move3: "Venom Bite",
+            move4: "Earthquake"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Vicious",
+        item: "Cacmeow Runestone",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Daeferno",
+        setName: "Physically Defensive",
+        helmet: "Theatre Mask",
+        amulet: "Sapphire Amulet",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Fireball",
+            move2: "Hex",
+            move3: "Siphon Soul",
+            move4: "Burning Orb"
+        },
+        posNature: "defense",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Levitate",
+        item: "Used Crayons",
         stars: 6,
         builtIn: true
     },
