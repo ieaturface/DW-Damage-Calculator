@@ -2898,10 +2898,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.2;
         stuffUsed.weather += " with Archmage";
     }
+    if (ability1 == "Corruption" && move.mr == "Melee") {
+        multi *= 1.3;
+        stuffUsed.ability1 = ability1;
+    }
     if ((ability1 == "Trump Card" && stat1 != "healthy" && move.mr == "Melee") ||
         (ability1 == "Dauntless" && stat1 != "healthy" && move.mr == "Magic") ||
-        (ability1 == "Bandit" && stats1.hpPercent < 50 && move.mr1 == "Melee Defense") ||
-        (ability1 == "Corruption" && move.mr == "Melee")) {
+        (ability1 == "Bandit" && stats1.hpPercent < 50 && move.mr1 == "Melee Defense")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
