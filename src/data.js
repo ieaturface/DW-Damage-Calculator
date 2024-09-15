@@ -289,7 +289,7 @@ var loomians = {
         weight: 20,
         height: 39,
         baseStats: {
-            hp: 65,
+            hp: 70,
             attack: 115,
             defense: 60,
             attackR: 75,
@@ -306,7 +306,7 @@ var loomians = {
         ability: "Retaliate",
         item: "Thornet Rune",
         baseStats: {
-            hp: 65,
+            hp: 70,
             attack: 135,
             defense: 105,
             attackR: 85,
@@ -1061,10 +1061,10 @@ var loomians = {
         baseStats: {
             hp: 75,
             attack: 125,
-            defense: 60,
+            defense: 80,
             attackR: 65,
-            defenseR: 60,
-            speed: 65
+            defenseR: 80,
+            speed: 70
         }
     },
 
@@ -1408,7 +1408,7 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 115,
-            defense: 85,
+            defense: 95,
             attackR: 100,
             defenseR: 85,
             speed: 115
@@ -3212,7 +3212,7 @@ var loomians = {
             hp: 80,
             attack: 70,
             defense: 95,
-            attackR: 80,
+            attackR: 90,
             defenseR: 105,
             speed: 50
         }
@@ -3749,7 +3749,7 @@ var loomians = {
             hp: 63,
             attack: 90,
             defense: 100,
-            attackR: 124,
+            attackR: 132,
             defenseR: 95,
             speed: 124
         }
@@ -4013,7 +4013,7 @@ var loomians = {
         weight: 2,
         height: 8,
         baseStats: {
-            hp: 60,
+            hp: 65,
             attack: 105,
             defense: 80,
             attackR: 95,
@@ -4361,9 +4361,9 @@ var loomians = {
         height: 109,
         baseStats: {
             hp: 93,
-            attack: 81,
+            attack: 76,
             defense: 78,
-            attackR: 122,
+            attackR: 127,
             defenseR: 79,
             speed: 87
         }
@@ -6004,7 +6004,7 @@ var loomians = {
 
     floxy: {
         name: "Floxy",
-        types: ["Ice", "Earth"],
+        types: ["Ice"],
         finalEvo: false,
         weight: 9,
         height: 16,
@@ -6020,7 +6020,7 @@ var loomians = {
 
     scarfox: {
         name: "Scarfox",
-        types: ["Ice", "Earth"],
+        types: ["Ice"],
         weight: 23,
         height: 32,
         baseStats: {
@@ -6588,7 +6588,7 @@ var moves = {
 
     clawSwipes: {
         name: "Claw Swipes",
-        power: 25,
+        power: 15,
         accuracy: 90,
         type: "Basic",
         mr: "Melee",
@@ -7282,6 +7282,18 @@ var moves = {
         contact: true
     },
 
+    floralFang: {
+        name: "Floral Fang",
+        power: 65,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true
+    },
+
     seedAssault: {
         name: "Seed Assault",
         power: 90,
@@ -7452,6 +7464,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    recharge: {
+        name: "Recharge",
+        power: 75,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        drain: 1/2
     },
 
     crunch: {
@@ -7719,7 +7743,7 @@ var moves = {
 
     noseDive: {
         name: "Nose Dive",
-        power: 120,
+        power: 110,
         accuracy: 85,
         type: "Air",
         mr: "Melee",
@@ -8138,7 +8162,7 @@ var moves = {
 
     helicopterKick: {
         name: "Helicopter Kick",
-        power: 25,
+        power: 20,
         accuracy: 90,
         type: "Melee",
         mr: "Melee",
@@ -8736,7 +8760,7 @@ var moves = {
 
     diamondDash: {
         name: "Diamond Dash",
-        power: 80,
+        power: 40,
         accuracy: 100,
         type: "Crystal",
         mr: "Melee",
@@ -9641,7 +9665,6 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true,
         hits: 3
     },
 
@@ -10585,6 +10608,14 @@ var moves = {
 
     crystalWall: {
         name: "Crystal Wall",
+        power: 0,
+        accuracy: 100,
+        type: "Crystal",
+        mr: "Support"
+    },
+
+    flaunt: {
+        name: "Flaunt",
         power: 0,
         accuracy: 100,
         type: "Crystal",
@@ -11625,7 +11656,7 @@ var types = {
 
     poison: {
         weaknesses: ["earth", "mind"],
-        resistances: ["air", "poison", "insect", "melee"],
+        resistances: ["air", "poison", "insect", "melee", "water"],
         immunities: [],
         otherName: "noxious"
     },
@@ -11697,7 +11728,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite"];
 
 var typeModAbilities = {
     adipose: {
@@ -11876,7 +11907,7 @@ var typeModAbilities = {
 
     hardCandy: {
         name: "Hard Candy",
-        typeModifier: { type: "Fire", modifier: 0 },
+        typeModifier: { type: "Fire", modifier: 0.25 },
         powerMod: false
     },
 
@@ -11905,4 +11936,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Awakened Vermorph.";
+var changelog = "Balance Changes added.";

@@ -1418,7 +1418,7 @@ var builtInSets = [
 {
         name: "Seacrion",
         setName: "Wallbreaker",
-        helmet: "Smouldering Hood",
+        helmet: "Smoldering Hood",
         amulet: "Whatchamacallit",
         artifact: "Fluffy Feather",
         moves: {
@@ -2954,14 +2954,14 @@ var builtInSets = [
 {
         name: "Elefortune",
         setName: "Brainwash Support",
-        helmet: "Marshmellow fedora",
-        amulet: "Sapphire amulet",
+        helmet: "Marshmellow Fedora",
+        amulet: "Sapphire Amulet",
         artifact: "Pizza Slice",
         moves: {
-            move1: "Hope beacon",
+            move1: "Hope Beacon",
             move2: "Psychoforce",
-            move3: "enlightenment",
-            move4: "Radiant beam"
+            move3: "Enlightenment",
+            move4: "Radiant Beam"
         },
         posNature: "health",
         mod1: 10,
@@ -4142,7 +4142,7 @@ var builtInSets = [
         setName: "Wallbreaker",
         helmet: "Decorated Hairclip",
         amulet: "Ruby Pendant",
-        artifact: "Chewed-Up Bone",
+        artifact: "Chewed Up Bone",
         moves: {
             move1: "Icy Slash",
             move2: "Dark Slash",
@@ -4228,9 +4228,9 @@ var builtInSets = [
 {
         name: "Hangryphus",
         setName: "Wallbreaker",
-        helmet: "Smoldering",
+        helmet: "Smoldering Hood",
         amulet: "Ruby Pendant",
-        artifact: "Chewed-Up Bone",
+        artifact: "Chewed Up Bone",
         moves: {
             move1: "Glaze Punch",
             move2: "Unguarded Strike",

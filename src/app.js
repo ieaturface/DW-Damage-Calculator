@@ -411,11 +411,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -470,8 +470,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -1294,7 +1294,7 @@ function loadStats() {
     statHP1.innerHTML = hp1;
     trueStats1.hp = hp1;
     trueStats1.atk = atk1;
-    if (archmage1.checked) multi *= 1.1;
+    if (archmage1.checked) multi *= 1.2;
     if (ability1 == "Hidden Strength") multi *= 2;
     if (firstItem == "Enchanted Ruby") multi *= 1.5;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
@@ -1307,7 +1307,7 @@ function loadStats() {
     let swapDef1 = Math.floor(def1 * multi);
     multi = 1;
     trueStats1.atkR = atkR1;
-    if (archmage1.checked) multi *= 1.1;
+    if (archmage1.checked) multi *= 1.2;
     if (firstItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
@@ -1334,7 +1334,7 @@ function loadStats() {
     statHP2.innerHTML = hp2;
     trueStats2.hp = hp2;
     trueStats2.atk = atk2;
-    if (archmage2.checked) multi *= 1.1;
+    if (archmage2.checked) multi *= 1.2;
     if (ability2 == "Hidden Strength") multi *= 2;
     if (secondItem == "Enchanted Ruby") multi *= 1.5;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
@@ -1347,7 +1347,7 @@ function loadStats() {
     let swapDef2 = Math.floor(def2 * multi);
     multi = 1;
     trueStats2.atkR = atkR2;
-    if (archmage2.checked) multi *= 1.1;
+    if (archmage2.checked) multi *= 1.2;
     if (secondItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
@@ -2895,7 +2895,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if (archmageOne) {
-        multi *= 1.1;
+        multi *= 1.2;
         stuffUsed.weather += " with Archmage";
     }
     if ((ability1 == "Trump Card" && stat1 != "healthy" && move.mr == "Melee") ||
@@ -3150,15 +3150,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.3;
         stuffUsed.item1 = itemA;
     }
-
-    if (ability1 == "Goliath" && loom1.weight > loom2.weight) {
-        multi *= 1.2;
-        stuffUsed.ability1 = ability1;
-    }
-    /*if (ability2 == "Goliath" && effectiveness > 1) {
-        multi *= 1.2;
-        stuffUsed.ability2 = ability2;
-    }*/
 
     if (itemA == "Empowered Ring" && effectiveness > 1) {
         multi *= 1.2;
@@ -3513,12 +3504,11 @@ function getSpeedPower(spd1, spd2, ver) {
         if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 100;
         return 120;
     } else if (ver == "slow") {
-        if (spd2 / 5 > spd1) return 120;
-        else if (spd2 / 4 > spd1) return 100;
-        else if (spd2 / 3 > spd1) return 80;
-        else if (spd2 / 2 > spd1) return 60;
-        else if (spd2 > spd1) return 40;
-        return 20
+        if (spd1 / spd2 < 0.5) return 120;
+        if (spd1 / spd2 < 1 && spd1 / spd2 >= 0.5) return 100;
+        if (spd1 / spd2 < 1.5 && spd1 / spd2 >= 1) return 80;
+        if (spd1 / spd2 < 2 && spd1 / spd2 >= 1.5) return 60;
+        return 40;
     }    
 }
 
@@ -3747,9 +3737,9 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || (ability == "Hirudotherapy" && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite") && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
         let drain = move.drain;
-        if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
+        if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite)) {
             if (!drain) drain = 1/4;
             else drain += 1/4;
         } else {
