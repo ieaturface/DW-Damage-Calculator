@@ -1,30 +1,1492 @@
+<head>
+    <title>Damage Calculator - Doodle World</title>
+    <meta name="description" content="The premier Doodle World Damage Calculator. A must-have tool for competitive Doodle World battling.">
+    <meta name="keywords" content="Doodle World, Doodle World Damage Calculator, Doodle World Damage Calc, Doodle World PvP, DW Damage Calculator, DW Damage Calc, Damage Calculator">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148355292-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-148355292-1');
+    </script>
+</head>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet">
-</link>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/nodeca/pako/7abdb13e/dist/pako.min.js"></script>
 
-<body onload="createTable()">
-    <h1 id="title">Doodle World Set Creator</h1>
-    <div class="tab" id="body" align="center">
+<body onunload="saveCookie()" style="min-width:121em; min-height:50em;">
+    <h1 id="title">Doodle World Damage Calculator</h1>
+    <div class="wrap">
+        <div class="results">
+            <span class="infoBar" id="loom1Info">Select One To Show Detailed Results</span>
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveOneRadio1" name="moveResult" checked="checked" onchange="update()">
+                <label class="resultlbl" id="moveOneLbl1" for="moveOneRadio1">
+                    Blizzard
+                </label>
+                <span id="moveOneDmg1">65-75%</span>
+            </div>
 
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveTwoRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveTwoLbl1" for="moveTwoRadio1">
+                    Flamethrower
+                </label>
+                <span id="moveTwoDmg1">65-50%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveThreeRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveThreeLbl1" for="moveThreeRadio1">
+                    Mud Buck
+                </label>
+                <span id="moveThreeDmg1">53-34%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveFourRadio1" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveFourLbl1" for="moveFourRadio1">
+                    Searing Steel
+                </label>
+                <span id="moveFourDmg1">32% - 54%</span>
+            </div>
+
+        </div>
+
+        <div class="results">
+            <span class="infoBar" id="loom2Info">Select One To Show Detailed Results</span>
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveOneRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveOneLbl2" for="moveOneRadio2">
+                    Blizzard
+                </label>
+                <span id="moveOneDmg2">65-75%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveTwoRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveTwoLbl2" for="moveTwoRadio2">
+                    Flamethrower
+                </label>
+                <span id="moveTwoDmg2">65-50%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveThreeRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveThreeLbl2" for="moveThreeRadio2">
+                    Mud Buck
+                </label>
+                <span id="moveThreeDmg2">53-34%</span>
+            </div>
+
+            <div>
+                <input class="hiddenToUser" type="radio" id="moveFourRadio2" name="moveResult" onchange="update()">
+                <label class="resultlbl" id="moveFourLbl2" for="moveFourRadio2">
+                    Searing Steel
+                </label>
+                <span id="moveFourDmg2">32% - 54%</span>
+            </div>
+
+        </div>
+
+        <div class="detailedReport">
+
+            <div class="big">
+                <span id="detailedResult"></span>
+                <div id="tooltipText" style="visibility: hidden;">Copied</div>
+            </div>
+
+            <div class="small">
+                <span id="possibleDmg"></span>
+            </div>
+
+        </div>
+
+        <div class="panel doodle-info">
+            <fieldset>
+
+                <legend align="center">
+                    Doodle 1
+                </legend>
+
+                <select class="pokeselect" id="pokes1" onchange="loadSets(true)"></select>
+                <br id="lineBreak1" style="display: none;">
+
+                <div class="infogroup">
+
+                    <div>
+                        <label class="typelbl divAlign">Type:</label>
+                        <select id="primaryType1" onchange="update()"></select>
+                        <select id="secondaryType1" onchange="update()">
+                            <option>None</option>
+                        </select>
+                        <button id="deleteSet1" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Gender: </label>
+
+                        <select id="gender1" onchange="updateGender('gender1')">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Level: </label>
+                        <input id="level1" value=50 type=number min=1 max=100
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+                    </div>
+                    <div>
+                        <label class="divAlign">Stars: </label>
+                        <input id="stars1" value=6 type=number min=1 max=6
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+
+                    </div>
+                </div>
+
+                <div class="infogroup">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Base</th>
+                                <th>Equip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP</th>
+                                <td>
+                                    <input id="baseHP1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPEV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statHP1">300</span>
+                                </td>
+                            </tr>                            
+
+                            <tr>
+                                <th>Attack</th>
+                                <td>
+                                    <input id="baseAtk1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkEV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtk1">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Defense</th>
+                                <td>
+                                    <input id="baseDef1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defEV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDef1">300</span>
+                                </td>
+                                <td>
+                                    <select id="defStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Attack</th>
+                                <td>
+                                    <input id="baseAtkR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkREV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtkR1">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkRStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Defense</th>
+                                <td>
+                                    <input id="baseDefR1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defREV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDefR1">300</span>
+                                </td>
+                                <td>
+                                    <select id="defRStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Speed</th>
+                                <td>
+                                    <input id="baseSpd1" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdEV1" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statSpd1">300</span>
+                                </td> 
+                                <td>
+                                    <select id="spdStages1" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="checkbox" title="Does this Doodle have Speed Tokens?" id="spdStar1" style="width: 1em; vertical-align: middle;" onchange="update()">
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Helmet</th>
+                                <th>Amulet</th>
+                                <th>Artifact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Equip</th>
+                                <td>
+                                    <select id="helmet1" onchange="update(true)">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="amulet1" onchange="update(true)">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="artifact1" onchange="update(true)">
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>    
+                    </table>    
+                </div>    
+
+                <div class="infogroup">
+                    <div>
+                        <label class="divAlign">Stat Mod: </label>
+                        <select id="posNat1" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="health">Health</option>
+                            <option value="attack">Attack</option>
+                            <option value="defense">Defense</option>
+                            <option value="mAttack">M Attack</option>
+                            <option value="mDefense">M Defense</option>
+                            <option value="speed">Speed</option>
+                        </select>
+                        <select id="negNat1" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="health">Health</option>
+                            <option value="attack">Attack</option>
+                            <option value="defense">Defense</option>
+                            <option value="mAttack">M Attack</option>
+                            <option value="mDefense">M Defense</option>
+                            <option value="speed">Speed</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Modifier: </label>
+                        <select id="nat1Mod1" onchange="update()">
+                            <option>10</option>
+                            <option>5</option>
+                            <option>-5</option>
+                            <option>-10</option>
+                        </select>
+                        <select id="nat2Mod1" onchange="update()">
+                            <option>10</option>
+                            <option>5</option>
+                            <option>-5</option>
+                            <option>-10</option>
+                        </select>
+                    </div>    
+
+                    <div>
+                        <label class="divAlign">Trait: </label>
+                        <select class="trait" id="ability1" onchange="updateAbility('ability1')">
+                            <option>None</option>
+                        </select>
+                        <input class="repeating" id="repeating1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="owol" id="owol1" style="display:  none;" value=0 type=number min=0 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input type="checkbox" id="immuneBoost1" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Item: </label>
+                        <select id="item1" onchange="updateItem('item1')">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Status: </label>
+                        <select id="status1" onchange="update()">
+                            <option value="healthy">Healthy</option>
+                            <option value="paralasis">Paralyzed</option>
+                            <option value="burned">Burned</option>
+                            <option value="poisoned">Poisoned</option>
+                            <option value="diseased">Diseased</option>
+                            <option value="asleep">Asleep</option>
+                            <option value="frozen">Frozen</option>
+                            <option value="enraged">Enraged</option>
+                            <option value="marked">Marked</option>
+                            <option value="vulnerable">Vulnerable</option>
+                            <option value="cursed">Cursed</option>
+                        </select>
+                        <select id= "diseased1" style="visibility: hidden;" onchange="update()">
+                            <option>1/16</option>
+                            <option>2/16</option>
+                            <option>3/16</option>
+                            <option>4/16</option>
+                            <option>5/16</option>
+                            <option>6/16</option>
+                            <option>7/16</option>
+                            <option>8/16</option>
+                            <option>9/16</option>
+                            <option>10/16</option>
+                            <option>11/16</option>
+                            <option>12/16</option>
+                            <option>13/16</option>
+                            <option>14/16</option>
+                            <option>15/16</option>
+                        </select>  
+                    </div>
+                </div>
+
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP1">321</label>
+                    <input id="percentHP1" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar1" style="background: linear-gradient(to right, green 100%, white 0%);">
+
+                    </div>
+                </div>
+                <div class="infogroup movesList">
+
+                    <div class="move1">
+                        <select class="moveSelect" id="moveOne1" onchange="update(true)">
+                        </select>
+                        <input id="moveOnePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveOneType1" readonly>
+                        <input class="moveslbl" id="moveOneMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveOneCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveOneCrit1">Crit</label>
+                        <select class="move-hits" id="moveOneHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveOneElemental1" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveOneSwarm1" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select>   
+                        <input class="snowball" id="moveOneSnowball1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()"> 
+                    </div>
+
+                    <div class="move2">
+                        <select class="moveSelect" id="moveTwo1" onchange="update(true)">
+                        </select>
+                        <input id="moveTwoPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveTwoType1" readonly>
+                        <input class="moveslbl" id="moveTwoMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveTwoCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveTwoCrit1">Crit</label>
+                        <select class="move-hits" id="moveTwoHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveTwoElemental1" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveTwoSwarm1" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select> 
+                        <input class="snowball" id="moveTwoSnowball1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                    <div class="move3">
+                        <select class="moveSelect" id="moveThree1" onchange="update(true)">
+                        </select>
+                        <input id="moveThreePower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">                        
+                        <input class="moveslbl" id="moveThreeType1" readonly>
+                        <input class="moveslbl" id="moveThreeMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveThreeCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveThreeCrit1">Crit</label>
+                        <select class="move-hits" id="moveThreeHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveThreeElemental1" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveThreeSwarm1" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select> 
+                        <input class="snowball" id="moveThreeSnowball1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                    <div class="move4">
+                        <select class="moveSelect" id="moveFour1" onchange="update(true)">
+                        </select>
+                        <input id="moveFourPower1" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveFourType1" readonly>
+                        <input class="moveslbl" id="moveFourMR1" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveFourCrit1" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveFourCrit1">Crit</label>
+                        <select class="move-hits" id="moveFourHits1" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveFourElemental1" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveFourSwarm1" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select> 
+                        <input class="snowball" id="moveFourSnowball1" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                </div>
+
+
+
+            </fieldset>
+
+        </div>
+        <div class="panel">
+            <fieldset class="field">
+                <legend align="center">
+                    Field
+                </legend>
+
+                <div align="center">
+                    <select id="singleDouble" onchange="updateFormat()">
+                        <option value="singles">Singles</option>
+                        <option value="doubles">Doubles</option>
+                    </select>
+                </div>
+                <br>
+                <div align="center">
+                    <select id="levelCheck" onchange="updateLevel()">
+                        <option>Level 5</option>
+                        <option>Level 50</option>
+                        <option>Level 52</option>
+                        <option>Level 100</option>
+                    </select>
+                </div>
+
+                <hr>
+                <div align="center">
+                    <input type="radio" class="hiddenToUser" name="weather" value="0" id="noWeather" checked="checked" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-left" for="noWeather" title="Select the current weather condition">None</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="1" id="rain" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-mid" for="rain" title="Select the current weather condition">Rain</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="2" id="acidRain" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-mid" for="acidRain" title="Select the current weather condition">Acid Rain</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="3" id="chocolateRain" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-mid" for="chocolateRain" title="Select the current weather condition">Chocolate Rain</label>
+                    <input type="radio" class="hiddenToUser" name="weather" value="4" id="sandstorm" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="sandstorm" title="Select the current weather condition">Sandstorm</label>
+                </div>    
+                <hr>
+                <div align="center">
+                    <input type="radio" class="hiddenToUser" name="effect" value="0" id="noEffect" checked="checked" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-left" for="noEffect" title="Select the current field effect">None</label>
+                    <input type="radio" class="hiddenToUser" name="effect" value="1" id="darkExpansion" onchange="update()">
+                    <label class="radiolbl fieldlbl btn-right" for="darkExpansion" title="Select the current field effect">Darkness Expansion</label>
+                </div>
+                <div align="center">
+                    <input type="checkbox" class="hiddenToUser" id="lightOrb" onchange="update()">
+                    <label class="radiolbl fieldlbl icetrap" for="lightOrb" title="Is Light Orb currently active?">Light Orb</label>
+                </div>
+                <hr>
+                <div class="fieldTraps">
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap1" title="Is this side affected by Bee Summon?">Bee Summon</label>
+                            <input type="checkbox" class="hiddenToUser" id="halfIce1" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle1" style="width: 3em; display: none" for="halfIce1" title="Are Icicle Traps halved">Halved</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="halfIce2" onchange="update()">
+                            <label class="radiolbl fieldlbl" id="halfStyle2" style="width: 3em; display:  none;" for="halfIce2" title="Are Icicle Traps halved">Halved</label>
+                            <input type="checkbox" class="hiddenToUser" id="iceTrap2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="iceTrap2" title="Is this side affected by Bee Summon?">Bee Summon</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="pylon1" onchange="pylonButton(true)">
+                            <label class="radiolbl fieldlbl icetrap" style="width: 4em;" for="pylon1" title="Is this side affected by Pylons?">Pylons</label>
+                            <span style="visibility: hidden;" id="pylonCalc1">20-20%</span>
+                        </div>
+
+                        <div class="right">
+                            <span style="visibility: hidden;" id="pylonCalc2">20-20%</span>
+                            <input type="checkbox" class="hiddenToUser" id="pylon2" onchange="pylonButton()">
+                            <label class="radiolbl fieldlbl icetrap" style="width: 4em;" for="pylon2" title="Is this side affected by Pylons?">Pylons</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl1" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="enteredBtl2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="enteredBtl2" title="Has this side just entered battle?">Just Switched In/Out</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="wall1" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-left" style="font-size: 0.7em;" for="wall1" title="Is this side protected by Crystal Wall?">Crystal Wall</label>
+                            <input type="checkbox" class="hiddenToUser" id="shield1" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-right" style="font-size: 0.7em;" for="shield1" title="Is this side protected by Magical Shield?">Magical Shield</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="shield2" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-left" style="font-size: 0.7em;" for="shield2" title="Is this side protected by Magical Shield?">Magical Shield</label>
+                            <input type="checkbox" class="hiddenToUser" id="wall2" onchange="update()">
+                            <label class="radiolbl fieldlbl btn-right" style="font-size: 0.7em;" for="wall2" title="Is this side protected by Crystal Wall?">Crystal Wall</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="shale1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" style="font-size: 0.75em;" for="shale1" title="Is this side protected by Shale?">Shale</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="shale2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" style="font-size: 0.75em;" for="shale2" title="Is this side protected by Shale?">Shale</label>
+                        </div>
+                    </div>    
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="seasoned1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="seasoned1" title="Has this side been Seasoned?">Seasoned</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="seasoned2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="seasoned2" title="Has this side been Seasoned?">Seasoned</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="sapPlant1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="sapPlant1" title="Is this side affected by Parasitic Seeds">Parasitic Seeds</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="sapPlant2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="sapPlant2" title="Is this side affected by Parasitic Seeds">Parasitic Seeds</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="pestilence1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="pestilence1" title="Is this side affected by Wrap?">Wrap</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="pestilence2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="pestilence2" title="Is this side affected by Wrap?">Wrap</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="quicksand1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="quicksand1" title="Is this side affected by Frostbite?">Frostbite</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="quicksand2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="quicksand2" title="Is this side affected by Frostbite?">Frostbite</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="buzzolen1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="buzzolen1" title="Is this side affected by Flames of Gehenna">Flames of Gehenna</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="buzzolen2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="buzzolen2" title="Is this side affected by Flames of Gehenna">Flames of Gehenna</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="sorrow1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="sorrow1" title="Is this side affected by Tears of Sorrow">Tears of Sorrow</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="sorrow2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" for="sorrow2" title="Is this side affected by Tears of Sorrow">Tears of Sorrow</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="softWater1" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater1" title="Is this side affected by Life Roots?">Life Roots</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="softWater2" onchange="update()">
+                            <label class="radiolbl fieldlbl icetrap" for="softWater2" title="Is this side affected by Life Roots?">Life Roots</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam1" onchange="update()">
+                            <label class="radiolbl fieldlbl doubles" style="width: 7em; display: none;" for="tagTeam1" title="Has this Doodle's power been boosted by an ally's Combo Support?">Combo Support</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="tagTeam2" onchange="update()">
+                            <label class="radiolbl fieldlbl doubles" style="width: 7em; display: none;" for="tagTeam2" title="Has this Doodle's power been boosted by an ally's Combo Support?">Combo Support</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="basicCare1" onchange="update()">
+                            <label class="radiolbl fieldlbl doubles" style="width: 7em; display: none;" for="basicCare1" title="Is an ally with Basic Care on the field?">Basic Care</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="basicCare2" onchange="update()">
+                            <label class="radiolbl fieldlbl doubles" style="width: 7em; display: none;" for="basicCare2" title="Is an ally with Basic Care on the field?">Basic Care</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="archmage1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="archmage1" title="Does a Doodle on the team have Archmage?">Archmage</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="archmage2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 7em;" for="archmage2" title="Does a Doodle on the team have Archmage?">Archmage</label>
+                        </div>
+                    </div>    
+                    <div>
+                        <div class="left">
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="0" id="leftBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="leftBarb0">0</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="1" id="leftBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="leftBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="2" id="leftBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="leftBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsL" value="3" id="leftBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em; display: none;" for="leftBarb3" title="3 layers of barbs.">3 Barbs</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="3" id="rightBarb3" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 4em; display:  none;" for="rightBarb3" title="3 layers of barbs.">3 Barbs</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="2" id="rightBarb2" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display:  none;" for="rightBarb2" title="2 layers of barbs.">2</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="1" id="rightBarb1" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display:  none;" for="rightBarb1" title="1 layer of barbs.">1</label>
+                            <input type="radio" class="hiddenToUser" name="barbsR" value="0" id="rightBarb0" checked="checked" onchange="update()">
+                            <label class="radiolbl fieldlbl" style="width: 1em; display: none;" for="rightBarb0">0</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="left">
+                            <input type="checkbox" class="hiddenToUser" id="guardian1" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" style="display: none;" for="guardian1">Ally Has Guardian</label>
+                        </div>
+
+                        <div class="right">
+                            <input type="checkbox" class="hiddenToUser" id="guardian2" onchange="update()">
+                            <label class="radiolbl fieldlbl entered" style="display: none;" for="guardian2">Ally Has Guardian</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="bott">
+                    <a href="https://ieaturface.github.io/DW-Set-Maker/">You can make sets here</a>
+                </div>
+                <div class="bott">
+                    <textarea id="import" placeholder="Enter set data here" onchange="importSets()"></textarea>
+                </div>
+                <span class="bott" id="err"></span>
+
+
+            </fieldset>
+
+        </div>
+        <div class="panel doodle-info">
+            <fieldset>
+                <legend align="center">
+                    Doodle 2
+                </legend>
+                <select class="pokeselect" id="pokes2" onchange="loadSets(undefined, true)"></select>
+                <br id="lineBreak2" style="display: none;">
+
+                <div class="infogroup">
+
+                    <div>
+                        <label class="typelbl divAlign">Type:</label>
+                        <select id="primaryType2" onchange="update()"></select>
+                        <select id="secondaryType2" onchange="update()">
+                            <option>None</option>
+                        </select>
+                        <button id="deleteSet2" style="visibility: hidden;" onclick="deleteSet()">Delete This Set</button>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Gender: </label>
+
+                        <select id="gender2" onchange="updateGender('gender2')">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Level: </label>
+                        <input id="level2" value=50 type=number min=1 max=100
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+                    </div>
+                    <div>
+                        <label class="divAlign">Stars: </label>
+                        <input id="stars2" value=6 type=number min=1 max=6
+                            onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="update()">
+
+                    </div>
+                </div>
+
+                <div class="infogroup">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Base</th>
+                                <th>Equip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP</th>
+                                <td>
+                                    <input id="baseHP2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="HPEV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statHP2">300</span>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <th>Attack</th>
+                                <td>
+                                    <input id="baseAtk2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkEV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtk2">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Defense</th>
+                                <td>
+                                    <input id="baseDef2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defEV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDef2">300</span>
+                                </td>
+                                <td>
+                                    <select id="defStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Attack</th>
+                                <td>
+                                    <input id="baseAtkR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="atkREV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statAtkR2">300</span>
+                                </td>
+                                <td>
+                                    <select id="atkRStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>M Defense</th>
+                                <td>
+                                    <input id="baseDefR2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="defREV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statDefR2">300</span>
+                                </td>
+                                <td>
+                                    <select id="defRStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Speed</th>
+                                <td>
+                                    <input id="baseSpd2" value=0 type=number min=1 max=999 
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <input id="spdEV2" value=0 readonly
+                                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                                        onchange="update()">
+                                </td>
+                                <td>
+                                    <span id="statSpd2">300</span>
+                                </td>  
+                                <td>
+                                    <select id="spdStages2" onchange="update()">
+                                        <option>+6</option>
+                                        <option>+5</option>
+                                        <option>+4</option>
+                                        <option>+3</option>
+                                        <option>+2</option>
+                                        <option>+1</option>
+                                        <option selected="selected">--</option>
+                                        <option>-1</option>
+                                        <option>-2</option>
+                                        <option>-3</option>
+                                        <option>-4</option>
+                                        <option>-5</option>
+                                        <option>-6</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="checkbox" title="Does this Doodle have Speed Tokens?" id="spdStar2" style="width: 1em; vertical-align: middle;" onchange="update()">
+                                </td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Helmet</th>
+                                <th>Amulet</th>
+                                <th>Artifact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Equip</th>
+                                <td>
+                                    <select id="helmet2" onchange="update(true)">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="amulet2" onchange="update(true)">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="artifact2" onchange="update(true)">
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>    
+                    </table>    
+                </div>
+
+                <div class="infogroup">
+                    <div>
+                        <label class="divAlign">Stat Mod: </label>
+                        <select id="posNat2" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="health">Health</option>
+                            <option value="attack">Attack</option>
+                            <option value="defense">Defense</option>
+                            <option value="mAttack">M Attack</option>
+                            <option value="mDefense">M Defense</option>
+                            <option value="speed">Speed</option>
+                        </select>
+                        <select id="negNat2" onchange="update()">
+                            <option value="none">None</option>
+                            <option value="health">Health</option>
+                            <option value="attack">Attack</option>
+                            <option value="defense">Defense</option>
+                            <option value="mAttack">M Attack</option>
+                            <option value="mDefense">M Defense</option>
+                            <option value="speed">Speed</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Modifier: </label>
+                        <select id="nat1Mod2" onchange="update()">
+                            <option>10</option>
+                            <option>5</option>
+                            <option>-5</option>
+                            <option>-10</option>
+                        </select>
+                        <select id="nat2Mod2" onchange="update()">
+                            <option>10</option>
+                            <option>5</option>
+                            <option>-5</option>
+                            <option>-10</option>
+                        </select>
+                    </div>    
+
+                    <div>
+                        <label class="divAlign">Trait: </label>
+                        <select class="trait" id="ability2" onchange="updateAbility('ability2')">
+                            <option>None</option>
+                        </select>
+                        <input class="repeating" id="repeating2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="owol" id="owol2" style="display:  none;" value=0 type=number min=0 max=5
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input type="checkbox" id="immuneBoost2" style="width: 1em; vertical-align: middle; visibility: hidden;" onchange="update()">
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Item: </label>
+                        <select id="item2" onchange="updateItem('item2')">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="divAlign">Status: </label>
+                        <select id="status2" onchange="update()">
+                            <option value="healthy">Healthy</option>
+                            <option value="paralasis">Paralyzed</option>
+                            <option value="burned">Burned</option>
+                            <option value="poisoned">Poisoned</option>
+                            <option value="diseased">Diseased</option>
+                            <option value="asleep">Asleep</option>
+                            <option value="frozen">Frozen</option>
+                            <option value="enraged">Enraged</option>
+                            <option value="marked">Marked</option>
+                            <option value="vulnerable">Vulnerable</option>
+                            <option value="cursed">Cursed</option>
+                        </select>
+                        <select id="diseased2" style="visibility: hidden;" onchange="update()">
+                            <option>1/16</option>
+                            <option>2/16</option>
+                            <option>3/16</option>
+                            <option>4/16</option>
+                            <option>5/16</option>
+                            <option>6/16</option>
+                            <option>7/16</option>
+                            <option>8/16</option>
+                            <option>9/16</option>
+                            <option>10/16</option>
+                            <option>11/16</option>
+                            <option>12/16</option>
+                            <option>13/16</option>
+                            <option>14/16</option>
+                            <option>15/16</option>
+                        </select>    
+                    </div>
+                </div>
+
+                <div class="infogroup">
+                    <label class="divAlign">Current HP </label>
+                    <input id="currentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updatePercent()">/
+                    <label id="totalHP2">321</label>
+                    <input id="percentHP2" type="number" min=0 max=100 onkeyup="this.value = restrict(this.value, this.min, this.max)" onchange="updateNumber()">%
+                    <br>
+                    <br>
+
+                    Health
+                    <div class="hpBar greenHPBar" id="hpBar2" style="background: linear-gradient(to right, green 100%, white 0%);">
+
+
+                    </div>
+                </div>
+                <div class="infogroup">
+
+                    <div>
+                        <select class="moveSelect" id="moveOne2" onchange="update(true)">
+                        </select>
+                        <input id="moveOnePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveOneType2" readonly>
+                        <input class="moveslbl" id="moveOneMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveOneCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveOneCrit2">Crit</label>
+                        <select class="move-hits" id="moveOneHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveOneElemental2" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveOneSwarm2" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select>
+                        <input class="snowball" id="moveOneSnowball2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveTwo2" onchange="update(true)">
+                        </select>
+                        <input id="moveTwoPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveTwoType2" readonly>
+                        <input class="moveslbl" id="moveTwoMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveTwoCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveTwoCrit2">Crit</label>
+                        <select class="move-hits" id="moveTwoHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveTwoElemental2" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveTwoSwarm2" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select> 
+                        <input class="snowball" id="moveTwoSnowball2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveThree2" onchange="update(true)">
+                        </select>
+                        <input id="moveThreePower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveThreeType2" readonly>
+                        <input class="moveslbl" id="moveThreeMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveThreeCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveThreeCrit2">Crit</label>
+                        <select class="move-hits" id="moveThreeHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveThreeElemental2" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveThreeSwarm2" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select> 
+                        <input class="snowball" id="moveThreeSnowball2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                    <div>
+                        <select class="moveSelect" id="moveFour2" onchange="update(true)">
+                        </select>
+                        <input id="moveFourPower2" value=0 type=number min=0 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                        <input class="moveslbl" id="moveFourType2" readonly>
+                        <input class="moveslbl" id="moveFourMR2" readonly>
+                        <input type="checkbox" class="hiddenToUser" id="moveFourCrit2" onchange="update()">
+                        <label class="radiolbl critlbl" for="moveFourCrit2">Crit</label>
+                        <select class="move-hits" id="moveFourHits2" style="display: none;" onchange="update()">
+                            <option>2 hits</option>
+                            <option>3 hits</option>
+                            <option>4 hits</option>
+                            <option>5 hits</option>
+                        </select>
+                        <select class="elemental-slash" id="moveFourElemental2" style="display: none;" onchange="update()">
+                            <option>Fire</option>
+                            <option>Ice</option>
+                            <option>Spark</option>
+                        </select>
+                        <select class="swarm" id="moveFourSwarm2" style="display: none;" onchange="update()">
+                            <option>0 doodles</option>
+                            <option>1 doodle</option>
+                            <option>2 doodles</option>
+                            <option>3 doodles</option>
+                            <option>4 doodles</option>
+                            <option>5 doodles</option>
+                            <option>6 doodles</option>
+                        </select>
+                        <input class="snowball" id="moveFourSnowball2" style="display:  none;" value=1 type=number min=1 max=999
+                        onkeyup="this.value = restrict(this.value, this.min, this.max)"
+                        onchange="update()">
+                    </div>
+
+                </div>
+
+
+
+
+            </fieldset>
+
+        </div>
     </div>
-    <button id="btn" onclick="saveSets()">Save Sets</button>
-    <div>
-        <textarea id="export" placeholder="Set data will appear here, copy and paste the set data into the DW damage calc"></textarea>
-    </div>
-    <div>
-        <a href="https://ieaturface.github.io/DW-Damage-Calculator/">Damage Calculator</a>
+    <div class="contributors">
+        <input type="checkbox" class="hiddenToUser" id="darkMode" onchange="toggleDarkMode()">
+        <label class="radiolbl fieldlbl entered" for="darkMode">Dark Mode</label>
+        <br>
+        Template Made By: Sioist <br>Contributors: <br>- i_eaturface <br>- Pleadies Squadron <br><br><a href="https://github.com/ieaturface/DW-Damage-Calculator">GitHub Repo</a>
     </div>
 </body>
+<script>
+    function restrict(value, min, max) {
+        if (parseInt(value) < min) {
+            return min;
+        }
+        else if (parseInt(value) > max) {
+            return max;
+        }
+        else if (value == "") {
+            return min;
+        }
+
+        return parseInt(value);
+    }
+</script>
 
 <link href="src/style.css" rel="stylesheet">
 <script src="src/app.js"></script>
 <script src="src/data.js"></script>
+<script src="src/builtInSets.js"></script>
 <script>
     $(document).ready(function () {
-        $(".pokeSelect").select2();
-        $(".moveSelect").select2();
-    })
+        $('.pokeSelect').select2();
+    });
+    $(document).ready(function () {
+        $('.moveSelect').select2();
+    });
 </script>
