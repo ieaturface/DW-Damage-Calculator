@@ -6943,7 +6943,8 @@ var moves = {
         type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
     },
 
     tsunami: {
@@ -7181,7 +7182,8 @@ var moves = {
         type: "Plant",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
     },
 
     wildGrowth: {
@@ -8067,6 +8069,7 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        stat: {amount: 1, battle: "Offense", stat: "AttackR"}
     },
 
     psychoCrush: {
@@ -8701,7 +8704,8 @@ var moves = {
         type: "Crystal",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
     },
 
     geodeSmash: {
@@ -11936,4 +11940,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Balance Changes added.";
+var changelog = "Clicking the detailed result of the calc will copy it to your clipboard. You can now also hover over each equipment in the dropdowns to see what stats they give without having to click on each one individually. Added compatability for multiple moves and abilities that always change stats when used.";
