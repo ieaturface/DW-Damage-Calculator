@@ -6314,6 +6314,36 @@ var loomians = {
         }
     },
 
+    vulcryst: {
+        name: "Vulcryst",
+        types: ["Dark", "Crystal"],
+        finalEvo: false,
+        weight: 15,
+        height: 25,
+        baseStats: {
+            hp: 50,
+            attack: 50,
+            defense: 50,
+            attackR: 75,
+            defenseR: 50,
+            speed: 100
+        }
+    },
+
+    noctoryx: {
+        name: "Noctoryx",
+        types: ["Dark", "Crystal"],
+        weight: 39,
+        height: 43,
+        baseStats: {
+            hp: 75,
+            attack: 80,
+            defense: 75,
+            attackR: 102,
+            defenseR: 80,
+            speed: 118
+        }
+    },
 
 };
 
@@ -7078,7 +7108,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         punch: true,
         secondaryEffect: true
     },
@@ -11732,7 +11761,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Hammer Claw", "Mental Momentum", "Mental Depletion", "Clueless", "Banana Peel", "Enfeeble", "Capricious", "Mischievous", "Oasis Deity", "Hirudotherapy", "Detox", "Speed of Swag", "Healthy Toxins", "Sand Swap", "Sand Shield", "Karna", "Fish Outta Water",
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
-                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite"];
+                 "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment"];
 
 var typeModAbilities = {
     adipose: {
@@ -11940,4 +11969,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Clicking the detailed result of the calc will copy it to your clipboard. You can now also hover over each equipment in the dropdowns to see what stats they give without having to click on each one individually. Added compatability for multiple moves and abilities that always change stats when used.";
+var changelog = "Noctoryx line added.";
