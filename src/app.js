@@ -412,11 +412,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -471,8 +471,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -842,9 +842,9 @@ function updateLevel() {
     } else if (levelCheck.value == "Level 50") {
         level1.value = 50;
         level2.value = 50;
-    } else if (levelCheck.value == "Level 52") {
-        level1.value = 52;
-        level2.value = 52;
+    } else if (levelCheck.value == "Level 60") {
+        level1.value = 60;
+        level2.value = 60;
     } else {
         level1.value = 100;
         level2.value = 100;
@@ -2502,7 +2502,13 @@ function detailedReport() {
     turnCount = 3;
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
-    if (possibleDmg[20] + possibleDmg2[20] + possibleDmg3[20] + possibleDmg4[20] >= hp) {
+    if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] >= hp) {
+        let FIHKO = "guaranteed 4HKO";
+
+        str += FIHKO + hazardStr;
+        document.getElementById("detailedResult").innerHTML = str;
+        return;
+    } else if (possibleDmg[20] + possibleDmg2[20] + possibleDmg3[20] + possibleDmg4[20] >= hp) {
         let FHKO = "possible 4HKO";
 
         str += FHKO + hazardStr;
@@ -2513,7 +2519,13 @@ function detailedReport() {
     turnCount = 4;
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
-    if (possibleDmg[20] + possibleDmg2[20] + possibleDmg3[20] + possibleDmg4[20] + possibleDmg5[20] >= hp) {
+    if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] + possibleDmg5[0] >= hp) {
+        let FIHKO = "guaranteed 5HKO";
+
+        str += FIHKO + hazardStr;
+        document.getElementById("detailedResult").innerHTML = str;
+        return;
+    } else if (possibleDmg[20] + possibleDmg2[20] + possibleDmg3[20] + possibleDmg4[20] + possibleDmg5[20] >= hp) {
         let FIHKO = "possible 5HKO";
 
         str += FIHKO + hazardStr;
@@ -2727,6 +2739,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (loom2.name == "Lacergen" && itemB.includes("Data")) {
         types2.secondary = itemB.slice(0,-5);
         stuffUsed.item2 = itemB;
+    }
+
+    if (move.name == "Elemental Claws" && itemA.includes("Data")) {
+        tempType = itemA.slice(0,-5);
+        stuffUsed.extra1 += " (" + tempType + ")";
     }
 
     if ((ability2 == "Rejuvenator") ||
@@ -3342,7 +3359,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) {
+    if (((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) ||
+        (ability1 == "Almagest" && tempType == types1.secondary && effectiveness >= 2)) {
         multi *= 2;
         stuffUsed.ability1 = ability1;
     }
