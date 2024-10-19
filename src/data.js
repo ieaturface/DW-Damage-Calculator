@@ -7758,12 +7758,13 @@ var moves = {
 
     steelCrusher: {
         name: "Steel Crusher",
-        power: 90,
+        power: 75,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        contact: true,
         typeModifier: { type: "Metal", modifier: 4 }
     },
 
