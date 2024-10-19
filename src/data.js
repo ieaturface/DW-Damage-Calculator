@@ -7758,7 +7758,7 @@ var moves = {
 
     steelCrusher: {
         name: "Steel Crusher",
-        power: 50,
+        power: 90,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
@@ -9773,6 +9773,17 @@ var moves = {
     chemicalBreath: {
         name: "Chemical Breath",
         power: 80,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    curiousBeam: {
+        name: "Curious Beam",
+        power: 90,
         accuracy: 100,
         type: "Basic",
         mr: "Magic",
