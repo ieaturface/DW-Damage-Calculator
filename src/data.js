@@ -1306,6 +1306,24 @@ var loomians = {
         }
     },
 
+    'corrolizard-awakened': {
+        name: "Corrolizard-Awakened",
+        types: ["Poison"],
+        weight: 28,
+        height: 55,
+        ability: "Decay",
+        item: "Corrolizard Rune",
+        baseStats: {
+            hp: 80,
+            attack: 90,
+            defense: 92,
+            attackR: 135,
+            defenseR: 95,
+            speed: 101
+        }
+    },
+
+
     kitsen: {
         name: "Kitsen",
         types: ["Fire"],
@@ -6435,6 +6453,38 @@ var loomians = {
         }
     },
 
+    zombuppy: {
+        name: "Zombuppy",
+        types: ["Basic", "Beast"],
+        finalEvo: false,
+        weight: 34,
+        height: 38,
+        baseStats: {
+            hp: 50,
+            attack: 90,
+            defense: 70,
+            attackR: 60,
+            defenseR: 65,
+            speed: 50
+        }
+    },
+
+    werewool: {
+        name: "Werewool",
+        types: ["Basic", "Beast"],
+        weight: 417,
+        height: 90,
+        baseStats: {
+            hp: 95,
+            attack: 125,
+            defense: 90,
+            attackR: 70,
+            defenseR: 100,
+            speed: 60
+        }
+    },
+
+
 };
 
 
@@ -7623,6 +7673,18 @@ var moves = {
         bite: true,
         secondaryEffect: true
     },
+
+    wildRavage: {
+        name: "Wild Ravage",
+        power: 120,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
 
     jumbleClobber: {
         name: "Jumble Clobber",
@@ -11887,7 +11949,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein"];
 
 var typeModAbilities = {
     adipose: {
@@ -12082,7 +12144,8 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Power Jelly", "Wake-Up Jelly", "Weird Jelly", "Frozen TV Dinner", "Sniper Scope", "Lighter", "Bubblegum", "Dark Chocolate", "Small Sprout", "Laminate", "Delicate Wing", "Cursed Cloak", "Gold Laminate", "Glasses", "Sickly Ooze", "Spiky Thorns",
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
-             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand"];
+             "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
+             "Nesting Doll"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -12095,4 +12158,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Morphiu and Khaos added.";
+var changelog = "Werewool line and Awakened Corrolizard added.";

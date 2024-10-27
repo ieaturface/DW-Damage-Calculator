@@ -412,11 +412,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -471,8 +471,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2731,6 +2731,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
+    if (ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && loom2.types.includes("Spirit")) stuffUsed.ability1 = ability1;
+
     if (loom1.name == "Lacergen" && itemA.includes("Data")) {
         types1.secondary = itemA.slice(0,-5);
         stuffUsed.item1 = itemA;
@@ -3287,7 +3289,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")))) {
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.primary == "Spirit")) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
@@ -3296,7 +3298,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else */multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air")))) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.secondary == "Spirit")) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
