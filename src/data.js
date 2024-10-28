@@ -11628,6 +11628,17 @@ var artifacts = {
         speed: -15,
     },
 
+    tombstone: {
+        name: "Tombstone",
+        health: 5,
+        attack: 8,
+        defense: 5,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
+
     'crumpled water bottle': {
         name: "Crumpled Water Bottle",
         health: -20,
