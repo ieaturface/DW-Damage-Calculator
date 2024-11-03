@@ -284,6 +284,8 @@ let basicCare2 = document.getElementById("basicCare2");
 
 let archmage1 = document.getElementById("archmage1");
 let archmage2 = document.getElementById("archmage2");
+let lipid1 = document.getElementById("lipid1");
+let lipid2 = document.getElementById("lipid2");
 
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
@@ -412,11 +414,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -471,8 +473,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -761,6 +763,10 @@ function updateAbility(ability) {
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
     else archmage2.checked = false;
+    if (ability1 == "Lipid Scale") lipid1.checked = true;
+    else lipid1.checked = false;
+    if (ability2 == "Lipid Scale") lipid2.checked = true;
+    else lipid2.checked = false;
     if (ability1 == "Bon Appetit") seasoned2.checked = true;
     else seasoned2.checked = false;
     if (ability2 == "Bon Appetit") seasoned1.checked = true;
@@ -1351,6 +1357,7 @@ function loadStats() {
     let swapAtk1 = Math.floor(atk1 * multi);
     multi = 1;
     trueStats1.def = def1;
+    if (lipid1.checked) multi *= 1.1;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
     if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
@@ -1362,6 +1369,7 @@ function loadStats() {
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
     trueStats1.defR = defR1;
+    if (lipid1.checked) multi *= 1.1;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
@@ -1374,6 +1382,7 @@ function loadStats() {
     } else if (ability1 == "Goliath") multi *= 0.8;
     if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.5;
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
+    else if (firstItem == "Heavy Blanket") multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
     if (ability1 == "Sand Swap" && sandstorm.checked) {
@@ -1391,6 +1400,7 @@ function loadStats() {
     let swapAtk2 = Math.floor(atk2 * multi);
     multi = 1;
     trueStats2.def = def2;
+    if (lipid2.checked) multi *= 1.1;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
     if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
@@ -1402,6 +1412,7 @@ function loadStats() {
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
     trueStats2.defR = defR2;
+    if (lipid2.checked) multi *= 1.1;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
@@ -1414,6 +1425,7 @@ function loadStats() {
     } else if (ability2 == "Goliath") multi *= 0.8;
     if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.5;
     if (secondItem == "Enchanted Emerald") multi *= 1.5;
+    else if (secondItem == "Heavy Blanket") multi *= 0.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
     if (ability2 == "Sand Swap" && sandstorm.checked) {
@@ -2607,6 +2619,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let basicCare = (second == false? basicCare2.checked : basicCare1.checked);
     let archmageOne = (second == false ? archmage1.checked : archmage2.checked);
     let archmageTwo = (second == false ? archmage2.checked : archmage1.checked);
+    let lipidOne = (second == false ? lipid2.checked : lipid1.checked);
+    let lipidTwo = (second == false? lipid1.checked : lipid2.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -2948,13 +2962,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        ((ability1 == "Battery Charge" || ability1 == "Amp It Up") && immuneBoostCheck1 && tempType == "Spark") ||
        (ability1 == "Thermal Energy" && immuneBoostCheck1 && (tempType == "Spark" || tempType == "Fire")) ||
        (ability1 == "High Value Target" && immuneBoostCheck1) ||
-       (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water")) {
+       (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water") ||
+       (ability1 == "Opportunist" && stat2 != "healthy")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Covetous" && itemB != "None") ||
-       (ability1 == "Opportunist" && stat2 != "healthy") ||
        (ability1 == "Nitelite" && tempType == "Light")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
@@ -3082,7 +3096,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if ((ability2 == "Exoskeleton" && move.contact && ability1 != "Outboxer") ||
+    if ((ability2 == "Exoskeleton" && move.mr == "Melee") ||
         (ability2 == "Royal Decree" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
@@ -3193,6 +3207,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         tempDef.def = calculateStat(tempDef.base, tempDef.equip, tempDef.level, tempDef.stars, undefined, tempDef.posNat, tempDef.negNat, tempDef.name, tempDef.mod1, tempDef.mod2);
         stuffUsed.ability1 = ability1;
     }
+    if (lipidOne) {
+        multi *= 1.1;
+        stuffUsed.weather += " with Lipid Scale";
+    }
     if (ability2 == "Spell Shield" && (move.mr == "Magic" || adaptive.mr2 == "Ranged Defense")) {
         multi *= 2;
         stuffUsed.ability2 = ability2;
@@ -3289,7 +3307,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else multi *= 0.5;
     }
-    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.primary == "Spirit")) {
+    if (types[types2.primary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((((ability1 == "Grounded" && immuneBoostCheck1) || itemB == "Heavy Blanket") && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.primary == "Spirit")) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
@@ -3298,7 +3316,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         else */multi *= 0;
     }
-    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((ability1 == "Grounded" && immuneBoostCheck1 && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.secondary == "Spirit")) {
+    if (types2.secondary != "None" && types[types2.secondary.toLowerCase()].immunities.includes(tempType.toLowerCase()) && !((((ability1 == "Grounded" && immuneBoostCheck1) || itemB == "Heavy Blanket") && loom2.types.includes("Air"))) && !(ability1 == "Barkenstein" && (tempType == "Melee" || tempType == "Basic") && types2.secondary == "Spirit")) {
         /*if (ability2 == "Spiteful") {
             multi *= 2;
             spiteWeak *= 2;
@@ -3352,11 +3370,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         typeModAbility2 = undefined;
     }
 
-    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false) {
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type && typeModAbility2.powerMod == false && !(tempType == "Earth" && itemB == "Heavy Blanket")) {
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
     }
-    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false) {
+    else if (typeModAbility2 != undefined && tempType == typeModAbility2.typeModifier.type2 && typeModAbility2.powerMod == false && !(tempType == "Earth" && itemB == "Heavy Blanket")) {
         multi *= typeModAbility2.typeModifier.modifier;
         stuffUsed.ability2 = ability2;
     }
@@ -4004,7 +4022,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite") && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
         let drain = move.drain;
         if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite)) {
             if (!drain) drain = 1/4;
@@ -4012,6 +4030,10 @@ function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1,
         } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite)) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
+        }
+        if (item == "Plastic Fangs" && move.bite) {
+            if (!drain) drain = 1/4;
+            else drain += 1/4;
         }
         let drainStat = (stat1 == "burned" ? 0.5 : 1);
         let drainMI = (item == "Drain Orb" ? 1.2 : 1);

@@ -622,7 +622,7 @@ var loomians = {
         baseStats: {
             hp: 100,
             attack: 100,
-            defense: 97,
+            defense: 110,
             attackR: 91,
             defenseR: 101,
             speed: 47
@@ -1947,7 +1947,7 @@ var loomians = {
             defense: 95,
             attackR: 66,
             defenseR: 71,
-            speed: 95
+            speed: 102
         }
     },
 
@@ -1964,7 +1964,7 @@ var loomians = {
             defense: 98,
             attackR: 120,
             defenseR: 98,
-            speed: 101
+            speed: 117
         }
     },
 
@@ -2165,8 +2165,8 @@ var loomians = {
         baseStats: {
             hp: 75,
             attack: 75,
-            defense: 60,
-            attackR: 115,
+            defense: 70,
+            attackR: 105,
             defenseR: 100,
             speed: 95
         }
@@ -2194,11 +2194,11 @@ var loomians = {
         height: 31,
         baseStats: {
             hp: 75,
-            attack: 65,
+            attack: 75,
             defense: 70,
-            attackR: 100,
+            attackR: 95,
             defenseR: 95,
-            speed: 115
+            speed: 110
         }
     },
 
@@ -2743,7 +2743,7 @@ var loomians = {
         baseStats: {
             hp: 70,
             attack: 50,
-            defense: 60,
+            defense: 65,
             attackR: 125,
             defenseR: 90,
             speed: 100
@@ -4076,7 +4076,7 @@ var loomians = {
         types: ["Food"],
         weight: 22,
         height: 61,
-        ability: "Chocolate Drizzle",
+        ability: "Lipid Scale",
         item: "Umaisho Matcha",
         baseStats: {
             hp: 115,
@@ -4238,7 +4238,7 @@ var loomians = {
             hp: 65,
             attack: 55,
             defense: 60,
-            attackR: 110,
+            attackR: 120,
             defenseR: 75,
             speed: 105
         }
@@ -6027,7 +6027,7 @@ var loomians = {
         height: 42,
         baseStats: {
             hp: 90,
-            attack: 115,
+            attack: 105,
             defense: 85,
             attackR: 65,
             defenseR: 65,
@@ -6171,7 +6171,7 @@ var loomians = {
             hp: 90,
             attack: 90,
             defense: 100,
-            attackR: 135,
+            attackR: 125,
             defenseR: 105,
             speed: 70
         }
@@ -6484,6 +6484,36 @@ var loomians = {
         }
     },
 
+    floppet: {
+        name: "Floppet",
+        types: ["Basic", "Mind"],
+        finalEvo: false,
+        weight: 36,
+        height: 32,
+        baseStats: {
+            hp: 60,
+            attack: 50,
+            defense: 55,
+            attackR: 100,
+            defenseR: 65,
+            speed: 40
+        }
+    },
+
+    mystifaux: {
+        name: "Mystifaux",
+        types: ["Dark", "Mind"],
+        weight: 74,
+        height: 50,
+        baseStats: {
+            hp: 83,
+            attack: 82,
+            defense: 63,
+            attackR: 128,
+            defenseR: 83,
+            speed: 76
+        }
+    },
 
 };
 
@@ -6661,7 +6691,6 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true,
         hits: 4
     },
 
@@ -6874,7 +6903,7 @@ var moves = {
 
     climateShot: {
         name: "Climate Shot",
-        power: 80,
+        power: 90,
         accuracy: 100,
         type: "Basic",
         mr: "Magic",
@@ -7827,7 +7856,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        typeModifier: { type: "Metal", modifier: 4 }
+        secondaryEffect: true
     },
 
     ferociousOnslaught: {
@@ -9406,7 +9435,7 @@ var moves = {
 
     icefall: {
         name: "Icefall",
-        power: 65,
+        power: 75,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
@@ -11960,7 +11989,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale"];
 
 var typeModAbilities = {
     adipose: {
@@ -12156,7 +12185,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
-             "Nesting Doll"];
+             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -12169,4 +12198,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Werewool line and Awakened Corrolizard added.";
+var changelog = "Season 10 Balance Patch.";
