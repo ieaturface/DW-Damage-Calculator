@@ -1622,7 +1622,7 @@ function checkStages() {
     }
 }
 
-function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastAttack, tempType, abilityCheck1, abilityCheck2, crit, stat2, firstHit, hitConfirm, foulHit) {
+function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastAttack, tempType, abilityCheck1, abilityCheck2, crit, stat2, firstHit, hitConfirm, foulHit, stats1, stats2) {
     //Grabbing unboosted stats and what boosts are currently in the calc.
     let baseAttack = calculateStat(atk.base, atk.equip, atk.level, atk.stars, undefined, atk.posNat, atk.negNat, atk.name, atk.mod1, atk.mod2);
     let baseDefense = calculateStat(def.base, def.equip, def.level, def.stars, undefined, def.posNat, def.negNat, def.name, def.mod1, def.mod2);
@@ -1636,7 +1636,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     let moveAdjustmentCount = adjustmentCount;
 
     //Checks for moves that affect the currently used offensive stat and adjusts subsequent hits' offensive stat
-    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || ability2 == "Guilt" || (move.name == "Chaotic Bolt" && stat2 == "frozen")) {
+    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || ability2 == "Guilt" || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd))) {
         moveMod = 0;
         if (ability2 == "Guilt") {
             moveMod += (ability1 == "Anomaly" ? 1 : -1);
@@ -1644,11 +1644,12 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         }
         if (move.name == "Chaotic Bolt" && stat2 == "frozen") moveMod += (ability1 == "Anomaly" ? -1 : 1); 
         else if (move.stat) moveMod += (ability1 == "Anomaly" ? move.stat.amount * -1 : move.stat.amount);
+        else if (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) moveMod += (ability1 == "Anomaly" ? -1 : 1);
         /*if (ability1 == "Staunch" && move.stat.amount < 0) {
             moveMod = 0;
             stuffUsed.ability1 = ability1;
         }*/
-        if (move.stat && move.stat.first && firstHit) moveAdjustmentCount = 1;
+        if (((move.stat && move.stat.first) || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)))) moveAdjustmentCount += 1;
 
         atkStage = (moveMod < 0 ? Math.max(atkStage + moveAdjustmentCount * moveMod, -6) : Math.min(atkStage + moveAdjustmentCount * moveMod, 6));
 
@@ -2515,7 +2516,7 @@ function detailedReport() {
     hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] >= hp) {
-        let FIHKO = "guaranteed 4HKO";
+        let FHKO = "guaranteed 4HKO";
 
         str += FIHKO + hazardStr;
         document.getElementById("detailedResult").innerHTML = str;
@@ -2914,7 +2915,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (((move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1)) ||
-       (((move.name == "Retribution" || move.name == "Counter Punch" || move.name == "Icefall") && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1))) {
+       (((move.name == "Retribution" || move.name == "Counter Punch"/* || move.name == "Icefall"*/) && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1))) {
         multi *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
@@ -3158,7 +3159,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
-    battleAdjustments(move, ability1, ability2, stuffUsed, tempAtk, tempDef, boastAttack, tempType, immuneBoostCheck1, immuneBoostCheck2, crit, stat2, withoutSlapDown, hitConfirmer, foulHit);
+    battleAdjustments(move, ability1, ability2, stuffUsed, tempAtk, tempDef, boastAttack, tempType, immuneBoostCheck1, immuneBoostCheck2, crit, stat2, withoutSlapDown, hitConfirmer, foulHit, stats1, stats2);
 
     //Attack -------------------------------------------
 
