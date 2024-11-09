@@ -414,11 +414,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -473,8 +473,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2915,7 +2915,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (((move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1)) ||
-       (((move.name == "Retribution" || move.name == "Counter Punch"/* || move.name == "Icefall"*/) && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1))) {
+       (((move.name == "Retribution" || move.name == "Counter Punch") && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1))) {
         multi *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
@@ -4023,12 +4023,12 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee")) {
         let drain = move.drain;
         if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite)) {
             if (!drain) drain = 1/4;
             else drain += 1/4;
-        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite)) {
+        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee")) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }

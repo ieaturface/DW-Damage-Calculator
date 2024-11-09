@@ -6515,6 +6515,37 @@ var loomians = {
         }
     },
 
+    acorv: {
+        name: "Acorv",
+        types: ["Plant", "Insect"],
+        finalEvo: false,
+        weight: 18,
+        height: 16,
+        baseStats: {
+            hp: 50,
+            attack: 20,
+            defense: 110,
+            attackR: 20,
+            defenseR: 100,
+            speed: 10
+        }
+    },
+
+    wizvil: {
+        name: "Wizvil",
+        types: ["Plant", "Insect"],
+        weight: 41,
+        height: 38,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 95,
+            attackR: 110,
+            defenseR: 85,
+            speed: 81
+        }
+    },
+
 };
 
 
@@ -7394,6 +7425,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         stat: {amount: -2, battle: "Offense", stat: "AttackR"}
+    },
+
+    briarMagic: {
+        name: "Briar Magic",
+        power: 65,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     wildGrowth: {
@@ -11989,7 +12031,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak"];
 
 var typeModAbilities = {
     adipose: {
@@ -12198,4 +12240,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 10 Balance Patch.";
+var changelog = "Added Wizvil line.";
