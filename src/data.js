@@ -6546,6 +6546,38 @@ var loomians = {
         }
     },
 
+    jiangbo: {
+        name: "Jiangbo",
+        types: ["Basic", "Fire"],
+        finalEvo: false,
+        weight: 65,
+        height: 24,
+        baseStats: {
+            hp: 100,
+            attack: 40,
+            defense: 60,
+            attackR: 40,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    boblop: {
+        name: "Boblop",
+        types: ["Basic", "Fire"],
+        weight: 671,
+        height: 120,
+        baseStats: {
+            hp: 135,
+            attack: 75,
+            defense: 75,
+            attackR: 85,
+            defenseR: 85,
+            speed: 50
+        }
+    },
+
+
 };
 
 
@@ -6609,6 +6641,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    cauterizingSmash: {
+        name: "Cauterizing Smash",
+        power: 50,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     starbreaker: {
@@ -12031,7 +12074,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter"];
 
 var typeModAbilities = {
     adipose: {
@@ -12240,4 +12283,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Wizvil line.";
+var changelog = "Added Boblop line.";

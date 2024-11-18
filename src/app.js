@@ -414,11 +414,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -473,8 +473,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -681,16 +681,16 @@ function update(updatePower = false, updateBaseStats = false) {
         immuneAbilityBoost2.checked = false;
     }
 
-    if (abilityDropdown1.value == "Mental Momentum" || abilityDropdown1.value == "Chanting" || abilityDropdown1.value == "Confidence" || abilityDropdown1.value == "Split") repeating1.style.display = "inline";
+    if (abilityDropdown1.value == "Mental Momentum" || abilityDropdown1.value == "Chanting" || abilityDropdown1.value == "Confidence" || abilityDropdown1.value == "Split" || abilityDropdown1.value == "Firestarter") repeating1.style.display = "inline";
     else {
         repeating1.style.display = "none";
-        repeating1.value = 1;
+        repeating1.value = 0;
     }
 
-    if (abilityDropdown2.value == "Mental Momentum" || abilityDropdown2.value == "Chanting" || abilityDropdown2.value == "Confidence" || abilityDropdown2.value == "Split") repeating2.style.display = "inline";
+    if (abilityDropdown2.value == "Mental Momentum" || abilityDropdown2.value == "Chanting" || abilityDropdown2.value == "Confidence" || abilityDropdown2.value == "Split" || abilityDropdown2.value == "Firestarter") repeating2.style.display = "inline";
     else {
         repeating2.style.display = "none";
-        repeating2.value = 1;
+        repeating2.value = 0;
     }
 
     if (status1.value == "diseased") {
@@ -2324,7 +2324,7 @@ function detailedReport() {
     let str = tempAtk + stuffUsed.item1 + stuffUsed.ability1 + statStr + " " + firstLoom.name + " " + critStr + move.name + stuffUsed.extra1 + " vs. " + tempHealth +
         tempDef + stuffUsed.item2 + stuffUsed.ability2 + stuffUsed.extra2 + statStr2 + " " + secondLoom.name + stuffUsed.weather + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
-    let hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount, true)[1];
+    let hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, true)[1];
 
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
@@ -2365,9 +2365,9 @@ function detailedReport() {
         }
     }
 
-    let tickDamage = adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[0];
+    let tickDamage = adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[0];
     tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
-    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[1];
+    hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[1];
     
     let OHKOs = [];
     let tickOHKOs = [];
@@ -2466,8 +2466,8 @@ function detailedReport() {
     }
 
     turnCount = 1;
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
-    hazardStr = adjustHP(firstLoom, secondLoom, hp, selfHP, item, ability, currStatus, second, turnCount)[1];
+    hp = hp - adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
+    hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount)[1];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
@@ -2489,7 +2489,7 @@ function detailedReport() {
     }
 
     turnCount = 2;
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     for (let i = 0; i < possibleDmg.length; i++) {
         for (let j = 0; j < possibleDmg2.length; j++) {
@@ -2513,7 +2513,7 @@ function detailedReport() {
     }
 
     turnCount = 3;
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] >= hp) {
         let FHKO = "guaranteed 4HKO";
@@ -2530,7 +2530,7 @@ function detailedReport() {
     }
 
     turnCount = 4;
-    hp = hp - adjustHP(firstLoom, secondLoom, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
+    hp = hp - adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount)[0];
 
     if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] + possibleDmg5[0] >= hp) {
         let FIHKO = "guaranteed 5HKO";
@@ -2989,11 +2989,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
      if (ability1 == "Chanting" && move.sound) {
         let chanting = 1;
-        if (repeat == 2) {
+        if (repeat == 1) {
             chanting = 1.5;
             multi *= 1.5;
-        } else if (repeat > 2) {
-            chanting = 1.5 + 0.1 * (repeat - 2);
+        } else if (repeat > 1) {
+            chanting = 1.5 + 0.1 * (repeat - 1);
             multi *= chanting;
         }
         stuffUsed.ability1 = ability1;
@@ -3006,14 +3006,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ability1 == "Mental Momentum") {
-        let chanting = Math.min((1 + 0.1 * (repeat - 1)), 1.3);
+        let chanting = Math.min((1 + 0.1 * repeat), 1.3);
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
     }
 
-    if (ability1 == "Confidence") {
-        let chanting = 1 + 0.1 * (repeat - 1);
+    if (ability1 == "Confidence" || ability1 == "Firestarter") {
+        let chanting = 1 + 0.1 * repeat;
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
@@ -3499,6 +3499,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
+    if (move.name == "Cauterizing Smash" && stat2 == "burned" && withoutSlapDown && !foulHit) {
+        multi *= 2;
+        stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
+    }
 
     if (itemB == "Used Crayons" || itemB == "Dark Chocolate") stuffUsed.item2 = itemB;
 
@@ -3831,7 +3835,7 @@ function displayDamage(damage) {
     return damage[0].join(", ");
 }
 
-function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false, counter, OHKO, onlyIncludeIceTrap = false) {
+function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = false, counter, OHKO, onlyIncludeIceTrap = false) {
     let newHP = 0;
     let multi = 1;
     let ice = iceTrap2.checked;
@@ -3979,7 +3983,7 @@ function adjustHP(loom1, loom2, hp1, hp2, item, ability, status, second = false,
     }
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
-    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") {
+    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash") {
         if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
         if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 4);
         newHP += Math.floor(hp1 * 1 / 16);
