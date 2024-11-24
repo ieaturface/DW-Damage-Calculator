@@ -414,11 +414,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -473,8 +473,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2025 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2025 12:00:00 UTC"
@@ -2518,7 +2518,7 @@ function detailedReport() {
     if (possibleDmg[0] + possibleDmg2[0] + possibleDmg3[0] + possibleDmg4[0] >= hp) {
         let FHKO = "guaranteed 4HKO";
 
-        str += FIHKO + hazardStr;
+        str += FHKO + hazardStr;
         document.getElementById("detailedResult").innerHTML = str;
         return;
     } else if (possibleDmg[20] + possibleDmg2[20] + possibleDmg3[20] + possibleDmg4[20] >= hp) {

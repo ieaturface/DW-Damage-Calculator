@@ -6577,6 +6577,52 @@ var loomians = {
         }
     },
 
+    sprouchick: {
+        name: "Sprouchick",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 9,
+        height: 14,
+        baseStats: {
+            hp: 55,
+            attack: 55,
+            defense: 55,
+            attackR: 55,
+            defenseR: 55,
+            speed: 55
+        }
+    },
+
+    lilivian: {
+        name: "Lilivian",
+        types: ["Plant", "Mind"],
+        weight: 26,
+        height: 33,
+        baseStats: {
+            hp: 83,
+            attack: 45,
+            defense: 82,
+            attackR: 113,
+            defenseR: 82,
+            speed: 91
+        }
+    },
+
+    gobblegoo: {
+        name: "Gobblegoo",
+        types: ["Plant", "Poison"],
+        weight: 39,
+        height: 40,
+        baseStats: {
+            hp: 103,
+            attack: 77,
+            defense: 98,
+            attackR: 45,
+            defenseR: 98,
+            speed: 75
+        }
+    },
+
 
 };
 
@@ -7446,6 +7492,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         drain: 1/2
+    },
+
+    lilypadLeap: {
+        name: "Lilypad Leap",
+        power: 75,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        pivot: true
     },
 
     sakuraBlast: {
@@ -12074,7 +12131,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera"];
 
 var typeModAbilities = {
     adipose: {
@@ -12283,4 +12340,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Boblop line.";
+var changelog = "Sprouchick line added.";
