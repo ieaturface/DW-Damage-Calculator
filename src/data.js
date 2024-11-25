@@ -7496,7 +7496,7 @@ var moves = {
 
     lilypadLeap: {
         name: "Lilypad Leap",
-        power: 75,
+        power: 65,
         accuracy: 100,
         type: "Plant",
         mr: "Magic",

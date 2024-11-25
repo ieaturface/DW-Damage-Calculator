@@ -2092,7 +2092,7 @@ function detailedReport() {
         adaptive.mr2 = "Ranged Defense";
         adaptiveResult = "melee";
         atkDef = getTempAtkDef(second, adaptive);
-    } else if (move.name == "Transcendent Power" && gen == "Male") {
+    } else if ((move.name == "Transcendent Power" || move.name == "Lilypad Leap") && gen == "Male") {
         adaptive.mr = "Melee";
         adaptive.mr1 = "Melee Attack";
         adaptive.mr2 = "Melee Defense";
@@ -2129,7 +2129,7 @@ function detailedReport() {
             tempAtk = tempAtk + atkREV1.value + " " + atkPlus + "MAtk";
         }
     }
-    else if ((move.mr1 == "Melee Attack" && !(abilitys == "Sand Swap" && sandstorm.checked)) || ((move.name == "Spectral Ire" || move.name == "Transcendent Power") && adaptiveResult == "melee")) {
+    else if ((move.mr1 == "Melee Attack" && !(abilitys == "Sand Swap" && sandstorm.checked)) || ((move.name == "Spectral Ire" || move.name == "Transcendent Power" || move.name == "Lilypad Leap") && adaptiveResult == "melee")) {
         if ((atkDef.attack.posNat == "attack" && atkDef.attack.mod1 > 0) || (atkDef.attack.negNat == "attack" && atkDef.attack.mod2 > 0)) {
             atkPlus = "+";
         }
@@ -2227,7 +2227,7 @@ function detailedReport() {
             tempDef = tempDef + atkEV2.value + " " + defPlus + "Atk";           
         } 
     }
-    else if (move.mr2 == "Melee Defense" || (move.name == "Fatal Flaw" && stats2.defR > stats2.def) || (move.name == "Transcendent Power" && adaptiveResult == "melee")) {
+    else if (move.mr2 == "Melee Defense" || (move.name == "Fatal Flaw" && stats2.defR > stats2.def) || ((move.name == "Transcendent Power" || move.name == "Lilypad Leap") && adaptiveResult == "melee")) {
         if ((atkDef.defense.posNat == "defense" && atkDef.defense.mod1 > 0) || (atkDef.defense.negNat == "defense" && atkDef.defense.mod2 > 0)) {
             defPlus = "+";
         }
@@ -2671,7 +2671,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             adaptive.mr2 = "Ranged Defense";
         }
         tempStats = getTempAtkDef(second, adaptive);
-    } else if (move.name == "Transcendent Power") {
+    } else if (move.name == "Transcendent Power" || move.name == "Lilypad Leap") {
         if (gen1 == "Male") {
             adaptive.mr = "Melee";
             adaptive.mr1 = "Melee Attack";
