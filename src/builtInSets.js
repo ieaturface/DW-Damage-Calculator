@@ -6329,7 +6329,7 @@ var builtInSets = [
             move1: "Wild Ravage",
             move2: "Careless Assault",
             move3: "Quick Strike",
-            move4: "Beserk"
+            move4: "Berserk"
         },
         posNature: "health",
         mod1: 10,
