@@ -12,6 +12,9 @@ var secondaryTypeDropdown2 = document.getElementById("secondaryType2");
 var abilityDropdown1 = document.getElementById("ability1");
 var abilityDropdown2 = document.getElementById("ability2");
 
+let bst1 = document.getElementById("BST1");
+let bst2 = document.getElementById("BST2");
+
 let repeating1 = document.getElementById("repeating1");
 let repeating2 = document.getElementById("repeating2");
 
@@ -640,6 +643,7 @@ function update(updatePower = false, updateBaseStats = false) {
     detailedReport();
 
     updatePercent();
+    addStats();
 
     /*if (iceTrap1.checked == true) {
         halfIce1.style.visibility = "visible";
@@ -720,6 +724,13 @@ function updateGender(gender) {
         else abilityDropdown2.value = "Mental Depletion";
     }
     update();
+}
+
+function addStats() {
+    let baseTotal1 = parseInt(baseHP1.value) + parseInt(baseAtk1.value) + parseInt(baseDef1.value) + parseInt(baseAtkR1.value) + parseInt(baseDefR1.value) + parseInt(baseSpd1.value);
+    let baseTotal2 = parseInt(baseHP2.value) + parseInt(baseAtk2.value) + parseInt(baseDef2.value) + parseInt(baseAtkR2.value) + parseInt(baseDefR2.value) + parseInt(baseSpd2.value);
+    bst1.innerHTML = "Total: " + baseTotal1;
+    bst2.innerHTML = "Total: " + baseTotal2;
 }
 
 function updateItem(item) {
@@ -3136,7 +3147,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.weather += " in Chocolate Rain";
     }
     if (darkExpansion.checked && tempType == "Dark") {
-        multi *= 1.5;
+        multi *= 1.3;
         stuffUsed.weather += " in Darkness Expansion";
     }
     if (darkExpansion.checked && tempType == "Light" && withoutSlapDown) {
