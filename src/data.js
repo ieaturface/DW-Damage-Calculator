@@ -4708,6 +4708,52 @@ var loomians = {
         }
     },
 
+    nepteros: {
+        name: "Nepteros",
+        types: ["Water", "Dark"],
+        weight: 298,
+        height: 86,
+        baseStats: {
+            hp: 120,
+            attack: 130,
+            defense: 110,
+            attackR: 60,
+            defenseR: 60,
+            speed: 80
+        }
+    },
+
+    zombuppy: {
+        name: "Zombuppy",
+        types: ["Basic", "Beast"],
+        finalEvo: false,
+        weight: 34,
+        height: 38,
+        baseStats: {
+            hp: 50,
+            attack: 90,
+            defense: 70,
+            attackR: 60,
+            defenseR: 65,
+            speed: 50
+        }
+    },
+
+    werewool: {
+        name: "Werewool",
+        types: ["Basic", "Beast"],
+        weight: 417,
+        height: 90,
+        baseStats: {
+            hp: 95,
+            attack: 125,
+            defense: 90,
+            attackR: 70,
+            defenseR: 100,
+            speed: 60
+        }
+    },
+
     koriyu: {
         name: "Koriyu",
         types: ["Ice", "Dark"],
@@ -6450,37 +6496,6 @@ var loomians = {
             attackR: 72,
             defenseR: 72,
             speed: 82
-        }
-    },
-
-    zombuppy: {
-        name: "Zombuppy",
-        types: ["Basic", "Beast"],
-        finalEvo: false,
-        weight: 34,
-        height: 38,
-        baseStats: {
-            hp: 50,
-            attack: 90,
-            defense: 70,
-            attackR: 60,
-            defenseR: 65,
-            speed: 50
-        }
-    },
-
-    werewool: {
-        name: "Werewool",
-        types: ["Basic", "Beast"],
-        weight: 417,
-        height: 90,
-        baseStats: {
-            hp: 95,
-            attack: 125,
-            defense: 90,
-            attackR: 70,
-            defenseR: 100,
-            speed: 60
         }
     },
 
@@ -12340,4 +12355,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Sprouchick line added.";
+var changelog = "Nepteros added.";
