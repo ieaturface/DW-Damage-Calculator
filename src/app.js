@@ -301,7 +301,7 @@ let percentHP2 = document.getElementById("percentHP2");
 
 let singleDouble = document.getElementById("singleDouble");
 let levelCheck = document.getElementById("levelCheck");
-levelCheck.value = "Level 50";
+levelCheck.value = "Level 100";
 
 let firstLoomian;
 let hp1;
