@@ -197,6 +197,7 @@ let sandstorm = document.getElementById("sandstorm");
 let darkExpansion = document.getElementById("darkExpansion");
 
 let lightOrb = document.getElementById("lightOrb");
+let evilGlare = document.getElementById("evilGlare");
 
 let iceTrap1 = document.getElementById("iceTrap1");
 let iceTrap2 = document.getElementById("iceTrap2");
@@ -417,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -476,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -770,6 +771,8 @@ function updateAbility(ability) {
     else sandstorm.checked = false;
     if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
     else lightOrb.checked = false;
+    if (ability1 == "Evil Glare" || ability2 == "Evil Glare") evilGlare.checked = true;
+    else evilGlare.checked = false;
     if (ability1 == "Archmage") archmage1.checked = true;
     else archmage1.checked = false;
     if (ability2 == "Archmage") archmage2.checked = true;
@@ -2959,7 +2962,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
        (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire") ||
        (ability1 == "Soul Link" && immuneBoostCheck1) ||
-       (ability1 == "Kindling" && stat2 == "burned")) {
+       (ability1 == "Kindling" && stat2 == "burned") ||
+       (ability1 == "Night Harbinger" && darkExpansion.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3157,6 +3161,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (tempType == "Dark" && lightOrb.checked && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " with Light Orb";
+    }
+    if (tempType == "Light" && evilGlare.checked && withoutSlapDown) {
+        multi *= 0.5;
+        stuffUsed.weather += " with Evil Glare";
     }
 
     tempPower = pokeRound(tempPower * multi);

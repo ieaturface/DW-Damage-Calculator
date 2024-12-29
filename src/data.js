@@ -4465,6 +4465,23 @@ var loomians = {
         }
     },
 
+    'jinglark-awakened': {
+        name: "Jinglark-Awakened",
+        types: ["Plant", "Air"],
+        weight: 41,
+        height: 55,
+        ability: "Holiday Spirit",
+        item: "Jinglark Present",
+        baseStats: {
+            hp: 97,
+            attack: 75,
+            defense: 118,
+            attackR: 95,
+            defenseR: 120,
+            speed: 92
+        }
+    },
+
     khaos: {
         name: "Khaos",
         types: ["Mythic"],
@@ -4705,6 +4722,21 @@ var loomians = {
             attackR: 108,
             defenseR: 70,
             speed: 107
+        }
+    },
+
+    kreindus: {
+        name: "Kreindus",
+        types: ["Ice", "Dark"],
+        weight: 141,
+        height: 72,
+        baseStats: {
+            hp: 70,
+            attack: 105,
+            defense: 70,
+            attackR: 125,
+            defenseR: 70,
+            speed: 110
         }
     },
 
@@ -12146,7 +12178,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit"];
 
 var typeModAbilities = {
     adipose: {
@@ -12355,4 +12387,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Nepteros added.";
+var changelog = "Xmas Event stuff added.";
