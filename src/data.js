@@ -6670,6 +6670,37 @@ var loomians = {
         }
     },
 
+    mintiger: {
+        name: "Mintiger",
+        types: ["Basic", "Food"],
+        finalEvo: false,
+        weight: 36,
+        height: 40,
+        baseStats: {
+            hp: 60,
+            attack: 72,
+            defense: 58,
+            attackR: 60,
+            defenseR: 54,
+            speed: 70
+        }
+    },
+
+    chimestive: {
+        name: "Chimestive",
+        types: ["Basic", "Food"],
+        weight: 36,
+        height: 40,
+        baseStats: {
+            hp: 89,
+            attack: 99,
+            defense: 83,
+            attackR: 72,
+            defenseR: 80,
+            speed: 92
+        }
+    },
+
 
 };
 
@@ -8777,6 +8808,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         priority: true
+    },
+
+    snakeStrike: {
+        name: "Snake Strike",
+        power: 60,
+        accuracy: 100,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     pieGag: {
@@ -12178,7 +12221,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake"];
 
 var typeModAbilities = {
     adipose: {
@@ -12387,4 +12430,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Xmas Event stuff added.";
+var changelog = "Mintiger line added.";

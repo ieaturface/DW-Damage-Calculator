@@ -418,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -2644,6 +2644,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let pylon = (second == false ? pylon2.checked : pylon1.checked);
     if (pylons) pylon = false;
     let boastAttack = 0;
+    let foulCount = 0;
 
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
     let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
@@ -3122,8 +3123,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if (ability1 == "Jab Cross" && move.punch) {
+    if (ability1 == "Jab Cross" && move.punch && !(isDouble && move.aoe == true) && !move.hits) {
         multi *= 0.7;
+    }
+    if (ability1 == "Tri-Snake" && !(isDouble && move.aoe == true) && !move.hits) {
+        multi *= 0.34;
     }
     /*if (foulHit) {
         multi *= 0.25;
@@ -3554,6 +3558,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
         stuffUsed.extra1 += " (" + hits + " hits)";
         multiHits.forEach(num => multiDmg += num);
+    }
+
+    if (ability1 == "Tri-Snake" && !(isDouble && move.aoe == true) && !move.hits && !hitConfirmer) {
+        for (let i = 0; i < 2; i++) {
+            multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, snowball, true, level, ul, second, detailed, false));
+        }
+        multiHits.forEach(num => multiDmg += num);
+        stuffUsed.ability1 = ability1;
     }
 
     if (detailed && !hitConfirmer) {
