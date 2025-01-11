@@ -319,7 +319,7 @@ var builtInSets = [
             move1: "Crystal Wall",
             move2: "Magical Shield",
             move3: "Bee Summon",
-            move4: "Pylons"
+            move4: "Foreign Substance"
         },
         posNature: "health",
         mod1: 10,
@@ -406,7 +406,7 @@ var builtInSets = [
         moves: {
             move1: "Earthquake",
             move2: "Unguarded Strike",
-            move3: "Heat Bash",
+            move3: "Chemical Cleave",
             move4: "War Cry"
         },
         posNature: "health",
@@ -539,7 +539,7 @@ var builtInSets = [
             move1: "Dark Slash",
             move2: "Rip Current",
             move3: "Unguarded Strike",
-            move4: "Tidal Slam"
+            move4: "Hydraulic Crash"
         },
         posNature: "speed",
         mod1: 10,
@@ -561,7 +561,7 @@ var builtInSets = [
             move1: "Pursuit",
             move2: "Rip Current",
             move3: "Unguarded Strike",
-            move4: "Tidal Slam"
+            move4: "Hydraulic Crash"
         },
         posNature: "speed",
         mod1: 10,
@@ -604,7 +604,7 @@ var builtInSets = [
         artifact: "Potted Cactus",
         moves: {
             move1: "Dark Slash",
-            move2: "Savage Blow",
+            move2: "Beastial Wrath",
             move3: "Fiery Slash",
             move4: "Electro Slash"
         },
@@ -957,7 +957,7 @@ var builtInSets = [
         amulet: "Vial of Tears",
         artifact: "Pizza Slice",
         moves: {
-            move1: "Serrated Claws",
+            move1: "Hit-n-Run",
             move2: "Dispose",
             move3: "Bee Summon",
             move4: "Purrifying"
@@ -1182,7 +1182,7 @@ var builtInSets = [
         moves: {
             move1: "Hyper Scream",
             move2: "Night Night",
-            move3: "Chilling Chorus",
+            move3: "Feral Fury",
             move4: "Energy Wave"
         },
         posNature: "speed",
@@ -1486,16 +1486,16 @@ var builtInSets = [
         setName: "Slow Pivot",
         helmet: "Theatre Mask",
         amulet: "Stone Necklace",
-        artifact: "Beach Ball",
+        artifact: "Pizza Slice",
         moves: {
             move1: "Hit-n-Run",
-            move2: "Shifting Winds",
-            move3: "Taunt",
+            move2: "Aero Storm",
+            move3: "Crystal Storm",
             move4: "Storm Heal"
         },
         posNature: "health",
         mod1: 10,
-        negNature: "mDefense",
+        negNature: "defense",
         mod2: 10,
         ability: "Floaty",
         item: "Spiky Thorns",
@@ -1559,7 +1559,7 @@ var builtInSets = [
         moves: {
             move1: "Crystal Cut",
             move2: "Shatter",
-            move3: "Poison Punch",
+            move3: "Icy Punch",
             move4: "Sharpen"
         },
         posNature: "attack",
@@ -1582,8 +1582,8 @@ var builtInSets = [
         moves: {
             move1: "Nutrient Drain",
             move2: "Feral Fury",
-            move3: "Pie Gag",
-            move4: "Mind Empowerment"
+            move3: "Chilling Chorus",
+            move4: "Quick Thinking"
         },
         posNature: "health",
         mod1: 10,
@@ -1852,21 +1852,21 @@ var builtInSets = [
 {
         name: "Mantiscald",
         setName: "Stallbreaker",
-        helmet: "Decorated Hairclip",
+        helmet: "Smoldering Hood",
         amulet: "Ruby Pendant",
-        artifact: "Potted Cactus",
+        artifact: "Fluffy Feather",
         moves: {
             move1: "Boiling Bullet",
             move2: "Heat Bash",
             move3: "Rip Current",
-            move4: "Burning Orb"
+            move4: "Hex Punch"
         },
         posNature: "attack",
         mod1: 10,
         negNature: "speed",
         mod2: 10,
         ability: "Routine",
-        item: "Lethal Ornament",
+        item: "Enchanted Ruby",
         stars: 6,
         builtIn: true
     },
@@ -1966,7 +1966,7 @@ var builtInSets = [
         amulet: "Rock Candy",
         artifact: "Pizza Slice",
         moves: {
-            move1: "Sulfur Plume",
+            move1: "Infection",
             move2: "Dark Blast",
             move3: "Heal",
             move4: "Dispose"
@@ -2101,7 +2101,7 @@ var builtInSets = [
             move1: "Shield Bash",
             move2: "Icefall",
             move3: "Earthquake",
-            move4: "Protect"
+            move4: "Flaunt"
         },
         posNature: "health",
         mod1: 10,
@@ -2246,28 +2246,6 @@ var builtInSets = [
     },
 
 {
-        name: "Artifixie-Mech",
-        setName: "Bulky Offensive",
-        helmet: "Glummish Cap",
-        amulet: "Rock Candy",
-        artifact: "Pizza Slice",
-        moves: {
-            move1: "Cone of Cold",
-            move2: "Fireball",
-            move3: "Earth Surge",
-            move4: "Quick Ice"
-        },
-        posNature: "health",
-        mod1: 10,
-        negNature: "mAttack",
-        mod2: 10,
-        ability: "Goliath",
-        item: "Used Crayons",
-        stars: 6,
-        builtIn: true
-    },
-
-{
         name: "Rhinostone",
         setName: "Sand Stallbreaker",
         helmet: "Doodad",
@@ -2405,12 +2383,12 @@ var builtInSets = [
         setName: "Spiteful Wall",
         helmet: "Epic Shades",
         amulet: "Stone Necklace",
-        artifact: "Pizza Slice",
+        artifact: "Pure Tear",
         moves: {
             move1: "Dark Slash",
-            move2: "Flashing Strike",
-            move3: "Rest",
-            move4: "Somnambulism"
+            move2: "Burning Orb",
+            move3: "Hope Beacon",
+            move4: "Dispose"
         },
         posNature: "health",
         mod1: 10,
@@ -2673,7 +2651,7 @@ var builtInSets = [
         artifact: "Broken Clay",
         moves: {
             move1: "Reverse Singularity",
-            move2: "Psychoforce",
+            move2: "Glow Up",
             move3: "Aurora Flash",
             move4: "Pie Gag"
         },
@@ -2733,7 +2711,7 @@ var builtInSets = [
 
 {
         name: "Meiolicant",
-        setName: "Acid-Rain Sweeper",
+        setName: "Acid-Rain Setter",
         helmet: "Decorated Hairclip",
         amulet: "Geode Pendant",
         artifact: "Faunsprout Tail",
@@ -2747,8 +2725,8 @@ var builtInSets = [
         mod1: 10,
         negNature: "attack",
         mod2: 10,
-        ability: "Acid Advance",
-        item: "Lethal Ornament",
+        ability: "Poison Precipitation",
+        item: "Nesting Doll",
         stars: 6,
         builtIn: true
     },
@@ -3084,28 +3062,6 @@ var builtInSets = [
     },
 
 {
-        name: "Artifixie",
-        setName:"Fast Wallbreaker",
-        helmet:"Magnificent Tophat",
-        amulet: "Dark Brooch",
-        artifact:"Luminous Orb",
-        moves: {
-            move1: "Cone of Cold",
-            move2: "Fireball",
-            move3: "Earth Surge",
-            move4: "Psychoforce"
-        },
-        posNature: "mAttack",
-        mod1: 10,
-        negNature: "speed",
-        mod2: 10,
-        ability: "Silly",
-        item: "Enchanted Sapphire",
-        stars: 6,
-        builtIn: true
-    },
-
-{
         name: "Lacergen",
         setName: "Utility",
         helmet: "Epic Shades",
@@ -3113,9 +3069,9 @@ var builtInSets = [
         artifact: "Pizza Slice",
         moves: {
             move1: "Disarm",
-            move2: "Burning Orb",
+            move2: "Shock Therapy",
             move3: "Pylons",
-            move4: "Fiery Slash"
+            move4: "Elemental Claws"
         },
         posNature: "health",
         mod1: 10,
@@ -3135,9 +3091,9 @@ var builtInSets = [
         artifact: "Potted Cactus",
         moves: {
             move1: "Sharpen",
-            move2: "Electro Slash",
+            move2: "Iron Slash",
             move3: "Elemental Claws",
-            move4: "Fiery Slash"
+            move4: "Dark Slash"
         },
         posNature: "attack",
         mod1: 10,
@@ -3421,10 +3377,10 @@ var builtInSets = [
         amulet: "Ruby Pendant",
         artifact: "Potted Cactus",
         moves: {
-            move1: "Frostgrip",
+            move1: "Icy Punch",
             move2: "Quick Ice",
-            move3: "Psychic Ram",
-            move4: "Earthquake"
+            move3: "Crush",
+            move4: "Shatter"
         },
         posNature: "attack",
         mod1: 10,
@@ -3444,7 +3400,7 @@ var builtInSets = [
         moves: {
             move1: "Loyalty",
             move2: "Sharpen",
-            move3: "Fiery Slash",
+            move3: "Shock Therapy",
             move4: "Elemental Claws"
         },
         posNature: "attack",
@@ -3461,13 +3417,13 @@ var builtInSets = [
         name: "Nyanto-Awakened",
         setName: "Garfeild Offensive",
         helmet: "Epic Shades",
-        amulet: "Sticky Pendant",
-        artifact: "Faunsprout Tail",
+        amulet: "Geode Pendant",
+        artifact: "Ruby Pendant",
         moves: {
             move1: "Careless Assault",
-            move2: "Earth Surge",
-            move3: "Infection",
-            move4: "Purrifying"
+            move2: "Sharpen",
+            move3: "Hit-n-Run",
+            move4: "Shatter"
         },
         posNature: "health",
         mod1: 10,
@@ -3527,7 +3483,7 @@ var builtInSets = [
 {
         name: "Thornet",
         setName: "Wallbreaker",
-        helmet: "Decorative Hairclip",
+        helmet: "Decorated Hairclip",
         amulet: "Ruby Pendant",
         artifact: "Potted Cactus",
         moves: {
@@ -3862,7 +3818,7 @@ var builtInSets = [
             move1: "Dark Slash",
             move2: "Disarm",
             move3: "Burning Orb",
-            move4: "Rest"
+            move4: "Hope Beacon"
         },
         posNature: "health",
         mod1: 10,
@@ -3942,16 +3898,16 @@ var builtInSets = [
 {
         name: "Exoskelis",
         setName: "Wallbreaker",
-        helmet: "Smoldering Hood",
-        amulet: "Whatchamacallit",
-        artifact: "Chewed Up Bone",
+        helmet: "Epic Shades",
+        amulet: "Geode Pendant",
+        artifact: "Pizza Slice",
         moves: {
-            move1: "Pursuit",
+            move1: "Darkness Expansion",
             move2: "Dark Slash",
             move3: "Savage Blow",
-            move4: "Sharpen"
+            move4: "Bee Summon"
         },
-        posNature: "attack",
+        posNature: "Health",
         mod1: 10,
         negNature: "speed",
         mod2: 10,
@@ -4051,21 +4007,21 @@ var builtInSets = [
 
 {
         name: "Artifixie-Mech",
-        setName: "Mixed Offensive",
+        setName: "Support",
         helmet: "Glummish Cap",
-        amulet: "Sticky Pendant",
-        artifact: "Faunsprout Tail",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
         moves: {
             move1: "Cone of Cold",
-            move2: "Fireball",
-            move3: "Earthquake",
-            move4: "Quick Ice"
+            move2: "Absolute Zero",
+            move3: "Disarm",
+            move4: "Taunt"
         },
         posNature: "health",
         mod1: 10,
         negNature: "mAttack",
         mod2: 10,
-        ability: "Goliath",
+        ability: "Naughty List",
         item: "Used Crayons",
         stars: 6,
         builtIn: true
@@ -4101,7 +4057,7 @@ var builtInSets = [
         artifact: "Faunsprout Tail",
         moves: {
             move1: "Aurora Flash",
-            move2: "Psychoforce",
+            move2: "Dispose",
             move3: "Disarm",
             move4: "Hope Beacon"
         },
@@ -4167,7 +4123,7 @@ var builtInSets = [
         artifact: "Amber Trapped Fly",
         moves: {
             move1: "Bee Summon",
-            move2: "Pursuit",
+            move2: "Darkness Expansion",
             move3: "Serrated Claws",
             move4: "Subterfuge"
         },
@@ -4212,7 +4168,7 @@ var builtInSets = [
         moves: {
             move1: "Enlightenment",
             move2: "Night Night",
-            move3: "Entomophobia",
+            move3: "Goo Blast",
             move4: "Foreign Substance"
         },
         posNature: "health",
@@ -4423,27 +4379,6 @@ var builtInSets = [
         builtIn: true
     },
 {
-        name: "Artifixie",
-        setName: "Trade-Scarf",
-        helmet: "Magnificent Tophat",
-        amulet: "Dark Brooch",
-        artifact: "Scone",
-        moves: {
-            move1: "Cone of Cold",
-            move2: "Psychoforce",
-            move3: "Earth Surge",
-            move4: "Trade"
-        },
-        posNature: "speed",
-        mod1: 10,
-        negNature: "mAttack",
-        mod2: 10,
-        ability: "Silly",
-        item: "Enchanted Emerald",
-        stars: 6,
-        builtIn: true
-    },
-{
         name: "Tulenna",
         setName: "Stall",
         helmet: "Glummish Cap",
@@ -4587,27 +4522,6 @@ var builtInSets = [
         mod2: 10,
         ability: "Bypass",
         item: "Cryotera Rune",
-        stars: 6,
-        builtIn: true
-    },
-{
-        name: "Voltenchant-Awakened",
-        setName: "Stallbreaker",
-        helmet: "Magnificent Tophat",
-        amulet: "Helpful Lantern",
-        artifact: "Fluffy Feather",
-        moves: {
-            move1: "Thunderstorm",
-            move2: "Climate Shot",
-            move3: "Storm Heal",
-            move4: "Burning Orb"
-        },
-        posNature: "mAttack",
-        mod1: 10,
-        negNature: "speed",
-        mod2: 10,
-        ability: "Downpour",
-        item: "Voltenchant Rune",
         stars: 6,
         builtIn: true
     },
@@ -4766,19 +4680,19 @@ var builtInSets = [
         setName: "Set-up Cleaner",
         helmet: "Decorated Hairclip",
         amulet: "Ruby Pendant",
-        artifact: "Chewed Up Bone",
+        artifact: "Potted Cactus",
         moves: {
             move1: "Toughen",
-            move2: "Frostgrip",
+            move2: "Icy Punch",
             move3: "Quick Ice",
-            move4: "Earthquake"
+            move4: "Shatter"
         },
         posNature: "attack",
         mod1: 10,
         negNature: "speed",
         mod2: 10,
         ability: "Delicate",
-        item: "Earth Taffy",
+        item: "Ice Taffy",
         stars: 6,
         builtIn: true
     },
@@ -4807,19 +4721,19 @@ var builtInSets = [
 
 {
         name: "Medikrow",
-        setName: "Stall Breaker",
-        helmet: "Theatre Mask",
-        amulet: "Stone Necklace",
-        artifact: "Thingamajig",
+        setName: "Wallbreaker",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Scone",
         moves: {
-            move1: "Sulfur Plume",
+            move1: "Infection",
             move2: "Dark Blast",
-            move3: "Louis Prayer",
-            move4: "Dispose"
+            move3: "Aerial",
+            move4: "Siphon Soul"
         },
-        posNature: "mAttack",
+        posNature: "health",
         mod1: 10,
-        negNature: "health",
+        negNature: "mAttack",
         mod2: 10,
         ability: "Vengeance",
         item: "Enchanted Sapphire",
@@ -4843,7 +4757,7 @@ var builtInSets = [
         mod1: 10,
         negNature: "attack",
         mod2: 10,
-        ability: "Deterrant Sabre",
+        ability: "Deterrent Sabre",
         item: "Used Crayons",
         stars: 6,
         builtIn: true
@@ -4981,10 +4895,10 @@ var builtInSets = [
         amulet: "Ruby Pendant",
         artifact: "Scrapped Cardboard",
         moves: {
-            move1: "Cone of Cold",
-            move2: "Jolt",
+            move1: "Icy Punch",
+            move2: "Feral Fury",
             move3: "Quick Ice",
-            move4: "Earthquake"
+            move4: "Shatter"
         },
         posNature: "mAttack",
         mod1: 10,
@@ -5046,7 +4960,7 @@ var builtInSets = [
         moves: {
             move1: "Unguarded Strike",
             move2: "Earthquake",
-            move3: "Heat Bash",
+            move3: "Chemical Cleave",
             move4: "Disarm"
         },
         posNature: "attack",
@@ -5152,14 +5066,14 @@ var builtInSets = [
         moves: {
             move1: "Toughen",
             move2: "Icefall",
-            move3: "Earthquake",
+            move3: "Shatter",
             move4: "Quick Ice"
         },
         posNature: "health",
         mod1: 10,
         negNature: "attack",
         mod2: 10,
-        ability: "Goliath",
+        ability: "Naughty List",
         item: "Used Crayons",
         stars: 6,
         builtIn: true
@@ -5379,7 +5293,7 @@ var builtInSets = [
         setName: "Hazard Stacker",
         helmet: "Glummish Cap",
         amulet: "Rock Candy",
-        artifact: "Faunsprout Tail",
+        artifact: "Broken Clay",
         moves: {
             move1: "Antenna Beam",
             move2: "Thunder Strike",
@@ -5390,7 +5304,7 @@ var builtInSets = [
         mod1: 10,
         negNature: "mAttack",
         mod2: 10,
-        ability: "Joltant",
+        ability: "Electrician",
         item: "Vermorph Goggles",
         stars: 6,
         builtIn: true
@@ -5421,7 +5335,7 @@ var builtInSets = [
         setName: "Weather Setter",
         helmet: "Horned Headband",
         amulet: "Vial of Tears",
-        artifact: "Beachball",
+        artifact: "Beach Ball",
         moves: {
             move1: "Empty Calories",
             move2: "Feast",
@@ -5594,7 +5508,7 @@ var builtInSets = [
             move1: "Nose Dive",
             move2: "Takeout",
             move3: "Fast Food",
-            move4: "Crush"
+            move4: "Sugar Rush"
         },
         posNature: "attack",
         mod1: 10,
@@ -5846,7 +5760,7 @@ var builtInSets = [
             move1: "Bestial Wrath",
             move2: "Earthquake",
             move3: "Icefall",
-            move4: "Venom bite"
+            move4: "Venom Bite"
         },
         posNature: "attack",
         mod1: 10,
@@ -6202,7 +6116,7 @@ var builtInSets = [
         moves: {
             move1: "Vampiric Strike",
             move2: "Crystal Cut",
-            move3: "Crunch",
+            move3: "Sharpen",
             move4: "Pursuit"
         },
         posNature: "attack",
@@ -6308,7 +6222,7 @@ var builtInSets = [
             move1: "Tsunami",
             move2: "Opal Pulse",
             move3: "Psychoforce",
-            move4: "Gem Blast"
+            move4: "Bee Summon"
         },
         posNature: "mAttack",
         mod1: 10,
@@ -6343,14 +6257,14 @@ var builtInSets = [
 {
         name: "Infurnius",
         setName: "Setup Sweeper",
-        helmet: "Glummish Cap",
+        helmet: "Magnificent Tophat",
         amulet: "Rock Candy",
-        artifact: "Faunsprout Tail",
+        artifact: "Scone",
         moves: {
             move1: "Hope Beacon",
             move2: "Fireball",
             move3: "Radiant Beam",
-            move4: "Glow Up"
+            move4: "Enlightenment"
         },
         posNature: "speed",
         mod1: 10,
@@ -6358,6 +6272,342 @@ var builtInSets = [
         mod2: 10,
         ability: "Karna",
         item: "Light Taffy",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Noctoryx",
+        setName: "Sweeper",
+        helmet: "Magnificent Tophat",
+        amulet: "Dark Brooch",
+        artifact: "Scone",
+        moves: {
+            move1: "Dark Blast",
+            move2: "Crystal Storm",
+            move3: "Opal Pulse",
+            move4: "Crunch"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Resentment",
+        item: "Lethal Ornament",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Taryonix",
+        setName: "I HATE FRUITOAD",
+        helmet: "Epic Shades",
+        amulet: "Toxic Vial",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Bestial Wrath",
+            move2: "Earthquake",
+            move3: "Icefall",
+            move4: "Protect"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Tar Body",
+        item: "Jack in the Box",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Fancyoon",
+        setName: "Toughen Snowball",
+        helmet: "Epic Shades",
+        amulet: "Ornate Necklace",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Loyalty",
+            move2: "Dark Slash",
+            move3: "Heal",
+            move4: "Toughen"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Ignorant",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Voltenchant-Awakened",
+        setName: "Vermorph who?",
+        helmet: "Horned Headband",
+        amulet: "Rock Candy",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Thunderstorm",
+            move2: "Rust",
+            move3: "Storm Heal",
+            move4: "Enlightenment"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Downpour",
+        item: "Voltenchant Runestone",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Tsumo",
+        setName: "Tank",
+        helmet: "Horned Headband",
+        amulet: "Stone Necklace",
+        artifact: "Beach ball",
+        moves: {
+            move1: "Burning Orb",
+            move2: "Incinerate",
+            move3: "Feast",
+            move4: "Takeout"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "defense",
+        mod2: 10,
+        ability: "Chef",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Aerystal",
+        setName: "Whale Guy",
+        helmet: "Eggshell Helmet",
+        amulet: "Stone Necklace",
+        artifact: "Beach ball",
+        moves: {
+            move1: "Taunt",
+            move2: "Shifting Winds",
+            move3: "Storm Heal",
+            move4: "Hit-n-Run"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "defense",
+        mod2: 10,
+        ability: "Floaty",
+        item: "Spiky Thorns",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Nepteros",
+        setName: "Set-up Sweeper",
+        helmet: "Feathered Hat",
+        amulet: "Geode Pendant",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Fin Slash",
+            move2: "Dark Slash",
+            move3: "War Cry",
+            move4: "Storm Heal"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Menacing Snarl",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Nepteros",
+        setName: "Rain Sweeper",
+        helmet: "Smoldering Hood",
+        amulet: "Ruby Pendant",
+        artifact: "Chewed Up Bone",
+        moves: {
+            move1: "Fin Slash",
+            move2: "Dark Slash",
+            move3: "Daze",
+            move4: "Rip Current"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Storm Surge",
+        item: "Water Taffy",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Metalytra",
+        setName: "Late Game Cleaner",
+        helmet: "Smoldering Hood",
+        amulet: "Swag Juice",
+        artifact: "Chew Up Bone",
+        moves: {
+            move1: "Binary Blitz",
+            move2: "Serrated Claws",
+            move3: "Bonk",
+            move4: "Sharpen"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Accelerate",
+        item: "Metal Taffy",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Fluppy",
+        setName: "Offensive Bees setter",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Scone",
+        moves: {
+            move1: "Aurora Flash",
+            move2: "Life Sap",
+            move3: "Bee Summon",
+            move4: "Mind Drain"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Bright Lights",
+        item: "Refractive Prism",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Fancyoon",
+        setName: "Vines Sweeper",
+        helmet: "Decorated Hairclip",
+        amulet: "Swag Juice",
+        artifact: "Chewed Up Bone",
+        moves: {
+            move1: "Careless Assault",
+            move2: "Daze",
+            move3: "Dark Slash",
+            move4: "Sharpen"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Outboxer",
+        item: "Basic Taffy",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Jinglark-Awakened",
+        setName: "Fast Support",
+        helmet: "Bowlcut",
+        amulet: "Juniper Necklace",
+        artifact: "Fluffy Feather",
+        moves: {
+            move1: "Aerial",
+            move2: "Disarm",
+            move3: "Taunt",
+            move4: "Entangling Vines"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Holiday Spirit",
+        item: "Jinglark Present",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Jinglark-Awakened",
+        setName: "Bulky Support",
+        helmet: "Horned Headband",
+        amulet: "Vial of Tears",
+        artifact: "Beach Ball",
+        moves: {
+            move1: "Life Sap",
+            move2: "Disarm",
+            move3: "Heal",
+            move4: "Entangling Vines"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "defense",
+        mod2: 10,
+        ability: "Holiday Spirit",
+        item: "Jinglark Present",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Kreindus",
+        setName: "Fast Breaker",
+        helmet: "Artificer's Beanie",
+        amulet: "Helpful Lantern",
+        artifact: "Scrapped Cardboard",
+        moves: {
+            move1: "Cone of Cold",
+            move2: "Dark Blast",
+            move3: "Feral Fury",
+            move4: "Quick Ice"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Evil Glare",
+        item: "Lethal Ornament",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Wyvernal",
+        setName: "Fast Breaker",
+        helmet: "Artificer's Beanie",
+        amulet: "Sandstone Necklace",
+        artifact: "Scrapped Cardboard",
+        moves: {
+            move1: "Fireball",
+            move2: "Aerial",
+            move3: "Hit-n-Run",
+            move4: "Firebolt"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Nimble",
+        item: "Enchanted Sapphire",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Grimantle",
+        setName: "Bulky Set",
+        helmet: "Horned Headband",
+        amulet: "Sapphire Amulet",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Bee Summon",
+            move2: "Night Night",
+            move3: "Goo Blast",
+            move4: "Foreign Substance"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mDefense",
+        mod2: 10,
+        ability: "Vampire",
+        item: "Used Crayons",
         stars: 6,
         builtIn: true
     },

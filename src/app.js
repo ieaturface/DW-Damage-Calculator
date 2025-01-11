@@ -418,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1679,8 +1679,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for attack increasing abilities that are manually checked and adjusts subsequent hits' offensive stat
-    if ((ability1 == "Avenger" || ability1 == "Resentment" || ability1 == "Crowd Support") && abilityCheck1) {
-        if ((ability1 == "Avenger" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability1 == "Resentment" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) moveMod = 1;
+    if ((/*ability1 == "Avenger" || */ability1 == "Resentment" || ability1 == "Crowd Support") && abilityCheck1) {
+        if (/*(ability1 == "Avenger" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || */(ability1 == "Resentment" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) moveMod = 1;
         if (ability1 == "Crowd Support" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = 2;
         //if (ability1 == "Boast" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = (atk.atk > boastAttack ? 1 : -1);
 
@@ -2980,13 +2980,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Thermal Energy" && immuneBoostCheck1 && (tempType == "Spark" || tempType == "Fire")) ||
        (ability1 == "High Value Target" && immuneBoostCheck1) ||
        (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water") ||
-       (ability1 == "Opportunist" && stat2 != "healthy")) {
+       (ability1 == "Opportunist" && stat2 != "healthy") ||
+       (ability1 == "Avenger" && immuneBoostCheck1 && withoutSlapDown)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
 
     if ((ability1 == "Covetous" && itemB != "None") ||
-       (ability1 == "Nitelite" && tempType == "Light")) {
+       (ability1 == "Nitelite" && tempType == "Light") ||
+       (ability1 == "Chlorobite" && move.bite)) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -3127,7 +3129,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.7;
     }
     if (ability1 == "Tri-Snake" && !(isDouble && move.aoe == true) && !move.hits) {
-        multi *= 0.34;
+        multi *= 0.4;
     }
     /*if (foulHit) {
         multi *= 0.25;
@@ -3174,7 +3176,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     tempPower = pokeRound(tempPower * multi);
     multi = 1;
 
-    if (ability1 == "Delicate" && tempPower <= 60) {
+    if (ability1 == "Delicate" && tempPower <= 70) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -3490,13 +3492,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability1 = ability1;
     }
-    if ((ability2 == "Sand Screen" && sandstorm.checked) ||
-        (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
+    if ((ability2 == "Naughty List" && (loom1.name.includes("-Awakened") || loom1.name.includes("-Mother")))) {
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
     }
-    if ((ability2 == "Gaseous Form" && move.contact) ||
-        (ability2 == "Naughty List" && (loom1.name.includes("-Awakened") || loom1.name.includes("-Mother")))) {
+    if ((ability2 == "Gaseous Form" && ((adaptive.mr && adaptive.mr == "Melee")|| move.mr == "Melee")) ||
+        (ability2 == "Sand Screen" && sandstorm.checked) ||
+        (ability2 == "Mischievous" && countBoosts(boosts1) > 0)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }

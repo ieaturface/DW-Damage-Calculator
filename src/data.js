@@ -2242,7 +2242,7 @@ var loomians = {
         baseStats: {
             hp: 75,
             attack: 75,
-            defense: 65,
+            defense: 75,
             attackR: 110,
             defenseR: 75,
             speed: 100
@@ -2512,7 +2512,7 @@ var loomians = {
             hp: 80,
             attack: 70,
             defense: 85,
-            attackR: 115,
+            attackR: 105,
             defenseR: 85,
             speed: 80
         }
@@ -3273,10 +3273,10 @@ var loomians = {
         weight: 1,
         height: 38,
         baseStats: {
-            hp: 85,
+            hp: 90,
             attack: 55,
             defense: 75,
-            attackR: 90,
+            attackR: 95,
             defenseR: 100,
             speed: 90
         }
@@ -3953,11 +3953,11 @@ var loomians = {
         height: 49,
         baseStats: {
             hp: 78,
-            attack: 95,
+            attack: 100,
             defense: 80,
             attackR: 50,
             defenseR: 75,
-            speed: 100
+            speed: 105
         }
     },
 
@@ -4332,9 +4332,9 @@ var loomians = {
         item: "Nyanto Runestone",
         baseStats: {
             hp: 85,
-            attack: 117,
+            attack: 122,
             defense: 106,
-            attackR: 106,
+            attackR: 101,
             defenseR: 106,
             speed: 86
         }
@@ -5018,7 +5018,7 @@ var loomians = {
         baseStats: {
             hp: 85,
             attack: 115,
-            defense: 115,
+            defense: 125,
             attackR: 50,
             defenseR: 60,
             speed: 61
@@ -5377,7 +5377,7 @@ var loomians = {
         baseStats: {
             hp: 54,
             attack: 50,
-            defense: 103,
+            defense: 113,
             attackR: 70,
             defenseR: 133,
             speed: 40
@@ -5485,9 +5485,9 @@ var loomians = {
         height: 71,
         baseStats: {
             hp: 68,
-            attack: 92,
+            attack: 102,
             defense: 65,
-            attackR: 110,
+            attackR: 100,
             defenseR: 75,
             speed: 125
         }
@@ -7079,7 +7079,7 @@ var moves = {
 
     elementalClaws: {
         name: "Elemental Claws",
-        power: 80,
+        power: 95,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -7716,7 +7716,7 @@ var moves = {
 
     floralFang: {
         name: "Floral Fang",
-        power: 65,
+        power: 75,
         accuracy: 100,
         type: "Plant",
         mr: "Melee",
@@ -7793,7 +7793,7 @@ var moves = {
 
     thunderstorm: {
         name: "Thunderstorm",
-        power: 120,
+        power: 110,
         accuracy: 70,
         type: "Spark",
         mr: "Magic",
@@ -7992,7 +7992,6 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
     },
 
     bestialRoar: {
@@ -10511,6 +10510,14 @@ var moves = {
         mr: "Support"
     },
 
+    determination: {
+        name: "Determination",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
     mockCharge: {
         name: "Mock Charge",
         power: 0,
@@ -12417,7 +12424,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
-             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs"];
+             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -12430,4 +12437,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Mintiger line added.";
+var changelog = "Season 11 changes added.";
