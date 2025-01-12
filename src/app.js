@@ -1698,11 +1698,11 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
             moveMod = (ability1 == "Anomaly" ? 1 : 0);
             stuffUsed.ability1 = ability1;
         }
-        if ((ability1 == "Combative" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability1 == "Resolve" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) {
+        if ((ability1 == "Merciless" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability1 == "Resolve" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) {
             moveMod += 2;
             stuffUsed.ability1 = ability1;
         }
-        if (ability1 == "Merciless" && move.mr1 == "Melee Attack" && atk.name == "AttackM" && ability2 == "Menacing Snarl") {
+        if (ability1 == "Daring Devil" && move.mr1 == "Melee Attack" && atk.name == "AttackM" && ability2 == "Menacing Snarl") {
             moveMod += 4;
             stuffUsed.ability1 = ability1;
         }
