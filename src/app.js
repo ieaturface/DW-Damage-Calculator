@@ -418,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1364,7 +1364,7 @@ function loadStats() {
     statHP1.innerHTML = hp1;
     trueStats1.hp = hp1;
     trueStats1.atk = atk1;
-    if (archmage1.checked) multi *= 1.2;
+    if (archmage1.checked) multi *= 1.1;
     if (ability1 == "Hidden Strength") multi *= 2;
     if (firstItem == "Enchanted Ruby") multi *= 1.5;
     statAtk1.innerHTML = Math.floor(atk1 * multi);
@@ -1378,7 +1378,7 @@ function loadStats() {
     let swapDef1 = Math.floor(def1 * multi);
     multi = 1;
     trueStats1.atkR = atkR1;
-    if (archmage1.checked) multi *= 1.2;
+    if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
@@ -1407,7 +1407,7 @@ function loadStats() {
     statHP2.innerHTML = hp2;
     trueStats2.hp = hp2;
     trueStats2.atk = atk2;
-    if (archmage2.checked) multi *= 1.2;
+    if (archmage2.checked) multi *= 1.1;
     if (ability2 == "Hidden Strength") multi *= 2;
     if (secondItem == "Enchanted Ruby") multi *= 1.5;
     statAtk2.innerHTML = Math.floor(atk2 * multi);
@@ -1421,7 +1421,7 @@ function loadStats() {
     let swapDef2 = Math.floor(def2 * multi);
     multi = 1;
     trueStats2.atkR = atkR2;
-    if (archmage2.checked) multi *= 1.2;
+    if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Enchanted Sapphire") multi *= 1.5;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
@@ -2839,7 +2839,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (move.name == "Starbreaker") {
-        tempPower = Number(tempPower) - (stats1.stars - 1) * 20;
+        tempPower = 150 - (stats1.stars - 1) * 20;
         stuffUsed.extra1 += " (" + tempPower + " BP)"; 
     }
 
@@ -3197,7 +3197,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if (archmageOne) {
-        multi *= 1.2;
+        multi *= 1.1;
         stuffUsed.weather += " with Archmage";
     }
     if (ability1 == "Corruption" && move.mr == "Melee") {
@@ -3441,7 +3441,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
         (ability2 == "Guardian" && immuneBoostCheck2) ||
-        ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1)) {
+        ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1) ||
+        (ability2 == "Kindling" && stat1 == "burned") ||
+        (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
@@ -3515,8 +3517,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= confidenceBoost(loom1.baseStats, loom2.baseStats);
         stuffUsed.ability1 = ability1;
     }*/
-    if ((ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) ||
-        (ability2 == "Warden" && !pylon && btl1 && withoutSlapDown && !foulHit)) {
+    if ((ability2 == "Warden" && !pylon && btl1 && withoutSlapDown && !foulHit)) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -3525,7 +3526,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if (move.name == "Cauterizing Smash" && stat2 == "burned" && withoutSlapDown && !foulHit) {
-        multi *= 2;
+        multi *= 3;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
 

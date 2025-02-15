@@ -1382,7 +1382,7 @@ var loomians = {
             defense: 130,
             attackR: 65,
             defenseR: 100,
-            speed: 50
+            speed: 60
         }
     },
 
@@ -2149,9 +2149,9 @@ var loomians = {
         height: 31,
         baseStats: {
             hp: 75,
-            attack: 95,
+            attack: 105,
             defense: 80,
-            attackR: 95,
+            attackR: 85,
             defenseR: 80,
             speed: 95
         }
@@ -4032,7 +4032,7 @@ var loomians = {
         height: 8,
         baseStats: {
             hp: 65,
-            attack: 105,
+            attack: 115,
             defense: 80,
             attackR: 95,
             defenseR: 60,
@@ -4672,9 +4672,9 @@ var loomians = {
         height: 12,
         baseStats: {
             hp: 90,
-            attack: 75,
+            attack: 65,
             defense: 75,
-            attackR: 90,
+            attackR: 100,
             defenseR: 70,
             speed: 85
         }
@@ -4947,17 +4947,17 @@ var loomians = {
         baseStats: {
             hp: 120,
             attack: 100,
-            defense: 50,
+            defense: 75,
             attackR: 100,
-            defenseR: 50,
+            defenseR: 75,
             speed: 50
         },
         bitty: {
             hp: 100,
             attack: 80,
-            defense: 30,
+            defense: 50,
             attackR: 80,
-            defenseR: 30,
+            defenseR: 50,
             speed: 30
         },
         itty: {
@@ -5706,12 +5706,12 @@ var loomians = {
         weight: 15,
         height: 60,
         baseStats: {
-            hp: 70,
+            hp: 65,
             attack: 97,
-            defense: 65,
+            defense: 60,
             attackR: 113,
             defenseR: 65,
-            speed: 115
+            speed: 125
         }
     },
 
@@ -6375,7 +6375,7 @@ var loomians = {
             defense: 80,
             attackR: 60,
             defenseR: 80,
-            speed: 80
+            speed: 90
         }
     },
 
@@ -6448,7 +6448,7 @@ var loomians = {
         height: 43,
         baseStats: {
             hp: 75,
-            attack: 80,
+            attack: 92,
             defense: 75,
             attackR: 102,
             defenseR: 80,
@@ -6780,7 +6780,7 @@ var moves = {
 
     starbreaker: {
         name: "Starbreaker",
-        power: 120,
+        power: -1,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -7043,7 +7043,7 @@ var moves = {
 
     triElementalSlash: {
         name: "Tri-Elemental Slash",
-        power: 70,
+        power: 90,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -7574,7 +7574,7 @@ var moves = {
 
     lilypadLeap: {
         name: "Lilypad Leap",
-        power: 65,
+        power: 90,
         accuracy: 100,
         type: "Plant",
         mr: "Magic",
@@ -9552,6 +9552,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    glacialSiphon: {
+        name: "Snowball",
+        power: 50,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        drain: 3/4
+    },
+
     coneCannon: {
         name: "Cone Cannon",
         power: 40,
@@ -10578,6 +10589,14 @@ var moves = {
         name: "Inflame",
         power: 0,
         accuracy: 100,
+        type: "Fire",
+        mr: "Support"
+    },
+
+    highDegreeBake: {
+        name: "High Degree Bake",
+        power: 0,
+        accuracy: 95,
         type: "Fire",
         mr: "Support"
     },
@@ -11979,7 +11998,7 @@ var artifacts = {
 
     'amber trapped fly': {
         name: "Amber Trapped Fly",
-        health: -17,
+        health: -11,
         attack: 0,
         defense: 0,
         mAttack: 0,
@@ -12437,4 +12456,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 11 changes added.";
+var changelog = "Season 13 changes added.";
