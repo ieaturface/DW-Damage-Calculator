@@ -9553,7 +9553,7 @@ var moves = {
     },
 
     glacialSiphon: {
-        name: "Snowball",
+        name: "Glacial Siphon",
         power: 50,
         accuracy: 100,
         type: "Ice",
