@@ -1679,8 +1679,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for attack increasing abilities that are manually checked and adjusts subsequent hits' offensive stat
-    if ((/*ability1 == "Avenger" || */ability1 == "Resentment" || ability1 == "Crowd Support") && abilityCheck1) {
-        if (/*(ability1 == "Avenger" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || */(ability1 == "Resentment" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) moveMod = 1;
+    if ((/*ability1 == "Avenger" || ability1 == "Resentment" || */ability1 == "Crowd Support") && abilityCheck1) {
+        //if (/*(ability1 == "Avenger" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || */(ability1 == "Resentment" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) moveMod = 1;
         if (ability1 == "Crowd Support" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = 2;
         //if (ability1 == "Boast" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = (atk.atk > boastAttack ? 1 : -1);
 
@@ -2981,7 +2981,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "High Value Target" && immuneBoostCheck1) ||
        (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water") ||
        (ability1 == "Opportunist" && stat2 != "healthy") ||
-       (ability1 == "Avenger" && immuneBoostCheck1 && withoutSlapDown)) {
+       (ability1 == "Avenger" && immuneBoostCheck1 && withoutSlapDown) ||
+       (ability1 == "Resentment" && tempType == "Dark" && immuneBoostCheck1 && withoutSlapDown)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
