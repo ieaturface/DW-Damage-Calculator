@@ -418,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1393,8 +1393,7 @@ function loadStats() {
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
         multi *= (1 + .25 * owolspeed);
-    } else if (ability1 == "Goliath") multi *= 0.8;
-    if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.5;
+    }    if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.25;
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
     else if (firstItem == "Heavy Blanket") multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
@@ -1436,8 +1435,8 @@ function loadStats() {
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
         multi *= (1 + .25 * owolspeed);
-    } else if (ability2 == "Goliath") multi *= 0.8;
-    if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.5;
+    }
+    if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.25;
     if (secondItem == "Enchanted Emerald") multi *= 1.5;
     else if (secondItem == "Heavy Blanket") multi *= 0.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
@@ -2982,7 +2981,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Oasis Deity" && sandstorm.checked && tempType == "Water") ||
        (ability1 == "Opportunist" && stat2 != "healthy") ||
        (ability1 == "Avenger" && immuneBoostCheck1 && withoutSlapDown) ||
-       (ability1 == "Resentment" && tempType == "Dark" && immuneBoostCheck1 && withoutSlapDown)) {
+       (ability1 == "Resentment" && tempType == "Dark" && immuneBoostCheck1 && withoutSlapDown) ||
+       (ability1 == "Blightfrost" && stat2 == "frozen")) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -3001,7 +3001,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Rapier" && move.priority) ||
        (ability1 == "Slash Expert" && move.slash) ||
-       (ability1 == "Grounded" && immuneBoostCheck1 && (loom2.types.includes("Air") || ability2 == "Levitate"))) {
+       (ability1 == "Grounded" && immuneBoostCheck1 && (loom2.types.includes("Air") || ability2 == "Levitate")) ||
+       (ability1 == "Goliath")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -3032,7 +3033,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ability1 == "Confidence" || ability1 == "Firestarter") {
-        let chanting = 1 + 0.1 * repeat;
+        let chanting = 1 + 0.2 * repeat;
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
@@ -3121,7 +3122,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.7;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Fur Coat" && move.contact && ability1 != "Outboxer") {
+    if (ability2 == "Fur Coat" && move.contact && tempType != "Fire" && ability1 != "Outboxer") {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -3406,9 +3407,14 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
 
-    if (((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) ||
-        (ability1 == "Almagest" && tempType == types1.secondary && effectiveness >= 2)) {
+    if ((ability1 == "Rule of Cool" || ability1 == "Jester Privilege") && effectiveness < 1) {
         multi *= 2;
+        stuffUsed.ability1 = ability1;
+    }
+
+    if (ability1 == "Almagest" && tempType == types1.secondary) {
+        if (effectiveness >= 2) multi *= 2;
+        else multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
 
@@ -4007,7 +4013,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         }
 
         if ((status == "poisoned" || status == "diseased") && ability == "Detox") {
-            newHP -= Math.floor(hp1 * 1 / 16);
+            newHP -= Math.floor(hp1 * 1 / 12);
             hazardString += "detox recovery and ";
         }
 

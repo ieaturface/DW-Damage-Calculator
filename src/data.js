@@ -1808,7 +1808,7 @@ var loomians = {
             defense: 135,
             attackR: 75,
             defenseR: 90,
-            speed: 70
+            speed: 80
         }
     },
 
@@ -2194,11 +2194,11 @@ var loomians = {
         height: 31,
         baseStats: {
             hp: 75,
-            attack: 75,
+            attack: 70,
             defense: 70,
             attackR: 95,
             defenseR: 95,
-            speed: 110
+            speed: 115
         }
     },
 
@@ -3873,7 +3873,7 @@ var loomians = {
         weight: 254,
         height: 71,
         baseStats: {
-            hp: 76,
+            hp: 90,
             attack: 78,
             defense: 102,
             attackR: 113,
@@ -4736,7 +4736,7 @@ var loomians = {
             defense: 70,
             attackR: 120,
             defenseR: 70,
-            speed: 110
+            speed: 115
         }
     },
 
@@ -6616,7 +6616,7 @@ var loomians = {
         height: 120,
         baseStats: {
             hp: 135,
-            attack: 75,
+            attack: 85,
             defense: 75,
             attackR: 85,
             defenseR: 85,
@@ -8630,7 +8630,7 @@ var moves = {
 
     roundhouseKick: {
         name: "Roundhouse Kick",
-        power: 100,
+        power: 110,
         accuracy: 80,
         type: "Melee",
         mr: "Melee",
@@ -8952,7 +8952,7 @@ var moves = {
 
     honeySlap: {
         name: "Honey Slap",
-        power: 60,
+        power: 65,
         accuracy: 100,
         type: "Food",
         mr: "Melee",
@@ -9678,6 +9678,16 @@ var moves = {
     icefall: {
         name: "Icefall",
         power: 75,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
+    glacialCleave: {
+        name: "Glacial Cleave",
+        power: 95,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
@@ -12247,7 +12257,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale"];
 
 var typeModAbilities = {
     adipose: {
@@ -12342,6 +12352,12 @@ var typeModAbilities = {
 
     waterAbsorb: {
         name: "Water Absorb",
+        typeModifier: { type: "Water", modifier: 0 },
+        powerMod: false
+    },
+
+    arid: {
+        name: "Arid",
         typeModifier: { type: "Water", modifier: 0 },
         powerMod: false
     },
@@ -12456,4 +12472,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 13 changes added.";
+var changelog = "Season 13 (for real this time) changes added.";
