@@ -6701,6 +6701,37 @@ var loomians = {
         }
     },
 
+    toxode: {
+        name: "Toxode",
+        types: ["Metal", "Poison"],
+        finalEvo: false,
+        weight: 45,
+        height: 36,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 75,
+            attackR: 80,
+            defenseR: 65,
+            speed: 30
+        }
+    },
+
+    hazination: {
+        name: "Hazination",
+        types: ["Metal", "Poison"],
+        weight: 97,
+        height: 56,
+        baseStats: {
+            hp: 100,
+            attack: 60,
+            defense: 95,
+            attackR: 115,
+            defenseR: 100,
+            speed: 50
+        }
+    },
+
 
 };
 
@@ -9956,6 +9987,16 @@ var moves = {
         secondaryEffect: true
     },
 
+    canister: {
+        name: "Canister",
+        power: 75,
+        accuracy: 100,
+        type: "Poison",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     toxicBomb: {
         name: "Toxic Bomb",
         power: 55,
@@ -12274,7 +12315,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale"];
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
+                 "Poison Substance"];
 
 var typeModAbilities = {
     adipose: {
@@ -12489,4 +12531,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 13 (for real this time) changes added.";
+var changelog = "Added Toxode line.";

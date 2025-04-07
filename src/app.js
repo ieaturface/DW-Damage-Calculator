@@ -418,11 +418,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +477,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -936,10 +936,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         abilityDropdown1.value = (set1.ability == undefined ? "none" : set1.ability);
         if (firstLoom.ability) {
             abilityDropdown1.value = firstLoom.ability;
-            updateAbility(firstLoom.ability);
         }    
         item1.value = (set1.item == undefined ? "none" : set1.item);
         if (firstLoom.item) item1.value = firstLoom.item;
+        updateAbility(firstLoom.ability);
+        updateItem('item1');
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
@@ -987,10 +988,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         abilityDropdown2.value = (set2.ability == undefined ? "none" : set2.ability);
         if (secondLoom.ability) {
             abilityDropdown2.value = secondLoom.ability;
-            updateAbility(secondLoom.ability);
         }    
         item2.value = (set2.item == undefined ? "none" : set2.item);
         if (secondLoom.item) item2.value = secondLoom.item;
+        updateAbility(secondLoom.ability);
+        updateItem('item2');
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
@@ -4068,12 +4070,12 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee")) {
+    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee")) {
         let drain = move.drain;
         if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite)) {
             if (!drain) drain = 1/4;
             else drain += 1/4;
-        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee")) {
+        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee")) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }
