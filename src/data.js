@@ -6732,6 +6732,37 @@ var loomians = {
         }
     },
 
+    fawnook: {
+        name: "Fawnook",
+        types: ["Basic"],
+        finalEvo: false,
+        weight: 3,
+        height: 26,
+        baseStats: {
+            hp: 50,
+            attack: 75,
+            defense: 60,
+            attackR: 40,
+            defenseR: 50,
+            speed: 75
+        }
+    },
+
+    taxideer: {
+        name: "Taxideer",
+        types: ["Basic", "Spirit"],
+        weight: 36,
+        height: 70,
+        baseStats: {
+            hp: 75,
+            attack: 110,
+            defense: 70,
+            attackR: 60,
+            defenseR: 80,
+            speed: 110
+        }
+    },
+
 
 };
 
@@ -9396,6 +9427,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         slash: true
+    },
+
+    phantomRush: {
+        name: "Phantom Rush",
+        power: 75,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
     },
 
     hexblade: {
@@ -12316,7 +12358,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
-                 "Poison Substance"];
+                 "Poison Substance", "Phasmophobia"];
 
 var typeModAbilities = {
     adipose: {
@@ -12531,4 +12573,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Toxode line.";
+var changelog = "Added Fawnook line.";
