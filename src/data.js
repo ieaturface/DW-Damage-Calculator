@@ -6763,6 +6763,83 @@ var loomians = {
         }
     },
 
+    emberfly: {
+        name: "Emberfly",
+        types: ["Insect", "Fire"],
+        finalEvo: false,
+        weight: 4,
+        height: 12,
+        baseStats: {
+            hp: 35,
+            attack: 40,
+            defense: 35,
+            attackR: 70,
+            defenseR: 40,
+            speed: 40
+        }
+    },
+
+    ignisect: {
+        name: "Ignisect",
+        types: ["Insect", "Fire"],
+        weight: 18,
+        height: 32,
+        baseStats: {
+            hp: 89,
+            attack: 60,
+            defense: 67,
+            attackR: 121,
+            defenseR: 72,
+            speed: 91
+        }
+    },
+
+    incandesect: {
+        name: "Incandesect",
+        types: ["Insect", "Light"],
+        weight: 21,
+        height: 34,
+        baseStats: {
+            hp: 101,
+            attack: 45,
+            defense: 90,
+            attackR: 108,
+            defenseR: 110,
+            speed: 46
+        }
+    },
+
+    hopus: {
+        name: "Hopus",
+        types: ["Plant", "Basic"],
+        finalEvo: false,
+        weight: 7,
+        height: 8,
+        baseStats: {
+            hp: 35,
+            attack: 40,
+            defense: 45,
+            attackR: 50,
+            defenseR: 85,
+            speed: 75
+        }
+    },
+
+    daffodally: {
+        name: "Daffodally",
+        types: ["Plant", "Basic"],
+        weight: 29,
+        height: 33,
+        baseStats: {
+            hp: 97,
+            attack: 50,
+            defense: 65,
+            attackR: 90,
+            defenseR: 135,
+            speed: 45
+        }
+    },
+
 
 };
 
@@ -10822,6 +10899,22 @@ var moves = {
         mr: "Support"
     },
 
+    gardentend: {
+        name: "Gardentend",
+        power: 0,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    bunnyDistraction: {
+        name: "Bunny Distraction",
+        power: 0,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Support"
+    },
+
     energized: {
         name: "Energized",
         power: 0,
@@ -12358,7 +12451,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
-                 "Poison Substance", "Phasmophobia"];
+                 "Poison Substance", "Phasmophobia", "Florist"];
 
 var typeModAbilities = {
     adipose: {
@@ -12573,4 +12666,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Fawnook line.";
+var changelog = "Added Emberfly and Hopus lines.";

@@ -194,7 +194,9 @@ let acidRain = document.getElementById("acidRain");
 let chocolateRain = document.getElementById("chocolateRain");
 let sandstorm = document.getElementById("sandstorm");
 
+let noEffect = document.getElementById("noEffect");
 let darkExpansion = document.getElementById("darkExpansion");
+let garden = document.getElementById("garden");
 
 let lightOrb = document.getElementById("lightOrb");
 let evilGlare = document.getElementById("evilGlare");
@@ -418,11 +420,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -477,8 +479,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -792,6 +794,8 @@ function updateAbility(ability) {
         iceTrap1.checked = false;
         iceTrap2.checked = false;
     }
+    if (ability1 == "Florist" || ability2 == "Florist") garden.checked = true;
+    else noEffect.checked = true;
 
     update();
 }
@@ -4022,6 +4026,11 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         if (ability == "Stitching") {
             newHP -= Math.floor(hp1 * 1 / 16);
             hazardString += "stitching recovery and ";
+        }
+
+        if (garden.checked && (!loom2.types.includes("Air") && ability != "Levitate") || ((loom2.types.includes("Air") || ability == "Levitate") && item == "Heavy Blanket")) {
+            newHP -= Math.floor(hp1 * 1 / 16);
+            hazardString += "garden recovery and ";
         }
     }
     
