@@ -7618,4 +7618,174 @@ var builtInSets = [
         stars: 6,
         builtIn: true
     },
+{
+        name: "Hazination",
+        setName: "Bulky Cloak",
+        helmet: "Theatre Mask",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Infection",
+            move2: "Mineral Cannon",
+            move3: "Chi Blast",
+            move4: "Gem Blast"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Poison Substance",
+        item: "Cursed Cloak",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Hazination",
+        setName: "Clang-hater Cloak",
+        helmet: "Bowlcut",
+        amulet: "Rock Candy",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Infection",
+            move2: "Mineral Cannon",
+            move3: "Chi Blast",
+            move4: "Wave Shot"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Poison Substance",
+        item: "Cursed Cloak",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Taxideer",
+        setName: "Offensive Pivot",
+        helmet: "Epic Shades",
+        amulet: "Swag Juice",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Careless Assault",
+            move2: "Phantom Rush",
+            move3: "Hit-n-Run",
+            move4: "Burning Orb"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Menacing Snarl",
+        item: "Spiky Thorns",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Taxideer",
+        setName: "Fast Pivot",
+        helmet: "Decorated Hairclip",
+        amulet: "Ruby Pendant",
+        artifact: "Chewed Up Bone",
+        moves: {
+            move1: "Careless Assault",
+            move2: "Phantom Rush",
+            move3: "Hit-n-Run",
+            move4: "Burning Orb"
+        },
+        posNature: "attack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Phasmophobia",
+        item: "Enchanted Ruby",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Ignisect",
+        setName: "Wallbreaker",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Golden Stick",
+        moves: {
+            move1: "Fireball",
+            move2: "Entomophobia",
+            move3: "Energy Wave",
+            move4: "Hit-n-Run"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Levitate",
+        item: "Enchanted Sapphire",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Incandesect",
+        setName: "The Double Dancer",
+        helmet: "Magnificent Tophat",
+        amulet: "Helpful Lantern",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Divine Light",
+            move2: "Entomophobia",
+            move3: "Glow Up",
+            move4: "Haste"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "speed",
+        mod2: 10,
+        ability: "Revenant",
+        item: "Light Taffy",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Incandesect",
+        setName: "Slow Pivot",
+        helmet: "Theatre Mask",
+        amulet: "Stone Necklace",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Divine Light",
+            move2: "Entomophobia",
+            move3: "Hit-n-Run",
+            move4: "Heal"
+        },
+        posNature: "defense",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Levitate",
+        item: "Spiky Thorns",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Daffodally",
+        setName: "Wall",
+        helmet: "Theatre Mask",
+        amulet: "Vial of Tears",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Life Sap",
+            move2: "Hyper Voice",
+            move3: "Dispose",
+            move4: "Heal"
+        },
+        posNature: "defense",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Guilt",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+
 ];
+
