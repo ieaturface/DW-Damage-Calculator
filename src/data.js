@@ -6840,6 +6840,97 @@ var loomians = {
         }
     },
 
+    budsillar: {
+        name: "Budsillar",
+        types: ["Plant", "Insect"],
+        finalEvo: false,
+        weight: 2,
+        height: 9,
+        baseStats: {
+            hp: 40,
+            attack: 30,
+            defense: 53,
+            attackR: 30,
+            defenseR: 55,
+            speed: 27
+        }
+    },
+
+    chryslion: {
+        name: "Chryslion",
+        types: ["Plant", "Insect"],
+        finalEvo: false,
+        weight: 2,
+        height: 15,
+        baseStats: {
+            hp: 50,
+            attack: 15,
+            defense: 70,
+            attackR: 30,
+            defenseR: 70,
+            speed: 10
+        }
+    },
+
+    breezshy: {
+        name: "Breezshy",
+        types: ["Plant", "Insect"],
+        weight: 2,
+        height: 24,
+        baseStats: {
+            hp: 55,
+            attack: 35,
+            defense: 100,
+            attackR: 65,
+            defenseR: 100,
+            speed: 65
+        }
+    },
+
+    omeletrot: {
+        name: "Omeletrot",
+        types: ["Melee", "Food"],
+        weight: 154,
+        height: 65,
+        baseStats: {
+            hp: 70,
+            attack: 85,
+            defense: 75,
+            attackR: 75,
+            defenseR: 75,
+            speed: 120
+        }
+    },
+
+    majestegg: {
+        name: "Majestegg",
+        types: ["Metal", "Food"],
+        weight: 11,
+        height: 16,
+        baseStats: {
+            hp: 80,
+            attack: 150,
+            defense: 50,
+            attackR: 100,
+            defenseR: 50,
+            speed: 10
+        }
+    },
+
+    'majestegg-steed': {
+        name: "Majestegg-Steed",
+        types: ["Metal", "Melee"],
+        weight: 156,
+        height: 65,
+        baseStats: {
+            hp: 80,
+            attack: 130,
+            defense: 85,
+            attackR: 80,
+            defenseR: 85,
+            speed: 115
+        }
+    },
 
 };
 
@@ -8584,6 +8675,17 @@ var moves = {
         aoe: true
     },
 
+    savorySlam: {
+        name: "Savory Slam",
+        power: 100,
+        accuracy: 100,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     stalactites: {
         name: "Stalactites",
         power: 25,
@@ -9393,6 +9495,18 @@ var moves = {
     bonk: {
         name: "Bonk",
         power: 80,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
+    regalEdge: {
+        name: "Regal Edge",
+        power: 95,
         accuracy: 100,
         type: "Metal",
         mr: "Melee",
@@ -10901,6 +11015,14 @@ var moves = {
 
     gardentend: {
         name: "Gardentend",
+        power: 0,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Support"
+    },
+
+    ruinousGarden: {
+        name: "Ruinous Garden",
         power: 0,
         accuracy: 100,
         type: "Plant",
@@ -12451,7 +12573,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
-                 "Poison Substance", "Phasmophobia", "Florist"];
+                 "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign"];
 
 var typeModAbilities = {
     adipose: {
@@ -12666,4 +12788,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Emberfly and Hopus lines.";
+var changelog = "Added Omeltrot/Majestegg (oh and that newish bug line too).";

@@ -420,11 +420,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -479,8 +479,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -2995,7 +2995,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Covetous" && itemB != "None") ||
        (ability1 == "Nitelite" && tempType == "Light") ||
-       (ability1 == "Chlorobite" && move.bite)) {
+       (ability1 == "Chlorobite" && move.bite) ||
+       (ability1 == "To Arms!" && (btl2 && withoutSlapDown))) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -3534,7 +3535,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Speedy Recovery" && move.drain))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
