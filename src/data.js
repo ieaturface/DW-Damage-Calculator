@@ -1615,7 +1615,7 @@ var loomians = {
         baseStats: {
             hp: 120,
             attack: 85,
-            defense: 85,
+            defense: 95,
             attackR: 135,
             defenseR: 115,
             speed: 50
@@ -1942,7 +1942,7 @@ var loomians = {
         weight: 86,
         height: 54,
         baseStats: {
-            hp: 63,
+            hp: 70,
             attack: 110,
             defense: 95,
             attackR: 66,
@@ -1959,7 +1959,7 @@ var loomians = {
         ability: "Mental Depletion",
         item: "Staligant Rune",
         baseStats: {
-            hp: 63,
+            hp: 70,
             attack: 120,
             defense: 98,
             attackR: 120,
@@ -2998,8 +2998,8 @@ var loomians = {
             attack: 85,
             defense: 65,
             attackR: 135,
-            defenseR: 105,
-            speed: 100
+            defenseR: 115,
+            speed: 105
         }
     },
 
@@ -3274,9 +3274,9 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 90,
-            attack: 55,
-            defense: 75,
-            attackR: 95,
+            attack: 50,
+            defense: 80,
+            attackR: 105,
             defenseR: 100,
             speed: 90
         }
@@ -3452,7 +3452,7 @@ var loomians = {
             attack: 135,
             defense: 107,
             attackR: 63,
-            defenseR: 88,
+            defenseR: 93,
             speed: 125
         }
     },
@@ -3546,9 +3546,9 @@ var loomians = {
         baseStats: {
             hp: 50,
             attack: 45,
-            defense: 120,
+            defense: 135,
             attackR: 45,
-            defenseR: 120,
+            defenseR: 135,
             speed: 105
         }
     },
@@ -3562,9 +3562,9 @@ var loomians = {
         baseStats: {
             hp: 105,
             attack: 45,
-            defense: 120,
+            defense: 135,
             attackR: 45,
-            defenseR: 120,
+            defenseR: 135,
             speed: 50
         }
     },
@@ -3767,7 +3767,7 @@ var loomians = {
             hp: 63,
             attack: 90,
             defense: 100,
-            attackR: 132,
+            attackR: 140,
             defenseR: 95,
             speed: 124
         }
@@ -3795,12 +3795,12 @@ var loomians = {
         weight: 4317,
         height: 114,
         baseStats: {
-            hp: 101,
+            hp: 96,
             attack: 51,
-            defense: 62,
-            attackR: 107,
+            defense: 57,
+            attackR: 112,
             defenseR: 120,
-            speed: 80
+            speed: 85
         }
     },
 
@@ -3971,9 +3971,9 @@ var loomians = {
         baseStats: {
             hp: 78,
             attack: 125,
-            defense: 95,
+            defense: 100,
             attackR: 60,
-            defenseR: 95,
+            defenseR: 105,
             speed: 115
         }
     },
@@ -4656,11 +4656,11 @@ var loomians = {
         weight: 39,
         height: 30,
         baseStats: {
-            hp: 76,
+            hp: 86,
             attack: 71,
             defense: 91,
             attackR: 73,
-            defenseR: 87,
+            defenseR: 92,
             speed: 73
         }
     },
@@ -4717,10 +4717,10 @@ var loomians = {
         height: 19,
         baseStats: {
             hp: 75,
-            attack: 60,
+            attack: 55,
             defense: 65,
-            attackR: 108,
-            defenseR: 70,
+            attackR: 118,
+            defenseR: 65,
             speed: 107
         }
     },
@@ -6421,7 +6421,7 @@ var loomians = {
             defense: 92,
             attackR: 60,
             defenseR: 98,
-            speed: 72
+            speed: 80
         }
     },
 
@@ -6881,7 +6881,7 @@ var loomians = {
             hp: 55,
             attack: 35,
             defense: 100,
-            attackR: 65,
+            attackR: 90,
             defenseR: 100,
             speed: 65
         }
@@ -6932,6 +6932,21 @@ var loomians = {
         }
     },
 
+    emoticat: {
+        name: "Emoticat",
+        types: ["Basic"],
+        weight: 9,
+        height: 28,
+        baseStats: {
+            hp: 73,
+            attack: 82,
+            defense: 63,
+            attackR: 87,
+            defenseR: 61,
+            speed: 134
+        }
+    },
+
 };
 
 
@@ -6959,6 +6974,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         priority: true,
+        secondaryEffect: true
+    },
+
+    moodSwing: {
+        name: "Mood Swing",
+        power: 100,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -7307,6 +7334,17 @@ var moves = {
         recoil: 1/4
     },
 
+    finalGambit: {
+        name: "Final Gambit",
+        power: 250,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        aoe: true
+    },
+
     elementalClaws: {
         name: "Elemental Claws",
         power: 95,
@@ -7408,7 +7446,7 @@ var moves = {
 
     flamesOfGehenna: {
         name: "Flames of Gehenna",
-        power: 150,
+        power: 130,
         accuracy: 50,
         type: "Fire",
         mr: "Magic",
@@ -8167,7 +8205,7 @@ var moves = {
 
     jumbleClobber: {
         name: "Jumble Clobber",
-        power: 75,
+        power: 90,
         accuracy: 85,
         type: "Beast",
         mr: "Melee",
@@ -8298,7 +8336,7 @@ var moves = {
 
     steelCrusher: {
         name: "Steel Crusher",
-        power: 75,
+        power: 85,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
@@ -9374,8 +9412,8 @@ var moves = {
 
     crystalStorm: {
         name: "Crystal Storm",
-        power: 100,
-        accuracy: 85,
+        power: 90,
+        accuracy: 100,
         type: "Crystal",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -9622,7 +9660,7 @@ var moves = {
 
     phantomRush: {
         name: "Phantom Rush",
-        power: 75,
+        power: 80,
         accuracy: 100,
         type: "Spirit",
         mr: "Melee",
@@ -9897,7 +9935,7 @@ var moves = {
 
     frostbite: {
         name: "Frostbite",
-        power: 150,
+        power: 130,
         accuracy: 50,
         type: "Ice",
         mr: "Magic",
@@ -10222,7 +10260,7 @@ var moves = {
 
     canister: {
         name: "Canister",
-        power: 75,
+        power: 90,
         accuracy: 100,
         type: "Poison",
         mr: "Magic",
@@ -10277,7 +10315,7 @@ var moves = {
 
     'surprise!': {
         name: "Surprise!",
-        power: 50,
+        power: 80,
         accuracy: 100,
         type: "Poison",
         mr: "Melee",
@@ -11581,6 +11619,14 @@ var moves = {
         mr: "Support"
     },
 
+    stageTrick: {
+        name: "Stage Trick",
+        power: 0,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Support"
+    },
+
     hiss: {
         name: "Hiss",
         power: 0,
@@ -12573,7 +12619,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
-                 "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign"];
+                 "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate"];
 
 var typeModAbilities = {
     adipose: {
@@ -12788,4 +12834,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Omeltrot/Majestegg (oh and that newish bug line too).";
+var changelog = "Added Emoticat + Season 14 changes.";
