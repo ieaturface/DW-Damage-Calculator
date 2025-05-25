@@ -293,6 +293,9 @@ let archmage2 = document.getElementById("archmage2");
 let lipid1 = document.getElementById("lipid1");
 let lipid2 = document.getElementById("lipid2");
 
+let aquagel1 = document.getElementById("aquagel1");
+let aquagel2 = document.getElementById("aquagel2");
+
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
 
@@ -420,11 +423,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -479,8 +482,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -787,6 +790,10 @@ function updateAbility(ability) {
     else seasoned2.checked = false;
     if (ability2 == "Bon Appetit") seasoned1.checked = true;
     else seasoned1.checked = false;
+    if (ability1 == "Hydro Coating") aquagel1.checked = true;
+    else aquagel1.checked = false;
+    if (ability2 == "Hydro Coating") aquagel2.checked = true;
+    else aquagel2.checked = false;
     if (ability1 == "Bee Arena" || ability2 == "Bee Arena") {
         iceTrap1.checked = true;
         iceTrap2.checked = true;
@@ -878,12 +885,22 @@ function updateLevel() {
 
 function updateFormat() {
     collection = document.getElementsByClassName("doubles");
-    if (singleDouble.value == "singles") for (let i = 0; i < collection.length; i++) {
-        collection[i].style.display = 'none';
+    let field = document.getElementsByClassName("field")[0];
+    let fieldTraps = document.getElementsByClassName("fieldTraps")[0];
+    if (singleDouble.value == "singles") {
+        for (let i = 0; i < collection.length; i++) {
+            collection[i].style.display = 'none';
+        }
+        field.style.height = "635px";
+        fieldTraps.style.height = "57%";
     }
-    else for (let i = 0; i < collection.length; i++) {
-        collection[i].style.display = 'inline-block';
-    }
+    else {
+        for (let i = 0; i < collection.length; i++) {
+            collection[i].style.display = 'inline-block';
+        }
+        field.style.height = "685px";
+        fieldTraps.style.height = "60%";
+    }    
 
     update();
 }
@@ -1395,7 +1412,7 @@ function loadStats() {
     multi = 1;
     trueStats1.spd = spd1;
     if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
-    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked) || (ability1 == "Acid Advance" && acidRain.checked)) multi *= 2;
+    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked) || (ability1 == "Acid Advance" && acidRain.checked) || ability1 == "Metabolize") multi *= 2;
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
         multi *= (1 + .25 * owolspeed);
@@ -1437,7 +1454,7 @@ function loadStats() {
     multi = 1;
     trueStats2.spd = spd2;
     if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
-    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked) || (ability2 == "Acid Advance" && acidRain.checked)) multi *= 2;
+    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked) || (ability2 == "Acid Advance" && acidRain.checked) || ability2 == "Metabolize") multi *= 2;
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
         multi *= (1 + .25 * owolspeed);
@@ -2643,7 +2660,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let archmageOne = (second == false ? archmage1.checked : archmage2.checked);
     let archmageTwo = (second == false ? archmage2.checked : archmage1.checked);
     let lipidOne = (second == false ? lipid2.checked : lipid1.checked);
-    let lipidTwo = (second == false? lipid1.checked : lipid2.checked);
+    let lipidTwo = (second == false ? lipid1.checked : lipid2.checked);
+    let aquagel = (second == false ? aquagel2.checked : aquagel1.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -2974,7 +2992,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire") ||
        (ability1 == "Soul Link" && immuneBoostCheck1) ||
        (ability1 == "Kindling" && stat2 == "burned") ||
-       (ability1 == "Night Harbinger" && darkExpansion.checked)) {
+       (ability1 == "Night Harbinger" && darkExpansion.checked) ||
+       (ability1 == "Thunder Gut" && tempType == "Spark" && stats1.hpPercent < 50)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3015,7 +3034,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Rapier" && move.priority) ||
        (ability1 == "Slash Expert" && move.slash) ||
        (ability1 == "Grounded" && immuneBoostCheck1 && (loom2.types.includes("Air") || ability2 == "Levitate")) ||
-       (ability1 == "Goliath")) {
+       (ability1 == "Goliath" || ability1 == "Overcharge")) {
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
@@ -3378,6 +3397,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
+    if (tempType == "Fire" && aquagel) {
+        multi *= 0;
+        stuffUsed.extra2 += " Aquagel";
+    }
+
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
@@ -3928,6 +3952,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     let sorrow = sorrow2.checked;
     let softWater = softWater2.checked;
     let disease = diseased2.value;
+    let aquagel = aquagel2.checked;
     let hazardString = "";
 
     if (second) {
@@ -3944,6 +3969,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         sorrow = sorrow1.checked;
         softWater = softWater1.checked;
         disease = diseased1.value;
+        aquagel = aquagel1.checked;
     }
     disease = parseInt(disease);
 
@@ -4009,7 +4035,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         hazardString += "sorrow damage and ";
     }
 
-    if (!OHKO) {
+    if (!OHKO && ability != "Metabolize") {
         if (!loom1.types.includes("Plant") && sap.attacker == true) {
             newHP -= Math.floor(hp2 * sapHeal * multi);
             hazardString += "parasitic seeds recovery and ";
@@ -4068,7 +4094,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     }
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
-    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash") {
+    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash" && !aquagel) {
         if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
         if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 4);
         newHP += Math.floor(hp1 * 1 / 16);
@@ -4085,21 +4111,21 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         hazardString += "sandstorm damage and ";
     }
 
-    if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
+    if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "poison damage and ";
     }
-    if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox") {
+    if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel) {
         newHP += Math.floor(hp1 * (disease + counter) / 16);
         hazardString += "disease damage and ";
     }
 
-    if (status == "frozen" && otherAbility == "Brainfreeze" && !loom2.types.includes("Ice")) {
+    if (status == "frozen" && otherAbility == "Brainfreeze" && !loom2.types.includes("Ice") && !aquagel) {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "brainfreeze damage and ";
     }
 
-    if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice")) {
+    if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice") && !aquagel) {
         newHP += Math.floor(hp1 * 1 / 8);
         hazardString += "hypothermia damage and ";
     }
@@ -4112,9 +4138,9 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
     if (l == 0 && u == 0) return "";
-    if (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee")) {
+    if (ability != "Metabolize" && (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark"))) {
         let drain = move.drain;
-        if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite)) {
+        if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Chlorobite" && move.bite) || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark")) {
             if (!drain) drain = 1/4;
             else drain += 1/4;
         } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee")) {
