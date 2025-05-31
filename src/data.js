@@ -4418,6 +4418,23 @@ var loomians = {
         }
     },
 
+    'snowclowne-awakened': {
+        name: "Snowclowne-Awakened",
+        types: ["Food", "Ice"],
+        weight: 23,
+        height: 40,
+        ability: "Frostillery",
+        item: "Silly Cone",
+        baseStats: {
+            hp: 85,
+            attack: 105,
+            defense: 135,
+            attackR: 125,
+            defenseR: 120,
+            speed: 56
+        }
+    },
+
     bellbird: {
         name: "Bellbird",
         types: ["Plant"],
@@ -7009,6 +7026,53 @@ var loomians = {
         }
     },
 
+    'bun-shi': {
+        name: "Bun-shi",
+        types: ["Food", "Spirit"],
+        finalEvo: false,
+        weight: 3,
+        height: 12,
+        baseStats: {
+            hp: 80,
+            attack: 40,
+            defense: 60,
+            attackR: 55,
+            defenseR: 55,
+            speed: 20
+        }
+    },
+
+    bunnyuan: {
+        name: "Bunnyuan",
+        types: ["Food", "Spirit"],
+        finalEvo: false,
+        weight: 9,
+        height: 28,
+        baseStats: {
+            hp: 108,
+            attack: 60,
+            defense: 80,
+            attackR: 75,
+            defenseR: 75,
+            speed: 25
+        }
+    },
+
+    'osman-shi': {
+        name: "Osman-shi",
+        types: ["Food", "Spirit"],
+        weight: 30,
+        height: 59,
+        baseStats: {
+            hp: 128,
+            attack: 70,
+            defense: 90,
+            attackR: 85,
+            defenseR: 95,
+            speed: 55
+        }
+    },
+
 };
 
 
@@ -9173,6 +9237,17 @@ var moves = {
         priority: true
     },
 
+    lastCourse: {
+        name: "Last Course",
+        power: 75,
+        accuracy: 100,
+        type: "Food",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
+
     heckle: {
         name: "Heckle",
         power: 50,
@@ -9463,7 +9538,7 @@ var moves = {
 
     opalPulse: {
         name: "Opal Pulse",
-        power: 80,
+        power: 75,
         accuracy: 100,
         type: "Crystal",
         mr: "Magic",
@@ -11180,6 +11255,14 @@ var moves = {
         mr: "Support"
     },
 
+    thunderDrum: {
+        name: "Thunder Drum",
+        power: 0,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Support"
+    },
+
     magnetRise: {
         name: "Magnet Rise",
         power: 0,
@@ -11454,6 +11537,14 @@ var moves = {
 
     feast: {
         name: "Feast",
+        power: 0,
+        accuracy: 100,
+        type: "Food",
+        mr: "Support"
+    },
+
+    sweetRemains: {
+        name: "Sweet Remains",
         power: 0,
         accuracy: 100,
         type: "Food",
@@ -12693,7 +12784,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
-                 "Iron Pincer"];
+                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit"];
 
 var typeModAbilities = {
     adipose: {
@@ -12895,7 +12986,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
-             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call"];
+             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -12908,4 +12999,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Thunger + Oysquire lines.";
+var changelog = "Added Bun-shi line + Awakened Snowclowne.";

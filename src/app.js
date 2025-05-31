@@ -423,11 +423,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -482,8 +482,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -819,7 +819,7 @@ $(".moveSelect").change(function() {
         let doodle = $(this).closest(".doodle-info");
         let moveHits = (doodle.find(".trait").val() == "Capoeira") ? 5 : 3;
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
-        if (move.name == "Double Bite" || move.name == "Quad Strike") moveGroupObj.children(".move-hits").hide();
+        if (move.name == "Double Bite" || move.name == "Quad Strike" || move.name == "Cone Cannon" || move.name == "Alloy Missiles") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Tri-Elemental Slash") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").show();
@@ -2958,7 +2958,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (((move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1)) ||
-       (((move.name == "Retribution" || move.name == "Counter Punch") && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1))) {
+       (((move.name == "Retribution" || move.name == "Counter Punch") && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1)) ||
+       (move.name == "Last Course" && btl2 && withoutSlapDown)) {
         multi *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
@@ -3595,6 +3596,17 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
+    if (ability1 == "Frostillery" && !foulHit && !hitConfirmer) {
+        if (detailed) {
+            let foulArray = getMultiplier(loom1, loom2, findMove("Snowball"), findMove("Snowball").power, crit, repeat, hits, elemental, swarm, snowball, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, true);
+            foulDmg = foulArray[0];
+            possibleFoulDmg = foulArray[1];
+        } else {
+            foulDmg = getMultiplier(loom1, loom2, findMove("Snowball"), findMove("Snowball").power, crit, repeat, hits, elemental, swarm, snowball, false, level, ul, second, detailed, withoutSlapDown, takeSecondaryType, true);
+        }
+        stuffUsed.ability1 = ability1;
+    }
+
     if (ul && !pylons) {
         multi *= 0.9;
     }
@@ -3607,6 +3619,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.hits && !hitConfirmer) {
         hits = hits.charAt(0);
         if (move.name == "Double Bite") hits = 2;
+        if (move.name == "Cone Cannon" || move.name == "Alloy Missiles") hits = 3;
         if (move.name == "Quad Strike") hits = 4;
         for (let i = 0; i < hits - 1; i++) {
             multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, snowball, true, level, ul, second, detailed, false));
@@ -4063,17 +4076,17 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         }
 
         if (sandstorm.checked && ability == "Desert Body") {
-            newHP -= Math.floor(hp1 * 1 / 10);
+            newHP -= Math.floor(hp1 * 1 / 10 * multi);
             hazardString += "sandstorm recovery and ";
         }
 
         if (acidRain.checked && ability == "Healthy Toxins") {
-            newHP -= Math.floor(hp1 * 1 / 10);
+            newHP -= Math.floor(hp1 * 1 / 10 * multi);
             hazardString += "acid rain recovery and ";
         }
 
         if (rain.checked && (ability == "Fish Outta Water" || ability == "Hydration")) {
-            newHP -= Math.floor(hp1 * 1 / 10);
+            newHP -= Math.floor(hp1 * 1 / 10 * multi);
             hazardString += "rain recovery and ";
         }
 
@@ -4082,13 +4095,18 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
             hazardString += "detox recovery and ";
         }
 
+        if (status != "healthy" && ability == "Steeped Spirit") {
+            newHP -= Math.floor(hp1 * 1 / 10 * multi);
+            hazardString += "steeped spirit recovery and ";
+        }
+
         if (ability == "Stitching") {
-            newHP -= Math.floor(hp1 * 1 / 16);
+            newHP -= Math.floor(hp1 * 1 / 16 * multi);
             hazardString += "stitching recovery and ";
         }
 
         if (garden.checked && (!loom2.types.includes("Air") && ability != "Levitate") || ((loom2.types.includes("Air") || ability == "Levitate") && item == "Heavy Blanket")) {
-            newHP -= Math.floor(hp1 * 1 / 16);
+            newHP -= Math.floor(hp1 * 1 / 16 * multi);
             hazardString += "garden recovery and ";
         }
     }
