@@ -5950,7 +5950,6 @@ var loomians = {
     sukikogami: {
         name: "Sukikogami",
         types: ["Air", "Dark"],
-        finalEvo: false,
         weight: 6,
         height: 48,
         baseStats: {
@@ -5975,6 +5974,37 @@ var loomians = {
             attackR: 110,
             defenseR: 110,
             speed: 80
+        }
+    },
+
+    plumiri: {
+        name: "Plumiri",
+        types: ["Spirit", "Poison"],
+        finalEvo: false,
+        weight: 4,
+        height: 20,
+        baseStats: {
+            hp: 60,
+            attack: 40,
+            defense: 70,
+            attackR: 50,
+            defenseR: 75,
+            speed: 35
+        }
+    },
+
+    scarrion: {
+        name: "Scarrion",
+        types: ["Spirit", "Poison"],
+        weight: 31,
+        height: 63,
+        baseStats: {
+            hp: 80,
+            attack: 60,
+            defense: 115,
+            attackR: 95,
+            defenseR: 105,
+            speed: 55
         }
     },
 
@@ -10002,6 +10032,16 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    wailOfRot: {
+        name: "Wail of Rot",
+        power: 90,
+        accuracy: 85,
+        type: "Spirit",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense"
+    },
+
     necromancy: {
         name: "Necromancy",
         power: 55,
@@ -12856,7 +12896,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
-                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish"];
+                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament"];
 
 var typeModAbilities = {
     adipose: {
@@ -13071,4 +13111,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Added Televine line + Aurevalis.";
+var changelog = "Added Plumiri line";
