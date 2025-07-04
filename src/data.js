@@ -3359,6 +3359,23 @@ var loomians = {
         }
     },
 
+    'jellupy-awakened': {
+        name: "Jellupy-Awakened",
+        types: ["Food", "Metal"],
+        weight: 11,
+        height: 18,
+        ability: "Jelly Sync",
+        item: "Jellupy Whisk",
+        baseStats: {
+            hp: 90,
+            attack: 110,
+            defense: 90,
+            attackR: 102,
+            defenseR: 93,
+            speed: 110
+        }
+    },
+
     sprubble: {
         name: "Sprubble",
         types: ["Plant", "Earth"],
@@ -12938,7 +12955,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
-                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament"];
+                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync"];
 
 var typeModAbilities = {
     adipose: {
@@ -13140,7 +13157,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Espresso", "Pretty Seashell", "Perfect Alloy", "Crooked Talon", "Moon Charm", "Refractive Prism", "Edible Storm in a Bottle", "Sandstorm in a Bottle", "Unwashed Plushie", "Magic Wand", "Lethal Ornament", "Empowered Ring", "Jetpack", "Decorative Fan",
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
-             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower"];
+             "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -13153,4 +13170,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 15 changes added.";
+var changelog = "Awakened Jellupy added.";

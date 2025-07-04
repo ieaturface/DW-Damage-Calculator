@@ -297,6 +297,9 @@ let lipid2 = document.getElementById("lipid2");
 let aquagel1 = document.getElementById("aquagel1");
 let aquagel2 = document.getElementById("aquagel2");
 
+let enhanced1 = document.getElementById("enhanced1");
+let enhanced2 = document.getElementById("enhanced2");
+
 let currentHP1 = document.getElementById("currentHP1");
 let currentHP2 = document.getElementById("currentHP2");
 
@@ -424,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -483,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -795,6 +798,10 @@ function updateAbility(ability) {
     else aquagel1.checked = false;
     if (ability2 == "Hydro Coating") aquagel2.checked = true;
     else aquagel2.checked = false;
+    if (ability1 == "Jelly Enhancer" || ability1 == "Jelly Sync") enhanced1.checked = true;
+    else enhanced1.checked = false;
+    if (ability2 == "Jelly Enhancer" || ability2 == "Jelly Sync") enhanced2.checked = true;
+    else enhanced2.checked = false;
     if (ability1 == "Bee Arena" || ability2 == "Bee Arena") {
         iceTrap1.checked = true;
         iceTrap2.checked = true;
@@ -894,15 +901,15 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'none';
         }
-        field.style.height = "635px";
-        fieldTraps.style.height = "57%";
+        field.style.height = "650px";
+        fieldTraps.style.height = "60%";
     }
     else {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        field.style.height = "685px";
-        fieldTraps.style.height = "60%";
+        field.style.height = "695px";
+        fieldTraps.style.height = "63%";
     }    
 
     update();
@@ -2679,6 +2686,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let lipidOne = (second == false ? lipid2.checked : lipid1.checked);
     let lipidTwo = (second == false ? lipid1.checked : lipid2.checked);
     let aquagel = (second == false ? aquagel2.checked : aquagel1.checked);
+    let enhancedJ1 = (second == false ? enhanced1.checked : enhanced2.checked);
+    let enhancedJ2 = (second == false ? enhanced2.checked : enhanced1.checked);
     let possibleDmg = [];
     let possibleFoulDmg;
     let stuffUsed = { ability1: "", ability2: "", item1: "", item2: "", extra1: "", extra2: "", weather: ""};
@@ -3135,12 +3144,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
+    if ((ability1 == "Jelly Enhancer" || ability1 == "Jelly Sync") && itemA.includes("Jelly")) stuffUsed.ability1 = ability1;
+
     if (itemA == "Magical Jelly" && withoutSlapDown && move.mr == "Magic") {
-        if (ability1 == "Jelly Enhancer") {
-            multi *= 1.6;
-            stuffUsed.ability1 = ability1;
-        }else multi *= 1.2;
         stuffUsed.item1 = itemA;
+        if (enhancedJ1) {
+            multi *= 1.6;
+            stuffUsed.item1 =+ " (Enhanced)";
+        }    
+        else multi *= 1.2;
     }
 
     if (itemA.includes(tempType) && itemA.includes("Taffy") && (withoutSlapDown || ability1 == "Trick or Treat") && !foulHit) {
@@ -3196,6 +3208,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
     if (ability1 == "Tri-Snake" && !(isDouble && move.aoe == true) && !move.hits) {
         multi *= 0.4;
+    }
+    if (itemA == "Bell Jelly" && !move.hits && ability1 != "Tri-Snake" && !(ability1 == "Jab Cross" && move.punch)) {
+        multi *= 0.6;
     }
     /*if (foulHit) {
         multi *= 0.25;
@@ -3544,11 +3559,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if (effectiveness > 1 && itemB == "Defensive Jelly" && withoutSlapDown) {
-        if (ability2 == "Jelly Enhancer") {
-            multi *= 0.4;
-            stuffUsed.ability2 = ability2;
-        } else multi *= 0.7;
         stuffUsed.item2 = itemB;
+        if (enhancedJ2) {
+            multi *= 0.4;
+            stuffUsed.item2 += " (Enhanced)";
+        }    
+        else multi *= 0.7;
     }
     if (effectiveness > 1 && shale && ability1 != "Bypass") {
         multi *= 0.5;
@@ -3690,6 +3706,19 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
+    if (itemA == "Bell Jelly" && withoutSlapDown && !move.hits && !hitConfirmer && ability1 != "Tri-Snake" && !(ability1 == "Jab Cross" && move.punch)) {
+        stuffUsed.item1 = itemA;
+        let bellHits = 1;
+        if (enhancedJ1) {
+            bellHits = 2;
+            stuffUsed.item1 += " (Enhanced)";
+        }
+        for (let i = 0; i < bellHits; i++) {
+            multiHits.push(getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemental, swarm, snowball, true, level, ul, second, detailed, false));
+        }
+        multiHits.forEach(num => multiDmg += num);
+    }
+
     if (detailed && !hitConfirmer) {
         let numb;
         if (move.hits) {
@@ -3700,11 +3729,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             let sum = 0;
             numb = i.toFixed(3);
             if (itemA == "Strength Jelly" && withoutSlapDown && Math.floor(dmg * numb) < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-                if (ability1 == "Jelly Enhancer") {
-                    multi = 3;
-                    if (i == 0.9) stuffUsed.ability1 = ability1;
-                } else multi = 2;
                 if (i == 0.9) stuffUsed.item1 = itemA;
+                if (enhancedJ1) {
+                    multi = 3;
+                    if (i == 0.9) stuffUsed.item1 += " (Enhanced)";
+                }    
+                else multi = 2;
             }
             multiHits.forEach(num => sum += Math.floor(num * numb));
             possibleDmg.push(Math.floor(dmg * multi * numb + sum));
@@ -3723,7 +3753,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     multi = 1;
 
     if (itemA == "Strength Jelly" && withoutSlapDown && dmg < Math.floor(parseInt(stats2.totalHP) * 1/4)){
-        ability1 == "Jelly Enhancer" ? multi *= 3 : multi *= 2;
+        enhancedJ1 ? multi *= 3 : multi *= 2;
     }
     dmg = (Math.floor(dmg * multi + multiDmg));
 
