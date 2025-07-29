@@ -7167,21 +7167,6 @@ var loomians = {
         }
     },
 
-    omeletrot: {
-        name: "Omeletrot",
-        types: ["Melee", "Food"],
-        weight: 154,
-        height: 65,
-        baseStats: {
-            hp: 70,
-            attack: 90,
-            defense: 75,
-            attackR: 65,
-            defenseR: 75,
-            speed: 125
-        }
-    },
-
     majestegg: {
         name: "Majestegg",
         types: ["Metal", "Food"],
@@ -7209,6 +7194,52 @@ var loomians = {
             attackR: 90,
             defenseR: 85,
             speed: 115
+        }
+    },
+
+    omeletrot: {
+        name: "Omeletrot",
+        types: ["Melee", "Food"],
+        weight: 154,
+        height: 65,
+        baseStats: {
+            hp: 70,
+            attack: 90,
+            defense: 75,
+            attackR: 65,
+            defenseR: 75,
+            speed: 125
+        }
+    },
+
+    buggle: {
+        name: "Buggle",
+        types: ["Insect", "Basic"],
+        finalEvo: false,
+        weight: 1,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 30,
+            defense: 60,
+            attackR: 35,
+            defenseR: 65,
+            speed: 100
+        }
+    },
+
+    lephidhonk: {
+        name: "Lephidhonk",
+        types: ["Insect", "Basic"],
+        weight: 7,
+        height: 36,
+        baseStats: {
+            hp: 70,
+            attack: 60,
+            defense: 85,
+            attackR: 53,
+            defenseR: 90,
+            speed: 145
         }
     },
 
@@ -8859,6 +8890,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    panicPounce: {
+        name: "Panic Pounce",
+        power: 75,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Melee",
+        mr1: "Speed",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     itchyBite: {
@@ -13004,7 +13046,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
-                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome"];
+                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes"];
 
 var typeModAbilities = {
     adipose: {
@@ -13219,4 +13261,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Circhick line + Awakened Fancyoon added.";
+var changelog = "Buggle line added.";

@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1761,13 +1761,13 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         if (firstHit) stuffUsed.ability2 = ability2;
     }
 
-    //Checking for Glide boosting speed which affects Tempest damage
-    /*if (ability1 == "Glide" && tempType == "Air" && move.mr1 == atk.name) {
+    //Checking for speed boosting abilities which affect Panic Pounce damage
+    if (ability1 == "Accelerate" && move.mr1 == atk.name) {
         atkStage = Math.min(atkStage + adjustmentCount, 6);
         atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
         if (crit && atkStage < 0 && ability2 != "Fortified") atk.atk = baseAttack;
         if (firstHit) stuffUsed.ability1 = ability1;
-    }*/
+    }
 
     //Checks for moves that affect the currently used defensive stat and adjusts subsequent hits' defensive stat
     if ((move.stat && move.stat.battle == "Defense" && move.stat.stat == def.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (move.name == "Chaotic Bolt" && stat2 == "vulnerable")) {
