@@ -7243,6 +7243,130 @@ var loomians = {
         }
     },
 
+    pawsage: {
+        name: "Pawsage",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 5,
+        height: 7,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 45,
+            attackR: 70,
+            defenseR: 70,
+            speed: 75
+        }
+    },
+
+    sauschund: {
+        name: "Sauschund",
+        types: ["Food"],
+        weight: 15,
+        height: 13,
+        baseStats: {
+            hp: 90,
+            attack: 50,
+            defense: 85,
+            attackR: 95,
+            defenseR: 95,
+            speed: 65
+        }
+    },
+
+    shweet: {
+        name: "Shweet",
+        types: ["Food", "Mind"],
+        finalEvo: false,
+        weight: 6,
+        height: 24,
+        baseStats: {
+            hp: 45,
+            attack: 30,
+            defense: 55,
+            attackR: 60,
+            defenseR: 70,
+            speed: 40
+        }
+    },
+
+    lobsugar: {
+        name: "Lobsugar",
+        types: ["Food", "Mind"],
+        weight: 93,
+        height: 71,
+        baseStats: {
+            hp: 105,
+            attack: 40,
+            defense: 100,
+            attackR: 95,
+            defenseR: 115,
+            speed: 50
+        }
+    },
+
+    rockeroo: {
+        name: "Rockeroo",
+        types: ["Light", "Melee"],
+        finalEvo: false,
+        weight: 5,
+        height: 17,
+        baseStats: {
+            hp: 50,
+            attack: 65,
+            defense: 40,
+            attackR: 45,
+            defenseR: 45,
+            speed: 80
+        }
+    },
+
+    kaboomaroo: {
+        name: "Kaboomaroo",
+        types: ["Light", "Melee"],
+        weight: 55,
+        height: 75,
+        baseStats: {
+            hp: 80,
+            attack: 110,
+            defense: 65,
+            attackR: 55,
+            defenseR: 55,
+            speed: 120
+        }
+    },
+
+    clowlette: {
+        name: "Clowlette",
+        types: ["Mind", "Air"],
+        finalEvo: false,
+        weight: 3,
+        height: 18,
+        baseStats: {
+            hp: 70,
+            attack: 35,
+            defense: 60,
+            attackR: 85,
+            defenseR: 75,
+            speed: 50
+        }
+    },
+
+    maskusi: {
+        name: "Maskusi",
+        types: ["Mind", "Air"],
+        weight: 46,
+        height: 63,
+        baseStats: {
+            hp: 85,
+            attack: 45,
+            defense: 80,
+            attackR: 110,
+            defenseR: 90,
+            speed: 115
+        }
+    },
+
 };
 
 
@@ -9197,6 +9321,16 @@ var moves = {
         secondaryEffect: true
     },
 
+    skyRend: {
+        name: "Sky Rend",
+        power: 85,
+        accuracy: 100,
+        type: "Air",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Melee Defense",
+    },
+
     recklessCharge: {
         name: "Reckless Charge",
         power: 80,
@@ -9598,6 +9732,18 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
+    blazingComet: {
+        name: "Blazing Comet",
+        power: 100,
+        accuracy: 85,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -11605,6 +11751,14 @@ var moves = {
         mr: "Support"
     },
 
+    spicefield: {
+        name: "Spicefield",
+        power: 0,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Support"
+    },
+
     insectInstinct: {
         name: "Insect Instinct",
         power: 0,
@@ -11791,6 +11945,14 @@ var moves = {
 
     feast: {
         name: "Feast",
+        power: 0,
+        accuracy: 100,
+        type: "Food",
+        mr: "Support"
+    },
+
+    sugarfade: {
+        name: "Sugarfade",
         power: 0,
         accuracy: 100,
         type: "Food",
@@ -12228,6 +12390,16 @@ var helmets = {
         speed: 0,
     },
 
+    "performer's mask": {
+        name: "Performer's Mask",
+        health: -5,
+        attack: 0,
+        defense: 0,
+        mAttack: 15,
+        mDefense: 0,
+        speed: 5,
+    },
+
     "artificer's beanie": {
         name: "Artificer's Beanie",
         health: 0,
@@ -12653,6 +12825,16 @@ var artifacts = {
         speed: 0,
     },
 
+    firework: {
+        name: "Firework",
+        health: -25,
+        attack: 25,
+        defense: -10,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
     'pure tear': {
         name: "Pure Tear",
         health: 15,
@@ -13046,7 +13228,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
-                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes"];
+                 "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
+                 "Glucose Boost", "Meat Shield", "Spicehound"];
 
 var typeModAbilities = {
     adipose: {
@@ -13261,4 +13444,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Buggle line added.";
+var changelog = "Carnival Doodles added.";

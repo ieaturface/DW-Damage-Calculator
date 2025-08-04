@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -676,7 +676,7 @@ function update(updatePower = false, updateBaseStats = false) {
     if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" ||
         abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded" ||
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
-        abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable") {
+        abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -687,7 +687,7 @@ function update(updatePower = false, updateBaseStats = false) {
     if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" ||
         abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded" ||
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
-        abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable") {
+        abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -3023,7 +3023,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Soul Link" && immuneBoostCheck1) ||
        (ability1 == "Kindling" && stat2 == "burned") ||
        (ability1 == "Night Harbinger" && darkExpansion.checked) ||
-       (ability1 == "Thunder Gut" && tempType == "Spark" && stats1.hpPercent < 50)) {
+       (ability1 == "Thunder Gut" && tempType == "Spark" && stats1.hpPercent < 50) ||
+       (ability1 == "Curtain Call" && stats2.hpPercent < 34) ||
+       (ability1 == "Impact Recoil" && move.mr == "Melee")) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3050,9 +3052,16 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Blightfrost" && stat2 == "frozen") ||
        (ability1 == "Last Laugh") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
-       (ability1 == "Vocalist" && move.sound)) {
+       (ability1 == "Vocalist" && move.sound) ||
+       (ability1 == "Glucose Boost" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
+    }
+
+    if (ability1 == "Spicehound" && seasoned) {
+        multi *= 1.6;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra2 += " Seasoned";
     }
 
     if ((ability1 == "Covetous" && itemB != "None") ||
@@ -3476,7 +3485,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((types1.primary == "Food" || types1.secondary == "Food") && seasoned) {
         multi *= 1.3;
-        stuffUsed.extra2 += " Seasoned"
+        if (!(stuffUsed.extra2.includes(" Seasoned"))) stuffUsed.extra2 += " Seasoned"
     }
     if (move.name == "Pursuit") {
         if (ability2 == "Escapist") {
