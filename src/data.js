@@ -12652,6 +12652,16 @@ var amulets = {
         speed: 0,
     },
 
+    'buggle ball': {
+        name: "Buggle Ball",
+        health: 8,
+        attack: 0,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 5,
+        speed: 8,
+    },
+
     'helpful lantern': {
         name: "Helpful Lantern",
         health: 0,
