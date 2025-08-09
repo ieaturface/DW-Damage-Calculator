@@ -723,7 +723,7 @@ var loomians = {
 
     'corrolizard-awakened': {
         name: "Corrolizard-Awakened",
-        types: ["Poison"],
+        types: ["Poison", "Spirit"],
         weight: 28,
         height: 55,
         ability: "Decay",
@@ -1152,8 +1152,8 @@ var loomians = {
         height: 13.5,
         baseStats: {
             hp: 67,
-            attack: 45,
-            defense: 65,
+            attack: 50,
+            defense: 70,
             attackR: 90,
             defenseR: 75,
             speed: 93
@@ -2116,9 +2116,9 @@ var loomians = {
             hp: 95,
             attack: 110,
             defense: 95,
-            attackR: 65,
+            attackR: 55,
             defenseR: 75,
-            speed: 80
+            speed: 90
         }
     },
 
@@ -3230,10 +3230,10 @@ var loomians = {
         item: "Fancyoon Boa",
         baseStats: {
             hp: 80,
-            attack: 125,
-            defense: 110,
-            attackR: 100,
-            defenseR: 110,
+            attack: 130,
+            defense: 115,
+            attackR: 105,
+            defenseR: 115,
             speed: 60
         }
     },
@@ -5091,8 +5091,8 @@ var loomians = {
         height: 60,
         baseStats: {
             hp: 65,
-            attack: 97,
-            defense: 60,
+            attack: 102,
+            defense: 55,
             attackR: 113,
             defenseR: 65,
             speed: 125
@@ -5293,7 +5293,7 @@ var loomians = {
         height: 32,
         baseStats: {
             hp: 60,
-            attack: 100,
+            attack: 110,
             defense: 65,
             attackR: 50,
             defenseR: 80,
@@ -5404,7 +5404,7 @@ var loomians = {
             hp: 135,
             attack: 85,
             defense: 75,
-            attackR: 85,
+            attackR: 95,
             defenseR: 85,
             speed: 50
         }
@@ -6356,7 +6356,7 @@ var loomians = {
         height: 86,
         baseStats: {
             hp: 100,
-            attack: 100,
+            attack: 105,
             defense: 95,
             attackR: 60,
             defenseR: 60,
@@ -6896,7 +6896,7 @@ var loomians = {
         weight: 16,
         height: 43,
         baseStats: {
-            hp: 55,
+            hp: 60,
             attack: 50,
             defense: 65,
             attackR: 105,
@@ -6913,7 +6913,7 @@ var loomians = {
         ability: "Spell Shield",
         item: "Hattrix Rune",
         baseStats: {
-            hp: 55,
+            hp: 60,
             attack: 85,
             defense: 65,
             attackR: 135,
@@ -7175,9 +7175,9 @@ var loomians = {
         baseStats: {
             hp: 80,
             attack: 150,
-            defense: 50,
+            defense: 60,
             attackR: 100,
-            defenseR: 50,
+            defenseR: 60,
             speed: 10
         }
     },
@@ -7204,7 +7204,7 @@ var loomians = {
         height: 65,
         baseStats: {
             hp: 70,
-            attack: 90,
+            attack: 100,
             defense: 75,
             attackR: 65,
             defenseR: 75,
@@ -7673,7 +7673,7 @@ var moves = {
 
     clawSwipes: {
         name: "Claw Swipes",
-        power: 15,
+        power: 20,
         accuracy: 90,
         type: "Basic",
         mr: "Melee",
@@ -7960,7 +7960,7 @@ var moves = {
 
     forestFire: {
         name: "Forest Fire",
-        power: 70,
+        power: 80,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -8557,6 +8557,18 @@ var moves = {
         secondaryEffect: true
     },
 
+    voltageSlide: {
+        name: "Voltage Slide",
+        power: 70,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        priority: true,
+    },
+
     lightningKicks: {
         name: "Lightning Kicks",
         power: 25,
@@ -8949,6 +8961,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    hivemind: {
+        name: "Hivemind",
+        power: 130,
+        accuracy: 90,
+        type: "Insect",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        stat: {amount: -2, battle: "Offense", stat: "AttackR"}
+    },
+
     webBall: {
         name: "Web Ball",
         power: 75,
@@ -8981,6 +9004,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    malwareMangle: {
+        name: "Malware Mangle",
+        power: 70,
+        accuracy: 90,
+        type: "Insect",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     fatalSting: {
@@ -9254,6 +9288,16 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    teletoss: {
+        name: "Teletoss",
+        power: 50,
+        accuracy: 100,
+        type: "Mind",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     ascendingFlow: {
@@ -9743,6 +9787,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        //stat: {amount: -1, battle: "Defense", stat: "DefenseM"},
         contact: true,
         secondaryEffect: true
     },
@@ -9767,6 +9812,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+    },
+
+    lightShow: {
+        name: "Light Show",
+        power: 90,
+        accuracy: 100,
+        type: "Light",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     auroraFlash: {
@@ -10715,7 +10771,7 @@ var moves = {
 
     choke: {
         name: "Choke",
-        power: 100,
+        power: 95,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -10840,7 +10896,7 @@ var moves = {
 
     foodPoisoning: {
         name: "Food Poisoning",
-        power: 70,
+        power: 80,
         accuracy: 100,
         type: "Poison",
         mr: "Melee",
@@ -11546,7 +11602,7 @@ var moves = {
     paralysisSpores: {
         name: "Paralysis Spores",
         power: 0,
-        accuracy: 100,
+        accuracy: 90,
         type: "Plant",
         mr: "Support"
     },
@@ -11554,7 +11610,7 @@ var moves = {
     sleepSpores: {
         name: "Sleep Spores",
         power: 0,
-        accuracy: 100,
+        accuracy: 90,
         type: "Plant",
         mr: "Support"
     },
@@ -11562,7 +11618,7 @@ var moves = {
     rageSpores: {
         name: "Rage Spores",
         power: 0,
-        accuracy: 100,
+        accuracy: 90,
         type: "Plant",
         mr: "Support"
     },
@@ -12290,7 +12346,7 @@ var moves = {
     foreignSubstance: {
         name: "Foreign Substance",
         power: 0,
-        accuracy: 100,
+        accuracy: 90,
         type: "Poison",
         mr: "Support"
     },
@@ -12306,7 +12362,7 @@ var moves = {
     poisonSpores: {
         name: "Poison Spores",
         power: 0,
-        accuracy: 75,
+        accuracy: 90,
         type: "Poison",
         mr: "Support"
     },
@@ -12392,7 +12448,7 @@ var helmets = {
 
     "performer's mask": {
         name: "Performer's Mask",
-        health: -5,
+        health: -10,
         attack: 0,
         defense: 0,
         mAttack: 15,
@@ -13047,9 +13103,9 @@ var artifacts = {
 
     'broken clay': {
         name: "Broken Clay",
-        health: 0,
+        health: 5,
         attack: 0,
-        defense: 5,
+        defense: 0,
         mAttack: 8,
         mDefense: 5,
         speed: 0,
@@ -13128,7 +13184,7 @@ var types = {
 
     light: {
         weaknesses: ["dark", "plant"],
-        resistances: ["light"],
+        resistances: ["light", "fire"],
         immunities: ["spirit"],
         otherName: "shine"
     },
@@ -13454,4 +13510,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Carnival Doodles added.";
+var changelog = "Carnival Balance Changes added.";

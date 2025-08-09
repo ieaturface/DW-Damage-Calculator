@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -2889,6 +2889,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.name == "Swarm" || move.name == "Necromancy") {
         swarm = parseInt(swarm.charAt(0));
         tempPower = Number(tempPower) + Number(tempPower) / 4 * swarm;
+        if (move.name == "Swarm") tempPower = Math.min(tempPower, 90);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -2898,7 +2899,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (move.name == "Choke") {
-        tempPower = Math.max(Math.round(tempPower * stats2.hpPercent / 100), 40);
+        tempPower = Math.max(Math.round(tempPower * stats2.hpPercent / 100), 65);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -3479,7 +3480,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     effectiveness = multi;
     if (ability2 == "Paragon Skin" && multi > 1 && withoutSlapDown) {
-        multi = 1;
+        multi = 0.5;
         stuffUsed.ability2 = ability2;
     }
 
@@ -3535,7 +3536,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     //Status ------------------------
 
     if ((stat1 == "cursed" && move.mr == "Magic" && ability1 != "Dauntless" && types1.primary != "Spirit" && types1.secondary != "Spirit") ||
-        (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && types1.primary != "Fire" && types1.secondary != "Fire")) multi *= 0.75;
+        (stat1 == "burned" && move.mr == "Melee" && move.name != "Ill Will" && ability1 != "Trump Card" && ability1 != "Fireproof Armor" && types1.primary != "Fire" && types1.secondary != "Fire")) multi *= 0.75;
 
     if (ability1 == "Crispy" && stat1 == "burned" && types1.primary != "Fire" && types1.secondary != "Fire") {
         multi *= 1.75;
@@ -3617,7 +3618,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
     if ((ability2 == "Naughty List" && (loom1.name.includes("-Awakened") || loom1.name.includes("-Mother")))) {
-        multi *= 0.7;
+        multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
     if ((ability2 == "Gaseous Form" && ((adaptive.mr && adaptive.mr == "Melee")|| move.mr == "Melee")) ||
@@ -4112,7 +4113,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         multi *= 1.25;
     }
 
-    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body") multi *= 0.5;
+    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && ability != "Fireproof Armor") multi *= 0.5;
 
     let sapHeal = (garden.checked ? 16/100 : 10/100);
     
@@ -4210,7 +4211,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     }
     
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
-    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash" && !aquagel && ability != "Steeped Spirit") {
+    if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash" && !aquagel && ability != "Steeped Spirit" && ability != "Fireproof Armor") {
         if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
         if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 4);
         newHP += Math.floor(hp1 * 1 / 16);
