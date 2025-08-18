@@ -676,7 +676,8 @@ function update(updatePower = false, updateBaseStats = false) {
     if (abilityDropdown1.value == "Chlorokinesis" || abilityDropdown1.value == "Filament" || abilityDropdown1.value == "Fire Up" || abilityDropdown1.value == "Guardian" || abilityDropdown1.value == "Alacrity" || abilityDropdown1.value == "Vigor" ||
         abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded" ||
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
-        abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost") {
+        abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost" || abilityDropdown1.value == "Grand Entrance" ||
+        abilityDropdown1.value == "Looper") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -687,7 +688,8 @@ function update(updatePower = false, updateBaseStats = false) {
     if (abilityDropdown2.value == "Chlorokinesis" || abilityDropdown2.value == "Filament" || abilityDropdown2.value == "Fire Up" || abilityDropdown2.value == "Guardian" || abilityDropdown2.value == "Alacrity" || abilityDropdown2.value == "Vigor" ||
         abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded" ||
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
-        abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost") {
+        abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown2.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost" || abilityDropdown2.value == "Grand Entrance" ||
+        abilityDropdown2.value == "Looper") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -841,7 +843,7 @@ $(".moveSelect").change(function() {
         moveGroupObj.children(".swarm").show();
         moveGroupObj.children(".snowball").hide();
         moveGroupObj.children(".swarm").val(1 + " doodle");
-    } else if (move.name == "Snow Roller") {
+    } else if (move.name == "Snow Roller" || move.name == "Merry-Go-Breaker") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").hide();
         moveGroupObj.children(".swarm").hide();
@@ -1795,8 +1797,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checks for certain defense increasing abilities and adjusts subsequent hits' defensive stat
-    if ((((ability2 == "Strong Armor" && move.contact) || (ability2 == "Floaty" && tempType == "Air")) && move.mr2 == "Melee Defense" && def.name == "DefenseM") || (ability2 == "Defensive Priority" && abilityCheck2)) {
-        defStage = (ability2 == "Defensive Priority" ? Math.min(defStage + 1, 6) : Math.min(defStage + adjustmentCount, 6));
+    if ((((ability2 == "Strong Armor" && move.contact) || (ability2 == "Floaty" && tempType == "Air")) && move.mr2 == "Melee Defense" && def.name == "DefenseM") || (ability2 == "Grand Entrance" && abilityCheck2)) {
+        defStage = (ability2 == "Grand Entrance" ? Math.min(defStage + 1, 6) : Math.min(defStage + adjustmentCount, 6));
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
         if (crit && defStage > 0) def.def = baseDefense;
         if (ability1 == "Outboxer" && move.contact && ability2 == "Strong Armor") {
@@ -2418,7 +2420,7 @@ function detailedReport() {
         }*/
     }
 
-    if (barb > 0 && !secondLoom.levitate) {
+    if (barb > 0 && !(ability == "Direct Combatant" || ability == "Impervious")) {
         if (barb == 1) {
             addedDmg += 12.5;
         } else if (barb == 2) {
@@ -3026,7 +3028,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Night Harbinger" && darkExpansion.checked) ||
        (ability1 == "Thunder Gut" && tempType == "Spark" && stats1.hpPercent < 50) ||
        (ability1 == "Curtain Call" && stats2.hpPercent < 34) ||
-       (ability1 == "Impact Recoil" && move.mr == "Melee")) {
+       (ability1 == "Impact Recoil" && move.mr == "Melee") ||
+       (ability1 == "Looper" && (immuneBoostCheck1 || !withoutSlapDown))) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3101,6 +3104,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (move.name == "Snow Roller") {
         tempPower = Number(tempPower) * 2 ** (snowball - 1);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
+    if (move.name == "Merry-Go-Breaker") {
+        tempPower = Number(tempPower * (1 + .1 * (snowball - 1)));
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
@@ -3564,7 +3572,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 2/3;
         stuffUsed.ability2 = ability2;
     }
-    if (effectiveness > 1 && ability2 == "Grass Cloak" && immuneBoostCheck2 && withoutSlapDown) {
+    if ((effectiveness > 1 && ability2 == "Grass Cloak" && immuneBoostCheck2 && withoutSlapDown) ||
+        (ability2 == "Steel Frame" && move.contact && tempType != "Melee")) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
@@ -4080,7 +4089,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     }
     disease = parseInt(disease);
 
-    if (ice) {
+    if (ice && !(ability == "Direct Combatant" || ability == "Impervious")) {
         /*if (loom2.types.includes("Fire") || halfIce) {
             if (loom2.types.includes("Fire") && halfIce){
             } else {
@@ -4277,7 +4286,7 @@ function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1,
         return " (" + (drainL / hp * 100).toFixed(1) + " - " + (drainU / hp * 100).toFixed(1) + "% recovered)";
     }
     if (move.recoil) {
-        if (ability == "Tenacious" || ability == "Direct Combatant") return "";
+        if (ability == "Tenacious" || ability == "Direct Combatant" || ability == "Impervious") return "";
         let recoilL = (Math.max(Math.floor(l * move.recoil), 1));
         let recoilU = Math.max(Math.floor(u * move.recoil), 1);
         return " (" + (recoilL / hp * 100).toFixed(1) + " - " + (recoilU / hp * 100).toFixed(1) + "% recoil damage)";

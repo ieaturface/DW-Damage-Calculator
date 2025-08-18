@@ -7367,6 +7367,115 @@ var loomians = {
         }
     },
 
+    sneekle: {
+        name: "Sneekle",
+        types: ["Basic", "Metal"],
+        finalEvo: false,
+        weight: 12,
+        height: 24,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 60,
+            attackR: 40,
+            defenseR: 55,
+            speed: 80
+        }
+    },
+
+    snoaster: {
+        name: "Snoaster",
+        types: ["Basic", "Metal"],
+        weight: 96,
+        height: 177,
+        baseStats: {
+            hp: 75,
+            attack: 115,
+            defense: 90,
+            attackR: 55,
+            defenseR: 80,
+            speed: 100
+        }
+    },
+
+    snarmel: {
+        name: "Snarmel",
+        types: ["Food", "Plant"],
+        finalEvo: false,
+        weight: 5,
+        height: 5,
+        baseStats: {
+            hp: 40,
+            attack: 65,
+            defense: 75,
+            attackR: 60,
+            defenseR: 80,
+            speed: 20
+        }
+    },
+
+    applicious: {
+        name: "Applicious",
+        types: ["Food", "Plant"],
+        weight: 9,
+        height: 24,
+        baseStats: {
+            hp: 65,
+            attack: 115,
+            defense: 100,
+            attackR: 80,
+            defenseR: 95,
+            speed: 30
+        }
+    },
+
+    maizite: {
+        name: "Maizite",
+        types: ["Food", "Insect"],
+        finalEvo: false,
+        weight: 1,
+        height: 8,
+        baseStats: {
+            hp: 40,
+            attack: 35,
+            defense: 55,
+            attackR: 35,
+            defenseR: 45,
+            speed: 65
+        }
+    },
+
+    tiricket: {
+        name: "Tiricket",
+        types: ["Food", "Insect"],
+        weight: 10,
+        height: 32,
+        baseStats: {
+            hp: 85,
+            attack: 60,
+            defense: 105,
+            attackR: 70,
+            defenseR: 95,
+            speed: 35
+        }
+    },
+
+    tigrousel: {
+        name: "Tigrousel",
+        types: ["Metal", "Mind"],
+        weight: 255,
+        height: 63,
+        baseStats: {
+            hp: 90,
+            attack: 120,
+            defense: 105,
+            attackR: 85,
+            defenseR: 100,
+            speed: 50
+        }
+    },
+
+
 };
 
 
@@ -9768,6 +9877,17 @@ var moves = {
         contact: true,
     },
 
+    sugarCrash: {
+        name: "Sugar Crash",
+        power: 120,
+        accuracy: 90,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     abyssBreaker: {
         name: "Abyss Breaker",
         power: 90,
@@ -10100,6 +10220,29 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true
+    },
+
+    'merry-go-breaker': {
+        name: "Merry-Go-Breaker",
+        power: 80,
+        accuracy: 85,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
+    corkscrewCrash: {
+        name: "Corkscrew Crash",
+        power: 80,
+        accuracy: 90,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
     },
 
     bonk: {
@@ -12645,6 +12788,16 @@ var helmets = {
         mDefense: 10,
         speed: 5,
     },
+
+    'clown hair': {
+        name: "Clown Hair",
+        health: 4,
+        attack: 4,
+        defense: 4,
+        mAttack: 4,
+        mDefense: 4,
+        speed: 4,
+    },
 };
 
 var amulets = {
@@ -12702,6 +12855,16 @@ var amulets = {
         name: "Whatchamacallit",
         health: 0,
         attack: 12,
+        defense: 0,
+        mAttack: 0,
+        mDefense: 0,
+        speed: 0,
+    },
+
+    'pennant string': {
+        name: "Pennant String",
+        health: 15,
+        attack: 0,
         defense: 0,
         mAttack: 0,
         mDefense: 0,
@@ -12899,6 +13062,16 @@ var artifacts = {
         mAttack: 0,
         mDefense: 0,
         speed: 0,
+    },
+
+    popcorn: {
+        name: "Popcorn",
+        health: 30,
+        attack: -15,
+        defense: 0,
+        mAttack: -15,
+        mDefense: 0,
+        speed: -15,
     },
 
     'pure tear': {
@@ -13295,7 +13468,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
-                 "Glucose Boost", "Meat Shield", "Spicehound"];
+                 "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame"];
 
 var typeModAbilities = {
     adipose: {
@@ -13510,4 +13683,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Carnival Balance Changes added.";
+var changelog = "2nd batch of Carnival Doodles added.";
