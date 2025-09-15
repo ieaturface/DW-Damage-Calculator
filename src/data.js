@@ -363,7 +363,7 @@ var loomians = {
 
     breezshy: {
         name: "Breezshy",
-        types: ["Plant", "Insect"],
+        types: ["Plant", "Air"],
         weight: 2,
         height: 24,
         baseStats: {
@@ -2404,6 +2404,37 @@ var loomians = {
             attackR: 85,
             defenseR: 95,
             speed: 55
+        }
+    },
+
+    nymshrew: {
+        name: "Nymshrew",
+        types: ["Insect"],
+        finalEvo: false,
+        weight: 4,
+        height: 12,
+        baseStats: {
+            hp: 41,
+            attack: 57,
+            defense: 42,
+            attackR: 36,
+            defenseR: 43,
+            speed: 88
+        }
+    },
+
+    mantishrew: {
+        name: "Mantishrew",
+        types: ["Insect"],
+        weight: 4,
+        height: 47,
+        baseStats: {
+            hp: 70,
+            attack: 101,
+            defense: 65,
+            attackR: 53,
+            defenseR: 63,
+            speed: 128
         }
     },
 
@@ -9207,6 +9238,19 @@ var moves = {
         slash: true
     },
 
+    openingTalon: {
+        name: "Opening Talon",
+        power: 70,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true,
+        secondaryEffect: true
+    },
+
     dirtLump: {
         name: "Dirt Lump",
         power: 40,
@@ -9600,7 +9644,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        priority: true
+        priority: true,
+        punch: true
     },
 
     unguardedStrike: {
@@ -10031,7 +10076,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        priority: true
+        priority: true,
+        punch: true
     },
 
     lightspeedFlurry: {
@@ -13468,7 +13514,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
-                 "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame"];
+                 "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin"];
 
 var typeModAbilities = {
     adipose: {
@@ -13683,4 +13729,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "2nd batch of Carnival Doodles added.";
+var changelog = "Nymshrew line added.";

@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1684,9 +1684,9 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     let moveAdjustmentCount = adjustmentCount;
 
     //Checks for moves that affect the currently used offensive stat and adjusts subsequent hits' offensive stat
-    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || ability2 == "Guilt" || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) || (move.name == "Gleamspire" && celebrate.checked) || (ability2 == "Signal Jammer" && atk.name == "AttackR")) {
+    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (ability2 == "Guilt" && atk.name == "AttackM") || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) || (move.name == "Gleamspire" && celebrate.checked) || (ability2 == "Signal Jammer" && atk.name == "AttackR")) {
         moveMod = 0;
-        if (ability2 == "Guilt") {
+        if (ability2 == "Guilt" && atk.name == "AttackM") {
             moveMod += (ability1 == "Anomaly" ? 1 : -1);
             stuffUsed.ability2 = ability2;
         }
@@ -3029,7 +3029,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Thunder Gut" && tempType == "Spark" && stats1.hpPercent < 50) ||
        (ability1 == "Curtain Call" && stats2.hpPercent < 34) ||
        (ability1 == "Impact Recoil" && move.mr == "Melee") ||
-       (ability1 == "Looper" && (immuneBoostCheck1 || !withoutSlapDown))) {
+       (ability1 == "Looper" && (immuneBoostCheck1 || !withoutSlapDown)) ||
+       (ability1 == "Assassin" && stats2.hpPercent < 50)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -4227,7 +4228,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         hazardString += "burn damage and ";
     }
 
-    if (acidRain.checked && !loom2.types.includes("Poison") && ability != "Healthy Toxins") {
+    if (acidRain.checked && !loom2.types.includes("Poison") && !loom2.types.includes("Crystal") && !loom2.types.includes("Metal") && ability != "Healthy Toxins") {
         newHP += Math.floor(hp1 * 1 / 16);
         hazardString += "acid rain damage and ";
     }
