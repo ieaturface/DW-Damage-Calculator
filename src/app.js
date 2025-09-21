@@ -1412,7 +1412,7 @@ function loadStats() {
     if (lipid1.checked) multi *= 1.1;
     if (sandstorm.checked && firstLoom.types.includes("Crystal")) multi *= 1.25;
     if (firstItem == "Gold Laminate" && firstLoom.finalEvo == false) multi *= 1.5;
-    if (ability1 == "Binary Guard" && remainder1 == "Even") multi *= 1.3;
+    if (ability1 == "Binary Guard" && remainder1 == "Even") multi *= 1.2;
     if ((ability1 == "Misery Guard" && status1.value != "healthy") || (ability1 == "Bandit" && percentHP1.value < 50)) multi *= 1.5;
     statDef1.innerHTML = Math.floor(def1 * multi);
     let swapDef1 = Math.floor(def1 * multi);
@@ -1426,7 +1426,7 @@ function loadStats() {
     if (lipid1.checked) multi *= 1.1;
     if (rain.checked && firstLoom.types.includes("Plant")) multi *= 1.25;
     if (firstItem == "Cursed Cloak" || (firstItem == "Gold Laminate" && firstLoom.finalEvo == false)) multi *= 1.5;
-    if (ability1 == "Binary Guard" && remainder1 == "Odd") multi *= 1.3;
+    if (ability1 == "Binary Guard" && remainder1 == "Odd") multi *= 1.2;
     statDefR1.innerHTML = Math.floor(defR1 * multi);
     multi = 1;
     trueStats1.spd = spd1;
@@ -1459,7 +1459,7 @@ function loadStats() {
     if (lipid2.checked) multi *= 1.1;
     if (sandstorm.checked && secondLoom.types.includes("Crystal")) multi *= 1.25;
     if (secondItem == "Gold Laminate" && secondLoom.finalEvo == false) multi *= 1.5;
-    if (ability2 == "Binary Guard" && remainder2 == "Even") multi *= 1.3;
+    if (ability2 == "Binary Guard" && remainder2 == "Even") multi *= 1.2;
     if ((ability2 == "Misery Guard" && status2.value != "healthy") || (ability2 == "Bandit" && percentHP2.value < 50)) multi *= 1.5;
     statDef2.innerHTML = Math.floor(def2 * multi);
     let swapDef2 = Math.floor(def2 * multi);
@@ -1473,7 +1473,7 @@ function loadStats() {
     if (lipid2.checked) multi *= 1.1;
     if (rain.checked && secondLoom.types.includes("Plant")) multi *= 1.25;
     if (secondItem == "Cursed Cloak" || (secondItem == "Gold Laminate" && secondLoom.finalEvo == false)) multi *= 1.5;
-    if (ability2 == "Binary Guard" && remainder2 == "Odd") multi *= 1.3;
+    if (ability2 == "Binary Guard" && remainder2 == "Odd") multi *= 1.2;
     statDefR2.innerHTML = Math.floor(defR2 * multi);
     multi = 1;
     trueStats2.spd = spd2;
@@ -3376,10 +3376,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (ability2 == "Binary Guard") {
         let remainder = (stats2.totalHP & 1 == 1 ? "Odd" : "Even")
         if (move.mr2 == "Ranged Defense" && remainder == "Odd") {
-            multi *= 1.3;
+            multi *= 1.2;
             stuffUsed.ability2 = ability2;
         } else if (move.mr2 == "Melee Defense" && remainder == "Even") {
-            multi *= 1.3;
+            multi *= 1.2;
             stuffUsed.ability2 = ability2;
         }    
     }
