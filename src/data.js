@@ -6426,6 +6426,23 @@ var loomians = {
         }
     },
 
+    'exoskelis-awakened': {
+        name: "Exoskelis-Awakened",
+        types: ["Insect", "Dark"],
+        weight: 96,
+        height: 58,
+        ability: "Revival",
+        item: "Exoskelis Shard",
+        baseStats: {
+            hp: 64,
+            attack: 124,
+            defense: 84,
+            attackR: 94,
+            defenseR: 94,
+            speed: 64
+        }
+    },
+
     tasjoney: {
         name: "Tasjoney",
         types: ["Beast"],
@@ -6720,6 +6737,23 @@ var loomians = {
             attackR: 45,
             defenseR: 88,
             speed: 100
+        }
+    },
+
+    'hangryphus-awakened': {
+        name: "Hangryphus-Awakened",
+        types: ["Food", "Melee"],
+        weight: 47,
+        height: 60,
+        ability: "Last Stand",
+        item: "Hangryphus Pie",
+        baseStats: {
+            hp: 84,
+            attack: 130,
+            defense: 110,
+            attackR: 65,
+            defenseR: 110,
+            speed: 50
         }
     },
 
@@ -7537,6 +7571,470 @@ var loomians = {
         }
     },
 
+    flamtot: {
+        name: "Flamtot",
+        types: ["Fire",],
+        finalEvo: false,
+        weight: 5,
+        height: 12,
+        baseStats: {
+            hp: 46,
+            attack: 41,
+            defense: 47,
+            attackR: 59,
+            defenseR: 41,
+            speed: 53
+        }
+    },
+
+    pyromander: {
+        name: "Pyromander",
+        types: ["Fire",],
+        finalEvo: false,
+        weight: 11,
+        height: 26,
+        baseStats: {
+            hp: 63,
+            attack: 57,
+            defense: 64,
+            attackR: 79,
+            defenseR: 57,
+            speed: 72
+        }
+    },
+
+    salaferno: {
+        name: "Salaferno",
+        types: ["Fire",],
+        weight: 29,
+        height: 48,
+        baseStats: {
+            hp: 81,
+            attack: 73,
+            defense: 83,
+            attackR: 104,
+            defenseR: 73,
+            speed: 94
+        }
+    },
+
+    iciclaw: {
+        name: "Iciclaw",
+        types: ["Ice", "Metal"],
+        finalEvo: false,
+        weight: 36,
+        height: 20,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 70,
+            attackR: 30,
+            defenseR: 41,
+            speed: 53
+        }
+    },
+
+    frostglove: {
+        name: "Frostglove",
+        types: ["Ice", "Metal"],
+        finalEvo: false,
+        weight: 57,
+        height: 30,
+        baseStats: {
+            hp: 70,
+            attack: 80,
+            defense: 90,
+            attackR: 50,
+            defenseR: 50,
+            speed: 74
+        }
+    },
+
+    gauntcier: {
+        name: "Gauntcier",
+        types: ["Ice", "Metal"],
+        weight: 113,
+        height: 65,
+        baseStats: {
+            hp: 85,
+            attack: 107,
+            defense: 112,
+            attackR: 72,
+            defenseR: 60,
+            speed: 88
+        }
+    },
+
+    gladilittle: {
+        name: "Gladilittle",
+        types: ["Light", "Metal"],
+        finalEvo: false,
+        weight: 50,
+        height: 30,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 70,
+            attackR: 30,
+            defenseR: 41,
+            speed: 53
+        }
+    },
+
+    gladilightor: {
+        name: "Gladilightor",
+        types: ["Light", "Metal"],
+        finalEvo: false,
+        weight: 97,
+        height: 63,
+        baseStats: {
+            hp: 94,
+            attack: 114,
+            defense: 102,
+            attackR: 65,
+            defenseR: 91,
+            speed: 42
+        }
+    },
+
+    arctillo: {
+        name: "Arctillo",
+        types: ["Ice", "Melee"],
+        finalEvo: false,
+        weight: 8,
+        height: 14,
+        baseStats: {
+            hp: 60,
+            attack: 55,
+            defense: 45,
+            attackR: 35,
+            defenseR: 60,
+            speed: 35
+        }
+    },
+
+    arctadon: {
+        name: "Arctadon",
+        types: ["Ice", "Melee"],
+        weight: 93,
+        height: 55,
+        baseStats: {
+            hp: 99,
+            attack: 111,
+            defense: 102,
+            attackR: 55,
+            defenseR: 86,
+            speed: 64
+        }
+    },
+
+    weevapillar: {
+        name: "Weevapillar",
+        types: ["Insect", "Mind"],
+        finalEvo: false,
+        weight: 3,
+        height: 6,
+        baseStats: {
+            hp: 40,
+            attack: 30,
+            defense: 40,
+            attackR: 30,
+            defenseR: 40,
+            speed: 30
+        }
+    },
+
+    butterlivion: {
+        name: "Butterlivion",
+        types: ["Insect", "Mind"],
+        weight: 17,
+        height: 42,
+        baseStats: {
+            hp: 72,
+            attack: 65,
+            defense: 74,
+            attackR: 110,
+            defenseR: 84,
+            speed: 100
+        }
+    },
+
+    holiturt: {
+        name: "Holiturt",
+        types: ["Light"],
+        finalEvo: false,
+        weight: 10,
+        height: 12,
+        baseStats: {
+            hp: 55,
+            attack: 60,
+            defense: 55,
+            attackR: 30,
+            defenseR: 40,
+            speed: 20
+        }
+    },
+
+    anshellic: {
+        name: "Anshellic",
+        types: ["Light"],
+        finalEvo: false,
+        weight: 36,
+        height: 37,
+        baseStats: {
+            hp: 65,
+            attack: 70,
+            defense: 75,
+            attackR: 40,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    terraphim: {
+        name: "Terraphim",
+        types: ["Light", "Air"],
+        weight: 358,
+        height: 86,
+        baseStats: {
+            hp: 92,
+            attack: 107,
+            defense: 108,
+            attackR: 65,
+            defenseR: 86,
+            speed: 60
+        }
+    },
+
+    kookalit: {
+        name: "Kookalit",
+        types: ["Fire", "Melee"],
+        finalEvo: false,
+        weight: 6,
+        height: 19,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 40,
+            attackR: 60,
+            defenseR: 40,
+            speed: 50
+        }
+    },
+
+    peakatrice: {
+        name: "Peakatrice",
+        types: ["Fire", "Melee"],
+        weight: 50,
+        height: 49,
+        baseStats: {
+            hp: 77,
+            attack: 84,
+            defense: 71,
+            attackR: 105,
+            defenseR: 71,
+            speed: 102
+        }
+    },
+
+    krow: {
+        name: "Krow",
+        types: ["Spirit", "Air"],
+        finalEvo: false,
+        weight: 4,
+        height: 14,
+        baseStats: {
+            hp: 51,
+            attack: 56,
+            defense: 54,
+            attackR: 34,
+            defenseR: 44,
+            speed: 51
+        }
+    },
+
+    korbid: {
+        name: "Korbid",
+        types: ["Spirit", "Air"],
+        weight: 15,
+        height: 42,
+        baseStats: {
+            hp: 91,
+            attack: 106,
+            defense: 108,
+            attackR: 54,
+            defenseR: 74,
+            speed: 81
+        }
+    },
+
+    fulmon: {
+        name: "Fulmon",
+        types: ["Mind"],
+        finalEvo: false,
+        weight: 7,
+        height: 19,
+        baseStats: {
+            hp: 72,
+            attack: 80,
+            defense: 60,
+            attackR: 40,
+            defenseR: 70,
+            speed: 41
+        }
+    },
+
+    cresceroken: {
+        name: "Cresceroken",
+        types: ["Mind", "Dark"],
+        weight: 83,
+        height: 75,
+        baseStats: {
+            hp: 102,
+            attack: 121,
+            defense: 90,
+            attackR: 68,
+            defenseR: 98,
+            speed: 41
+        }
+    },
+
+    myphoxic: {
+        name: "Myphoxic",
+        types: ["Poison"],
+        weight: 83,
+        height: 195,
+        baseStats: {
+            hp: 75,
+            attack: 70,
+            defense: 70,
+            attackR: 105,
+            defenseR: 78,
+            speed: 113
+        }
+    },
+
+    trithorn: {
+        name: "Trithorn",
+        types: ["Plant"],
+        weight: 245,
+        height: 62,
+        baseStats: {
+            hp: 108,
+            attack: 107,
+            defense: 95,
+            attackR: 74,
+            defenseR: 83,
+            speed: 44
+        }
+    },
+
+    volcanaur: {
+        name: "Volcanaur",
+        types: ["Fire"],
+        weight: 127,
+        height: 78,
+        baseStats: {
+            hp: 79,
+            attack: 111,
+            defense: 83,
+            attackR: 63,
+            defenseR: 71,
+            speed: 104
+        }
+    },
+
+    velocivult: {
+        name: "Velocivult",
+        types: ["Spark"],
+        weight: 95,
+        height: 70,
+        baseStats: {
+            hp: 72,
+            attack: 88,
+            defense: 53,
+            attackR: 88,
+            defenseR: 53,
+            speed: 157
+        }
+    },
+
+    wormzu: {
+        name: "Wormzu",
+        types: ["Mind", "Basic"],
+        finalEvo: false,
+        weight: 5,
+        height: 20,
+        baseStats: {
+            hp: 53,
+            attack: 51,
+            defense: 63,
+            attackR: 81,
+            defenseR: 57,
+            speed: 65
+        }
+    },
+
+    zeepringo: {
+        name: "Zeepringo",
+        types: ["Mind", "Melee"],
+        weight: 49,
+        height: 68,
+        baseStats: {
+            hp: 73,
+            attack: 71,
+            defense: 83,
+            attackR: 111,
+            defenseR: 77,
+            speed: 100
+        }
+    },
+
+    senstruct: {
+        name: "Senstruct",
+        types: ["Metal", "Spirit"],
+        finalEvo: false,
+        weight: 23,
+        height: 23,
+        baseStats: {
+            hp: 44,
+            attack: 63,
+            defense: 78,
+            attackR: 72,
+            defenseR: 68,
+            speed: 30
+        }
+    },
+
+    sigilune: {
+        name: "Sigilune",
+        types: ["Metal", "Spirit"],
+        weight: 58,
+        height: 23,
+        baseStats: {
+            hp: 64,
+            attack: 103,
+            defense: 108,
+            attackR: 112,
+            defenseR: 103,
+            speed: 18
+        }
+    },
+
+    shroudal: {
+        name: "Shroudal",
+        types: ["Plant", "Mythic"],
+        weight: 1134,
+        height: 95,
+        baseStats: {
+            hp: 150,
+            attack: 115,
+            defense: 120,
+            attackR: 135,
+            defenseR: 110,
+            speed: 40
+        }
+    },
 
 };
 
@@ -7566,6 +8064,17 @@ var moves = {
         contact: true,
         priority: true,
         secondaryEffect: true
+    },
+
+    territorialAssault: {
+        name: "Territorial Assault",
+        power: 80,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     moodSwing: {
@@ -8153,6 +8662,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    infernalHold: {
+        name: "Infernal Hold",
+        power: 70,
+        accuracy: 90,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     fieryPunch: {
         name: "Fiery Punch",
         power: 70,
@@ -8450,6 +8970,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         drain: 1/2
+    },
+
+    rottingMire: {
+        name: "Rotting Mire",
+        power: 90,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     lilypadLeap: {
@@ -8801,6 +9332,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         drain: 1/2
+    },
+
+    breakneckBlitz: {
+        name: "Breakneck Blitz",
+        power: 80,
+        accuracy: 100,
+        type: "Spark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        typeModifier: { type: "Earth", modifier: 0.5 }
     },
 
     crunch: {
@@ -9485,6 +10028,16 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    psychicMirror: {
+        name: "Psychic Mirror",
+        power: 75,
+        accuracy: 90,
+        type: "Mind",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     ascendingFlow: {
         name: "Ascending Flow",
         power: 110,
@@ -9979,6 +10532,17 @@ var moves = {
     abyssBreaker: {
         name: "Abyss Breaker",
         power: 90,
+        accuracy: 100,
+        type: "Light",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
+    dissolution: {
+        name: "Dissolution",
+        power: 50,
         accuracy: 100,
         type: "Light",
         mr: "Melee",
@@ -10811,6 +11375,31 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         bite: true,
+        secondaryEffect: true
+    },
+
+    shardclaw: {
+        name: "Shardclaw",
+        power: 30,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true,
+        secondaryEffect: true
+    },
+
+    glacierRoll: {
+        name: "Glacier Roll",
+        power: 70,
+        accuracy: 100,
+        type: "Ice",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
         secondaryEffect: true
     },
 
@@ -11685,6 +12274,22 @@ var moves = {
 
     study: {
         name: "Study",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
+    fortify: {
+        name: "Fortify",
+        power: 0,
+        accuracy: 100,
+        type: "Basic",
+        mr: "Support"
+    },
+
+    metachrosis: {
+        name: "Metachrosis",
         power: 0,
         accuracy: 100,
         type: "Basic",
@@ -13569,7 +14174,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
-                 "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update"];
+                 "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
+                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand"];
 
 var typeModAbilities = {
     adipose: {
@@ -13772,7 +14378,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
-             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick"];
+             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -13785,4 +14391,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Teddot line added. Season 17 (16) changes added.";
+var changelog = "Dungeon Doodles added.";
