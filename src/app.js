@@ -1197,6 +1197,9 @@ function loadBaseStats(side) {
             baseDef1.value = firstLoom.baseStats.defenseR;
             baseAtkR1.value = firstLoom.baseStats.attack;
             baseDefR1.value = firstLoom.baseStats.defense;
+        } else if (firstLoom.name == "Peakatrice" && gender1.value == "Female") {
+            baseAtk1.value = firstLoom.baseStats.attackR;
+            baseAtkR1.value = firstLoom.baseStats.attack;
         } else if ((firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) || (firstLoom.name == "Armaratus" && ability1 == "Soul Fortification" && percentHP1.value < 50)) {
             baseAtk1.value = firstLoom.formStats.attack;
             baseDef1.value = firstLoom.formStats.defense;
@@ -1243,6 +1246,9 @@ function loadBaseStats(side) {
             baseDef2.value = secondLoom.baseStats.defenseR;
             baseAtkR2.value = secondLoom.baseStats.attack;
             baseDefR2.value = secondLoom.baseStats.defense;
+        } else if (secondLoom.name == "Peakatrice" && gender2.value == "Female") {
+            baseAtk2.value = secondLoom.baseStats.attackR;
+            baseAtkR2.value = secondLoom.baseStats.attack;
         } else if ((secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) || (secondLoom.name == "Armaratus" && ability2 == "Soul Fortification" && percentHP2.value < 50)) {
             baseAtk2.value = secondLoom.formStats.attack;
             baseDef2.value = secondLoom.formStats.defense;
@@ -1873,6 +1879,7 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
     if ((tempGender1 != gender1.value && firstLoom.name == "Staligant") ||
+        (tempGender1 != gender1.value && firstLoom.name == "Peakatrice") ||
         (((tempAbility1 == "Vigor" || tempAbility1 == "Elegance") || (ability1 == "Vigor" || ability1 == "Elegance")) && immuneAbilityBoost1) ||
         ((tempAbility1 == "Reformation" || ability1 == "Reformation") && firstLoom.name == "Reliconis" && immuneAbilityBoost1) ||
         ((tempAbility1 == "Soul Fortification" || ability1 == "Soul Fortification") && firstLoom.name == "Armaratus") ||
@@ -1881,6 +1888,7 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
         loadStats();
     }
     if ((tempGender2 != gender2.value && secondLoom.name == "Staligant") ||
+        (tempGender2 != gender2.value && secondLoom.name == "Peakatrice") ||
         (((tempAbility2 == "Vigor" || tempAbility2 == "Elegance") || (ability2 == "Vigor" || ability2 == "Elegance")) && immuneAbilityBoost2) ||
         ((tempAbility2 == "Reformation" || ability2 == "Reformation") && secondLoom.name == "Reliconis" && immuneAbilityBoost2) ||
         ((tempAbility2 == "Soul Fortification" || ability2 == "Soul Fortification") && secondLoom.name == "Armaratus") ||
