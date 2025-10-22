@@ -2116,9 +2116,9 @@ var loomians = {
             hp: 95,
             attack: 110,
             defense: 95,
-            attackR: 55,
+            attackR: 65,
             defenseR: 75,
-            speed: 90
+            speed: 80
         }
     },
 
@@ -6128,7 +6128,7 @@ var loomians = {
             hp: 90,
             attack: 80,
             defense: 75,
-            attackR: 120,
+            attackR: 115,
             defenseR: 90,
             speed: 95
         }
@@ -7164,7 +7164,7 @@ var loomians = {
             hp: 70,
             attack: 105,
             defense: 70,
-            attackR: 120,
+            attackR: 125,
             defenseR: 70,
             speed: 115
         }
@@ -8021,6 +8021,53 @@ var loomians = {
         }
     },
 
+    isopi: {
+        name: "Isopi",
+        types: ["Fire", "Insect"],
+        finalEvo: false,
+        weight: 5,
+        height: 19,
+        baseStats: {
+            hp: 40,
+            attack: 50,
+            defense: 30,
+            attackR: 25,
+            defenseR: 60,
+            speed: 40
+        }
+    },
+
+    flamod: {
+        name: "Flamod",
+        types: ["Fire", "Insect"],
+        finalEvo: false,
+        weight: 23,
+        height: 31,
+        baseStats: {
+            hp: 65,
+            attack: 70,
+            defense: 65,
+            attackR: 58,
+            defenseR: 72,
+            speed: 60
+        }
+    },
+
+    draspodon: {
+        name: "Draspodon",
+        types: ["Fire", "Insect"],
+        weight: 82,
+        height: 60,
+        baseStats: {
+            hp: 85,
+            attack: 104,
+            defense: 90,
+            attackR: 60,
+            defenseR: 93,
+            speed: 92
+        }
+    },
+
     shroudal: {
         name: "Shroudal",
         types: ["Plant", "Mythic"],
@@ -8070,7 +8117,7 @@ var moves = {
         name: "Territorial Assault",
         power: 80,
         accuracy: 100,
-        type: "Basic",
+        type: "Plant",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -8534,6 +8581,16 @@ var moves = {
         secondaryEffect: true
     },
 
+    charcoil: {
+        name: "Charcoil",
+        power: 70,
+        accuracy: 95,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+    },
+
     pyroclast: {
         name: "Pyroclast",
         power: 55,
@@ -8664,8 +8721,8 @@ var moves = {
 
     infernalHold: {
         name: "Infernal Hold",
-        power: 70,
-        accuracy: 90,
+        power: 80,
+        accuracy: 80,
         type: "Fire",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -14175,7 +14232,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
-                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand"];
+                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant"];
 
 var typeModAbilities = {
     adipose: {
@@ -14358,6 +14415,12 @@ var typeModAbilities = {
         powerMod: true
     },
 
+    metalant: {
+        name: "Metalant",
+        typeModifier: { type: "Metal", modifier: 1.5 },
+        powerMod: true
+    },
+
     hardCandy: {
         name: "Hard Candy",
         typeModifier: { type: "Fire", modifier: 0.25 },
@@ -14391,4 +14454,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Dungeon Doodles added.";
+var changelog = "Isopi line added.";
