@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -840,7 +840,7 @@ $(".moveSelect").change(function() {
         if (doodle.find(".item").val() == "Prize Claw") moveHits = (move.name == "Ferocious Onslaught" ? 4 : 5);
         if (doodle.find(".trait").val() == "Capoeira") moveHits = (move.name == "Ferocious Onslaught" ? 4 : 5);
         moveGroupObj.children(".move-hits").val(moveHits + " hits");
-        if (move.name == "Double Bite" || move.name == "Quad Strike" || move.name == "Cone Cannon" || move.name == "Alloy Missiles" || move.name == "Zeppelin Zap") moveGroupObj.children(".move-hits").hide();
+        if (move.name == "Double Bite" || move.name == "Quad Strike" || move.name == "Cone Cannon" || move.name == "Alloy Missiles" || move.name == "Zeppelin Zap" || move.name == "Bite and Blight") moveGroupObj.children(".move-hits").hide();
     } else if (move.name == "Tri-Elemental Slash") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").show();
@@ -2785,6 +2785,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
     }
 
+    if (move.name == "Bite and Blight" && hitConfirmer) tempType = "Poison";
+
     if (loom2.name == "Bungo" && ability2 == "Split") {
         if (stats2.repeat == 2) stuffUsed.ability2 = "Bitty";
         else if (stats2.repeat == 3) stuffUsed.ability2 = "Itty"
@@ -3807,7 +3809,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let multiDmg = 0;
     if (move.hits && !hitConfirmer) {
         hits = hits.charAt(0);
-        if (move.name == "Double Bite" || move.name == "Zeppelin Zap") hits = 2;
+        if (move.name == "Double Bite" || move.name == "Zeppelin Zap" || move.name == "Bite and Blight") hits = 2;
         if (move.name == "Cone Cannon" || move.name == "Alloy Missiles") hits = 3;
         if (move.name == "Quad Strike") hits = 4;
         for (let i = 0; i < hits - 1; i++) {
@@ -3841,7 +3843,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (detailed && !hitConfirmer) {
         let numb;
         if (move.hits) {
-            if (move.name == "Double Bite" || move.name == "Zeppelin Zap") hits = 2;
+            if (move.name == "Double Bite" || move.name == "Zeppelin Zap" || move.name == "Bite and Blight") hits = 2;
             if (move.name == "Quad Strike") hits = 4;
         }
         for (let i = 0.9; i < 1.11; i += 0.01) {

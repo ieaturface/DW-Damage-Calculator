@@ -7018,6 +7018,53 @@ var loomians = {
         }
     },
 
+    hauntomb: {
+        name: "Hauntomb",
+        types: ["Spirit", "Earth"],
+        finalEvo: false,
+        weight: 39,
+        height: 18,
+        baseStats: {
+            hp: 50,
+            attack: 50,
+            defense: 100,
+            attackR: 50,
+            defenseR: 100,
+            speed: 5
+        }
+    },
+
+    cryptooth: {
+        name: "Cryptooth",
+        types: ["Spirit", "Earth"],
+        finalEvo: false,
+        weight: 128,
+        height: 42,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 110,
+            attackR: 60,
+            defenseR: 110,
+            speed: 5
+        }
+    },
+
+    mawsoleum: {
+        name: "Mawsoleum",
+        types: ["Spirit", "Earth"],
+        weight: 4781,
+        height: 87,
+        baseStats: {
+            hp: 85,
+            attack: 85,
+            defense: 140,
+            attackR: 85,
+            defenseR: 140,
+            speed: 5
+        }
+    },
+
     arachniak: {
         name: "Arachniak",
         types: ["Insect", "Spirit"],
@@ -7061,6 +7108,21 @@ var loomians = {
             attackR: 70,
             defenseR: 100,
             speed: 60
+        }
+    },
+
+    twisstler: {
+        name: "Twisstler",
+        types: ["Poison", "Food"],
+        weight: 112,
+        height: 122,
+        baseStats: {
+            hp: 90,
+            attack: 95,
+            defense: 85,
+            attackR: 135,
+            defenseR: 105,
+            speed: 40
         }
     },
 
@@ -10564,6 +10626,19 @@ var moves = {
         bite: true
     },
 
+    biteAndBlight: {
+        name: "Bite and Blight",
+        power: 70,
+        accuracy: 100,
+        type: "Food",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        hits: 2
+    },
+
     honeySlap: {
         name: "Honey Slap",
         power: 65,
@@ -11114,6 +11189,19 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         slash: true
+    },
+
+    ghastlyMaw: {
+        name: "Ghastly Maw",
+        power: 70,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        bite: true,
+        priority: true
     },
 
     phantomRush: {
@@ -14232,7 +14320,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
-                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant"];
+                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast"];
 
 var typeModAbilities = {
     adipose: {
@@ -14454,4 +14542,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Isopi line added.";
+var changelog = "Hauntomb line and Twisstler added.";
