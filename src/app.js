@@ -2785,8 +2785,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
     }
 
-    if (move.name == "Bite and Blight" && hitConfirmer) tempType = "Poison";
-
     if (loom2.name == "Bungo" && ability2 == "Split") {
         if (stats2.repeat == 2) stuffUsed.ability2 = "Bitty";
         else if (stats2.repeat == 3) stuffUsed.ability2 = "Itty"
@@ -2836,6 +2834,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             adaptive.mr2 = "Ranged Defense";
         }
         tempStats = getTempAtkDef(second, adaptive, ability1, ability2);
+    } else if (move.name == "Bite and Blight" && hitConfirmer) {
+        adaptive.mr = "Magic";
+        adaptive.mr1 = "Ranged Attack";
+        adaptive.mr2 = "Ranged Defense";
+        tempStats = getTempAtkDef(second, adaptive, ability1, ability2);
+        tempType = "Poison";
     } else tempStats = getTempAtkDef(second, move, ability1, ability2);
     tempAtk = tempStats.attack;
     tempDef = tempStats.defense;
