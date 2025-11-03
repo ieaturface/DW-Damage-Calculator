@@ -7065,6 +7065,68 @@ var loomians = {
         }
     },
 
+    cryptix: {
+        name: "Cryptix",
+        types: ["Spirit", "Metal"],
+        finalEvo: false,
+        weight: 1,
+        height: 9,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 70,
+            attackR: 70,
+            defenseR: 50,
+            speed: 60
+        }
+    },
+
+    spectrowl: {
+        name: "Spectrowl",
+        types: ["Spirit", "Metal"],
+        weight: 73,
+        height: 70,
+        baseStats: {
+            hp: 70,
+            attack: 50,
+            defense: 85,
+            attackR: 90,
+            defenseR: 100,
+            speed: 100
+        }
+    },
+
+    miasmol: {
+        name: "Miasmol",
+        types: ["Poison", "Metal"],
+        finalEvo: false,
+        weight: 113,
+        height: 18,
+        baseStats: {
+            hp: 60,
+            attack: 40,
+            defense: 100,
+            attackR: 80,
+            defenseR: 100,
+            speed: 20
+        }
+    },
+
+    amalchem: {
+        name: "Amalchem",
+        types: ["Poison", "Metal"],
+        weight: 1587,
+        height: 60,
+        baseStats: {
+            hp: 100,
+            attack: 40,
+            defense: 120,
+            attackR: 120,
+            defenseR: 120,
+            speed: 20
+        }
+    },
+
     arachniak: {
         name: "Arachniak",
         types: ["Insect", "Spirit"],
@@ -11850,6 +11912,16 @@ var moves = {
         mr2: "Ranged Defense",
     },
 
+    "witch's brew": {
+        name: "Witch's Brew",
+        power: 80,
+        accuracy: 100,
+        type: "Poison",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+    },
+
     toxicBomb: {
         name: "Toxic Bomb",
         power: 55,
@@ -13417,6 +13489,14 @@ var moves = {
         mr: "Support"
     },
 
+    astralVision: {
+        name: "Astral Vision",
+        power: 0,
+        accuracy: 100,
+        type: "Mythic",
+        mr: "Support"
+    },
+
 };
 
 var helmets = {
@@ -14320,7 +14400,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
-                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast"];
+                 "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision"];
 
 var typeModAbilities = {
     adipose: {
@@ -14542,4 +14622,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Hauntomb line and Twisstler added.";
+var changelog = "Cryptix and Miasmol lines added.";

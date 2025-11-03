@@ -427,11 +427,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -486,8 +486,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -698,14 +698,14 @@ function update(updatePower = false, updateBaseStats = false) {
     }
 
     if (abilityDropdown1.value == "Mental Momentum" || abilityDropdown1.value == "Chanting" || abilityDropdown1.value == "Confidence" || abilityDropdown1.value == "Split" || abilityDropdown1.value == "Firestarter" || abilityDropdown1.value == "Lunarc" ||
-        abilityDropdown1.value == "Last Stand") repeating1.style.display = "inline";
+        abilityDropdown1.value == "Last Stand" || abilityDropdown1.value == "Cauldron Stew") repeating1.style.display = "inline";
     else {
         repeating1.style.display = "none";
         repeating1.value = 0;
     }
 
     if (abilityDropdown2.value == "Mental Momentum" || abilityDropdown2.value == "Chanting" || abilityDropdown2.value == "Confidence" || abilityDropdown2.value == "Split" || abilityDropdown2.value == "Firestarter" || abilityDropdown2.value == "Lunarc" ||
-        abilityDropdown2.value == "Last Stand") repeating2.style.display = "inline";
+        abilityDropdown2.value == "Last Stand" || abilityDropdown2.value == "Cauldron Stew") repeating2.style.display = "inline";
     else {
         repeating2.style.display = "none";
         repeating2.value = 0;
@@ -3156,6 +3156,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.min(repeat, 5) + " fainted)";
+    }
+
+    if (ability1 == "Cauldron Stew") {
+        let chanting = Math.min((1 + 0.1 * (repeat)), 1.5);
+        multi *= chanting;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
     }
 
 

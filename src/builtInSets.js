@@ -2619,10 +2619,10 @@ var builtInSets = [
 
 {
         name: "Celestian",
-        setName: "Bulky Offense",
+        setName: "Bulky Wall",
         helmet: "Theatre Mask",
-        amulet: "Sapphire Amulet",
-        artifact: "Pure Tear",
+        amulet: "Vial of Tears",
+        artifact: "Popcorn",
         moves: {
             move1: "Foreign Substance",
             move2: "Fortify",
@@ -2631,7 +2631,7 @@ var builtInSets = [
         },
         posNature: "health",
         mod1: 10,
-        negNature: "mAttack",
+        negNature: "defense",
         mod2: 10,
         ability: "Mimic",
         item: "Used Crayons",
@@ -2881,22 +2881,22 @@ var builtInSets = [
         builtIn: true
     },{
         name: "Potterfiend",
-        setName: "Setup Sweeper",
-        helmet: "Magnificent Tophat",
-        amulet: "Helpful Lantern",
-        artifact: "Golden Stick",
+        setName: "Bulky Offense",
+        helmet: "Glummish Cap",
+        amulet: "Rock Candy",
+        artifact: "Pizza Slice",
         moves: {
             move1: "Earth Surge",
             move2: "Siphon Soul",
             move3: "Soulfire",
-            move4: "Armor Break"
+            move4: "Dispose"
         },
         posNature: "mAttack",
         mod1: 10,
-        negNature: "speed",
+        negNature: "health",
         mod2: 10,
         ability: "Durable",
-        item: "Power Jelly",
+        item: "Cursed Cloak",
         stars: 6,
         builtIn: true
     },
@@ -4180,7 +4180,7 @@ var builtInSets = [
         setName: "Bulky Set Up Sweeper",
         helmet: "Horned Headband",
         amulet: "Sapphire Amulet",
-        artifact: "Faunsprout Tail",
+        artifact: "Pure Tear",
         moves: {
             move1: "Enlightenment",
             move2: "Dark Blast",
@@ -6485,8 +6485,8 @@ var builtInSets = [
         name: "Jinglark-Awakened",
         setName: "Fast Support",
         helmet: "Bowlcut",
-        amulet: "Juniper Necklace",
-        artifact: "Fluffy Feather",
+        amulet: "Buggle Ball",
+        artifact: "Faunsprout Tail",
         moves: {
             move1: "Aerial",
             move2: "Disarm",
@@ -6569,7 +6569,7 @@ var builtInSets = [
         name: "Grimantle",
         setName: "Bulky Set",
         helmet: "Horned Headband",
-        amulet: "Sapphire Amulet",
+        amulet: "Rock Candy",
         artifact: "Pizza Slice",
         moves: {
             move1: "Bee Summon",
@@ -6582,7 +6582,7 @@ var builtInSets = [
         negNature: "mDefense",
         mod2: 10,
         ability: "Vampire",
-        item: "Used Crayons",
+        item: "Old Monitor",
         stars: 6,
         builtIn: true
     },
@@ -8834,7 +8834,7 @@ var builtInSets = [
         mod1: 10,
         negNature: "defense",
         mod2: 10,
-        ability: "Warden",
+        ability: "Menacing Snarl",
         item: "Spiky Thorns",
         stars: 6,
         builtIn: true
@@ -8970,7 +8970,7 @@ var builtInSets = [
         setName: "Bulky Trapper",
         helmet: "Horned Headband",
         amulet: "Vial of Tears",
-        artifact: "Beachball",
+        artifact: "Beach Ball",
         moves: {
             move1: "Charcoil",
             move2: "Protect",
@@ -9175,6 +9175,236 @@ var builtInSets = [
         stars: 6,
         builtIn: true
     },
-
+{
+        name: "Jellupy-Awakened",
+        setName: "Fast Pivot",
+        helmet: "Smoldering Hood",
+        amulet: "Ruby Pendant",
+        artifact: "Fluffy Feather",
+        moves: {
+            move1: "Just Desserts",
+            move2: "Final Gambit",
+            move3: "Taunt",
+            move4: "Takeout"
+        },
+        posNature: "speed",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Jelly Sync",
+        item: "Jellupy Whisk",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Hangryphus-Awakened",
+        setName: "gambito 2",
+        helmet: "Epic Shades",
+        amulet: "Geode Pendant",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Body Throw",
+            move2: "Just Desserts",
+            move3: "Light Hook",
+            move4: "Takeout"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Last Stand",
+        item: "Hangryphus Pie",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Exoskelis-Awakened",
+        setName: "Revived Cleaner",
+        helmet: "Epic Shades",
+        amulet: "Toxic Vial",
+        artifact: "Chewed Up Bone",
+        moves: {
+            move1: "Dark Slash",
+            move2: "Electro Slash",
+            move3: "Quick Sting",
+            move4: "Sharpen"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Revival",
+        item: "Exoskelis Shard",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Twisstler",
+        setName: "Bulky Attacker",
+        helmet: "Clown Hair",
+        amulet: "Stone Necklace",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Bite and Blight",
+            move2: "Energy Wave",
+            move3: "Gem Blast",
+            move4: "Heal"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "mAttack",
+        mod2: 10,
+        ability: "Venandi Feast",
+        item: "Dark Chocolate",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Mawsoleum",
+        setName: "Bulky Wall",
+        helmet: "Horned Headband",
+        amulet: "Stone Necklace",
+        artifact: "Pure Tear",
+        moves: {
+            move1: "Earthquake",
+            move2: "Vague Vortex",
+            move3: "Burning Orb",
+            move4: "Protect"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "defense",
+        mod2: 10,
+        ability: "Durable",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Clavalier",
+        setName: "Bulky Setup",
+        helmet: "Epic Shades",
+        amulet: "Geode Pendant",
+        artifact: "Pure Tear",
+        moves: {
+            move1: "Tidal Slam",
+            move2: "Clampbound",
+            move3: "Heal",
+            move4: "Toughen"
+        },
+        posNature: "health",
+        mod1: 10,
+        negNature: "attack",
+        mod2: 10,
+        ability: "Hydro Coating",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Armaratus",
+        setName: "Bulky Offense",
+        helmet: "Theatre Mask",
+        amulet: "Rock Candy",
+        artifact: "Pure Tear",
+        moves: {
+            move1: "Vague Vortex",
+            move2: "Solid Charge",
+            move3: "Heal",
+            move4: "Compose"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Soul Fortification",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Daffodally",
+        setName: "Priority Cleaner",
+        helmet: "Theatre Mask",
+        amulet: "Stone Necklace",
+        artifact: "Thingamajig",
+        moves: {
+            move1: "Life Sap",
+            move2: "Hit-n-Run",
+            move3: "Mud Wave",
+            move4: "Trade"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Speedy Recovery",
+        item: "Enchanted Sapphire",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Amalchem",
+        setName: "Bulky Offense",
+        helmet: "Glummish Cap",
+        amulet: "Stone Necklace",
+        artifact: "Thingamajig",
+        moves: {
+            move1: "Witch's Brew",
+            move2: "Mineral Cannon",
+            move3: "Mud Wave",
+            move4: "Night Night"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Cauldron Stew",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Spectrowl",
+        setName: "Setup Sweeper",
+        helmet: "Clown Hair",
+        amulet: "Rock Candy",
+        artifact: "Faunsprout Tail",
+        moves: {
+            move1: "Vague Vortex",
+            move2: "Mineral Cannon",
+            move3: "Scapegoat",
+            move4: "Astral Vision"
+        },
+        posNature: "mAttack",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Levitate",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
+{
+        name: "Spectrowl",
+        setName: "Bulky Wall",
+        helmet: "Horned Headband",
+        amulet: "Sapphire Amulet",
+        artifact: "Pizza Slice",
+        moves: {
+            move1: "Vague Vortex",
+            move2: "Protect",
+            move3: "Scapegoat",
+            move4: "Foreign Substance"
+        },
+        posNature: "mDefense",
+        mod1: 10,
+        negNature: "health",
+        mod2: 10,
+        ability: "Levitate",
+        item: "Used Crayons",
+        stars: 6,
+        builtIn: true
+    },
 ];
 
