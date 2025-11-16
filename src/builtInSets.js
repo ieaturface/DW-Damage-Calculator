@@ -9233,7 +9233,7 @@ var builtInSets = [
         mod1: 10,
         negNature: "attack",
         mod2: 10,
-        ability: "Revival",
+        ability: "Ultimate Revival",
         item: "Exoskelis Shard",
         stars: 6,
         builtIn: true
