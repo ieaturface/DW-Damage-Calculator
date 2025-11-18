@@ -2697,6 +2697,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let foulDmg = 0;
     let tempType = move.type;
     let tempPower = movePower;
+    let powerCheck = movePower;
     let tempAtk;
     let tempDef;
     let tempStats;
@@ -2785,28 +2786,36 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if (move.name == "Tsunami Drop" || move.name == "Body Throw") {
         tempPower = getTripRootPower(loom2.weight);
+        powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (move.name == "Boo!") {
         tempPower = getSpeedPower(stats1.spd, stats2.spd, "fast");
+        powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (move.name == "Meteor Launch") {
         tempPower = getSpeedPower(stats1.spd, stats2.spd, "slow");
+        powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
-    if (move.name == "Loyalty") tempPower = 90;
+    if (move.name == "Loyalty") {
+        tempPower = 90;
+        powerCheck = tempPower;
+    }    
 
     if (move.name == "Surprise!" && loom1.name == "Bungo") {
         if (repeat == 2) {
             tempPower = 120;
+            powerCheck = tempPower;
             stuffUsed.ability1 = "Bitty";
             stuffUsed.extra1 += " (" + tempPower + " BP)";
         } else if (repeat == 3) {
             tempPower = 180;
+            powerCheck = tempPower;
             stuffUsed.ability1 = "Itty";
             stuffUsed.extra1 += " (" + tempPower + " BP)";
         }
@@ -2989,25 +2998,30 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.name == "Swarm" || move.name == "Necromancy") {
         swarm = parseInt(swarm.charAt(0));
         tempPower = Number(tempPower) + Number(tempPower) / 4 * swarm;
+        powerCheck = tempPower;
         if (move.name == "Swarm") tempPower = Math.min(tempPower, 90);
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (move.name == "Starbreaker") {
         tempPower = 150 - (stats1.stars - 1) * 20;
+        powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)"; 
     }
 
     if (move.name == "Choke") {
         tempPower = Math.max(Math.round(tempPower * stats2.hpPercent / 100), 65);
+        powerCheck = tempPower;
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (move.statBuff) {
         if (move.name == "Blessed Blade") {
             tempPower = Number(tempPower) + 20 * countBoosts(boosts1);
+            powerCheck = tempPower;
         } else if (move.name == "The Flood") {
             tempPower = Number(tempPower) + 15 * countBoosts(boosts1);
+            powerCheck = tempPower;
         }
         stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
@@ -3077,18 +3091,36 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             stuffUsed.extra1 += " (" + tempType + ")";
         } else if (stat2 == "enraged" && withoutSlapDown) {
             multi *= 1.5;
+            powerCheck *= 1.5;
             stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
         } else if (stat2 == "burned" || stat2 == "poisoned" || stat2 == "diseased") {
             multi *= 1.25;
+            powerCheck *= 1.25;
             stuffUsed.extra1 += " (" + tempPower * 1.25 + " BP)";
         }
     }
 
     if (((move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1)) ||
        (((move.name == "Retribution" || move.name == "Counter Punch") && parseInt(stats1.spd) < parseInt(stats2.spd) && !btl1)) ||
-       (move.name == "Last Course" && btl2 && withoutSlapDown)) {
+       (move.name == "Last Course" && btl2 && withoutSlapDown) ||
+       (move.name == "Pyroclast" && (itemA == "None" || (!withoutSlapDown && itemA == "Fire Taffy"))) ||
+       ((move.name == "Hex" || move.name == "Hexblade" || move.name == "Hex Punch") && stat2 != "healthy") ||
+        ((move.name == "Soulfire" || move.name == "Phantom Rush") && stat2 == "cursed") ||
+        (move.name == "Just Desserts" && stats1.hpPercent < 50) ||
+        (move.name == "Toxic Bomb" && (stat2 == "poisoned" || stat2 == "diseased")) ||
+        (move.name == "Pursuit" && btl1) ||
+        (move.name == "Night Night" && stat2 == "asleep") ||
+        (move.name == "Territorial Assault" && stat2 == "marked")) {
         multi *= 2;
+        powerCheck *= 2;
         stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
+    }
+
+    if ((move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) ||
+        (move.name == "Territorial Assault" && stat2 == "marked")) {
+        multi *= 1.5;
+        powerCheck *= 1.5;
+        stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
     }
 
     if ((ability1 == "Fire Up") && immuneBoostCheck1) {
@@ -3096,11 +3128,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             multi *= 1.5;
             stuffUsed.ability1 = ability1;
         }
-    }
-
-    if (move.name == "Pyroclast" && (itemA == "None" || (!withoutSlapDown && itemA == "Fire Taffy"))) {
-        multi *= 2;
-        stuffUsed.extra1 += " (" + tempPower * 2 + " BP)";
     }
 
     if ((ability1 == "Chlorokinesis" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
@@ -3156,7 +3183,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Last Laugh") ||
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
        (ability1 == "Vocalist" && move.sound) ||
-       (ability1 == "Glucose Boost" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown)) {
+       (ability1 == "Glucose Boost" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
+       (ability1 == "Delicate" && tempPower <= 70 && powerCheck <=70)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -3217,17 +3245,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
-    }
-
-
-    if (move.name == "Snow Roller") {
-        tempPower = Number(tempPower) * 2 ** (snowball - 1);
-        stuffUsed.extra1 += " (" + tempPower + " BP)";
-    }
-
-    if (move.name == "Merry-Go-Breaker") {
-        tempPower = Number(tempPower * (1 + .1 * (snowball - 1)));
-        stuffUsed.extra1 += " (" + tempPower + " BP)";
     }
 
     if (ability1 == "Mental Momentum") {
@@ -3312,23 +3329,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = (ability2 == "Ward" ? ability2 : stuffUsed.ability2);
     }
 
-    if (((move.name == "Hex" || move.name == "Hexblade" || move.name == "Hex Punch") && stat2 != "healthy") ||
-        ((move.name == "Soulfire" || move.name == "Phantom Rush") && stat2 == "cursed") ||
-        (move.name == "Just Desserts" && stats1.hpPercent < 50) ||
-        (move.name == "Toxic Bomb" && (stat2 == "poisoned" || stat2 == "diseased")) ||
-        (move.name == "Pursuit" && btl1) ||
-        (move.name == "Night Night" && stat2 == "asleep") ||
-        (move.name == "Territorial Assault" && stat2 == "marked")) {
-        multi *= 2;
-        stuffUsed.extra1 += " (" + (tempPower * 2) + " BP)";
-    }
-
-    if ((move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) ||
-        (move.name == "Territorial Assault" && stat2 == "marked")) {
-        multi *= 1.5;
-        stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
-    }
-
     if ((ability2 == "Courteous" && tempPower >= 100) ||
         (ability2 == "Pecking Order" && tempPower <= 60)) {
         multi *= 0.75;
@@ -3410,14 +3410,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (tempType == "Light" && evilGlare.checked && withoutSlapDown) {
         multi *= 0.5;
         stuffUsed.weather += " with Evil Glare";
-    }
-
-    tempPower = pokeRound(tempPower * multi);
-    multi = 1;
-
-    if (ability1 == "Delicate" && tempPower <= 70) {
-        multi *= 1.5;
-        stuffUsed.ability1 = ability1;
     }
 
     tempPower = pokeRound(tempPower * multi);
