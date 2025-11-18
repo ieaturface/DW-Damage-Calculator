@@ -9890,7 +9890,7 @@ var moves = {
         name: "Talon Strike",
         power: 50,
         accuracy: 100,
-        type: "Air",
+        type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
