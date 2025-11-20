@@ -2303,10 +2303,10 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 90,
-            attack: 70,
+            attack: 75,
             defense: 80,
             attackR: 140,
-            defenseR: 80,
+            defenseR: 75,
             speed: 35
         }
     },
@@ -4057,7 +4057,7 @@ var loomians = {
         height: 50,
         baseStats: {
             hp: 90,
-            attack: 130,
+            attack: 140,
             defense: 80,
             attackR: 60,
             defenseR: 95,
@@ -7479,8 +7479,8 @@ var loomians = {
         }
     },
 
-    lephidhonk: {
-        name: "Lephidhonk",
+    lepidhonk: {
+        name: "Lepidhonk",
         types: ["Insect", "Basic"],
         weight: 7,
         height: 36,
@@ -9193,6 +9193,17 @@ var moves = {
         slash: true
     },
 
+    drowningDive: {
+        name: "Drowning Dive",
+        power: 60,
+        accuracy: 100,
+        type: "Water",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+    },
+
     plantSap: {
         name: "Plant Sap",
         power: 65,
@@ -9939,6 +9950,17 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    nectarSip: {
+        name: "Nectar Sip",
+        power: 80,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        drain: 1/2
     },
 
     hivemind: {

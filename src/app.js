@@ -928,7 +928,6 @@ function updateFormat() {
         field.style.height = "740px";
         fieldTraps.style.height = "65.5%";
     }    
-
     update();
 }
 
@@ -1006,6 +1005,12 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         baseAtkR1.value = firstLoom.baseStats.attackR;
         baseDefR1.value = firstLoom.baseStats.defenseR;
         baseSpd1.value = firstLoom.baseStats.speed;
+
+        if (set1.gender) {
+            gender1.value = set1.gender;
+            loadBaseStats(1);
+            updateGender("gender1");
+        }
     }
 
     if (onlySecond || (!onlyFirst && !onlySecond)) {
@@ -1058,8 +1063,13 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         baseAtkR2.value = secondLoom.baseStats.attackR;
         baseDefR2.value = secondLoom.baseStats.defenseR;
         baseSpd2.value = secondLoom.baseStats.speed;
+
+        if (set2.gender) {
+            gender2.value = set2.gender;
+            loadBaseStats(2);
+            updateGender("gender2");
+        }
     }
-    
     update(undefined, false);
 }
 
