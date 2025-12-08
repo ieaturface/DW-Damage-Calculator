@@ -3892,6 +3892,23 @@ var loomians = {
         }
     },
 
+    'riptorvent-awakened': {
+        name: "Riptorvent-Awakened",
+        types: ["Spark", "Beast"],
+        weight: 78,
+        height: 61,
+        ability: "Sky Deity",
+        item: "Riptorvent Rune",
+        baseStats: {
+            hp: 91,
+            attack: 132,
+            defense: 101,
+            attackR: 73,
+            defenseR: 101,
+            speed: 97
+        }
+    },   
+
     nimbell: {
         name: "Nimbell",
         types: ["Light"],
@@ -7118,10 +7135,10 @@ var loomians = {
         weight: 1587,
         height: 60,
         baseStats: {
-            hp: 100,
-            attack: 40,
+            hp: 80,
+            attack: 60,
             defense: 120,
-            attackR: 120,
+            attackR: 100,
             defenseR: 120,
             speed: 20
         }
@@ -14546,7 +14563,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival"];
+                 "Ultimate Revival", "Sky Deity"];
 
 var typeModAbilities = {
     adipose: {
@@ -14746,6 +14763,12 @@ var typeModAbilities = {
         typeModifier: { type: "Melee", modifier: 0.5 },
         powerMod: false
     },
+
+    skyDeity: {
+        name: "Sky Deity",
+        typeModifier: { type: "Earth", type2: "Air", modifier: 0 },
+        powerMod: false
+    },
     
 }
 
@@ -14768,4 +14791,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Lilit and Pumkibun lines added. New Season Balance Changes added.";
+var changelog = "Awakened Riptorvent added.";
