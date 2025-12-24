@@ -433,11 +433,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -492,8 +492,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2026 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2026 12:00:00 UTC"
@@ -1784,7 +1784,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     if ((ability2 == "Menacing Snarl" || ability2 == "Sickly Sweet" || ability2 == "Adorable") && abilityCheck2) {
         moveMod = 0;
         if ((ability2 == "Menacing Snarl" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Sickly Sweet" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
-        if (ability1 == "Stonefaced" || ability1 == "Anomaly") {
+        if (ability1 == "Stonefaced" || ability1 == "Anomaly" || ability1 == "Evergreen Halo") {
             moveMod = (ability1 == "Anomaly" ? 1 : 0);
             stuffUsed.ability1 = ability1;
         }
@@ -3194,7 +3194,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Savage" && !isStab(types1, { type: tempType })) ||
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Glucose Boost" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
-       (ability1 == "Delicate" && tempPower <= 70 && powerCheck <=70)) {
+       (ability1 == "Delicate" && tempPower <= 70 && powerCheck <=70) ||
+       (ability1 == "Stormfrost" && tempType == "Ice" && noWeather.checked == false)) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }

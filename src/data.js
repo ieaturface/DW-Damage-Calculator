@@ -4882,6 +4882,53 @@ var loomians = {
         }
     },
 
+    mistlil: {
+        name: "Mistlil",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 5,
+        height: 20,
+        baseStats: {
+            hp: 50,
+            attack: 42,
+            defense: 48,
+            attackR: 60,
+            defenseR: 55,
+            speed: 45
+        }
+    },
+
+    mistlebon: {
+        name: "Mistlebon",
+        types: ["Plant", "Light"],
+        finalEvo: false,
+        weight: 32,
+        height: 55,
+        baseStats: {
+            hp: 80,
+            attack: 60,
+            defense: 78,
+            attackR: 85,
+            defenseR: 80,
+            speed: 52
+        }
+    },
+
+    chimeberry: {
+        name: "Chimeberry",
+        types: ["Plant", "Light"],
+        weight: 32,
+        height: 55,
+        baseStats: {
+            hp: 95,
+            attack: 70,
+            defense: 95,
+            attackR: 105,
+            defenseR: 100,
+            speed: 60
+        }
+    },
+
     wydling: {
         name: "Wydling",
         types: ["Spirit"],
@@ -7370,6 +7417,21 @@ var loomians = {
             attackR: 125,
             defenseR: 70,
             speed: 115
+        }
+    },
+
+    lantelope: {
+        name: "Lantelope",
+        types: ["Spark", "Ice"],
+        weight: 54,
+        height: 67,
+        baseStats: {
+            hp: 85,
+            attack: 110,
+            defense: 75,
+            attackR: 115,
+            defenseR: 75,
+            speed: 90
         }
     },
 
@@ -11631,6 +11693,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    cryoshock: {
+        name: "Cryoshock",
+        power: 95,
+        accuracy: 85,
+        type: "Ice",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     glacialSiphon: {
         name: "Glacial Siphon",
         power: 50,
@@ -14575,7 +14648,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit"];
 
 var typeModAbilities = {
     adipose: {
@@ -14803,4 +14876,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Riptorvent added.";
+var changelog = "Mistlil line and Lantelope added.";
