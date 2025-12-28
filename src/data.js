@@ -3079,6 +3079,23 @@ var loomians = {
         }
     },
 
+    'hollihare-awakened': {
+        name: "Hollihare-Awakened",
+        types: ["Plant", "Ice"],
+        weight: 9,
+        height: 12,
+        ability: "Sugarsick",
+        item: "Hollihare Wreath",
+        baseStats: {
+            hp: 77,
+            attack: 95,
+            defense: 92,
+            attackR: 102,
+            defenseR: 167,
+            speed: 52
+        }
+    },
+
     swoptar: {
         name: "Swoptar",
         types: ["Beast", "Metal"],
@@ -4926,6 +4943,68 @@ var loomians = {
             attackR: 105,
             defenseR: 100,
             speed: 60
+        }
+    },
+
+    yulogg: {
+        name: "Yulogg",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 6,
+        height: 14,
+        baseStats: {
+            hp: 99,
+            attack: 66,
+            defense: 66,
+            attackR: 33,
+            defenseR: 99,
+            speed: 66
+        }
+    },
+
+    festicerbus: {
+        name: "Festicerbus",
+        types: ["Plant"],
+        weight: 286,
+        height: 80,
+        baseStats: {
+            hp: 113,
+            attack: 83,
+            defense: 83,
+            attackR: 83,
+            defenseR: 93,
+            speed: 73
+        }
+    },
+
+    kacoal: {
+        name: "Kacoal",
+        types: ["Dark", "Insect"],
+        finalEvo: false,
+        weight: 6,
+        height: 14,
+        baseStats: {
+            hp: 60,
+            attack: 100,
+            defense: 80,
+            attackR: 40,
+            defenseR: 60,
+            speed: 10
+        }
+    },
+
+    blastag: {
+        name: "Blastag",
+        types: ["Dark", "Fire"],
+        weight: 204,
+        height: 53,
+        baseStats: {
+            hp: 75,
+            attack: 125,
+            defense: 100,
+            attackR: 60,
+            defenseR: 30,
+            speed: 100
         }
     },
 
@@ -12880,6 +12959,14 @@ var moves = {
         mr: "Support"
     },
 
+    tripleThreat: {
+        name: "Triple Threat",
+        power: 0,
+        accuracy: "N/A",
+        type: "Plant",
+        mr: "Support"
+    },
+
     lifeRoots: {
         name: "Life Roots",
         power: 0,
@@ -14648,7 +14735,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick"];
 
 var typeModAbilities = {
     adipose: {
@@ -14876,4 +14963,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Mistlil line and Lantelope added.";
+var changelog = "Yulogg and Kacoal lines added. Awakened Hollihare added.";
