@@ -433,11 +433,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -492,8 +492,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -1734,17 +1734,17 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (ability2 == "Guilt" && atk.name == "AttackM") || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) || (move.name == "Gleamspire" && celebrate.checked) || (ability2 == "Signal Jammer" && atk.name == "AttackR")) {
         moveMod = 0;
         if (ability2 == "Guilt" && atk.name == "AttackM") {
-            moveMod += (ability1 == "Anomaly" ? 1 : -1);
+            moveMod += (ability1 == "Opposite Day" ? 1 : -1);
             stuffUsed.ability2 = ability2;
         }
         if (ability2 == "Signal Jammer" && atk.name == "AttackR") {
-            moveMod += (ability1 == "Anomaly" ? 1 : -1);
+            moveMod += (ability1 == "Opposite Day" ? 1 : -1);
             stuffUsed.ability2 = ability2;
         }
-        if (move.name == "Chaotic Bolt" && stat2 == "frozen") moveMod += (ability1 == "Anomaly" ? -1 : 1); 
-        else if (move.stat) moveMod += (ability1 == "Anomaly" ? move.stat.amount * -1 : move.stat.amount);
-        else if (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) moveMod += (ability1 == "Anomaly" ? -1 : 1);
-        else if (move.name == "Gleamspire" && celebrate.checked) moveMod += (ability1 == "Anomaly" ? 0 : 1);
+        if (move.name == "Chaotic Bolt" && stat2 == "frozen") moveMod += (ability1 == "Opposite Day" ? -1 : 1); 
+        else if (move.stat) moveMod += (ability1 == "Opposite Day" ? move.stat.amount * -1 : move.stat.amount);
+        else if (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)) moveMod += (ability1 == "Opposite Day" ? -1 : 1);
+        else if (move.name == "Gleamspire" && celebrate.checked) moveMod += (ability1 == "Opposite Day" ? 0 : 1);
         /*if (ability1 == "Staunch" && move.stat.amount < 0) {
             moveMod = 0;
             stuffUsed.ability1 = ability1;
@@ -1762,7 +1762,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
 
         atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
         if (crit && atkStage < 0 && ability2 != "Fortified") atk.atk = baseAttack;
-        if (firstHit && ability1 == "Anomaly") stuffUsed.ability1 = ability1;
+        if (firstHit && ability1 == "Opposite Day") stuffUsed.ability1 = ability1;
     }
 
     //Checking for attack increasing abilities that are manually checked and adjusts subsequent hits' offensive stat
@@ -1785,8 +1785,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         moveMod = 0;
         if ((ability2 == "Menacing Snarl" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Sickly Sweet" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
         if (ability2 == "Sugarsick" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") moveMod -=2;
-        if (ability1 == "Stonefaced" || ability1 == "Anomaly" || ability1 == "Evergreen Halo") {
-            moveMod = (ability1 == "Anomaly" ? (ability2 == "Sugarsick" ? 2 : 1) : 0);
+        if (ability1 == "Stonefaced" || ability1 == "Opposite Day" || ability1 == "Evergreen Halo") {
+            moveMod = (ability1 == "Opposite Day" ? (ability2 == "Sugarsick" ? 2 : 1) : 0);
             stuffUsed.ability1 = ability1;
         }
         if ((ability1 == "Merciless" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability1 == "Resolve" && move.mr1 == "Ranged Attack" && atk.name == "AttackR")) {
@@ -1822,8 +1822,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     //Checks for moves that affect the currently used defensive stat and adjusts subsequent hits' defensive stat
     if ((move.stat && move.stat.battle == "Defense" && move.stat.stat == def.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (move.name == "Chaotic Bolt" && stat2 == "vulnerable")) {
         moveMod = 0;
-        if (move.name == "Chaotic Bolt" && stat2 == "vulnerable") moveMod += (ability2 == "Anomaly" ? 1 : -1);
-        else if (move.stat) moveMod += (ability2 == "Anomaly" ? move.stat.amount * -1 : move.stat.amount);
+        if (move.name == "Chaotic Bolt" && stat2 == "vulnerable") moveMod += (ability2 == "Opposite Day" ? 1 : -1);
+        else if (move.stat) moveMod += (ability2 == "Opposite Day" ? move.stat.amount * -1 : move.stat.amount);
         if ((ability2 == "Stonefaced" && moveMod < 0) || ((ability2 == "Battle Armor" || ability2 == "Odd Husk") && move.secondaryEffect)) {
             moveMod = 0;
             stuffUsed.ability2 = ability2;
@@ -1841,7 +1841,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
 
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
         if (crit && defStage > 0 && ability2 != "Fortified") def.def = baseDefense;
-        if (firstHit && ability2 == "Anomaly") stuffUsed.ability2 = ability2;
+        if (firstHit && ability2 == "Opposite Day") stuffUsed.ability2 = ability2;
     }
 
     //Checks for certain defense increasing abilities and adjusts subsequent hits' defensive stat
@@ -1870,8 +1870,8 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     /*if (ability1 == "Adorable" && abilityCheck1) {
         moveMod = 0;
         if (ability1 == "Adorable" && move.mr2 == "Melee Defense" && def.name == "DefenseM") moveMod -= 1;
-        if (ability2 == "Staunch" || ability2 == "Anomaly") {
-            moveMod = (ability2 == "Anomaly" ? 1 : 0);
+        if (ability2 == "Staunch" || ability2 == "Opposite Day") {
+            moveMod = (ability2 == "Opposite Day" ? 1 : 0);
             stuffUsed.ability2 = ability2;
         }
 
@@ -3128,7 +3128,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) ||
-        (move.name == "Territorial Assault" && stat2 == "marked")) {
+        (move.name == "Territorial Assault" && stat2 == "marked") ||
+        (move.name == "Korbidal Nuke" && btl2 && withoutSlapDown)) {
         multi *= 1.5;
         powerCheck *= 1.5;
         stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
@@ -3155,7 +3156,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Sand Surge" && sandstorm.checked) ||
        (ability1 == "Air Current" && stats1.hpPercent == 100 && tempType == "Air") ||
        (ability1 == "Chef" && (loom2.types.includes("Food") || chocolateRain.checked)) ||
-       (ability1 == "Pugilist" && move.punch) ||
        (ability1 == "Bubble Blaster" && loom2.types.includes("Air")) ||
        (ability1 == "Rain Power" && rain.checked) ||
        (ability1 == "Eruption" && immuneBoostCheck1 && tempType == "Fire") ||
@@ -3166,7 +3166,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Curtain Call" && stats2.hpPercent < 34) ||
        (ability1 == "Impact Recoil" && move.mr == "Melee") ||
        (ability1 == "Looper" && (immuneBoostCheck1 || !withoutSlapDown)) ||
-       (ability1 == "Assassin" && stats2.hpPercent < 50)) {
+       (ability1 == "Assassin" && stats2.hpPercent < 50) ||
+       (ability1 == "Sweet Treat" && chocolateRain.checked) ||
+       (ability1 == "Hazardous" && acidRain.checked)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3176,10 +3178,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
 
-    if (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) {
+    /*if (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd)) {
         multi *= 1.4;
         stuffUsed.ability1 = ability1;
-    }
+    }*/
 
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
@@ -3196,7 +3198,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Vocalist" && move.sound) ||
        (ability1 == "Glucose Boost" && immuneBoostCheck1 && tempType == "Mind" && withoutSlapDown) ||
        (ability1 == "Delicate" && tempPower <= 70 && powerCheck <=70) ||
-       (ability1 == "Stormfrost" && tempType == "Ice" && noWeather.checked == false)) {
+       (ability1 == "Stormfrost" && tempType == "Ice" && noWeather.checked == false) ||
+       (ability1 == "Pugilist" && move.punch) ||
+       (ability1 == "Cardinal Sins" && parseInt(stats1.spd) > parseInt(stats2.spd))) {
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
@@ -3209,7 +3213,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Covetous" && itemB != "None") ||
        (ability1 == "Nitelite" && tempType == "Light") ||
-       (ability1 == "To Arms!" && (btl2 && withoutSlapDown))) {
+       (ability1 == "To Arms!" && (btl2 && withoutSlapDown)) ||
+       (ability1 == "Winter's Blessing")) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -3358,7 +3363,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (ability1 == "Jab Cross" && move.punch && !(isDouble && move.aoe == true) && !move.hits) {
-        multi *= 0.75;
+        multi *= 0.8;
     }
     if (itemA == "Ruler" && move.accuracy < 100) {
         multi *= 0.75;
@@ -3387,11 +3392,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (tempType == "Fire") multi *= 0.5;
         if (tempType == "Fire" || loom2.types.includes("Plant")) stuffUsed.weather += " in Rain";
     }
-    if (acidRain.checked && tempType == "Poison") {
+    if (acidRain.checked && (tempType == "Poison" || ability1 == "Hazardous")) {
         multi *= 1.25;
         stuffUsed.weather += " in Acid Rain";
     }
-    if (chocolateRain.checked && (tempType == "Food")) {
+    if (chocolateRain.checked && (tempType == "Food" || ability1 == "Sweet Treat")) {
         multi *= 1.25;
         stuffUsed.weather += " in Chocolate Rain";
     }
@@ -3746,15 +3751,20 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.2;
         stuffUsed.ability1 = ability1;
     }
-    if ((effectiveness > 1 && ability2 == "Unbreakable")  ||
-        (ability2 == "Guardian" && immuneBoostCheck2) ||
-        ((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1) ||
+    if (((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1) ||
         (ability2 == "Kindling" && stat1 == "burned") ||
-        (ability2 == "Volcanic Core" && tempType == "Water")) {
+        (ability2 == "Volcanic Core" && tempType == "Water") ||
+        (ability2 == "Winter's Blessing") ||
+        (ability2 == "Entangle" && move.pivot)) {
         multi *= 0.75;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) {
+    if (ability2 == "Guardian" && immuneBoostCheck2) {
+        multi *= 0.7;
+        stuffUsed.ability2 = ability2;
+    }
+    if ((ability2 == "Sugar Coating" && stats2.hpPercent == 100 && withoutSlapDown && !bees && !pylon && !foulHit) ||
+        (effectiveness > 1 && ability2 == "Unbreakable")) {
         multi *= 2/3;
         stuffUsed.ability2 = ability2;
     }
@@ -4315,7 +4325,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
 
     if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && ability != "Fireproof Armor") multi *= 0.5;
 
-    let sapHeal = (garden.checked ? 16/100 : 10/100);
+    let sapHeal = (garden.checked ? 20/100 : 12.5/100);
     
     if (!loom2.types.includes("Plant") && sap.defender == true && ability != "Direct Combatant" && ability != "Impervious" && ability != "Nullcoat") {
         newHP += Math.floor(hp1 * sapHeal);
@@ -4431,7 +4441,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
             hazardString += "burn damage and ";
         }
 
-        if (acidRain.checked && !loom2.types.includes("Poison") && !loom2.types.includes("Crystal") && !loom2.types.includes("Metal") && ability != "Healthy Toxins" && item != "Futuristic Umbrella") {
+        if (acidRain.checked && !loom2.types.includes("Poison") && !loom2.types.includes("Crystal") && !loom2.types.includes("Metal") && ability != "Healthy Toxins" && ability != "Hazardous" && item != "Futuristic Umbrella") {
             newHP += Math.floor(hp1 * 1 / 16);
             hazardString += "acid rain damage and ";
         }
