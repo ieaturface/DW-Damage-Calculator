@@ -3393,11 +3393,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         if (tempType == "Fire" || loom2.types.includes("Plant")) stuffUsed.weather += " in Rain";
     }
     if (acidRain.checked && (tempType == "Poison" || ability1 == "Hazardous")) {
-        multi *= 1.25;
+        if (tempType == "Poison") multi *= 1.25;
         stuffUsed.weather += " in Acid Rain";
     }
     if (chocolateRain.checked && (tempType == "Food" || ability1 == "Sweet Treat")) {
-        multi *= 1.25;
+        if (tempType == "Food") multi *= 1.25;
         stuffUsed.weather += " in Chocolate Rain";
     }
     if (sandstorm.checked) {
