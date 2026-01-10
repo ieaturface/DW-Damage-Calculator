@@ -10843,6 +10843,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        punch: true,
         secondaryEffect: true
     },
 
@@ -12541,7 +12542,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        slash: true
     },
 
     mythicBlast: {
