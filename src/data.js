@@ -666,9 +666,9 @@ var loomians = {
         height: 38,
         baseStats: {
             hp: 110,
-            attack: 95,
+            attack: 105,
             defense: 80,
-            attackR: 75,
+            attackR: 65,
             defenseR: 80,
             speed: 75
         }
@@ -7993,6 +7993,37 @@ var loomians = {
         }
     },
 
+    cosmat: {
+        name: "Cosmat",
+        types: ["Dark", "Air"],
+        finalEvo: false,
+        weight: 4,
+        height: 20,
+        baseStats: {
+            hp: 45,
+            attack: 70,
+            defense: 45,
+            attackR: 72,
+            defenseR: 47,
+            speed: 85
+        }
+    },
+
+    novawing: {
+        name: "Novawing",
+        types: ["Dark", "Air"],
+        weight: 29,
+        height: 59,
+        baseStats: {
+            hp: 67,
+            attack: 106,
+            defense: 60,
+            attackR: 110,
+            defenseR: 63,
+            speed: 121
+        }
+    },
+
     flamtot: {
         name: "Flamtot",
         types: ["Fire",],
@@ -11179,6 +11210,17 @@ var moves = {
         mr2: "Ranged Defense",
         secondaryEffect: true,
         priority: true
+    },
+
+    lightNoise: {
+        name: "Light Noise",
+        power: 70,
+        accuracy: 100,
+        type: "Light",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
     },
 
     guidingLight: {
@@ -14931,7 +14973,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance"];
 
 var typeModAbilities = {
     adipose: {
@@ -15143,6 +15185,12 @@ var typeModAbilities = {
         typeModifier: { type: "Air", modifier: 0.7 },
         powerMod: false
     },
+
+    luminance: {
+        name: "Luminance",
+        typeModifier: { type: "Light", modifier: 1.5 },
+        powerMod: true
+    },
     
 }
 
@@ -15165,4 +15213,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Shrucub and Wrappy lines added. Chilloud added. Balance changes added.";
+var changelog = "Cosmat line added. Some default sets adjusted.";
