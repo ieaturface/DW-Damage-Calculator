@@ -5748,9 +5748,9 @@ var loomians = {
             hp: 93,
             attack: 98,
             defense: 103,
-            attackR: 68,
-            defenseR: 103,
-            speed: 47
+            attackR: 78,
+            defenseR: 107,
+            speed: 43
         }
     },
 
@@ -5805,10 +5805,10 @@ var loomians = {
         weight: 46,
         height: 37,
         baseStats: {
-            hp: 82,
+            hp: 92,
             attack: 102,
             defense: 102,
-            attackR: 72,
+            attackR: 62,
             defenseR: 72,
             speed: 82
         }
@@ -8021,6 +8021,30 @@ var loomians = {
             attackR: 110,
             defenseR: 63,
             speed: 121
+        }
+    },
+
+    freqrec: {
+        name: "Freqrec",
+        types: ["Spark", "Mind"],
+        weight: 12,
+        height: 22,
+        ability: "Static Startle",
+        baseStats: {
+            hp: 63,
+            attack: 52,
+            defense: 68,
+            attackR: 117,
+            defenseR: 83,
+            speed: 121
+        },
+        formStats: {
+            hp: 67,
+            attack: 48,
+            defense: 92,
+            attackR: 128,
+            defenseR: 88,
+            speed: 77
         }
     },
 
@@ -14973,7 +14997,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle"];
 
 var typeModAbilities = {
     adipose: {
@@ -15213,4 +15237,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Cosmat line added. Some default sets adjusted.";
+var changelog = "Freqrec added.";
