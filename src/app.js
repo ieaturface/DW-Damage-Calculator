@@ -433,11 +433,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -492,8 +492,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -3522,6 +3522,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((rain.checked && loom2.types.includes("Plant") && move.mr2 == "Ranged Defense") || (sandstorm.checked && loom2.types.includes("Crystal")) && move.mr2 == "Melee Defense") {
         multi *= 1.25;
     }
+    if (ability1 == "Soilbreaker" && move.mr2 == "Melee Defense") {
+        multi *= 0.8;
+        stuffUsed.ability1 = ability1;
+    }
 
     tempDef.def = pokeRound(tempDef.def * multi);
     multi = 1;
@@ -4413,7 +4417,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
             hazardString += "acid rain recovery and ";
         }
 
-        if (rain.checked && (ability == "Fish Outta Water" || ability == "Hydration")) {
+        if (rain.checked && (ability == "Fish Outta Water" || ability == "Hydration" || ability == "Irrigate")) {
             newHP -= Math.floor(hp1 * 1 / 10 * multi);
             hazardString += "rain recovery and ";
         }

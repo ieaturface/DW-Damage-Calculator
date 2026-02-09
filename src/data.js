@@ -187,6 +187,194 @@ var loomians = {
         }
     },
 
+    foxsy: {
+        name: "Foxsy",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 15,
+        height: 20,
+        baseStats: {
+            hp: 55,
+            attack: 60,
+            defense: 50,
+            attackR: 50,
+            defenseR: 50,
+            speed: 70
+        }
+    },
+
+    vuleur: {
+        name: "Vuleur",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 23,
+        height: 36,
+        baseStats: {
+            hp: 65,
+            attack: 70,
+            defense: 65,
+            attackR: 65,
+            defenseR: 65,
+            speed: 85
+        }
+    },
+
+    fabulupin: {
+        name: "Fabulupin",
+        types: ["Plant", "Crystal"],
+        weight: 42,
+        height: 55,
+        baseStats: {
+            hp: 71,
+            attack: 107,
+            defense: 75,
+            attackR: 85,
+            defenseR: 76,
+            speed: 111
+        }
+    },
+
+    bearby: {
+        name: "Bearby",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 14,
+        height: 14,
+        baseStats: {
+            hp: 80,
+            attack: 70,
+            defense: 40,
+            attackR: 60,
+            defenseR: 40,
+            speed: 50
+        }
+    },
+
+    pancabear: {
+        name: "Pancabear",
+        types: ["Food", "Insect"],
+        finalEvo: false,
+        weight: 27,
+        height: 36,
+        baseStats: {
+            hp: 95,
+            attack: 95,
+            defense: 50,
+            attackR: 66,
+            defenseR: 55,
+            speed: 60
+        }
+    },
+
+    mielursa: {
+        name: "Mielursa",
+        types: ["Food", "Insect"],
+        weight: 237,
+        height: 75,
+        baseStats: {
+            hp: 120,
+            attack: 120,
+            defense: 80,
+            attackR: 50,
+            defenseR: 80,
+            speed: 75
+        }
+    },
+
+    mabat: {
+        name: "Mabat",
+        types: ["Spirit"],
+        finalEvo: false,
+        weight: 29,
+        height: 16,
+        baseStats: {
+            hp: 40,
+            attack: 65,
+            defense: 35,
+            attackR: 70,
+            defenseR: 35,
+            speed: 85
+        }
+    },
+
+    grimmlen: {
+        name: "Grimmlen",
+        types: ["Spirit", "Air"],
+        finalEvo: false,
+        weight: 41,
+        height: 34,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 45,
+            attackR: 90,
+            defenseR: 45,
+            speed: 105
+        }
+    },
+
+    garghoul: {
+        name: "Garghoul",
+        types: ["Spirit", "Air"],
+        weight: 15,
+        height: 60,
+        baseStats: {
+            hp: 65,
+            attack: 102,
+            defense: 55,
+            attackR: 113,
+            defenseR: 60,
+            speed: 130
+        }
+    },
+
+    fishel: {
+        name: "Fishel",
+        types: ["Water"],
+        finalEvo: false,
+        weight: 11,
+        height: 8,
+        baseStats: {
+            hp: 40,
+            attack: 60,
+            defense: 55,
+            attackR: 45,
+            defenseR: 55,
+            speed: 60
+        }
+    },
+
+    scalivur: {
+        name: "Scalivur",
+        types: ["Water"],
+        finalEvo: false,
+        weight: 23,
+        height: 32,
+        baseStats: {
+            hp: 60,
+            attack: 75,
+            defense: 60,
+            attackR: 67,
+            defenseR: 60,
+            speed: 73
+        }
+    },
+
+    mercenous: {
+        name: "Mercenous",
+        types: ["Water", "Light"],
+        weight: 28,
+        height: 174,
+        baseStats: {
+            hp: 85,
+            attack: 105,
+            defense: 90,
+            attackR: 70,
+            defenseR: 82,
+            speed: 93
+        }
+    },
+
     borbo: {
         name: "Borbo",
         types: ["Basic", "Air"],
@@ -326,6 +514,37 @@ var loomians = {
             attackR: 55,
             defenseR: 90,
             speed: 110
+        }
+    },
+
+    mooble: {
+        name: "Mooble",
+        types: ["Melee", "Basic"],
+        finalEvo: false,
+        weight: 31,
+        height: 32,
+        baseStats: {
+            hp: 70,
+            attack: 40,
+            defense: 30,
+            attackR: 45,
+            defenseR: 60,
+            speed: 75
+        }
+    },
+
+    sowcow: {
+        name: "Sowcow",
+        types: ["Melee", "Basic"],
+        weight: 472,
+        height: 67,
+        baseStats: {
+            hp: 115,
+            attack: 105,
+            defense: 90,
+            attackR: 50,
+            defenseR: 75,
+            speed: 40
         }
     },
 
@@ -5175,194 +5394,6 @@ var loomians = {
             attackR: 105,
             defenseR: 120,
             speed: 35
-        }
-    },
-
-    foxsy: {
-        name: "Foxsy",
-        types: ["Plant"],
-        finalEvo: false,
-        weight: 15,
-        height: 20,
-        baseStats: {
-            hp: 55,
-            attack: 60,
-            defense: 50,
-            attackR: 50,
-            defenseR: 50,
-            speed: 70
-        }
-    },
-
-    vuleur: {
-        name: "Vuleur",
-        types: ["Plant"],
-        finalEvo: false,
-        weight: 23,
-        height: 36,
-        baseStats: {
-            hp: 65,
-            attack: 70,
-            defense: 65,
-            attackR: 65,
-            defenseR: 65,
-            speed: 85
-        }
-    },
-
-    fabulupin: {
-        name: "Fabulupin",
-        types: ["Plant", "Crystal"],
-        weight: 42,
-        height: 55,
-        baseStats: {
-            hp: 71,
-            attack: 107,
-            defense: 75,
-            attackR: 85,
-            defenseR: 76,
-            speed: 111
-        }
-    },
-
-    bearby: {
-        name: "Bearby",
-        types: ["Food"],
-        finalEvo: false,
-        weight: 14,
-        height: 14,
-        baseStats: {
-            hp: 80,
-            attack: 70,
-            defense: 40,
-            attackR: 60,
-            defenseR: 40,
-            speed: 50
-        }
-    },
-
-    pancabear: {
-        name: "Pancabear",
-        types: ["Food", "Insect"],
-        finalEvo: false,
-        weight: 27,
-        height: 36,
-        baseStats: {
-            hp: 95,
-            attack: 95,
-            defense: 50,
-            attackR: 66,
-            defenseR: 55,
-            speed: 60
-        }
-    },
-
-    mielursa: {
-        name: "Mielursa",
-        types: ["Food", "Insect"],
-        weight: 237,
-        height: 75,
-        baseStats: {
-            hp: 120,
-            attack: 120,
-            defense: 80,
-            attackR: 50,
-            defenseR: 80,
-            speed: 75
-        }
-    },
-
-    mabat: {
-        name: "Mabat",
-        types: ["Spirit"],
-        finalEvo: false,
-        weight: 29,
-        height: 16,
-        baseStats: {
-            hp: 40,
-            attack: 65,
-            defense: 35,
-            attackR: 70,
-            defenseR: 35,
-            speed: 85
-        }
-    },
-
-    grimmlen: {
-        name: "Grimmlen",
-        types: ["Spirit", "Air"],
-        finalEvo: false,
-        weight: 41,
-        height: 34,
-        baseStats: {
-            hp: 50,
-            attack: 80,
-            defense: 45,
-            attackR: 90,
-            defenseR: 45,
-            speed: 105
-        }
-    },
-
-    garghoul: {
-        name: "Garghoul",
-        types: ["Spirit", "Air"],
-        weight: 15,
-        height: 60,
-        baseStats: {
-            hp: 65,
-            attack: 102,
-            defense: 55,
-            attackR: 113,
-            defenseR: 60,
-            speed: 130
-        }
-    },
-
-    fishel: {
-        name: "Fishel",
-        types: ["Water"],
-        finalEvo: false,
-        weight: 11,
-        height: 8,
-        baseStats: {
-            hp: 40,
-            attack: 60,
-            defense: 55,
-            attackR: 45,
-            defenseR: 55,
-            speed: 60
-        }
-    },
-
-    scalivur: {
-        name: "Scalivur",
-        types: ["Water"],
-        finalEvo: false,
-        weight: 23,
-        height: 32,
-        baseStats: {
-            hp: 60,
-            attack: 75,
-            defense: 60,
-            attackR: 67,
-            defenseR: 60,
-            speed: 73
-        }
-    },
-
-    mercenous: {
-        name: "Mercenous",
-        types: ["Water", "Light"],
-        weight: 28,
-        height: 174,
-        baseStats: {
-            hp: 85,
-            attack: 105,
-            defense: 90,
-            attackR: 70,
-            defenseR: 82,
-            speed: 93
         }
     },
 
@@ -14997,7 +15028,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate"];
 
 var typeModAbilities = {
     adipose: {
@@ -15237,4 +15268,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Freqrec added.";
+var changelog = "Mooble line added.";
