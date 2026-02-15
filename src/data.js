@@ -6554,6 +6554,21 @@ var loomians = {
         }
     },
 
+    mechanine: {
+        name: "Mechanine",
+        types: ["Metal", "Beast"],
+        weight: 410,
+        height: 75,
+        baseStats: {
+            hp: 88,
+            attack: 132,
+            defense: 102,
+            attackR: 56,
+            defenseR: 72,
+            speed: 100
+        }
+    },
+
     cranigunk: {
         name: "Cranigunk",
         types: ["Poison"],
@@ -11644,6 +11659,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    razorMomentum: {
+        name: "Razor Momentum",
+        power: 80,
+        accuracy: 100,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     clampbound: {

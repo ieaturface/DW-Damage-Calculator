@@ -3133,7 +3133,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((move.name == "Flame Rattle" && (stat2 == "burned" || stat2 == "frozen")) ||
         (move.name == "Territorial Assault" && stat2 == "marked") ||
-        (move.name == "Korbidal Nuke" && btl2 && withoutSlapDown)) {
+        (move.name == "Korbidal Nuke" && btl2 && withoutSlapDown) ||
+        ((move.name == "Razor Momentum" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1))) {
         multi *= 1.5;
         powerCheck *= 1.5;
         stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
