@@ -433,11 +433,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -492,8 +492,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -812,6 +812,10 @@ function updateAbility(ability) {
     else enhanced1.checked = false;
     if (ability2 == "Jelly Enhancer" || ability2 == "Jelly Sync") enhanced2.checked = true;
     else enhanced2.checked = false;
+    if (ability1 == "Faeriebloom") sapPlant2.checked = true;
+    else sapPlant2.checked = false;
+    if (ability2 == "Faeriebloom") sapPlant1.checked = true;
+    else sapPlant1.checked = false;
     if (ability1 == "Bee Arena" || ability2 == "Bee Arena") {
         iceTrap1.checked = true;
         iceTrap2.checked = true;
@@ -2504,7 +2508,6 @@ function detailedReport() {
             addedDmg += 25;
         }
     }
-
     let tickDamage = adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[0];
     tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
     hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[1];
@@ -2747,7 +2750,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let btl1 = (second == false ? enteredBtl2.checked : enteredBtl1.checked);
     let btl2 = (second == false ? enteredBtl1.checked : enteredBtl2.checked);
     let wall = (second == false ? wall2.checked : wall1.checked);
-    let shield = (second == false? shield2.checked : shield1.checked);
+    let wallMe = (second == false ? wall1.checked : wall2.checked);
+    let shield = (second == false ? shield2.checked : shield1.checked);
+    let shieldMe = (second == false ? shield1.checked : shield2.checked);
     let shale = (second == false ? shale2.checked : shale1.checked);
     let seasoned = (second == false? seasoned2.checked : seasoned1.checked);
     let stat1 = (second == false ? status1.value : status2.value);
@@ -2764,6 +2769,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let lipidOne = (second == false ? lipid2.checked : lipid1.checked);
     let lipidTwo = (second == false ? lipid1.checked : lipid2.checked);
     let aquagel = (second == false ? aquagel2.checked : aquagel1.checked);
+    let seeds = (second == false ? sapPlant1.checked : sapPlant2.checked);
     let enhancedJ1 = (second == false ? enhanced1.checked : enhanced2.checked);
     let enhancedJ2 = (second == false ? enhanced2.checked : enhanced1.checked);
     let possibleDmg = [];
@@ -3173,7 +3179,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Looper" && (immuneBoostCheck1 || !withoutSlapDown)) ||
        (ability1 == "Assassin" && stats2.hpPercent < 50) ||
        (ability1 == "Sweet Treat" && chocolateRain.checked) ||
-       (ability1 == "Hazardous" && acidRain.checked)) {
+       (ability1 == "Hazardous" && acidRain.checked) ||
+       (ability1 == "Slash Expert" && move.slash)) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3213,7 +3220,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if ((ability1 == "Covetous" && itemB != "None") ||
        (ability1 == "Nitelite" && tempType == "Light") ||
        (ability1 == "To Arms!" && (btl2 && withoutSlapDown)) ||
-       (ability1 == "Winter's Blessing")) {
+       (ability1 == "Winter's Blessing") ||
+       (ability1 == "Crystallization" && (wallMe || shieldMe))) {
         multi *= 1.25;
         stuffUsed.ability1 = ability1;
     }
@@ -3229,7 +3237,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Rapier" && move.priority) ||
-       (ability1 == "Slash Expert" && move.slash) ||
        (ability1 == "Grounded" && immuneBoostCheck1 && (loom2.types.includes("Air") || ability2 == "Levitate")) ||
        (ability1 == "Goliath")) {
         multi *= 1.2;
@@ -3330,7 +3337,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
             multi *= 1.6;
             stuffUsed.item1 =+ " (Enhanced)";
         }    
-        else multi *= 1.2;
+        else multi *= 1.3;
     }
 
     if (itemA.includes(tempType) && itemA.includes("Taffy") && (withoutSlapDown || ability1 == "Trick or Treat") && !foulHit) {
@@ -3754,7 +3761,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Volcanic Core" && tempType == "Fire") {
-        multi *= 1.25;
+        multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Animosity" && immuneBoostCheck1) {
@@ -3763,7 +3770,6 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
     if (((ability2 == "Resilience" || ability2 == "Refreshed Resilience") && effectiveness < 1) ||
         (ability2 == "Kindling" && stat1 == "burned") ||
-        (ability2 == "Volcanic Core" && tempType == "Water") ||
         (ability2 == "Winter's Blessing") ||
         (ability2 == "Entangle" && move.pivot)) {
         multi *= 0.75;
@@ -3779,7 +3785,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability2 = ability2;
     }
     if ((effectiveness > 1 && ability2 == "Grass Cloak" && immuneBoostCheck2 && withoutSlapDown) ||
-        (ability2 == "Steel Frame" && move.contact && tempType != "Melee")) {
+        (ability2 == "Steel Frame" && move.contact && tempType != "Melee") ||
+        (ability2 == "Volcanic Core" && tempType == "Water") ||
+        (ability2 == "Faerie Sanctuary" && seeds && !loom1.types.includes("Plant"))) {
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }

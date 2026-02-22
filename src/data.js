@@ -1547,9 +1547,9 @@ var loomians = {
         item: "Spectatik Rune",
         baseStats: {
             hp: 100,
-            attack: 125,
+            attack: 135,
             defense: 135,
-            attackR: 75,
+            attackR: 65,
             defenseR: 90,
             speed: 80
         }
@@ -1595,9 +1595,9 @@ var loomians = {
         item: "Bionotic Runestone",
         baseStats: {
             hp: 105,
-            attack: 66,
+            attack: 56,
             defense: 120,
-            attackR: 103,
+            attackR: 118,
             defenseR: 124,
             speed: 88
         }
@@ -2728,9 +2728,9 @@ var loomians = {
         height: 49,
         baseStats: {
             hp: 85,
-            attack: 75,
+            attack: 60,
             defense: 85,
-            attackR: 80,
+            attackR: 100,
             defenseR: 85,
             speed: 90
         }
@@ -3589,9 +3589,9 @@ var loomians = {
         height: 40,
         baseStats: {
             hp: 103,
-            attack: 77,
+            attack: 82,
             defense: 98,
-            attackR: 45,
+            attackR: 40,
             defenseR: 98,
             speed: 75
         }
@@ -3980,10 +3980,10 @@ var loomians = {
         item: "Ostigon Collar",
         baseStats: {
             hp: 75,
-            attack: 138,
-            defense: 100,
-            attackR: 85,
-            defenseR: 100,
+            attack: 143,
+            defense: 105,
+            attackR: 70,
+            defenseR: 105,
             speed: 103
         }
     },
@@ -4595,7 +4595,7 @@ var loomians = {
         weight: 20,
         height: 30,
         baseStats: {
-            hp: 63,
+            hp: 73,
             attack: 80,
             defense: 65,
             attackR: 90,
@@ -4612,7 +4612,7 @@ var loomians = {
         ability: "Bogdown",
         item: "Libelagua Runestone",
         baseStats: {
-            hp: 63,
+            hp: 73,
             attack: 90,
             defense: 100,
             attackR: 140,
@@ -4836,7 +4836,7 @@ var loomians = {
             attack: 110,
             defense: 115,
             attackR: 50,
-            defenseR: 76,
+            defenseR: 86,
             speed: 56
         }
     },
@@ -5205,7 +5205,7 @@ var loomians = {
             hp: 78,
             attack: 77,
             defense: 72,
-            attackR: 116,
+            attackR: 121,
             defenseR: 74,
             speed: 88
         }
@@ -5482,11 +5482,11 @@ var loomians = {
         height: 60,
         baseStats: {
             hp: 113,
-            attack: 102,
+            attack: 95,
             defense: 83,
             attackR: 58,
             defenseR: 85,
-            speed: 69
+            speed: 64
         }
     },
 
@@ -6378,10 +6378,10 @@ var loomians = {
         height: 46,
         baseStats: {
             hp: 90,
-            attack: 80,
+            attack: 70,
             defense: 75,
             attackR: 115,
-            defenseR: 90,
+            defenseR: 105,
             speed: 95
         }
     },
@@ -7016,7 +7016,7 @@ var loomians = {
         item: "Hangryphus Pie",
         baseStats: {
             hp: 84,
-            attack: 130,
+            attack: 140,
             defense: 120,
             attackR: 65,
             defenseR: 120,
@@ -7246,9 +7246,9 @@ var loomians = {
         item: "Hattrix Rune",
         baseStats: {
             hp: 60,
-            attack: 85,
-            defense: 65,
-            attackR: 135,
+            attack: 75,
+            defense: 75,
+            attackR: 140,
             defenseR: 115,
             speed: 105
         }
@@ -7447,7 +7447,7 @@ var loomians = {
         weight: 20,
         height: 34,
         baseStats: {
-            hp: 76,
+            hp: 86,
             attack: 100,
             defense: 92,
             attackR: 100,
@@ -7922,7 +7922,7 @@ var loomians = {
         weight: 96,
         height: 177,
         baseStats: {
-            hp: 75,
+            hp: 85,
             attack: 115,
             defense: 90,
             attackR: 55,
@@ -8094,9 +8094,57 @@ var loomians = {
         }
     },
 
+    scentino: {
+        name: "Scentino",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 17,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 42,
+            defense: 52,
+            attackR: 82,
+            defenseR: 72,
+            speed: 62
+        }
+    },
+
+    aromaflora: {
+        name: "Aromaflora",
+        types: ["Plant", "Light"],
+        weight: 38,
+        height: 76,
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 78,
+            attackR: 112,
+            defenseR: 108,
+            speed: 55
+        }
+    },
+
+    'aromaflora-awakened': {
+        name: "Aromaflora-Awakened",
+        types: ["Plant", "Light"],
+        weight: 38,
+        height: 76,
+        ability: "Faerie Sanctuary",
+        item: "Aromaflora Rune",
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 94,
+            attackR: 130,
+            defenseR: 140,
+            speed: 78
+        }
+    },
+
     flamtot: {
         name: "Flamtot",
-        types: ["Fire",],
+        types: ["Fire"],
         finalEvo: false,
         weight: 5,
         height: 12,
@@ -8112,7 +8160,7 @@ var loomians = {
 
     pyromander: {
         name: "Pyromander",
-        types: ["Fire",],
+        types: ["Fire"],
         finalEvo: false,
         weight: 11,
         height: 26,
@@ -8128,7 +8176,7 @@ var loomians = {
 
     salaferno: {
         name: "Salaferno",
-        types: ["Fire",],
+        types: ["Fire"],
         weight: 29,
         height: 48,
         baseStats: {
@@ -8180,10 +8228,10 @@ var loomians = {
         height: 65,
         baseStats: {
             hp: 85,
-            attack: 107,
+            attack: 98,
             defense: 112,
             attackR: 72,
-            defenseR: 60,
+            defenseR: 69,
             speed: 88
         }
     },
@@ -8207,14 +8255,13 @@ var loomians = {
     gladilightor: {
         name: "Gladilightor",
         types: ["Light", "Metal"],
-        finalEvo: false,
         weight: 97,
         height: 63,
         baseStats: {
-            hp: 94,
+            hp: 104,
             attack: 114,
             defense: 102,
-            attackR: 65,
+            attackR: 55,
             defenseR: 91,
             speed: 42
         }
@@ -8243,10 +8290,10 @@ var loomians = {
         height: 55,
         baseStats: {
             hp: 99,
-            attack: 111,
+            attack: 116,
             defense: 102,
-            attackR: 55,
-            defenseR: 86,
+            attackR: 50,
+            defenseR: 96,
             speed: 64
         }
     },
@@ -8445,8 +8492,8 @@ var loomians = {
         baseStats: {
             hp: 108,
             attack: 107,
-            defense: 95,
-            attackR: 74,
+            defense: 105,
+            attackR: 64,
             defenseR: 83,
             speed: 44
         }
@@ -8459,9 +8506,9 @@ var loomians = {
         height: 78,
         baseStats: {
             hp: 79,
-            attack: 111,
+            attack: 116,
             defense: 83,
-            attackR: 63,
+            attackR: 58,
             defenseR: 71,
             speed: 104
         }
@@ -9034,7 +9081,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        slash: true
+        slash: true,
+        secondaryEffect: true
     },
 
     pirouette: {
@@ -9609,6 +9657,17 @@ var moves = {
         name: "Sakura Blast",
         power: 75,
         accuracy: 90,
+        type: "Plant",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    flowerFrisbee: {
+        name: "Flower Frisbee",
+        power: 80,
+        accuracy: 100,
         type: "Plant",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -10253,9 +10312,20 @@ var moves = {
         contact: true
     },
 
+    featheryGash: {
+        name: "Feathery Gash",
+        power: 90,
+        accuracy: 100,
+        type: "Air",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     talonStrike: {
         name: "Talon Strike",
-        power: 50,
+        power: 40,
         accuracy: 100,
         type: "Melee",
         mr: "Melee",
@@ -10268,7 +10338,7 @@ var moves = {
         name: "Hit-n-Run",
         power: 75,
         accuracy: 100,
-        type: "Air",
+        type: "Basic",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
@@ -10278,7 +10348,7 @@ var moves = {
 
     noseDive: {
         name: "Nose Dive",
-        power: 110,
+        power: 125,
         accuracy: 85,
         type: "Air",
         mr: "Melee",
@@ -10368,7 +10438,7 @@ var moves = {
     malwareMangle: {
         name: "Malware Mangle",
         power: 70,
-        accuracy: 90,
+        accuracy: 100,
         type: "Insect",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -10378,7 +10448,7 @@ var moves = {
 
     fatalSting: {
         name: "Fatal Sting",
-        power: 150,
+        power: 200,
         accuracy: 100,
         type: "Insect",
         mr: "Melee",
@@ -12311,7 +12381,7 @@ var moves = {
 
     arcticBlitz: {
         name: "Arctic Blitz",
-        power: 100,
+        power: 120,
         accuracy: 100,
         type: "Ice",
         mr: "Melee",
@@ -12361,7 +12431,8 @@ var moves = {
         type: "Dark",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        sound: true
     },
 
     chaoticBolt: {
@@ -14608,11 +14679,11 @@ var amulets = {
     'diy pin': {
         name: "DIY Pin",
         health: 0,
-        attack: 5,
-        defense: 5,
-        mAttack: 5,
-        mDefense: 5,
-        speed: 0,
+        attack: 7,
+        defense: 0,
+        mAttack: 7,
+        mDefense: -7,
+        speed: 5,
     },
 
     'sandstone necklace': {
@@ -15054,7 +15125,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
-                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate"];
+                 "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
+                 "Faeriebloom", "Faerie Sanctuary"];
 
 var typeModAbilities = {
     adipose: {
@@ -15281,7 +15353,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
-             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella"];
+             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -15294,4 +15366,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Mooble line added.";
+var changelog = "Scentino line and Season 20 balance changes added.";
