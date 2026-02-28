@@ -5661,6 +5661,23 @@ var loomians = {
         }
     },
 
+    'boblop-awakened': {
+        name: "Boblop-Awakened",
+        types: ["Fire", "Air"],
+        weight: 671,
+        height: 120,
+        ability: "Thermal Uplift",
+        item: "Boblop Feather",
+        baseStats: {
+            hp: 135,
+            attack: 95,
+            defense: 60,
+            attackR: 135,
+            defenseR: 60,
+            speed: 115
+        }
+    },
+
     saltot: {
         name: "Saltot",
         types: ["Crystal"],
@@ -9159,7 +9176,7 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        typeModifier: { type: "Water", modifier: 1.5 }
+        typeModifier: { type: "Water", modifier: 2 }
     },
 
     charcoil: {
@@ -11914,8 +11931,8 @@ var moves = {
         contact: true
     },
 
-    korbidalNuke: {
-        name: "Korbidal Nuke",
+    korbidalStrike: {
+        name: "Korbidal Strike",
         power: 80,
         accuracy: 90,
         type: "Spirit",
@@ -15126,7 +15143,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift"];
 
 var typeModAbilities = {
     adipose: {
@@ -15366,4 +15383,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Scentino line and Season 20 balance changes added.";
+var changelog = "Awakened Boblop added.";

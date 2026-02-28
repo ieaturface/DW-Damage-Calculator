@@ -3869,7 +3869,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Thermal Uplift" && (tempType == "Fire" || tempType == "Air") && stats1.hpPercent == 100)|| (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
