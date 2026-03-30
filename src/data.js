@@ -707,6 +707,37 @@ var loomians = {
         }
     },
 
+    bakan: {
+        name: "Bakan",
+        types: ["Water", "Air"],
+        finalEvo: false,
+        weight: 12,
+        height: 28,
+        baseStats: {
+            hp: 85,
+            attack: 40,
+            defense: 80,
+            attackR: 45,
+            defenseR: 75,
+            speed: 55
+        }
+    },
+
+    yumecani: {
+        name: "Yumecani",
+        types: ["Water", "Air"],
+        weight: 20,
+        height: 59,
+        baseStats: {
+            hp: 120,
+            attack: 50,
+            defense: 105,
+            attackR: 65,
+            defenseR: 95,
+            speed: 25
+        }
+    },
+
     tadappole: {
         name: "Tadappole",
         types: ["Water", "Food"],
@@ -15383,4 +15414,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Awakened Boblop added.";
+var changelog = "Bakan line added.";
