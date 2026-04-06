@@ -433,11 +433,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -492,8 +492,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -683,7 +683,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded" ||
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
         abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost" || abilityDropdown1.value == "Grand Entrance" ||
-        abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle") {
+        abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle" || abilityDropdown1.value == "Stalwart") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -695,7 +695,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded" ||
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
         abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown2.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost" || abilityDropdown2.value == "Grand Entrance" ||
-        abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle") {
+        abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle" || abilityDropdown2.value == "Stalwart") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1848,6 +1848,18 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
         if (crit && defStage > 0 && ability2 != "Fortified") def.def = baseDefense;
         if (firstHit && ability2 == "Opposite Day") stuffUsed.ability2 = ability2;
+    }
+
+    //Checking for defense increasing abilities that are manually checked and adjusts subsequent hits' offensive stat
+    if ((ability2 == "Stalwart") && abilityCheck2) {
+        moveMod = 0;
+        if (ability2 == "Stalwart" && move.mr1 == "Melee Attack" && atk.name == "AttackM") moveMod = 1;
+
+        if (celebrate.checked && moveMod > 0) moveMod = 0;
+        defStage = (moveMod < 0 ? Math.max(defStage + moveMod, -6) : Math.min(defStage + moveMod, 6));
+        def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
+        if (crit && defStage > 0 && ability2 != "Fortified") def.def = baseDefense;
+        if (firstHit) stuffUsed.ability2 = ability2;
     }
 
     //Checks for certain defense increasing abilities and adjusts subsequent hits' defensive stat
@@ -3869,7 +3881,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Thermal Uplift" && (tempType == "Fire" || tempType == "Air") && stats1.hpPercent == 100)|| (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Become the Light" && tempType == "Light" && stats1.hpPercent >= 50) || (ability1 == "Thermal Uplift" && (tempType == "Fire" || tempType == "Air") && stats1.hpPercent == 100)|| (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }

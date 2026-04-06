@@ -3284,6 +3284,23 @@ var loomians = {
         }
     },
 
+    'fluppy-awakened': {
+        name: "Fluppy-Awakened",
+        types: ["Light", "Plant"],
+        weight: 10,
+        height: 19,
+        ability: "Become the Light",
+        item: "Fluppy Petal",
+        baseStats: {
+            hp: 75,
+            attack: 85,
+            defense: 65,
+            attackR: 145,
+            defenseR: 65,
+            speed: 145
+        }
+    },
+
     junipyro: {
         name: "Junipyro",
         types: ["Fire", "Plant"],
@@ -7683,6 +7700,37 @@ var loomians = {
             attackR: 115,
             defenseR: 75,
             speed: 90
+        }
+    },
+
+    kitave: {
+        name: "Kitave",
+        types: ["Basic"],
+        finalEvo: false,
+        weight: 5,
+        height: 20,
+        baseStats: {
+            hp: 55,
+            attack: 80,
+            defense: 40,
+            attackR: 70,
+            defenseR: 40,
+            speed: 115
+        }
+    },
+
+    curixen: {
+        name: "Curixen",
+        types: ["Basic", "Light"],
+        weight: 42,
+        height: 47,
+        baseStats: {
+            hp: 68,
+            attack: 102,
+            defense: 67,
+            attackR: 83,
+            defenseR: 71,
+            speed: 129
         }
     },
 
@@ -15174,7 +15222,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Become the Light", "Stalwart"];
 
 var typeModAbilities = {
     adipose: {
@@ -15414,4 +15462,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Bakan line added.";
+var changelog = "Kitave line and Awakened Fluppy added.";
