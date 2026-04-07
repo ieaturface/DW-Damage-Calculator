@@ -15449,7 +15449,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
-             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant"];
+             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");

@@ -1993,25 +1993,25 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL1 = getMultiplier(firstLoom, secondLoom, moveOne1, moveOnePower1.value, critOne1, repeat1, hitsOne1, elementalOne1, swarmOne1, snowballOne1, false, level1.value, true);
     let dmgMoveOnePercent1 = (dmgMoveOneL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
+    moveOneDmg1.innerHTML = dmgMoveOnePercent1 + checkIceTrap(moveOne1, Math.min(dmgMoveOneL1, hp2), Math.min(dmgMoveOneU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2, firstLoom, secondLoom);
 
     let dmgMoveTwoU1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, elementalTwo1, swarmTwo1, snowballTwo1, false, level1.value);
     let dmgMoveTwoL1 = getMultiplier(firstLoom, secondLoom, moveTwo1, moveTwoPower1.value, critTwo1, repeat1, hitsTwo1, elementalTwo1, swarmTwo1, snowballTwo1, false, level1.value, true);
     let dmgMoveTwoPercent1 = (dmgMoveTwoL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, ability2, stat1, stat2);
+    moveTwoDmg1.innerHTML = dmgMoveTwoPercent1 + checkIceTrap(moveTwo1, Math.min(dmgMoveTwoL1, hp2), Math.min(dmgMoveTwoU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2, firstLoom, secondLoom);
 
     let dmgMoveThreeU1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, elementalThree1, swarmThree1, snowballThree1, false, level1.value);
     let dmgMoveThreeL1 = getMultiplier(firstLoom, secondLoom, moveThree1, moveThreePower1.value, critThree1, repeat1, hitsThree1, elementalThree1, swarmThree1, snowballThree1, false, level1.value, true);
     let dmgMoveThreePercent1 = (dmgMoveThreeL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
+    moveThreeDmg1.innerHTML = dmgMoveThreePercent1 + checkIceTrap(moveThree1, Math.min(dmgMoveThreeL1, hp2), Math.min(dmgMoveThreeU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2, firstLoom, secondLoom);
 
     let dmgMoveFourU1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, elementalFour1, swarmFour1, snowballFour1, false, level1.value);
     let dmgMoveFourL1 = getMultiplier(firstLoom, secondLoom, moveFour1, moveFourPower1.value, critFour1, repeat1, hitsFour1, elementalFour1, swarmFour1, snowballFour1, false, level1.value, true);
     let dmgMoveFourPercent1 = (dmgMoveFourL1 / hp2 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU1 / hp2 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2);
+    moveFourDmg1.innerHTML = dmgMoveFourPercent1 + checkIceTrap(moveFour1, Math.min(dmgMoveFourL1, hp2), Math.min(dmgMoveFourU1, hp2), hp1, percentHP1.value, itemA, ability1, ability2, stat1, stat2, firstLoom, secondLoom);
 
     //----------------------------------------------------------
 
@@ -2019,26 +2019,26 @@ function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, mo
     let dmgMoveOneL2 = getMultiplier(secondLoom, firstLoom, moveOne2, moveOnePower2.value, critOne2, repeat2, hitsOne2, elementalOne2, swarmOne2, snowballOne2, false, level2.value, true, true);
     let dmgMoveOnePercent2 = (dmgMoveOneL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveOneU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
+    moveOneDmg2.innerHTML = dmgMoveOnePercent2 + checkIceTrap(moveOne2, Math.min(dmgMoveOneL2, hp1), Math.min(dmgMoveOneU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1, secondLoom, firstLoom);
 
     let dmgMoveTwoU2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, elementalTwo2, swarmTwo2, snowballTwo2, false, level2.value, undefined, true);
     let dmgMoveTwoL2 = getMultiplier(secondLoom, firstLoom, moveTwo2, moveTwoPower2.value, critTwo2, repeat2, hitsTwo2, elementalTwo2, swarmTwo2, snowballTwo2, false, level2.value, true, true);
     let dmgMoveTwoPercent2 = (dmgMoveTwoL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveTwoU2 / hp1 * 100).toFixed(1).toString() + "%";
     
-    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
+    moveTwoDmg2.innerHTML = dmgMoveTwoPercent2 + checkIceTrap(moveTwo2, Math.min(dmgMoveTwoL2, hp1), Math.min(dmgMoveTwoU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1, secondLoom, firstLoom);
 
     let dmgMoveThreeU2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, elementalThree2, swarmThree2, snowballThree2, false, level2.value, undefined, true);
     let dmgMoveThreeL2 = getMultiplier(secondLoom, firstLoom, moveThree2, moveThreePower2.value, critThree2, repeat2, hitsThree2, elementalThree2, swarmThree2, snowballThree2, false, level2.value, true, true);
     let dmgMoveThreePercent2 = (dmgMoveThreeL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveThreeU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
+    moveThreeDmg2.innerHTML = dmgMoveThreePercent2 + checkIceTrap(moveThree2, Math.min(dmgMoveThreeL2, hp1), Math.min(dmgMoveThreeU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1, secondLoom, firstLoom);
 
     let dmgMoveFourU2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, elementalFour2, swarmFour2, snowballFour2, false, level2.value, undefined, true);
     let dmgMoveFourL2 = getMultiplier(secondLoom, firstLoom, moveFour2, moveFourPower2.value, critFour2, repeat2, hitsFour2, elementalFour2, swarmFour2, snowballFour2, false, level2.value, true, true);
 
     let dmgMoveFourPercent2 = (dmgMoveFourL2 / hp1 * 100).toFixed(1).toString() + " - " + (dmgMoveFourU2 / hp1 * 100).toFixed(1).toString() + "%";
 
-    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1);
+    moveFourDmg2.innerHTML = dmgMoveFourPercent2 + checkIceTrap(moveFour2, Math.min(dmgMoveFourL2, hp1), Math.min(dmgMoveFourU2, hp1), hp2, percentHP2.value, itemB, ability2, ability1, stat2, stat1, secondLoom, firstLoom);
 }
 
 function detailedReport() {
@@ -4508,9 +4508,9 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     return [newHP, hazardString];
 }
 
-function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2) {
+function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2, mon1, mon2) {
     if (l == 0 && u == 0) return "";
-    if (ability != "Metabolize" && (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark"))) {
+    if (ability != "Metabolize" && (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light")))) {
         let drain = move.drain;
         if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark")) {
             if (!drain) drain = 1/4;
@@ -4518,7 +4518,7 @@ function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1,
         } else if (ability == "Chlorobite" && move.bite) {
             if (!drain) drain = 1/3;
             else drain += 1/3;
-        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee")) {
+        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light"))) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }
