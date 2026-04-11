@@ -1294,9 +1294,9 @@ var loomians = {
         item: "Grufflin Rune",
         baseStats: {
             hp: 80,
-            attack: 110,
+            attack: 100,
             defense: 80,
-            attackR: 100,
+            attackR: 110,
             defenseR: 90,
             speed: 115
         }
@@ -2176,8 +2176,8 @@ var loomians = {
         baseStats: {
             hp: 98,
             attack: 108,
-            defense: 68,
-            attackR: 70,
+            defense: 78,
+            attackR: 60,
             defenseR: 90,
             speed: 80
         }
@@ -3481,9 +3481,9 @@ var loomians = {
         baseStats: {
             hp: 85,
             attack: 95,
-            defense: 75,
-            attackR: 85,
-            defenseR: 70,
+            defense: 83,
+            attackR: 79,
+            defenseR: 78,
             speed: 96
         }
     },
@@ -3700,7 +3700,7 @@ var loomians = {
         item: "Jellupy Whisk",
         baseStats: {
             hp: 90,
-            attack: 110,
+            attack: 120,
             defense: 90,
             attackR: 102,
             defenseR: 93,
@@ -3918,10 +3918,10 @@ var loomians = {
         height: 53,
         baseStats: {
             hp: 130,
-            attack: 85,
+            attack: 80,
             defense: 90,
             attackR: 105,
-            defenseR: 60,
+            defenseR: 70,
             speed: 50
         }
     },
@@ -4646,7 +4646,7 @@ var loomians = {
             hp: 73,
             attack: 80,
             defense: 65,
-            attackR: 90,
+            attackR: 100,
             defenseR: 65,
             speed: 120
         }
@@ -4661,7 +4661,7 @@ var loomians = {
         item: "Libelagua Runestone",
         baseStats: {
             hp: 73,
-            attack: 90,
+            attack: 80,
             defense: 100,
             attackR: 140,
             defenseR: 95,
@@ -5313,10 +5313,10 @@ var loomians = {
         height: 53,
         baseStats: {
             hp: 75,
-            attack: 125,
+            attack: 115,
             defense: 100,
             attackR: 60,
-            defenseR: 30,
+            defenseR: 40,
             speed: 100
         }
     },
@@ -5639,9 +5639,9 @@ var loomians = {
         height: 40,
         baseStats: {
             hp: 65,
-            attack: 60,
+            attack: 50,
             defense: 125,
-            attackR: 65,
+            attackR: 75,
             defenseR: 110,
             speed: 90
         }
@@ -5718,7 +5718,7 @@ var loomians = {
         item: "Boblop Feather",
         baseStats: {
             hp: 135,
-            attack: 95,
+            attack: 105,
             defense: 60,
             attackR: 135,
             defenseR: 60,
@@ -6596,9 +6596,9 @@ var loomians = {
         height: 86,
         baseStats: {
             hp: 120,
-            attack: 130,
+            attack: 120,
             defense: 110,
-            attackR: 60,
+            attackR: 70,
             defenseR: 55,
             speed: 75
         }
@@ -6937,9 +6937,9 @@ var loomians = {
         weight: 73,
         height: 68,
         baseStats: {
-            hp: 85,
-            attack: 70,
-            defense: 110,
+            hp: 90,
+            attack: 55,
+            defense: 120,
             attackR: 115,
             defenseR: 75,
             speed: 60
@@ -7419,9 +7419,9 @@ var loomians = {
         weight: 73,
         height: 70,
         baseStats: {
-            hp: 70,
+            hp: 75,
             attack: 50,
-            defense: 85,
+            defense: 95,
             attackR: 90,
             defenseR: 100,
             speed: 100
@@ -7731,6 +7731,37 @@ var loomians = {
             attackR: 83,
             defenseR: 71,
             speed: 129
+        }
+    },
+
+    pickit: {
+        name: "Pickit",
+        types: ["Basic"],
+        finalEvo: false,
+        weight: 3,
+        height: 22,
+        baseStats: {
+            hp: 49,
+            attack: 82,
+            defense: 38,
+            attackR: 66,
+            defenseR: 45,
+            speed: 120
+        }
+    },
+
+    velace: {
+        name: "Velace",
+        types: ["Basic", "Fire"],
+        weight: 33,
+        height: 45,
+        baseStats: {
+            hp: 63,
+            attack: 110,
+            defense: 56,
+            attackR: 87,
+            defenseR: 69,
+            speed: 135
         }
     },
 
@@ -8279,7 +8310,7 @@ var loomians = {
             hp: 81,
             attack: 73,
             defense: 83,
-            attackR: 109,
+            attackR: 114,
             defenseR: 73,
             speed: 94
         }
@@ -8419,7 +8450,7 @@ var loomians = {
             hp: 72,
             attack: 65,
             defense: 74,
-            attackR: 110,
+            attackR: 115,
             defenseR: 84,
             speed: 100
         }
@@ -9364,8 +9395,8 @@ var moves = {
 
     foxfire: {
         name: "Foxfire",
-        power: 75,
-        accuracy: 100,
+        power: 95,
+        accuracy: 85,
         type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -9454,6 +9485,18 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1
+    },
+
+    hotPot: {
+        name: "Hot Pot",
+        power: 95,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        drain: 1/2
     },
 
     finalExplosion: {
@@ -9970,7 +10013,7 @@ var moves = {
 
     thunderstorm: {
         name: "Thunderstorm",
-        power: 110,
+        power: 120,
         accuracy: 70,
         type: "Spark",
         mr: "Magic",
@@ -10150,7 +10193,7 @@ var moves = {
 
     jumbleClobber: {
         name: "Jumble Clobber",
-        power: 90,
+        power: 105,
         accuracy: 85,
         type: "Beast",
         mr: "Melee",
@@ -10204,6 +10247,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        stat: {amount: -1, battle: "Offense", stat: "AttackM"}
     },
 
     bestialWrath: {
@@ -10274,6 +10318,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        slash: true,
         secondaryEffect: true
     },
 
@@ -10916,7 +10961,7 @@ var moves = {
 
     mindDrain: {
         name: "Mind Drain",
-        power: 65,
+        power: 70,
         accuracy: 100,
         type: "Mind",
         mr: "Magic",
@@ -11081,8 +11126,8 @@ var moves = {
 
     unguardedStrike: {
         name: "Unguarded Strike",
-        power: 100,
-        accuracy: 80,
+        power: 110,
+        accuracy: 100,
         type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -12340,8 +12385,8 @@ var moves = {
 
     frostbite: {
         name: "Frostbite",
-        power: 130,
-        accuracy: 50,
+        power: 110,
+        accuracy: 85,
         type: "Ice",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -12565,7 +12610,7 @@ var moves = {
 
     pursuit: {
         name: "Pursuit",
-        power: 40,
+        power: 30,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -12576,7 +12621,7 @@ var moves = {
 
     expectorate: {
         name: "Expectorate",
-        power: 90,
+        power: 70,
         accuracy: 100,
         type: "Dark",
         mr: "Magic",
@@ -14056,7 +14101,7 @@ var moves = {
     murmur: {
         name: "Murmur",
         power: 0,
-        accuracy: 85,
+        accuracy: 90,
         type: "Spirit",
         mr: "Support"
     },
@@ -14807,11 +14852,11 @@ var artifacts = {
 
     firework: {
         name: "Firework",
-        health: -25,
-        attack: 25,
-        defense: -10,
-        mAttack: 0,
-        mDefense: 0,
+        health: -5,
+        attack: 15,
+        defense: -5,
+        mAttack: 7,
+        mDefense: -5,
         speed: 0,
     },
 
@@ -15216,13 +15261,13 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Jab Cross", "Crystallization", "Mind Games", "Paper Cut", "Acid Advance", "Fur Coat", "Your Meowjesty", "Trick or Treat", "Everlasting", "Revenant", "Warden", "Forbidden Knowledge", "Grounded", "Silly", "Goliath", "Naughty List", "Symbiosis",
                  "Mushroom Maneuver", "Crowd Support", "Speedy Recovery", "Gift Giver", "Soul Fortification", "Clearcut Ore", "Split", "Soul Link", "Chivalry", "Tumble", "Paralyzing Agent", "Evasive", "Bee Arena", "Deterrent Sabre", "Illogical", "Gunk Spark", "Absorber",
                  "Floaty", "Hardy", "Hydration", "Static Charge", "Mushboom", "Bug Zapper", "Filial Piety", "Brainfreeze", "Architect", "Amp It Up", "Reactive Shock", "Thermal Energy", "Corruption", "Hammer Time", "Bogdown", "Joltant", "Chlorobite", "Resentment",
-                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impale",
+                 "Almagest", "Chaos Theory", "Decay", "Barkenstein", "Puppeter", "Entertainer", "Lipid Scale", "Proboscus", "Grass Cloak", "Firestarter", "Aloe Vera", "Evil Glare", "Night Harbinger", "Holiday Spirit", "Tri-Snake", "Blightfrost", "Impalement",
                  "Poison Substance", "Phasmophobia", "Florist", "Pollen Spread", "Flowerhaven", "To Arms!", "Kingly Aura", "Monarch", "Sovereign", "Unpredictable", "Last Laugh", "Impersonate", "Metabolize", "Static Purge", "Overcharge", "Thunder Gut", "Hydro Coating",
                  "Iron Pincer", "Frostillery", "Reheat", "Steeped Spirit", "Signal Jammer", "Overgrowth Protocol", "Paragon Skin", "Flourish", "Lament", "Jelly Sync", "Hero Spark", "Foul Welcome", "Pop Reflexes", "Impact Recoil", "Curtain Call", "Glitter Trail",
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Become the Light", "Stalwart"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Become the Light", "Stalwart", "Grave Scrambler"];
 
 var typeModAbilities = {
     adipose: {
@@ -15413,7 +15458,7 @@ var typeModAbilities = {
 
     hardCandy: {
         name: "Hard Candy",
-        typeModifier: { type: "Fire", modifier: 0.25 },
+        typeModifier: { type: "Fire", modifier: 0.75 },
         powerMod: false
     },
 
@@ -15449,7 +15494,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
-             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg"];
+             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg", "Plague Mask", "Electric Swatter"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -15462,4 +15507,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Kitave line and Awakened Fluppy added.";
+var changelog = "Pickit line and Season 21 Balance Patch added.";
