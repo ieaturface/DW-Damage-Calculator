@@ -1778,6 +1778,10 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         if (((move.stat && move.stat.first) || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd)))) moveAdjustmentCount += 1;
 
         if (celebrate.checked && moveMod < 0) moveMod = 0;
+        if (ability1 == "Ceasing Light" && moveMod != 0) {
+            moveMod = 0;
+            stuffUsed.ability1 = ability1;
+        }    
         atkStage = (moveMod < 0 ? Math.max(atkStage + moveAdjustmentCount * moveMod, -6) : Math.min(atkStage + moveAdjustmentCount * moveMod, 6));
 
         /*if (ability1 == "One of Many" && moveMod < 0) {
@@ -1811,7 +1815,7 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         moveMod = 0;
         if ((ability2 == "Menacing Snarl" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Sickly Sweet" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
         if (ability2 == "Sugarsick" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") moveMod -=2;
-        if (ability1 == "Stonefaced" || ability1 == "Opposite Day" || ability1 == "Evergreen Halo") {
+        if (ability1 == "Stonefaced" || ability1 == "Opposite Day" || ability1 == "Evergreen Halo" || ability1 == "Ceasing Light") {
             moveMod = (ability1 == "Opposite Day" ? (ability2 == "Sugarsick" ? 2 : 1) : 0);
             stuffUsed.ability1 = ability1;
         }
@@ -3913,7 +3917,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
-    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Become the Light" && tempType == "Light" && stats1.hpPercent >= 50) || (ability1 == "Thermal Uplift" && (tempType == "Fire" || tempType == "Air") && stats1.hpPercent == 100)|| (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
+    if (ability2 == "Bulwark" && (move.priority || (ability1 == "Ice Stream" && tempType == "Ice" && stats1.hpPercent == 100) || (ability1 == "Superluminal" && tempType == "Light" && stats1.hpPercent == 100) || (ability1 == "Thermal Uplift" && (tempType == "Fire" || tempType == "Air") && stats1.hpPercent == 100)|| (ability1 == "Speedy Recovery" && move.drain) || (ability1 == "Flowerhaven" && garden.checked))) {
         multi *= 0;
         stuffUsed.ability2 = ability2;
     }
