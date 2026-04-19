@@ -8221,6 +8221,54 @@ var loomians = {
         }
     },
 
+    cobblepawn: {
+        name: "Cobblepawn",
+        types: ["Fire", "Earth"],
+        finalEvo: false,
+        weight: 84,
+        height: 37,
+        baseStats: {
+            hp: 68,
+            attack: 72,
+            defense: 89,
+            attackR: 54,
+            defenseR: 64,
+            speed: 14
+        }
+    },
+
+    kinglith: {
+        name: "Kinglith",
+        types: ["Fire", "Earth"],
+        weight: 1125,
+        height: 71,
+        baseStats: {
+            hp: 104,
+            attack: 122,
+            defense: 118,
+            attackR: 60,
+            defenseR: 96,
+            speed: 30
+        }
+    },
+
+    'kinglith-awakened': {
+        name: "Kinglith-Awakened",
+        types: ["Fire", "Earth"],
+        weight: 1125,
+        height: 71,
+        ability: "Siegebreaker",
+        item: "Kinglith Pyreblade",
+        baseStats: {
+            hp: 104,
+            attack: 145,
+            defense: 132,
+            attackR: 78,
+            defenseR: 100,
+            speed: 68
+        }
+    },
+
     scentino: {
         name: "Scentino",
         types: ["Plant"],
@@ -9485,6 +9533,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         recoil: 1
+    },
+
+    checkmate: {
+        name: "Checkmate",
+        power: 90,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
     },
 
     hotPot: {
@@ -15267,7 +15326,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict"];
 
 var typeModAbilities = {
     adipose: {
@@ -15507,4 +15566,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Pickit line and Season 21 Balance Patch added.";
+var changelog = "Cobblepawn line added.";

@@ -439,11 +439,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -498,8 +498,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -689,7 +689,8 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown1.value == "Elegance" || abilityDropdown1.value == "Reformation" || abilityDropdown1.value == "Battery Charge" || abilityDropdown1.value == "High Value Target" || abilityDropdown1.value == "Eruption" || abilityDropdown1.value == "Grounded" ||
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
         abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost" || abilityDropdown1.value == "Grand Entrance" ||
-        abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle" || abilityDropdown1.value == "Stalwart" || abilityDropdown1.value == "Conductor") {
+        abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle" || abilityDropdown1.value == "Stalwart" || abilityDropdown1.value == "Conductor" ||
+        abilityDropdown1.value == "King's Edict") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -701,7 +702,8 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown2.value == "Elegance" || abilityDropdown2.value == "Reformation" || abilityDropdown2.value == "Battery Charge" || abilityDropdown2.value == "High Value Target" || abilityDropdown2.value == "Eruption" || abilityDropdown2.value == "Grounded" ||
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
         abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown2.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost" || abilityDropdown2.value == "Grand Entrance" ||
-        abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle" || abilityDropdown2.value == "Stalwart" || abilityDropdown2.value == "Conductor") {
+        abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle" || abilityDropdown2.value == "Stalwart" || abilityDropdown2.value == "Conductor" ||
+        abilityDropdown2.value == "King's Edict") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1811,9 +1813,9 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for attack decreasing abilities that are manually checked and adjusts subsequent hits' offensive stat
-    if ((ability2 == "Menacing Snarl" || ability2 == "Sickly Sweet" || ability2 == "Sugarsick") && abilityCheck2) {
+    if ((ability2 == "Menacing Snarl" || ability2 == "Sickly Sweet" || ability2 == "Sugarsick" || (ability2 == "King's Edict" && stats2.hpPercent < 50)) && abilityCheck2) {
         moveMod = 0;
-        if ((ability2 == "Menacing Snarl" && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Sickly Sweet" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
+        if (((ability2 == "Menacing Snarl" || (ability2 == "King's Edict" && stats2.hpPercent < 50)) && move.mr1 == "Melee Attack" && atk.name == "AttackM") || (ability2 == "Sickly Sweet" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") || (ability2 == "Adorable" && move.mr1 == "Melee Defense" && atk.name == "DefenseM")) moveMod -= 1;
         if (ability2 == "Sugarsick" && move.mr1 == "Ranged Attack" && atk.name == "AttackR") moveMod -=2;
         if (ability1 == "Stonefaced" || ability1 == "Opposite Day" || ability1 == "Evergreen Halo" || ability1 == "Ceasing Light") {
             moveMod = (ability1 == "Opposite Day" ? (ability2 == "Sugarsick" ? 2 : 1) : 0);
@@ -1909,26 +1911,27 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     }
 
     //Checking for defense decreasing abilities that are manually checked and adjusts subsequent hits' defensive stat
-    /*if (ability1 == "Adorable" && abilityCheck1) {
+    if ((ability1 == "King's Edict" && stats1.hpPercent >= 50) && abilityCheck1) {
         moveMod = 0;
-        if (ability1 == "Adorable" && move.mr2 == "Melee Defense" && def.name == "DefenseM") moveMod -= 1;
-        if (ability2 == "Staunch" || ability2 == "Opposite Day") {
+        if ((ability1 == "King's Edict" && stats1.hpPercent >= 50) && move.mr2 == "Melee Defense" && def.name == "DefenseM") moveMod -= 1;
+        if (ability2 == "Stonefaced" || ability2 == "Opposite Day") {
             moveMod = (ability2 == "Opposite Day" ? 1 : 0);
             stuffUsed.ability2 = ability2;
         }
 
+        if (celebrate.checked && moveMod > 0) moveMod = 0;
         defStage = (moveMod < 0 ? Math.max(defStage + moveMod, -6) : Math.min(defStage + moveMod, 6));
 
-        if (ability2 == "One of Many" && moveMod < 0) {
+        /*if (ability2 == "One of Many" && moveMod < 0) {
             if (defStage < 0 && !firstHit) defStage = 0;
             stuffUsed.ability2 = ability2;
-        }
+        }*/
 
         def.def = (defStage < 0 ? Math.floor(baseDefense * (2 / (2 - defStage))) : Math.floor(baseDefense * ((2 + defStage) / 2)));
-        if (crit && defStage > 0 && ability2 != "Fortified") def.def = baseDefense;
+        if (crit && defStage > 0 && ability2 != "Fortified" && ability2 != "Winter's Blessing") def.def = baseDefense;
         if (firstHit) stuffUsed.ability1 = ability1;
 
-    }*/
+    }
 }
 
 function calculateDamage(moveOne1, moveTwo1, moveThree1, moveFour1, moveOne2, moveTwo2, moveThree2, moveFour2) {
@@ -3234,6 +3237,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.ability1 = ability1;
     }*/
 
+    if (ability1 == "Siege") {
+        if (move.mr == "Magic") multi *= 1.5;
+        else if (move.mr == "Melee") multi *= 0.5;
+        stuffUsed.ability1 = ability1;
+    }
+
     if ((ability1 == "Destructive Anger" && stat1 == "enraged") ||
        (ability1 == "Filament" && immuneBoostCheck1 && tempType == "Light") ||
        ((ability1 == "Battery Charge" || ability1 == "Amp It Up") && immuneBoostCheck1 && tempType == "Spark") ||
@@ -3322,6 +3331,15 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= chanting;
         stuffUsed.ability1 = ability1;
         stuffUsed.extra1 += " (" + Math.round(tempPower * chanting) + " BP)";
+    }
+
+    if (ability1 == "Siegebreaker") {
+        let scale = (loom2.baseStats.defense - 50) / 80;
+        let siege = Math.min((1 + 0.3 * scale), 1.3);
+        if (loom2.baseStats.defense <= 50) siege = 0.8;
+        multi *= siege;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra1 += " (" + Math.round(tempPower * siege) + " BP)";
     }
 
     if (ability1 == "Courteous" && tempPower >= 100) {
