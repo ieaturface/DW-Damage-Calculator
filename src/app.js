@@ -3187,6 +3187,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
     }
 
+    if (move.name == "Checkmate" && stats2.hpPercent <= 20) {
+        multi *= 100;
+        powerCheck *= 100;
+    }
+
     if ((ability1 == "Fire Up") && immuneBoostCheck1) {
         if (tempType == typeModAbility1.typeModifier.type) {
             multi *= 1.5;
