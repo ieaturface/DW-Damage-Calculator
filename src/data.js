@@ -769,6 +769,21 @@ var loomians = {
         }
     },
 
+    garracude: {
+        name: "Garracude",
+        types: ["Water"],
+        weight: 24,
+        height: 32,
+        baseStats: {
+            hp: 50,
+            attack: 120,
+            defense: 50,
+            attackR: 70,
+            defenseR: 50,
+            speed: 110
+        }
+    },
+
     moss: {
         name: "Moss",
         types: ["Water", "Plant"],
@@ -8310,7 +8325,7 @@ var loomians = {
         baseStats: {
             hp: 92,
             attack: 62,
-            defense: 94,
+            defense: 95,
             attackR: 130,
             defenseR: 140,
             speed: 78
@@ -15326,7 +15341,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream"];
 
 var typeModAbilities = {
     adipose: {
@@ -15566,4 +15581,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Cobblepawn line added.";
+var changelog = "Garracude added.";
