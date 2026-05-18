@@ -690,7 +690,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
         abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost" || abilityDropdown1.value == "Grand Entrance" ||
         abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle" || abilityDropdown1.value == "Stalwart" || abilityDropdown1.value == "Conductor" ||
-        abilityDropdown1.value == "King's Edict") {
+        abilityDropdown1.value == "King's Edict" || abilityDropdown1.value == "Cave Dweller") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -703,7 +703,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
         abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown2.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost" || abilityDropdown2.value == "Grand Entrance" ||
         abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle" || abilityDropdown2.value == "Stalwart" || abilityDropdown2.value == "Conductor" ||
-        abilityDropdown2.value == "King's Edict") {
+        abilityDropdown2.value == "King's Edict" || abilityDropdown2.value == "Cave Dweller") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -1849,6 +1849,27 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
         atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
         if (crit && atkStage < 0 && (ability2 != "Fortified" && ability2 != "Winter's Blessing")) atk.atk = baseAttack;
         if (firstHit) stuffUsed.ability1 = ability1;
+    }
+
+    //Checking for speed decreasing abilities which affect Panic Pounce damage
+    if (ability2 == "Slippery Surface" && move.mr1 == atk.name) {
+        moveMod = 0;
+        if (ability2 == "Slippery Surface" && atk.name == "Speed") {
+            moveMod += (ability1 == "Opposite Day" ? 1 : -1);
+            stuffUsed.ability2 = ability2;
+        }
+
+        atkStage = (moveMod < 0 ? Math.max(atkStage + moveAdjustmentCount * moveMod, -6) : Math.min(atkStage + moveAdjustmentCount * moveMod, 6));
+
+        /*if (ability1 == "One of Many" && moveMod < 0) {
+            if (foulHit && atkStage < -1) atkStage = -1;
+            else if (!foulHit && atkStage < 0) atkStage = 0;
+            stuffUsed.ability1 = ability1;
+        }*/
+
+        atk.atk = (atkStage < 0 ? Math.floor(baseAttack * (2 / (2 - atkStage))) : Math.floor(baseAttack * ((2 + atkStage) / 2)));
+        if (crit && atkStage < 0 && (ability2 != "Fortified" && ability2 != "Winter's Blessing")) atk.atk = baseAttack;
+        if (firstHit && ability1 == "Opposite Day") stuffUsed.ability1 = ability1;
     }
 
     //Checks for moves that affect the currently used defensive stat and adjusts subsequent hits' defensive stat
@@ -3227,7 +3248,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (ability1 == "Sweet Treat" && chocolateRain.checked) ||
        (ability1 == "Hazardous" && acidRain.checked) ||
        (ability1 == "Slash Expert" && move.slash) ||
-       (ability1 == "Impalement" && move.contact)) {
+       (ability1 == "Impalement" && move.contact) ||
+       (ability1 == "Umbral Hunger" && tempType == "Dark" && stat2 != "healthy")) {
         multi *= 1.3;
         stuffUsed.ability1 = ability1;
     }
@@ -3739,6 +3761,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     effectiveness = multi;
     if (ability2 == "Paragon Skin" && effectiveness > 1 && withoutSlapDown) {
         multi = 0.5;
+        stuffUsed.ability2 = ability2;
+    }
+
+    if (ability2 == "Cave Dweller" && effectiveness > 1 && immuneBoostCheck2 && withoutSlapDown) {
+        multi *= 0.5;
         stuffUsed.ability2 = ability2;
     }
 
@@ -4571,7 +4598,9 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
 
 function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1, stat2, mon1, mon2) {
     if (l == 0 && u == 0) return "";
-    if (ability != "Metabolize" && (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light")))) {
+    if (ability != "Metabolize" && (move.drain || (ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") ||
+       (ability == "The Fungus" && move.mr == "Magic") || ((ability == "Hirudotherapy" || ability == "Chlorobite" || item == "Plastic Fangs") && move.bite) || (((ability == "Soul Fortification" && hpPercent < 50) || ability == "Proboscus") && move.mr == "Melee") ||
+       (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light")) || (ability == "Umbral Hunger" && move.type == "Dark" && stat2 != "healthy"))) {
         let drain = move.drain;
         if ((ability == "The Fungus" && move.mr == "Magic") || (ability == "Soul Fortification" && hpPercent < 50 && move.mr == "Melee") || (ability == "Thunder Gut" && hpPercent < 50 && move.type == "Spark")) {
             if (!drain) drain = 1/4;
@@ -4579,7 +4608,8 @@ function checkIceTrap(move, l, u, hp, hpPercent, item, ability, ability2, stat1,
         } else if (ability == "Chlorobite" && move.bite) {
             if (!drain) drain = 1/3;
             else drain += 1/3;
-        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) || (ability == "Proboscus" && move.mr == "Melee") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light"))) {
+        } else if ((ability == "Leech" && move.type == "Insect") || (ability == "Poison Substance" && move.type == "Poison") || (ability == "Vampire" && move.type == "Dark") || (move.name == "Chaotic Bolt" && stat2 == "marked") || (ability == "Hirudotherapy" && move.bite) ||
+                   (ability == "Proboscus" && move.mr == "Melee") || ((mon1.name == "Velace" || mon1.name == "Curixen") && item == "Siphon Egg" && (move.type == "Fire" || move.type == "Light")) || (ability == "Umbral Hunger" && move.type == "Dark" && stat2 != "healthy")) {
             if (!drain) drain = 1/2;
             else drain += 1/2;
         }

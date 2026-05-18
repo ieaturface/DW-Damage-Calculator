@@ -1112,6 +1112,84 @@ var loomians = {
         }
     },
 
+    berylil: {
+        name: "Berylil",
+        types: ["Crystal"],
+        finalEvo: false,
+        weight: 13,
+        height: 20,
+        baseStats: {
+            hp: 55,
+            attack: 45,
+            defense: 70,
+            attackR: 35,
+            defenseR: 60,
+            speed: 20
+        }
+    },
+
+    verdrylite: {
+        name: "Verdrylite",
+        types: ["Crystal"],
+        finalEvo: false,
+        weight: 187,
+        height: 51,
+        baseStats: {
+            hp: 85,
+            attack: 90,
+            defense: 110,
+            attackR: 45,
+            defenseR: 85,
+            speed: 35
+        }
+    },
+
+    chrysillium: {
+        name: "Chrysillium",
+        types: ["Crystal", "Dark"],
+        weight: 1302,
+        height: 107,
+        baseStats: {
+            hp: 95,
+            attack: 120,
+            defense: 125,
+            attackR: 55,
+            defenseR: 95,
+            speed: 45
+        }
+    },
+
+    seaure: {
+        name: "Seaure",
+        types: ["Water", "Light"],
+        finalEvo: false,
+        weight: 19,
+        height: 35,
+        baseStats: {
+            hp: 65,
+            attack: 40,
+            defense: 55,
+            attackR: 85,
+            defenseR: 80,
+            speed: 70
+        }
+    },
+
+    somarine: {
+        name: "Somarine",
+        types: ["Water", "Light"],
+        weight: 71,
+        height: 52,
+        baseStats: {
+            hp: 82,
+            attack: 50,
+            defense: 72,
+            attackR: 112,
+            defenseR: 101,
+            speed: 100
+        }
+    },
+
     wiglet: {
         name: "Wiglet",
         types: ["Basic"],
@@ -11875,6 +11953,17 @@ var moves = {
         contact: true
     },
 
+    burialChamber: {
+        name: "Burial Chamber",
+        power: 60,
+        accuracy: 100,
+        type: "Crystal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        secondaryEffect: true
+    },
+
     diamondDash: {
         name: "Diamond Dash",
         power: 40,
@@ -13526,6 +13615,14 @@ var moves = {
 
     rainmaker: {
         name: "Rainmaker",
+        power: 0,
+        accuracy: 100,
+        type: "Water",
+        mr: "Support"
+    },
+
+    undertowDrift: {
+        name: "Undertow Drift",
         power: 0,
         accuracy: 100,
         type: "Water",
@@ -15341,7 +15438,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger"];
 
 var typeModAbilities = {
     adipose: {
@@ -15581,4 +15678,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Garracude added.";
+var changelog = "Berylil and Seaure lines added.";
