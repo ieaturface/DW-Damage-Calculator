@@ -3673,7 +3673,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.8;
         stuffUsed.ability1 = ability1;
     }
-    if (ability1 == "Clearcut Ore"&& move.mr2 == "Melee Defense") {
+    if (ability1 == "Clearcut Ore" && tempType == "Crystal" && move.mr2 == "Melee Defense") {
         multi *= 0.7;
         stuffUsed.ability1 = ability1;
     }
