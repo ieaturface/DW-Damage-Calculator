@@ -478,9 +478,9 @@ var loomians = {
         item: "Thornet Rune",
         baseStats: {
             hp: 70,
-            attack: 135,
-            defense: 105,
-            attackR: 85,
+            attack: 140,
+            defense: 120,
+            attackR: 75,
             defenseR: 105,
             speed: 90
         }
@@ -2461,7 +2461,7 @@ var loomians = {
             defense: 95,
             attackR: 65,
             defenseR: 75,
-            speed: 80
+            speed: 90
         }
     },
 
@@ -3631,18 +3631,18 @@ var loomians = {
 
     'fancyoon-awakened': {
         name: "Fancyoon-Awakened",
-        types: ["Basic", "Poison"],
+        types: ["Crystal", "Poison"],
         weight: 36,
         height: 33,
         ability: "Foul Welcome",
         item: "Fancyoon Boa",
         baseStats: {
             hp: 80,
-            attack: 135,
+            attack: 140,
             defense: 110,
-            attackR: 105,
+            attackR: 80,
             defenseR: 110,
-            speed: 70
+            speed: 85
         }
     },
 
@@ -4638,7 +4638,7 @@ var loomians = {
         types: ["Fire", "Spirit"],
         weight: 42,
         height: 57,
-        ability: "Revenant",
+        ability: "Natural Calamity",
         item: "Daeferno Rune",
         baseStats: {
             hp: 80,
@@ -7435,11 +7435,11 @@ var loomians = {
         height: 50,
         baseStats: {
             hp: 93,
-            attack: 72,
+            attack: 67,
             defense: 63,
-            attackR: 128,
+            attackR: 133,
             defenseR: 83,
-            speed: 76
+            speed: 81
         }
     },
 
@@ -7698,7 +7698,7 @@ var loomians = {
         height: 40,
         baseStats: {
             hp: 89,
-            attack: 99,
+            attack: 104,
             defense: 83,
             attackR: 72,
             defenseR: 80,
@@ -8354,10 +8354,10 @@ var loomians = {
         item: "Kinglith Pyreblade",
         baseStats: {
             hp: 104,
-            attack: 145,
+            attack: 135,
             defense: 132,
             attackR: 78,
-            defenseR: 100,
+            defenseR: 110,
             speed: 68
         }
     },
@@ -9421,7 +9421,7 @@ var moves = {
 
     boilingPoint: {
         name: "Boiling Point",
-        power: 85,
+        power: 75,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -9731,12 +9731,11 @@ var moves = {
     hydroBurst: {
         name: "Hydro Burst",
         power: 120,
-        accuracy: 80,
+        accuracy: 85,
         type: "Water",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        secondaryEffect: true
     },
 
     waveShot: {
@@ -10001,7 +10000,7 @@ var moves = {
 
     vineGrasp: {
         name: "Vine Grasp",
-        power: 85,
+        power: 90,
         accuracy: 100,
         type: "Plant",
         mr: "Magic",
@@ -10618,13 +10617,12 @@ var moves = {
 
     talonStrike: {
         name: "Talon Strike",
-        power: 40,
+        power: 80,
         accuracy: 100,
         type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        priority: true
     },
 
     hitNRun: {
@@ -10730,7 +10728,7 @@ var moves = {
 
     malwareMangle: {
         name: "Malware Mangle",
-        power: 70,
+        power: 80,
         accuracy: 100,
         type: "Insect",
         mr: "Melee",
@@ -11103,7 +11101,7 @@ var moves = {
 
     psychokineticLaunch: {
         name: "Psychokinetic Launch",
-        power: 85,
+        power: 90,
         accuracy: 100,
         type: "Mind",
         mr: "Magic",
@@ -11822,7 +11820,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        typeModifier: { type: "Dark", modifier: 1.5 }
+        typeModifier: { type: "Dark", modifier: 2 }
     },
 
     crystalDust: {
@@ -11849,7 +11847,7 @@ var moves = {
 
     crystalStorm: {
         name: "Crystal Storm",
-        power: 90,
+        power: 100,
         accuracy: 100,
         type: "Crystal",
         mr: "Magic",
@@ -11912,7 +11910,7 @@ var moves = {
 
     gleamspire: {
         name: "Gleamspire",
-        power: 90,
+        power: 85,
         accuracy: 100,
         type: "Crystal",
         mr: "Magic",
@@ -12404,13 +12402,13 @@ var moves = {
 
     drainLife: {
         name: "Drain Life",
-        power: 40,
+        power: 50,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
-        drain: 1/2
+        drain: 3/4
     },
 
     haunt: {
@@ -15438,7 +15436,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Glucose Boost", "Meat Shield", "Spicehound", "Grand Entrance", "Looper", "Rollercoaster", "Impervious", "Kernel Scatter", "Steel Frame", "Assassin", "Proliferate", "Binary Guard", "Firmware Update", "Volcanic Core", "Justicar",  "Heartbreak",
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
-                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger"];
+                 "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
+                 "Natural Calamity"];
 
 var typeModAbilities = {
     adipose: {
@@ -15629,7 +15628,7 @@ var typeModAbilities = {
 
     hardCandy: {
         name: "Hard Candy",
-        typeModifier: { type: "Fire", modifier: 0.75 },
+        typeModifier: { type: "Fire", modifier: 0 },
         powerMod: false
     },
 
@@ -15678,4 +15677,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Berylil and Seaure lines added.";
+var changelog = "Ranked balance changes.";
