@@ -440,11 +440,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -499,8 +499,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -1479,6 +1479,7 @@ function loadStats() {
     trueStats1.atkR = atkR1;
     if (archmage1.checked) multi *= 1.1;
     if (firstItem == "Enchanted Sapphire") multi *= 1.5;
+    if (ability1 == "Flow State" && rain.checked) multi *= 1.2;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
     multi = 1;
     trueStats1.defR = defR1;
@@ -1493,10 +1494,12 @@ function loadStats() {
     trueStats1.spd = spd1;
     if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
     else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked) || (ability1 == "Acid Advance" && acidRain.checked) || ability1 == "Metabolize") multi *= 2;
+    else if (ability1 == "Flow State" && rain.checked) multi *= 1.2;
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
         multi *= (1 + .25 * owolspeed);
-    }    if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.25;
+    }
+    if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.25;
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
     else if (firstItem == "Heavy Blanket") multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
@@ -1531,6 +1534,7 @@ function loadStats() {
     trueStats2.atkR = atkR2;
     if (archmage2.checked) multi *= 1.1;
     if (secondItem == "Enchanted Sapphire") multi *= 1.5;
+    if (ability2 == "Flow State" && rain.checked) multi *= 1.2;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
     multi = 1;
     trueStats2.defR = defR2;
@@ -1545,6 +1549,7 @@ function loadStats() {
     trueStats2.spd = spd2;
     if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
     else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked) || (ability2 == "Acid Advance" && acidRain.checked) || ability2 == "Metabolize") multi *= 2;
+    else if (ability2 == "Flow State" && rain.checked) multi *= 1.2;
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
         multi *= (1 + .25 * owolspeed);
@@ -3525,13 +3530,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (Combo Support)"
     }
 
-    if (rain.checked && tempType == "Water") {
-        multi *= 1.25;
-        stuffUsed.weather += " in Rain";
-    }
     if (rain.checked) {
-        if (tempType == "Fire") multi *= 0.5;
-        if (tempType == "Fire" || loom2.types.includes("Plant")) stuffUsed.weather += " in Rain";
+        if (tempType == "Water") multi *= 1.25;
+        else if (tempType == "Fire") multi *= 0.5;
+        if (tempType == "Water" || tempType == "Fire" || loom2.types.includes("Plant") || (ability1 == "Flow State" && (move.mr1 == "Ranged Attack" || move.mr1 == "Speed"))) stuffUsed.weather += " in Rain";
     }
     if (acidRain.checked && (tempType == "Poison" || ability1 == "Hazardous")) {
         if (tempType == "Poison") multi *= 1.25;
@@ -3592,6 +3594,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (archmageOne) {
         multi *= 1.1;
         stuffUsed.weather += " with Archmage";
+    }
+    if (ability1 == "Flow State" && rain.checked && (move.mr1 == "Ranged Attack" || move.mr1 == "Speed")) {
+        multi *= 1.2;
+        stuffUsed.ability1 = ability1;
     }
     if (ability1 == "Corruption" && move.mr == "Melee") {
         multi *= 1.3;

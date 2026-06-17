@@ -1675,7 +1675,7 @@ var loomians = {
             defense: 135,
             attackR: 65,
             defenseR: 90,
-            speed: 80
+            speed: 90
         }
     },
 
@@ -4756,7 +4756,7 @@ var loomians = {
             hp: 73,
             attack: 80,
             defense: 100,
-            attackR: 140,
+            attackR: 150,
             defenseR: 95,
             speed: 124
         }
@@ -8362,6 +8362,37 @@ var loomians = {
         }
     },
 
+    illumina: {
+        name: "Illumina",
+        types: ["Water", "Mind"],
+        finalEvo: false,
+        weight: 13,
+        height: 72,
+        baseStats: {
+            hp: 65,
+            attack: 55,
+            defense: 65,
+            attackR: 90,
+            defenseR: 80,
+            speed: 70
+        }
+    },
+
+    slithescent: {
+        name: "Slithescent",
+        types: ["Water", "Mind"],
+        weight: 24,
+        height: 120,
+        baseStats: {
+            hp: 90,
+            attack: 65,
+            defense: 85,
+            attackR: 115,
+            defenseR: 100,
+            speed: 70
+        }
+    },
+
     scentino: {
         name: "Scentino",
         types: ["Plant"],
@@ -9781,6 +9812,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
+    },
+
+    dazzlingDisplay: {
+        name: "Dazzling Display",
+        power: 80,
+        accuracy: 100,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     boilBomb: {
@@ -15437,7 +15479,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity"];
+                 "Natural Calamity", "Fortuna", "Flow State"];
 
 var typeModAbilities = {
     adipose: {
@@ -15677,4 +15719,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Ranked balance changes.";
+var changelog = "Illumina line added.";
