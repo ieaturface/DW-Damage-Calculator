@@ -440,11 +440,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -499,8 +499,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -1478,6 +1478,7 @@ function loadStats() {
     multi = 1;
     trueStats1.atkR = atkR1;
     if (archmage1.checked) multi *= 1.1;
+    if (ability1 == "Dishonest") multi *= 2;
     if (firstItem == "Enchanted Sapphire") multi *= 1.5;
     if (ability1 == "Flow State" && rain.checked) multi *= 1.2;
     statAtkR1.innerHTML = Math.floor(atkR1 * multi);
@@ -1533,6 +1534,7 @@ function loadStats() {
     multi = 1;
     trueStats2.atkR = atkR2;
     if (archmage2.checked) multi *= 1.1;
+    if (ability2 == "Dishonest") multi *= 2;
     if (secondItem == "Enchanted Sapphire") multi *= 1.5;
     if (ability2 == "Flow State" && rain.checked) multi *= 1.2;
     statAtkR2.innerHTML = Math.floor(atkR2 * multi);
@@ -3609,7 +3611,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 1.5;
         stuffUsed.ability1 = ability1;
     }
-    if ((move.mr1 == "Melee Attack" && ability1 == "Hidden Strength")) {
+    if ((move.mr1 == "Melee Attack" && ability1 == "Hidden Strength") ||
+        (move.mr1 == "Ranged Attack" && ability1 == "Dishonest")) {
         multi *= 2;
         stuffUsed.ability1 = ability1
     }

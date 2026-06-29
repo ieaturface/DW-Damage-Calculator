@@ -8937,6 +8937,37 @@ var loomians = {
         }
     },
 
+    goolefin: {
+        name: "Goolefin",
+        types: ["Poison", "Spirit"],
+        finalEvo: false,
+        weight: 2,
+        height: 25,
+        baseStats: {
+            hp: 68,
+            attack: 60,
+            defense: 70,
+            attackR: 45,
+            defenseR: 55,
+            speed: 43
+        }
+    },
+
+    galuratin: {
+        name: "Galuratin",
+        types: ["Poison", "Spirit"],
+        weight: 5,
+        height: 45,
+        baseStats: {
+            hp: 88,
+            attack: 101,
+            defense: 102,
+            attackR: 65,
+            defenseR: 83,
+            speed: 83
+        }
+    },
+
     shroudal: {
         name: "Shroudal",
         types: ["Plant", "Mythic"],
@@ -15479,7 +15510,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest"];
 
 var typeModAbilities = {
     adipose: {
@@ -15719,4 +15750,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Illumina line added.";
+var changelog = "Goolefin line added.";
