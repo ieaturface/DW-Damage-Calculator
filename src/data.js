@@ -2380,9 +2380,9 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 65,
-            defense: 85,
+            defense: 95,
             attackR: 110,
-            defenseR: 95,
+            defenseR: 85,
             speed: 80
         }
     },
@@ -4551,7 +4551,7 @@ var loomians = {
             defense: 95,
             attackR: 100,
             defenseR: 85,
-            speed: 125
+            speed: 120
         }
     },
 
@@ -5859,9 +5859,9 @@ var loomians = {
         baseStats: {
             hp: 85,
             attack: 100,
-            defense: 105,
+            defense: 110,
             attackR: 50,
-            defenseR: 105,
+            defenseR: 110,
             speed: 70
         }
     },
@@ -6194,12 +6194,12 @@ var loomians = {
         weight: 187,
         height: 79,
         baseStats: {
-            hp: 78,
+            hp: 88,
             attack: 52,
-            defense: 110,
+            defense: 120,
             attackR: 112,
             defenseR: 86,
-            speed: 62
+            speed: 52
         }
     },
 
@@ -6781,7 +6781,7 @@ var loomians = {
         height: 71,
         baseStats: {
             hp: 80,
-            attack: 100,
+            attack: 105,
             defense: 80,
             attackR: 65,
             defenseR: 80,
@@ -7170,7 +7170,7 @@ var loomians = {
         types: ["Food", "Melee"],
         weight: 47,
         height: 60,
-        ability: "Last Stand",
+        ability: "Survival Instinct",
         item: "Hangryphus Pie",
         baseStats: {
             hp: 84,
@@ -7576,9 +7576,9 @@ var loomians = {
         baseStats: {
             hp: 100,
             attack: 60,
-            defense: 75,
-            attackR: 110,
-            defenseR: 110,
+            defense: 85,
+            attackR: 105,
+            defenseR: 105,
             speed: 70
         }
     },
@@ -8527,9 +8527,9 @@ var loomians = {
         height: 65,
         baseStats: {
             hp: 85,
-            attack: 98,
+            attack: 88,
             defense: 112,
-            attackR: 72,
+            attackR: 77,
             defenseR: 69,
             speed: 88
         }
@@ -9264,7 +9264,7 @@ var moves = {
 
     greedyGrab: {
         name: "Greedy Grab",
-        power: 80,
+        power: 70,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -9504,7 +9504,7 @@ var moves = {
 
     pyroclast: {
         name: "Pyroclast",
-        power: 55,
+        power: 80,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -9759,7 +9759,7 @@ var moves = {
 
     tsunami: {
         name: "Tsunami",
-        power: 85,
+        power: 90,
         accuracy: 100,
         type: "Water",
         mr: "Magic",
@@ -9985,7 +9985,7 @@ var moves = {
 
     lifeSap: {
         name: "Life Sap",
-        power: 90,
+        power: 80,
         accuracy: 100,
         type: "Plant",
         mr: "Magic",
@@ -10465,12 +10465,13 @@ var moves = {
 
     overexert: {
         name: "Overexert",
-        power: 100,
+        power: 95,
         accuracy: 100,
         type: "Beast",
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        contact: true,
         stat: {amount: -1, battle: "Offense", stat: "AttackM"}
     },
 
@@ -11206,7 +11207,7 @@ var moves = {
 
     skyRend: {
         name: "Sky Rend",
-        power: 85,
+        power: 90,
         accuracy: 100,
         type: "Air",
         mr: "Magic",
@@ -11266,7 +11267,7 @@ var moves = {
     roundhouseKick: {
         name: "Roundhouse Kick",
         power: 110,
-        accuracy: 80,
+        accuracy: 85,
         type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -11983,7 +11984,7 @@ var moves = {
 
     gleamspire: {
         name: "Gleamspire",
-        power: 85,
+        power: 75,
         accuracy: 100,
         type: "Crystal",
         mr: "Magic",
@@ -12084,7 +12085,7 @@ var moves = {
 
     corkscrewCrash: {
         name: "Corkscrew Crash",
-        power: 80,
+        power: 110,
         accuracy: 90,
         type: "Metal",
         mr: "Melee",
@@ -12937,6 +12938,17 @@ var moves = {
     ambush: {
         name: "Ambush",
         power: 60,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    decisiveCut: {
+        name: "Decisive Cut",
+        power: 80,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -15510,7 +15522,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct"];
 
 var typeModAbilities = {
     adipose: {
@@ -15677,7 +15689,7 @@ var typeModAbilities = {
 
     karna: {
         name: "Karna",
-        typeModifier: { type: "Earth", modifier: 0.5 },
+        typeModifier: { type: "Earth", modifier: 0.25 },
         powerMod: false
     },
 
@@ -15750,4 +15762,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Goolefin line added.";
+var changelog = "Season 22 balance changes added.";
