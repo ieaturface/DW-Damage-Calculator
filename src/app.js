@@ -442,11 +442,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -501,8 +501,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -885,12 +885,12 @@ $(".moveSelect").change(function() {
         moveGroupObj.children(".swarm").show();
         moveGroupObj.children(".snowball").hide();
         moveGroupObj.children(".swarm").val(1 + " doodle");
-    } else if (move.name == "Snow Roller" || move.name == "Merry-Go-Breaker") {
+    } else if (move.name == "Snow Roller" || move.name == "Merry-Go-Breaker" || move.name == "Grudge") {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").hide();
         moveGroupObj.children(".swarm").hide();
         moveGroupObj.children(".snowball").show();
-        moveGroupObj.children(".snowball").val(1);
+        moveGroupObj.children(".snowball").val(0);
     } else {
         moveGroupObj.children(".move-hits").hide();
         moveGroupObj.children(".elemental-slash").hide();
@@ -2970,6 +2970,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         }
     }
 
+    if (move.name == "Grudge") {
+        tempPower = 50 + Math.min(Number(snowball) * 25, 100);
+        stuffUsed.extra1 += " (" + tempPower + " BP)";
+    }
+
     if (loom2.name == "Bungo" && ability2 == "Split") {
         if (stats2.repeat == 2) stuffUsed.ability2 = "Bitty";
         else if (stats2.repeat == 3) stuffUsed.ability2 = "Itty"
@@ -3710,7 +3715,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.8;
         stuffUsed.ability1 = ability1;
     }
-    if (ability1 == "Clearcut Ore" && tempType == "Crystal" && move.mr2 == "Melee Defense") {
+    if (ability1 == "Clearcut Ore" && tempType == "Crystal") {
         multi *= 0.7;
         stuffUsed.ability1 = ability1;
     }
@@ -3954,7 +3959,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         let rawOffense = normieStats2.atk;
         rawOffense = Math.max(normieStats2.atk, normieStats2.atkR);
         if (rawDefense > rawOffense) {
-            multi *= 1.3;
+            multi *= 1.2;
             stuffUsed.ability1 = ability1;
         }
     }
@@ -3964,7 +3969,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         let rawOffense = normieStats1.atk;
         rawOffense = Math.max(normieStats1.atk, normieStats1.atkR);
         if (rawOffense >= rawDefense) {
-            multi *= 0.7;
+            multi *= 0.8;
             stuffUsed.ability2 = ability2;
         }
     }

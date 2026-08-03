@@ -8775,10 +8775,10 @@ var loomians = {
         height: 195,
         baseStats: {
             hp: 75,
-            attack: 80,
+            attack: 85,
             defense: 70,
             attackR: 95,
-            defenseR: 78,
+            defenseR: 73,
             speed: 113
         }
     },
@@ -8960,9 +8960,9 @@ var loomians = {
         height: 45,
         baseStats: {
             hp: 88,
-            attack: 101,
+            attack: 106,
             defense: 102,
-            attackR: 65,
+            attackR: 60,
             defenseR: 83,
             speed: 83
         }
@@ -10019,7 +10019,7 @@ var moves = {
     sakuraBlast: {
         name: "Sakura Blast",
         power: 75,
-        accuracy: 90,
+        accuracy: 100,
         type: "Plant",
         mr: "Magic",
         mr1: "Ranged Attack",
@@ -12283,6 +12283,17 @@ var moves = {
         name: "Hexblade",
         power: 65,
         accuracy: 90,
+        type: "Spirit",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
+    grudge: {
+        name: "Grudge",
+        power: 50,
+        accuracy: 100,
         type: "Spirit",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -15762,4 +15773,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 22 balance changes added.";
+var changelog = "Mid Season 22 mini balance patch added.";
