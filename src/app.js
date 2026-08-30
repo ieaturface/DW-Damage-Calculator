@@ -993,13 +993,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         stars1.value = set1.stars;
 
         $("#moveOne1").val(set1.moves.move1);
-        $("#moveOne1").select2().trigger('change');
         $("#moveTwo1").val(set1.moves.move2);
-        $("#moveTwo1").select2().trigger('change');
         $("#moveThree1").val(set1.moves.move3);
-        $("#moveThree1").select2().trigger('change');
         $("#moveFour1").val(set1.moves.move4);
-        $("#moveFour1").select2().trigger('change');
 
         helmet1.value = set1.helmet;
         amulet1.value = set1.amulet;
@@ -1016,6 +1012,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         if (firstLoom.item) item1.value = firstLoom.item;
         updateAbility(firstLoom.ability);
         updateItem('item1');
+
+        $("#moveOne1").select2().trigger('change');
+        $("#moveTwo1").select2().trigger('change');
+        $("#moveThree1").select2().trigger('change');
+        $("#moveFour1").select2().trigger('change');
 
         primaryTypeDropdown1.value = loomians[pokeDropdown1.value.toLowerCase()].types[0];
         secondaryTypeDropdown1.value = (loomians[pokeDropdown1.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown1.value.toLowerCase()].types[1] : "None");
@@ -1051,13 +1052,9 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         stars2.value = set2.stars;
 
         $("#moveOne2").val(set2.moves.move1);
-        $("#moveOne2").select2().trigger('change');
         $("#moveTwo2").val(set2.moves.move2);
-        $("#moveTwo2").select2().trigger('change');
         $("#moveThree2").val(set2.moves.move3);
-        $("#moveThree2").select2().trigger('change');
         $("#moveFour2").val(set2.moves.move4);
-        $("#moveFour2").select2().trigger('change');
 
         helmet2.value = set2.helmet;
         amulet2.value = set2.amulet;
@@ -1074,6 +1071,11 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         if (secondLoom.item) item2.value = secondLoom.item;
         updateAbility(secondLoom.ability);
         updateItem('item2');
+
+        $("#moveOne2").select2().trigger('change');
+        $("#moveTwo2").select2().trigger('change');
+        $("#moveThree2").select2().trigger('change');
+        $("#moveFour2").select2().trigger('change');
 
         primaryTypeDropdown2.value = loomians[pokeDropdown2.value.toLowerCase()].types[0];
         secondaryTypeDropdown2.value = (loomians[pokeDropdown2.value.toLowerCase()].types[1] != undefined ? loomians[pokeDropdown2.value.toLowerCase()].types[1] : "None");
