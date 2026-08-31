@@ -10448,7 +10448,7 @@ var builtInSets = [
     },
 
 {
-        name: "Curixen",
+        name: "Velace",
         setName: "Wallbreaker",
         helmet: "Decorated Hairclip",
         amulet: "Whatchamacallit",
