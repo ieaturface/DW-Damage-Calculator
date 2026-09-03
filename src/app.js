@@ -3282,7 +3282,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         ((move.name == "Razor Momentum" && parseInt(stats1.spd) > parseInt(stats2.spd) && !btl1)) ||
         (move.name == "Gleamspire" && celebrate.checked) ||
         (move.name == "Pyroclast" && (itemA == "None" || (!withoutSlapDown && itemA == "Fire Taffy"))) ||
-        ((move.name == "Wind Shear" && parseInt(stats1.spd) > parseInt(stats2.spd) || btl1))) {
+        ((move.name == "Wind Shear" && (parseInt(stats1.spd) > parseInt(stats2.spd) || btl1)))) {
         multi *= 1.5;
         powerCheck *= 1.5;
         stuffUsed.extra1 += " (" + (tempPower * 1.5) + " BP)";
