@@ -2852,9 +2852,9 @@ var loomians = {
         height: 49,
         baseStats: {
             hp: 85,
-            attack: 60,
+            attack: 75,
             defense: 85,
-            attackR: 100,
+            attackR: 80,
             defenseR: 85,
             speed: 90
         }
@@ -4753,10 +4753,10 @@ var loomians = {
         weight: 20,
         height: 30,
         baseStats: {
-            hp: 73,
-            attack: 80,
+            hp: 63,
+            attack: 90,
             defense: 65,
-            attackR: 100,
+            attackR: 90,
             defenseR: 65,
             speed: 120
         }
@@ -4770,7 +4770,7 @@ var loomians = {
         ability: "Bogdown",
         item: "Libelagua Runestone",
         baseStats: {
-            hp: 73,
+            hp: 63,
             attack: 80,
             defense: 100,
             attackR: 150,
