@@ -443,11 +443,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -502,8 +502,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -1519,6 +1519,7 @@ function loadStats() {
     }
     if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.25;
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
+    else if (firstItem == "Vengeful Cape") multi *= 1.25;
     else if (firstItem == "Heavy Blanket") multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
@@ -1575,6 +1576,7 @@ function loadStats() {
     }
     if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.25;
     if (secondItem == "Enchanted Emerald") multi *= 1.5;
+    else if (secondItem == "Vengeful Cape") multi *= 1.25;
     else if (secondItem == "Heavy Blanket") multi *= 0.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
@@ -2591,7 +2593,7 @@ function detailedReport() {
     let str = tempAtk + stuffUsed.item1 + stuffUsed.ability1 + statStr + " " + firstLoom.name + " " + critStr + move.name + stuffUsed.extra1 + " vs. " + tempHealth +
         tempDef + stuffUsed.item2 + stuffUsed.ability2 + stuffUsed.extra2 + statStr2 + " " + secondLoom.name + stuffUsed.weather + ": " + possibleDmg2 + "-" + possibleDmg3 + " (" + lowerPercent + " - " + upperPercent + "%) -- ";
 
-    let hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, true)[1];
+    let hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, false, true)[1];
 
     document.getElementById("possibleDmg").innerHTML = possibleDmgStr;
 
@@ -3495,6 +3497,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.item1 = itemA;
     }
 
+    if (itemA == "Vengeful Cape") {
+        multi *= 1.25;
+        stuffUsed.item1 = itemA;
+    }
+
     if ((itemA == "Surge DNA" && loom1.name == "Velocivult") ||
        (itemA == "Ember DNA" && loom1.name == "Volcanaur") ||
        (itemA == "Spore DNA" && loom1.name == "Trithorn") ||
@@ -3961,8 +3968,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= 0.5;
         stuffUsed.item2 = itemB;
     }
-    if (itemB == "Old Monitor" && (move.mr == "Magic" || adaptive.mr2 == "Ranged Defense")) {
+    if (itemB == "Old Monitor" && (move.mr == "Magic" || adaptive.mr2 == "Ranged Defense") ||
+       (itemB == "Guardian Feather" && !pylon && btl1 && withoutSlapDown && !foulHit)) {
         multi *= 0.8;
+        stuffUsed.item2 = itemB;
+    }
+    if (itemB == "Vengeful Cape") {
+        multi *= 1.5;
         stuffUsed.item2 = itemB;
     }
     if (ability1 == "Survival Instinct") {
@@ -4554,11 +4566,6 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         //else {
             hazardString += "bee summon and ";
         //}
-        if (onlyIncludeIceTrap) {
-            hazardString = hazardString.substr(0, hazardString.length - 5);
-            hazardString = " after " + hazardString;
-            return [hp1, hazardString];
-        }
     }
 
     if (pylons && !((ability == "Your Meowjesty") || (item == "Plague Mask"))) hazardString += "pylons and ";
@@ -4571,6 +4578,12 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         } else if (barb == 3) {
             hazardString += "3 layer of barbs and ";
         }
+    }
+
+    if (onlyIncludeIceTrap) {
+        hazardString = hazardString.substr(0, hazardString.length - 5);
+        hazardString = " after " + hazardString;
+        return [hp1, hazardString];
     }
 
     if (ability == "Rejuvenator" || item == "Sponge") {
@@ -4631,6 +4644,10 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         if (softWater) {
             newHP -= Math.floor(hp1 * 1 / 16 * multi);
             hazardString += "life roots recovery and "
+        }
+        if (item == "Kindled Heart") {
+            newHP -= Math.floor(hp1 * (20 - 2 * (counter - 1)) / 100 * multi);
+            hazardString += "kindled heart recovery and ";
         }
         if (item == "Used Crayons") {
             newHP -= Math.floor(hp1 * 1 / 16 * multi);

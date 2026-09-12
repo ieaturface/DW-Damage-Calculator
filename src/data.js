@@ -8331,6 +8331,54 @@ var loomians = {
         }
     },
 
+    scentino: {
+        name: "Scentino",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 17,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 42,
+            defense: 52,
+            attackR: 82,
+            defenseR: 72,
+            speed: 62
+        }
+    },
+
+    aromaflora: {
+        name: "Aromaflora",
+        types: ["Plant", "Light"],
+        weight: 38,
+        height: 76,
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 78,
+            attackR: 112,
+            defenseR: 108,
+            speed: 55
+        }
+    },
+
+    'aromaflora-awakened': {
+        name: "Aromaflora-Awakened",
+        types: ["Plant", "Light"],
+        weight: 38,
+        height: 76,
+        ability: "Faerie Sanctuary",
+        item: "Aromaflora Rune",
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 95,
+            attackR: 130,
+            defenseR: 140,
+            speed: 78
+        }
+    },
+
     cobblepawn: {
         name: "Cobblepawn",
         types: ["Fire", "Earth"],
@@ -8410,51 +8458,49 @@ var loomians = {
         }
     },
 
-    scentino: {
-        name: "Scentino",
-        types: ["Plant"],
+    atar: {
+        name: "Atar",
+        types: ["Air"],
         finalEvo: false,
-        weight: 17,
-        height: 16,
+        weight: 6,
+        height: 30,
         baseStats: {
-            hp: 60,
-            attack: 42,
-            defense: 52,
-            attackR: 82,
-            defenseR: 72,
-            speed: 62
-        }
-    },
-
-    aromaflora: {
-        name: "Aromaflora",
-        types: ["Plant", "Light"],
-        weight: 38,
-        height: 76,
-        baseStats: {
-            hp: 92,
-            attack: 62,
-            defense: 78,
-            attackR: 112,
-            defenseR: 108,
+            hp: 65,
+            attack: 75,
+            defense: 60,
+            attackR: 75,
+            defenseR: 60,
             speed: 55
         }
     },
 
-    'aromaflora-awakened': {
-        name: "Aromaflora-Awakened",
-        types: ["Plant", "Light"],
-        weight: 38,
-        height: 76,
-        ability: "Faerie Sanctuary",
-        item: "Aromaflora Rune",
+    atlun: {
+        name: "Atlun",
+        types: ["Air", "Dark"],
+        weight: 22,
+        height: 68,
         baseStats: {
-            hp: 92,
-            attack: 62,
-            defense: 95,
-            attackR: 130,
-            defenseR: 140,
-            speed: 78
+            hp: 85,
+            attack: 115,
+            defense: 100,
+            attackR: 65,
+            defenseR: 80,
+            speed: 80
+        }
+    },
+
+    atsun: {
+        name: "Atsun",
+        types: ["Air", "Light"],
+        weight: 20,
+        height: 65,
+        baseStats: {
+            hp: 85,
+            attack: 65,
+            defense: 80,
+            attackR: 115,
+            defenseR: 100,
+            speed: 80
         }
     },
 
@@ -8792,10 +8838,10 @@ var loomians = {
         height: 195,
         baseStats: {
             hp: 75,
-            attack: 85,
+            attack: 80,
             defense: 70,
             attackR: 95,
-            defenseR: 73,
+            defenseR: 78,
             speed: 113
         }
     },
@@ -8977,9 +9023,9 @@ var loomians = {
         height: 45,
         baseStats: {
             hp: 88,
-            attack: 106,
+            attack: 101,
             defense: 102,
-            attackR: 60,
+            attackR: 65,
             defenseR: 83,
             speed: 83
         }
@@ -11739,6 +11785,17 @@ var moves = {
         priority: true
     },
 
+    solarBurst: {
+        name: "Solar Burst",
+        power: 95,
+        accuracy: 100,
+        type: "Light",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+    },
+
     lightNoise: {
         name: "Light Noise",
         power: 70,
@@ -12885,6 +12942,19 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true
+    },
+
+    lunarCleave: {
+        name: "Lunar Cleave",
+        power: 95,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        slash: true,
+        secondaryEffect: true
     },
 
     expectorate: {
@@ -15555,7 +15625,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask"];
 
 var typeModAbilities = {
     adipose: {
@@ -15788,7 +15858,8 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Riot Shield", "Homemade Plush", "Refined Crystal", "Imbued Relic", "Corrosive Wand", "Stormy Wand", "Confectioner's Wand", "Blueprint", "Conductor's Baton", "Questionable Sludge", "Arid Wand", "Studded Fang", "Gauze Wrap", "Storm in a Bottle", "Sponge",
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
-             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg", "Plague Mask", "Electric Swatter"];
+             "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg", "Plague Mask", "Electric Swatter", "Kindled Heart", "Vengeful Cape",
+             "Guardian Feather"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -15801,4 +15872,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Season 24 Balance changes added.";
+var changelog = "Good/Evil BP Doodles/Items added.";
