@@ -443,11 +443,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog2").substring(11);
+        let seenChangelongCookie = getCookie("changelog1").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog2=true";
+            document.cookie = "changelog1=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -502,8 +502,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -694,7 +694,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown1.value == "Soul Link" || abilityDropdown1.value == "Amp It Up" || abilityDropdown1.value == "Thermal Energy" || abilityDropdown1.value == "Menacing Snarl" || abilityDropdown1.value == "Sickly Sweet" || abilityDropdown1.value == "Avenger" ||
         abilityDropdown1.value == "Resentment" || abilityDropdown1.value == "Crowd Support" || abilityDropdown1.value == "Grass Cloak" || abilityDropdown1.value == "Unpredictable" || abilityDropdown1.value == "Glucose Boost" || abilityDropdown1.value == "Grand Entrance" ||
         abilityDropdown1.value == "Looper" || abilityDropdown1.value == "Animosity" || abilityDropdown1.value == "Stimulant" || abilityDropdown1.value == "Sugarsick" || abilityDropdown1.value == "Static Startle" || abilityDropdown1.value == "Stalwart" || abilityDropdown1.value == "Conductor" ||
-        abilityDropdown1.value == "Cave Dweller" || abilityDropdown1.value == "Foul Welcome" || abilityDropdown1.value == "Corrosion" || abilityDropdown1.value == "Decay" || abilityDropdown1.value == "Fixation") {
+        abilityDropdown1.value == "Cave Dweller" || abilityDropdown1.value == "Foul Welcome" || abilityDropdown1.value == "Corrosion" || abilityDropdown1.value == "Decay" || abilityDropdown1.value == "Fixation" || abilityDropdown1.value == "Incubate") {
         immuneAbilityBoost1.style.visibility = "visible";
     }
     else {
@@ -707,7 +707,7 @@ function update(updatePower = false, updateBaseStats = false) {
         abilityDropdown2.value == "Soul Link" || abilityDropdown2.value == "Amp It Up" || abilityDropdown2.value == "Thermal Energy" || abilityDropdown2.value == "Menacing Snarl" || abilityDropdown2.value == "Sickly Sweet" || abilityDropdown2.value == "Avenger" ||
         abilityDropdown2.value == "Resentment" || abilityDropdown2.value == "Crowd Support" || abilityDropdown2.value == "Grass Cloak" || abilityDropdown2.value == "Unpredictable" || abilityDropdown2.value == "Glucose Boost" || abilityDropdown2.value == "Grand Entrance" ||
         abilityDropdown2.value == "Looper" || abilityDropdown2.value == "Animosity" || abilityDropdown2.value == "Stimulant" || abilityDropdown2.value == "Sugarsick" || abilityDropdown2.value == "Static Startle" || abilityDropdown2.value == "Stalwart" || abilityDropdown2.value == "Conductor" ||
-        abilityDropdown2.value == "Cave Dweller" || abilityDropdown1.value == "Foul Welcome" || abilityDropdown1.value == "Corrosion" || abilityDropdown1.value == "Decay" || abilityDropdown2.value == "Fixation") {
+        abilityDropdown2.value == "Cave Dweller" || abilityDropdown1.value == "Foul Welcome" || abilityDropdown1.value == "Corrosion" || abilityDropdown1.value == "Decay" || abilityDropdown2.value == "Fixation" || abilityDropdown2.value == "Incubate") {
         immuneAbilityBoost2.style.visibility = "visible";
     }
     else {
@@ -4533,6 +4533,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     let disease = diseased2.value;
     let aquagel = aquagel2.checked;
     let hazardString = "";
+    let checkAbility = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
     if (otherAbility == "Moratorium") item =  "None";
 
@@ -4695,6 +4696,11 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         if (ability == "Stitching") {
             newHP -= Math.floor(hp1 * 1 / 16 * multi);
             hazardString += "stitching recovery and ";
+        }
+
+        if (ability == "Incubate" && checkAbility) {
+            newHP -= Math.floor(hp1 * 1 / 8 * multi);
+            hazardString += "incubate recovery and ";
         }
 
         if (garden.checked && (!loom2.types.includes("Air") && ability != "Levitate") || ((loom2.types.includes("Air") || ability == "Levitate") && item == "Heavy Blanket")) {

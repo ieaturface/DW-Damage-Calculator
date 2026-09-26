@@ -7738,6 +7738,37 @@ var loomians = {
         }
     },
 
+    phieoby: {
+        name: "Phieoby",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 8,
+        height: 20,
+        baseStats: {
+            hp: 87,
+            attack: 48,
+            defense: 93,
+            attackR: 77,
+            defenseR: 91,
+            speed: 24
+        }
+    },
+
+    phimareon: {
+        name: "Phimareon",
+        types: ["Fire", "Beast"],
+        weight: 175,
+        height: 104,
+        baseStats: {
+            hp: 92,
+            attack: 67,
+            defense: 79,
+            attackR: 133,
+            defenseR: 82,
+            speed: 96
+        }
+    },
+
     koriyu: {
         name: "Koriyu",
         types: ["Ice", "Dark"],
@@ -10554,6 +10585,18 @@ var moves = {
     bestialRoar: {
         name: "Bestial Roar",
         power: 85,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+        sound: true
+    },
+
+    "chimera's howl": {
+        name: "Chimera's Howl",
+        power: 90,
         accuracy: 100,
         type: "Beast",
         mr: "Magic",
@@ -15625,7 +15668,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes"];
 
 var typeModAbilities = {
     adipose: {
@@ -15872,4 +15915,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Good/Evil BP Doodles/Items added.";
+var changelog = "Phieoby line added.";
