@@ -9077,6 +9077,37 @@ var loomians = {
         }
     },
 
+    melofin: {
+        name: "Melofin",
+        types: ["Plant", "Food"],
+        finalEvo: false,
+        weight: 36,
+        height: 18,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 58,
+            attackR: 32,
+            defenseR: 80,
+            speed: 51
+        }
+    },
+
+    wharklon: {
+        name: "Wharklon",
+        types: ["Plant", "Beast"],
+        weight: 136,
+        height: 50,
+        baseStats: {
+            hp: 105,
+            attack: 96,
+            defense: 75,
+            attackR: 45,
+            defenseR: 98,
+            speed: 60
+        }
+    },
+
 };
 
 
@@ -10215,6 +10246,17 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense"
+    },
+
+    rindCrush: {
+        name: "Rind Crush",
+        power: 70,
+        accuracy: 100,
+        type: "Plant",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        statBuff: true
     },
 
     thornsOfWrath: {
@@ -15668,7 +15710,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy"];
 
 var typeModAbilities = {
     adipose: {
@@ -15915,4 +15957,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Phieoby line added.";
+var changelog = "Melofin line added.";

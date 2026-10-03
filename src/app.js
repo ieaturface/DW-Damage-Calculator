@@ -350,6 +350,7 @@ let tempGender2;
 let equipment2;
 
 let adjustmentCount = 0;
+let abilityCount = 0;
 let trueStats1;
 let trueStats2;
 let rawStats1;
@@ -443,11 +444,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -502,8 +503,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -1788,11 +1789,15 @@ function battleAdjustments(move, ability1, ability2, stuffUsed, atk, def, boastA
     let moveAdjustmentCount = adjustmentCount;
 
     //Checks for moves that affect the currently used offensive stat and adjusts subsequent hits' offensive stat
-    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (ability2 == "Guilt" && atk.name == "AttackM") || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd))/* || (move.name == "Gleamspire" && celebrate.checked) || (ability2 == "Signal Jammer" && atk.name == "AttackR")*/ && !(ability2 == "Sugarsick" && atk.name == "AttackR")) {
+    if ((move.stat && move.stat.battle == "Offense" && move.stat.stat == atk.name && !(move.secondaryEffect && ability1 == "Brute Force")) || (ability2 == "Guilt" && atk.name == "AttackM") || (ability1 == "Ripening" && atk.name == "AttackM") || (move.name == "Chaotic Bolt" && stat2 == "frozen") || (move.name == "Icefall" && parseInt(stats1.spd) < parseInt(stats2.spd))/* || (move.name == "Gleamspire" && celebrate.checked) || (ability2 == "Signal Jammer" && atk.name == "AttackR")*/ && !(ability2 == "Sugarsick" && atk.name == "AttackR")) {
         moveMod = 0;
         if (ability2 == "Guilt" && atk.name == "AttackM") {
             moveMod += (ability1 == "Opposite Day" ? 1 : -1);
             stuffUsed.ability2 = ability2;
+        }
+        if (ability1 == "Ripening" && atk.name == "AttackM") {
+            moveMod += (adjustmentCount > 3 ? 0 : 1);
+            stuffUsed.ability1 = ability1;
         }
         /*if (ability2 == "Signal Jammer" && atk.name == "AttackR") {
             moveMod += (ability1 == "Opposite Day" ? 1 : -1);
@@ -3181,11 +3186,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if (move.statBuff) {
-        if (move.name == "Blessed Blade") {
-            tempPower = Number(tempPower) + 20 * countBoosts(boosts1);
+        if (move.name == "Blessed Blade" || move.name == "Rind Crush") {
+            tempPower = Number(tempPower) + 20 * countBoosts(boosts1, move.name, ability1, withoutSlapDown);
             powerCheck = tempPower;
         } else if (move.name == "The Flood") {
-            tempPower = Number(tempPower) + 15 * countBoosts(boosts1);
+            tempPower = Number(tempPower) + 15 * countBoosts(boosts1, move.name, ability1, withoutSlapDown);
             powerCheck = tempPower;
         }
         stuffUsed.extra1 += " (" + tempPower + " BP)";
@@ -4428,9 +4433,31 @@ function pylonButton(second = false, calc = false, statRefresh) {
     if (!statRefresh) detailedReport();
 }
 
-function countBoosts(boost) {
+function countBoosts(boost, move, ability, firstHit) {
     let count = 0;
-    for (let i = 0; i < boost.length; i++) {
+
+    if (ability == "Ripening") {
+        abilityCount += 1;
+        if (firstHit) abilityCount = 0;
+
+        if (boost[0] == "--") boost[0] = 0;
+        boost[0] = parseInt(boost[0]) + (abilityCount > 3 ? 3 : abilityCount);
+        boost[0] = (parseInt(boost[0]) > 6 ? 6 : boost[0]);
+    }
+    else if (ability == "Accelerate") {
+        abilityCount += 1;
+        if (firstHit) abilityCount = 0;
+
+        if (boost[4] == "--") boost[4] = 0;
+        boost[4] = parseInt(boost[4]) + (abilityCount > 6 ? 6 : abilityCount);
+        boost[4] = (parseInt(boost[4]) > 6 ? 6 : boost[4]);
+    }
+
+    if (move == "Rind Crush") {
+        if (boost[0] == "--" || boost[0] < 0) boost[0] = 0;
+        count += parseInt(boost[0]);
+    }
+    else for (let i = 0; i < boost.length; i++) {
         if (boost[i] == "--" || boost[i] < 0) boost[i] = 0;
         else count = count + parseInt(boost[i]);
     }
