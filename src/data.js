@@ -2871,7 +2871,7 @@ var loomians = {
             hp: 85,
             attack: 75,
             defense: 97,
-            attackR: 124,
+            attackR: 139,
             defenseR: 107,
             speed: 100
         }
@@ -4882,10 +4882,10 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 100,
-            defense: 100,
-            attackR: 80,
-            defenseR: 60,
-            speed: 100
+            defense: 110,
+            attackR: 60,
+            defenseR: 80,
+            speed: 90
         }
     },
 
@@ -5317,7 +5317,7 @@ var loomians = {
             hp: 95,
             attack: 70,
             defense: 95,
-            attackR: 105,
+            attackR: 97,
             defenseR: 100,
             speed: 60
         }
@@ -6259,10 +6259,10 @@ var loomians = {
         baseStats: {
             hp: 60,
             attack: 120,
-            defense: 70,
-            attackR: 95,
-            defenseR: 70,
-            speed: 90
+            defense: 75,
+            attackR: 75,
+            defenseR: 75,
+            speed: 100
         }
     },
 
@@ -7375,10 +7375,10 @@ var loomians = {
         formStats: {
             hp: 80,
             attack: 140,
-            defense: 80,
+            defense: 75,
             attackR: 140,
-            defenseR: 80,
-            speed: 115
+            defenseR: 75,
+            speed: 125
         }
     },
 
@@ -9384,7 +9384,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        knockOff: true
     },
 
     greedyGrab: {
@@ -9395,7 +9396,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        contact: true
+        contact: true,
+        knockOff: true
     },
 
     swipe: {
@@ -9718,7 +9720,8 @@ var moves = {
         type: "Fire",
         mr: "Magic",
         mr1: "Ranged Attack",
-        mr2: "Ranged Defense"
+        mr2: "Ranged Defense",
+        knockOff: true
     },
 
     foxfire: {
@@ -15957,4 +15960,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Melofin line added.";
+var changelog = "Ranked Balance changes added.";
