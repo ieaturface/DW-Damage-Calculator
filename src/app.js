@@ -246,6 +246,9 @@ let shale2 = document.getElementById("shale2");
 let seasoned1 = document.getElementById("seasoned1");
 let seasoned2 = document.getElementById("seasoned2");
 
+let primalRage1 = document.getElementById("primalRage1");
+let primalRage2 = document.getElementById("primalRage2");
+
 let enteredBtl1 = document.getElementById("enteredBtl1");
 let enteredBtl2 = document.getElementById("enteredBtl2");
 
@@ -444,11 +447,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -503,8 +506,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -837,6 +840,10 @@ function updateAbility(ability) {
     else enhanced1.checked = false;
     if (ability2 == "Jelly Enhancer" || ability2 == "Jelly Sync") enhanced2.checked = true;
     else enhanced2.checked = false;
+    if (ability1 == "Ancient Instinct") primalRage1.checked = true;
+    else primalRage1.checked = false;
+    if (ability2 == "Ancient Instinct") primalRage2.checked = true;
+    else primalRage2.checked = false;
     /*if (ability1 == "Faeriebloom") sapPlant2.checked = true;
     else sapPlant2.checked = false;
     if (ability2 == "Faeriebloom") sapPlant1.checked = true;
@@ -949,15 +956,15 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'none';
         }
-        field.style.height = "720px"; // +25 per button
-        fieldTraps.style.height = "63.7%"; // +1% per button
+        field.style.height = "745px"; // +25 per button
+        fieldTraps.style.height = "64.7%"; // +1% per button
     }
     else {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        field.style.height = "765px";
-        fieldTraps.style.height = "66.5%";
+        field.style.height = "790px";
+        fieldTraps.style.height = "67.5%";
     }    
     update();
 }
@@ -2190,6 +2197,7 @@ function detailedReport() {
     let stats1 = trueStats1;
     let stats2 = trueStats2;
     let gen = gender1.value;
+    let primalRage = primalRage1.checked;
     let pylonDmg;
 
     if (document.getElementById("moveOneLbl1").htmlFor == selected.id) {
@@ -2252,6 +2260,7 @@ function detailedReport() {
         stats1 = trueStats2;
         stats2 = trueStats1;
         gen = gender2.value;
+        primalRage = primalRage2.checked;
     }
     else if (document.getElementById("moveTwoLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveTwoLbl2").innerHTML;
@@ -2273,6 +2282,7 @@ function detailedReport() {
         stats1 = trueStats2;
         stats2 = trueStats1;
         gen = gender2.value;
+        primalRage = primalRage2.checked;
     }
     else if (document.getElementById("moveThreeLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveThreeLbl2").innerHTML;
@@ -2294,6 +2304,7 @@ function detailedReport() {
         stats1 = trueStats2;
         stats2 = trueStats1;
         gen = gender2.value;
+        primalRage = primalRage2.checked;
     }
     else if (document.getElementById("moveFourLbl2").htmlFor == selected.id) {
         moveName = document.getElementById("moveFourLbl2").innerHTML;
@@ -2315,6 +2326,7 @@ function detailedReport() {
         stats1 = trueStats2;
         stats2 = trueStats1;
         gen = gender2.value;
+        primalRage = primalRage2.checked;
     }
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
@@ -2568,7 +2580,7 @@ function detailedReport() {
         pylonDmg = pylonButton(second,true);
     }
 
-    if (move.power == 0) {
+    if (move.power == 0 || (move.name == "Catharsis" && !primalRage)) {
         let str = firstLoom.name + " " + move.name + " vs. " + tempHealth + secondLoom.name + ": 0-0 (0 - 0%) -- nice move there, bud";
         document.getElementById("detailedResult").innerHTML = str;
         document.getElementById("possibleDmg").innerHTML = "Possible Damage Amounts: (0)";
@@ -2897,6 +2909,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let flame = (second == false ? flame2.checked : flame1.checked);
     let shale = (second == false ? shale2.checked : shale1.checked);
     let seasoned = (second == false? seasoned2.checked : seasoned1.checked);
+    let primalRage = (second == false ? primalRage1.checked : primalRage2.checked);
     let stat1 = (second == false ? status1.value : status2.value);
     let stat2 = (second == false ? status2.value : status1.value);
     let itemA = (second == false ? item1.value : item2.value);
@@ -2927,6 +2940,9 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     let immuneBoostCheck1 = (second == false ? immuneAbilityBoost1.checked : immuneAbilityBoost2.checked);
     let immuneBoostCheck2 = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
 
+    if (move.name == "Catharsis" && !primalRage && detailed) return [0];
+    if (move.name == "Catharsis" && !primalRage) return 0; 
+ 
     if (pylons) {
         ability1 = "None";
         itemA = "None";
@@ -2995,7 +3011,8 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     }
 
     if ((ability1 == "Nullify") || 
-       (ability1 == "Annihilation")) {
+       (ability1 == "Annihilation") ||
+       (ability1 == "Sealkeeper")) {
         ability2 = "None";
         stuffUsed.ability1 = ability1;
     }
@@ -3215,7 +3232,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         multi *= typeModAbility1.typeModifier.modifier;
         stuffUsed.ability1 = ability1;
     }
-    if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type3 && typeModAbility1.powerMod == true) {
+    else if (typeModAbility1 != undefined && tempType == typeModAbility1.typeModifier.type3 && typeModAbility1.powerMod == true) {
         multi *= typeModAbility1.typeModifier.modifier;
         stuffUsed.ability1 = ability1;
     }
@@ -3578,6 +3595,11 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (Combo Support)"
     }
 
+    if (primalRage && tempType == "Beast" && move.name != "Catharsis") {
+        multi *= 1.5;
+        stuffUsed.weather += " under Primal Rage";
+    }
+
     if (rain.checked) {
         if (tempType == "Water") multi *= 1.25;
         else if (tempType == "Fire") multi *= 0.5;
@@ -3868,6 +3890,10 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type || types2.secondary == move.typeModifier.type)) {
         multi *= move.typeModifier.modifier;
     }
+    if (move.typeModifier != undefined && (types2.primary == move.typeModifier.type2 || types2.secondary == move.typeModifier.type2)) {
+        multi *= move.typeModifier.modifier;
+    }
+
     if ((ability1 == "Bird of Prey" && tempType == "Air" && loom2.types.includes("Air")) ||
         (ability1 == "Helios" && tempType == "Fire" && loom2.types.includes("Earth"))) {
         multi *= 2;
@@ -3919,6 +3945,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
 
     if ((ability1 == "Nullify") ||
         (ability1 == "Annihilation") ||
+        (ability1 == "Sealkeeper") ||
         (ability1 == "Grounded" && immuneBoostCheck1 && (ability2 == "Levitate" || ability2 == "Sky Deity"))) {
         typeModAbility2 = undefined;
     }
@@ -4746,11 +4773,11 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     }
     
     if (ability != "Direct Combatant" && ability != "Impervious" && ability != "Nullcoat") {
-        if (status == "cursed" && calamity.checked) {
+        if (status == "cursed" && calamity.checked && ability != "Inert") {
             newHP += Math.floor(hp1 * 1 / 8);
             hazardString += "calamity damage and ";
         }
-        if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash" && !aquagel && ability != "Steeped Spirit" && ability != "Fireproof Armor" && ability != "Extinguisher" && ability != "Hard Candy") {
+        if (status == "burned" && !loom2.types.includes("Fire") && ability != "Aqua Body" && move.name != "Cauterizing Smash" && !aquagel && ability != "Steeped Spirit" && ability != "Fireproof Armor" && ability != "Extinguisher" && ability != "Hard Candy" && ability != "Inert") {
             if (otherAbility == "First Degree Burns") newHP += Math.floor (hp1 * 1 / 6);
             if (ability == "Crispy") newHP += Math.floor (hp1 * 1 / 8);
             newHP += Math.floor(hp1 * 1 / 16);
@@ -4767,21 +4794,21 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
             hazardString += "sandstorm damage and ";
         }
 
-        if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel && ability != "Steeped Spirit") {
+        if (status == "poisoned" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel && ability != "Steeped Spirit" && ability != "Inert") {
             newHP += Math.floor(hp1 * 1 / 8);
             hazardString += "poison damage and ";
         }
-        if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel && ability != "Steeped Spirit") {
+        if (status == "diseased" && !loom2.types.includes("Poison") && !loom2.types.includes("Metal") && !loom2.types.includes("Crystal") && ability != "Detox" && !aquagel && ability != "Steeped Spirit" && ability != "Inert") {
             newHP += Math.floor(hp1 * (disease + counter) / 16);
             hazardString += "disease damage and ";
         }
 
-        if (status == "frozen" && otherAbility == "Brainfreeze" && !loom2.types.includes("Ice") && !aquagel) {
+        if (status == "frozen" && otherAbility == "Brainfreeze" && !loom2.types.includes("Ice") && !aquagel && ability != "Inert") {
             newHP += Math.floor(hp1 * 1 / 16);
             hazardString += "brainfreeze damage and ";
         }
 
-        if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice") && !aquagel) {
+        if (status == "frozen" && otherAbility == "Hypothermia" && !loom2.types.includes("Ice") && !aquagel && ability != "Inert") {
             newHP += Math.floor(hp1 * 1 / 16);
             hazardString += "hypothermia damage and ";
         }

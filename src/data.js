@@ -3567,6 +3567,23 @@ var loomians = {
         }
     },
 
+    'mother-owol-awakened': {
+        name: "Mother-Owol-Awakened",
+        types: ["Air", "Fire"],
+        weight: 113,
+        height: 60,
+        ability: "Mother's Resolve",
+        item: "Owol Sword",
+        baseStats: {
+            hp: 86,
+            attack: 120,
+            defense: 111,
+            attackR: 103,
+            defenseR: 100,
+            speed: 98
+        }
+    },
+
     threec: {
         name: "Threec",
         types: ["Insect", "Basic"],
@@ -6158,6 +6175,317 @@ var loomians = {
         }
     },
 
+    sketi: {
+        name: "Sketi",
+        types: ["Ice", "Crystal"],
+        finalEvo: false,
+        weight: 15,
+        height: 30,
+        baseStats: {
+            hp: 50,
+            attack: 70,
+            defense: 60,
+            attackR: 30,
+            defenseR: 55,
+            speed: 40
+        }
+    },
+
+    crostacean: {
+        name: "Crostacean",
+        types: ["Ice", "Crystal"],
+        weight: 31,
+        height: 58,
+        baseStats: {
+            hp: 70,
+            attack: 120,
+            defense: 80,
+            attackR: 70,
+            defenseR: 85,
+            speed: 75
+        }
+    },
+
+    oribirb: {
+        name: "Oribirb",
+        types: ["Air"],
+        finalEvo: false,
+        weight: 1,
+        height: 12,
+        baseStats: {
+            hp: 35,
+            attack: 50,
+            defense: 35,
+            attackR: 60,
+            defenseR: 35,
+            speed: 55
+        }
+    },
+
+    torigami: {
+        name: "Torigami",
+        types: ["Air", "Dark"],
+        finalEvo: false,
+        weight: 3,
+        height: 24,
+        baseStats: {
+            hp: 45,
+            attack: 70,
+            defense: 45,
+            attackR: 80,
+            defenseR: 55,
+            speed: 75
+        }
+    },
+
+    sukikogami: {
+        name: "Sukikogami",
+        types: ["Air", "Dark"],
+        weight: 6,
+        height: 48,
+        baseStats: {
+            hp: 75,
+            attack: 108,
+            defense: 60,
+            attackR: 98,
+            defenseR: 75,
+            speed: 108
+        }
+    },
+
+    pestile: {
+        name: "Pestile",
+        types: ["Poison", "Fire"],
+        finalEvo: false,
+        weight: 1,
+        height: 11,
+        baseStats: {
+            hp: 70,
+            attack: 45,
+            defense: 75,
+            attackR: 75,
+            defenseR: 75,
+            speed: 20
+        }
+    },
+
+    arcanimodo: {
+        name: "Arcanimodo",
+        types: ["Poison", "Spirit"],
+        weight: 70,
+        height: 51,
+        baseStats: {
+            hp: 95,
+            attack: 60,
+            defense: 100,
+            attackR: 115,
+            defenseR: 90,
+            speed: 50
+        }
+    },
+
+    suspeck: {
+        name: "Suspeck",
+        types: ["Dark", "Earth"],
+        finalEvo: false,
+        weight: 11,
+        height: 34,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 60,
+            attackR: 30,
+            defenseR: 40,
+            speed: 40
+        }
+    },
+
+    obsibeak: {
+        name: "Obsibeak",
+        types: ["Dark", "Earth"],
+        weight: 82,
+        height: 66,
+        baseStats: {
+            hp: 90,
+            attack: 105,
+            defense: 110,
+            attackR: 60,
+            defenseR: 70,
+            speed: 80
+        }
+    },
+
+    hydrant: {
+        name: "Hydrant",
+        types: ["Water", "Metal"],
+        finalEvo: false,
+        weight: 113,
+        height: 36,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 55,
+            attackR: 60,
+            defenseR: 55,
+            speed: 50
+        }
+    },
+
+    soakle: {
+        name: "Soakle",
+        types: ["Water", "Metal"],
+        finalEvo: false,
+        weight: 154,
+        height: 53,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 70,
+            attackR: 90,
+            defenseR: 70,
+            speed: 65
+        }
+    },
+
+    scaldra: {
+        name: "Scaldra",
+        types: ["Water", "Fire"],
+        weight: 467,
+        height: 75,
+        baseStats: {
+            hp: 89,
+            attack: 65,
+            defense: 87,
+            attackR: 119,
+            defenseR: 86,
+            speed: 95
+        }
+    },
+
+    capyro: {
+        name: "Capyro",
+        types: ["Fire", "Earth"],
+        finalEvo: false,
+        weight: 32,
+        height: 25,
+        baseStats: {
+            hp: 50,
+            attack: 60,
+            defense: 70,
+            attackR: 40,
+            defenseR: 40,
+            speed: 30
+        }
+    },
+
+    charpincho: {
+        name: "Charpincho",
+        types: ["Fire", "Earth"],
+        weight: 102,
+        height: 64,
+        baseStats: {
+            hp: 85,
+            attack: 125,
+            defense: 120,
+            attackR: 50,
+            defenseR: 70,
+            speed: 50
+        }
+    },
+
+    shibu: {
+        name: "Shibu",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 39,
+        height: 16,
+        baseStats: {
+            hp: 45,
+            attack: 60,
+            defense: 40,
+            attackR: 35,
+            defenseR: 40,
+            speed: 70
+        }
+    },
+
+    shiburnu: {
+        name: "Shiburnu",
+        types: ["Fire", "Earth"],
+        weight: 60,
+        height: 46,
+        baseStats: {
+            hp: 70,
+            attack: 115,
+            defense: 70,
+            attackR: 55,
+            defenseR: 70,
+            speed: 110
+        }
+    },
+
+    kitsen: {
+        name: "Kitsen",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 14,
+        height: 24,
+        baseStats: {
+            hp: 60,
+            attack: 50,
+            defense: 40,
+            attackR: 75,
+            defenseR: 40,
+            speed: 60
+        }
+    },
+
+    vixalor: {
+        name: "Vixalor",
+        types: ["Fire", "Mind"],
+        weight: 115,
+        height: 62,
+        baseStats: {
+            hp: 78,
+            attack: 72,
+            defense: 75,
+            attackR: 113,
+            defenseR: 95,
+            speed: 97
+        }
+    },
+
+    mourock: {
+        name: "Mourock",
+        types: ["Crystal"],
+        finalEvo: false,
+        weight: 64,
+        height: 18,
+        baseStats: {
+            hp: 10,
+            attack: 5,
+            defense: 200,
+            attackR: 5,
+            defenseR: 200,
+            speed: 5
+        }
+    },
+
+    gyrm: {
+        name: "Gyrm",
+        types: ["Crystal", "Beast"],
+        weight: 191,
+        height: 64,
+        baseStats: {
+            hp: 80,
+            attack: 50,
+            defense: 90,
+            attackR: 115,
+            defenseR: 100,
+            speed: 85
+        }
+    },
+
     toxode: {
         name: "Toxode",
         types: ["Metal", "Poison"],
@@ -6278,37 +6606,6 @@ var loomians = {
             attackR: 60,
             defenseR: 75,
             speed: 60
-        }
-    },
-
-    kitsen: {
-        name: "Kitsen",
-        types: ["Fire"],
-        finalEvo: false,
-        weight: 14,
-        height: 24,
-        baseStats: {
-            hp: 60,
-            attack: 50,
-            defense: 40,
-            attackR: 75,
-            defenseR: 40,
-            speed: 60
-        }
-    },
-
-    vixalor: {
-        name: "Vixalor",
-        types: ["Fire", "Mind"],
-        weight: 115,
-        height: 62,
-        baseStats: {
-            hp: 78,
-            attack: 72,
-            defense: 75,
-            attackR: 113,
-            defenseR: 95,
-            speed: 97
         }
     },
 
@@ -6435,53 +6732,6 @@ var loomians = {
             attackR: 117,
             defenseR: 79,
             speed: 92
-        }
-    },
-
-    oribirb: {
-        name: "Oribirb",
-        types: ["Air"],
-        finalEvo: false,
-        weight: 1,
-        height: 12,
-        baseStats: {
-            hp: 35,
-            attack: 50,
-            defense: 35,
-            attackR: 60,
-            defenseR: 35,
-            speed: 55
-        }
-    },
-
-    torigami: {
-        name: "Torigami",
-        types: ["Air", "Dark"],
-        finalEvo: false,
-        weight: 3,
-        height: 24,
-        baseStats: {
-            hp: 45,
-            attack: 70,
-            defense: 45,
-            attackR: 80,
-            defenseR: 55,
-            speed: 75
-        }
-    },
-
-    sukikogami: {
-        name: "Sukikogami",
-        types: ["Air", "Dark"],
-        weight: 6,
-        height: 48,
-        baseStats: {
-            hp: 75,
-            attack: 108,
-            defense: 60,
-            attackR: 98,
-            defenseR: 75,
-            speed: 108
         }
     },
 
@@ -6655,8 +6905,8 @@ var loomians = {
     khaos: {
         name: "Khaos",
         types: ["Mythic"],
-        weight: 999,
-        height: 79,
+        weight: 1910,
+        height: 140,
         baseStats: {
             hp: 160,
             attack: 125,
@@ -6664,6 +6914,21 @@ var loomians = {
             attackR: 125,
             defenseR: 100,
             speed: 60
+        }
+    },
+
+    luzun: {
+        name: "Luzun",
+        types: ["Dark", "Water"],
+        weight: 408,
+        height: 100,
+        baseStats: {
+            hp: 100,
+            attack: 50,
+            defense: 85,
+            attackR: 120,
+            defenseR: 125,
+            speed: 70
         }
     },
 
@@ -9829,6 +10094,18 @@ var moves = {
         contact: true,
     },
 
+    blazingPounce: {
+        name: "Blazing Pounce",
+        power: 120,
+        accuracy: 90,
+        type: "Fire",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true,
+        secondaryEffect: true
+    },
+
     hotPot: {
         name: "Hot Pot",
         power: 95,
@@ -9971,6 +10248,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense"
+    },
+
+    geyser: {
+        name: "Geyser",
+        power: 100,
+        accuracy: 90,
+        type: "Water",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     dazzlingDisplay: {
@@ -10661,6 +10949,16 @@ var moves = {
         mr2: "Ranged Defense",
         secondaryEffect: true,
         sound: true
+    },
+
+    catharsis: {
+        name: "Catharsis",
+        power: 120,
+        accuracy: 100,
+        type: "Beast",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     doubleBite: {
@@ -12968,6 +13266,17 @@ var moves = {
         mr2: "Ranged Defense"
     },
 
+    paleMoonlight: {
+        name: "Pale Moonlight",
+        power: 80,
+        accuracy: "N/A",
+        type: "Dark",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        typeModifier: { type: "Light", type2: "Fire", modifier: 2 },
+    },
+
     fatalFlaw: {
         name: "Fatal Flaw",
         power: 75,
@@ -13169,6 +13478,18 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    brimstoneBurst: {
+        name: "Brimstone Burst",
+        power: 200,
+        accuracy: 100,
+        type: "Poison",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true,
+        aoe: true
     },
 
     canister: {
@@ -13855,6 +14176,14 @@ var moves = {
         mr: "Support"
     },
 
+    hotSpring: {
+        name: "Hot Spring",
+        power: 0,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Support"
+    },
+
     highDegreeBake: {
         name: "High Degree Bake",
         power: 0,
@@ -13865,6 +14194,14 @@ var moves = {
 
     aquagel: {
         name: "Aquagel",
+        power: 0,
+        accuracy: 100,
+        type: "Water",
+        mr: "Support"
+    },
+
+    pressureBuild: {
+        name: "Pressure Build",
         power: 0,
         accuracy: 100,
         type: "Water",
@@ -15713,7 +16050,8 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Animosity", "Lunarc", "Altertype", "Home Ground", "True Flame", "Short Circuit", "Nullcoat", "Verdant Predation", "Cursed Growth", "Last Stand", "Metalant", "Venandi Feast", "Cauldron Stew", "Starvision", "Trick Tail", "Mixed Bag", "Stimulant",
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
-                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy"];
+                 "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy", "Sulfur Soul", "Inert",
+                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve"];
 
 var typeModAbilities = {
     adipose: {
@@ -15937,6 +16275,12 @@ var typeModAbilities = {
         typeModifier: { type: "Light", modifier: 1.5 },
         powerMod: true
     },
+
+    lunarEclipse: {
+        name: "Lunar Eclipse",
+        typeModifier: { type: "Light", modifier: 0.5 },
+        powerMod: false
+    },
     
 }
 
@@ -15960,4 +16304,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Ranked Balance changes added.";
+var changelog = "Ambasa City Doodles added.";
