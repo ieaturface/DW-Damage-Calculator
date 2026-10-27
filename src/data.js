@@ -646,7 +646,7 @@ var loomians = {
         name: "Mawthra-Awakened",
         types: ["Metal", "Poison"],
         weight: 96,
-        height: 34,
+        height: 65,
         ability: "Warden",
         item: "Mawthra Rune",
         baseStats: {
@@ -693,8 +693,8 @@ var loomians = {
     'groato-awakened': {
         name: "Groato-Awakened",
         types: ["Basic", "Water"],
-        weight: 157,
-        height: 42,
+        weight: 115,
+        height: 65,
         ability: "Extinguisher",
         item: "Groato Rune",
         baseStats: {
@@ -989,8 +989,8 @@ var loomians = {
     'corrolizard-awakened': {
         name: "Corrolizard-Awakened",
         types: ["Poison", "Spirit"],
-        weight: 28,
-        height: 55,
+        weight: 54,
+        height: 78,
         ability: "Decay",
         item: "Corrolizard Rune",
         baseStats: {
@@ -1068,8 +1068,8 @@ var loomians = {
     'cerebopod-awakened': {
         name: "Cerebopod-Awakened",
         types: ["Mind", "Poison"],
-        weight: 14,
-        height: 17,
+        weight: 41,
+        height: 50,
         ability: "Refreshed Resilience",
         item: "Cerebopod Rune",
         baseStats: {
@@ -1255,8 +1255,8 @@ var loomians = {
     'archopos-awakened': {
         name: "Archopos-Awakened",
         types: ["Spirit", "Metal"],
-        weight: 15,
-        height: 67,
+        weight: 96,
+        height: 85,
         ability: "Delicate",
         item: "Archopos Rune",
         baseStats: {
@@ -1381,8 +1381,8 @@ var loomians = {
     'grufflin-awakened': {
         name: "Grufflin-Awakened",
         types: ["Food", "Air"],
-        weight: 54,
-        height: 32,
+        weight: 100,
+        height: 52,
         ability: "Analytical",
         item: "Grufflin Rune",
         baseStats: {
@@ -1553,8 +1553,8 @@ var loomians = {
     'lumiline-awakened': {
         name: "Lumiline-Awakened",
         types: ["Light", "Crystal"],
-        weight: 18,
-        height: 29,
+        weight: 60,
+        height: 72,
         ability: "Crystallization",
         item: "Lumiline Runestone",
         baseStats: {
@@ -1601,8 +1601,8 @@ var loomians = {
     'cryotera-awakened': {
         name: "Cryotera-Awakened",
         types: ["Dark", "Ice"],
-        weight: 71,
-        height: 56,
+        weight: 10,
+        height: 80,
         ability: "Bypass",
         item: "Cryotera Rune",
         baseStats: {
@@ -1665,7 +1665,7 @@ var loomians = {
     'spectatik-awakened': {
         name: "Spectatik-Awakened",
         types: ["Insect", "Crystal"],
-        weight: 63,
+        weight: 73,
         height: 67,
         ability: "Speed of Swag",
         item: "Spectatik Rune",
@@ -1713,8 +1713,8 @@ var loomians = {
     'bionotic-awakened': {
         name: "Bionotic-Awakened",
         types: ["Water", "Mind"],
-        weight: 20,
-        height: 61,
+        weight: 504,
+        height: 120,
         ability: "Mind Games",
         item: "Bionotic Runestone",
         baseStats: {
@@ -1838,8 +1838,8 @@ var loomians = {
     'mourveil-awakened': {
         name: "Mourveil-Awakened",
         types: ["Dark", "Plant"],
-        weight: 22,
-        height: 53,
+        weight: 56,
+        height: 73,
         ability: "The Fungus",
         item: "Mourveil Rune",
         baseStats: {
@@ -1980,8 +1980,8 @@ var loomians = {
     'tulenna-awakened': {
         name: "Tulenna-Awakened",
         types: ["Plant", "Poison"],
-        weight: 5,
-        height: 20,
+        weight: 45,
+        height: 60,
         ability: "Toxicity",
         item: "Tulenna Rune",
         baseStats: {
@@ -2136,8 +2136,8 @@ var loomians = {
     'partybug-awakened': {
         name: "Partybug-Awakened",
         types: ["Mind", "Beast"],
-        weight: 112,
-        height: 77,
+        weight: 159,
+        height: 95,
         ability: "Archmage",
         item: "Partybug Rune",
         baseStats: {
@@ -2231,8 +2231,8 @@ var loomians = {
     'voltenchant-awakened': {
         name: "Voltenchant-Awakened",
         types: ["Spark", "Water"],
-        weight: 34,
-        height: 52,
+        weight: 131,
+        height: 82,
         ability: "Downpour",
         item: "Voltenchant Rune",
         baseStats: {
@@ -2344,8 +2344,8 @@ var loomians = {
         types: ["Water", "Ice"],
         ability: "Sea Goddess Disciple",
         item: "Skadean Rune",
-        weight: 48,
-        height: 48,
+        weight: 136,
+        height: 72,
         baseStats: {
             hp: 105,
             attack: 104,
@@ -2609,8 +2609,8 @@ var loomians = {
     'somberock-awakened': {
         name: "Somberock-Awakened",
         types: ["Food", "Light"],
-        weight: 110,
-        height: 84,
+        weight: 195,
+        height: 83,
         ability: "Luminosity",
         item: "Somberock Rune",
         baseStats: {
@@ -2657,8 +2657,8 @@ var loomians = {
     'maskomedy-awakened': {
         name: "Maskomedy-Awakened",
         types: ["Light", "Dark"],
-        weight: 3,
-        height: 38,
+        weight: 7,
+        height: 72,
         ability: "Cardinal Sins",
         item: "Maskomedy Rune",
         baseStats: {
@@ -2689,8 +2689,8 @@ var loomians = {
     'theaterror-awakened': {
         name: "Theaterror-Awakened",
         types: ["Dark", "Light"],
-        weight: 5,
-        height: 35,
+        weight: 7,
+        height: 72,
         ability: "Spiteful",
         item: "Theaterror Rune",
         baseStats: {
@@ -2815,8 +2815,8 @@ var loomians = {
     'tufflaze-awakened': {
         name: "Tufflaze-Awakened",
         types: ["Beast", "Fire"],
-        weight: 127,
-        height: 90,
+        weight: 695,
+        height: 80,
         ability: "Annihilation",
         item: "Tufflaze Rune",
         baseStats: {
@@ -2863,8 +2863,8 @@ var loomians = {
     'hypnotl-awakened': {
         name: "Hypnotl-Awakened",
         types: ["Mind", "Plant"],
-        weight: 38,
-        height: 49,
+        weight: 55,
+        height: 62,
         ability: "Mushboom",
         item: "Hypnotl Antigen",
         baseStats: {
@@ -3129,8 +3129,8 @@ var loomians = {
     'umaisho-awakened': {
         name: "Umaisho-Awakened",
         types: ["Food"],
-        weight: 22,
-        height: 61,
+        weight: 232,
+        height: 111,
         ability: "Lipid Scale",
         item: "Umaisho Matcha",
         baseStats: {
@@ -3161,8 +3161,8 @@ var loomians = {
     'calamander-awakened': {
         name: "Calamander-Awakened",
         types: ["Food", "Beast"],
-        weight: 1,
-        height: 3,
+        weight: 549,
+        height: 95,
         ability: "Hidden Strength",
         item: "Calamander Candy",
         baseStats: {
@@ -3317,8 +3317,8 @@ var loomians = {
     'staligant-awakened': {
         name: "Staligant-Awakened",
         types: ["Mind", "Crystal"],
-        weight: 86,
-        height: 54,
+        weight: 91,
+        height: 96,
         ability: "Mental Depletion",
         item: "Staligant Rune",
         baseStats: {
@@ -3380,8 +3380,8 @@ var loomians = {
     'fluppy-awakened': {
         name: "Fluppy-Awakened",
         types: ["Light", "Plant"],
-        weight: 10,
-        height: 19,
+        weight: 96,
+        height: 65,
         ability: "Ceasing Light",
         item: "Fluppy Petal",
         baseStats: {
@@ -3412,8 +3412,8 @@ var loomians = {
     'junipyro-awakened': {
         name: "Junipyro-Awakened",
         types: ["Fire", "Plant"],
-        weight: 9,
-        height: 12,
+        weight: 34,
+        height: 24,
         ability: "Wildfire",
         item: "Junipyro Berry",
         baseStats: {
@@ -3459,8 +3459,8 @@ var loomians = {
     'hollihare-awakened': {
         name: "Hollihare-Awakened",
         types: ["Plant", "Ice"],
-        weight: 9,
-        height: 12,
+        weight: 10,
+        height: 140,
         ability: "Sugarsick",
         item: "Hollihare Wreath",
         baseStats: {
@@ -3538,8 +3538,8 @@ var loomians = {
     'vermorph-awakened': {
         name: "Vermorph-Awakened",
         types: ["Spark", "Insect"],
-        weight: 102,
-        height: 60,
+        weight: 151,
+        height: 75,
         ability: "Joltant",
         item: "Vermorph Goggles",
         baseStats: {
@@ -3666,8 +3666,8 @@ var loomians = {
     'fancyoon-awakened': {
         name: "Fancyoon-Awakened",
         types: ["Crystal", "Poison"],
-        weight: 36,
-        height: 33,
+        weight: 73,
+        height: 65,
         ability: "Foul Welcome",
         item: "Fancyoon Boa",
         baseStats: {
@@ -3821,8 +3821,8 @@ var loomians = {
     'jellupy-awakened': {
         name: "Jellupy-Awakened",
         types: ["Food", "Metal"],
-        weight: 11,
-        height: 18,
+        weight: 25,
+        height: 36,
         ability: "Jelly Sync",
         item: "Jellupy Whisk",
         baseStats: {
@@ -4149,8 +4149,8 @@ var loomians = {
     'ostigon-awakened': {
         name: "Ostigon-Awakened",
         types: ["Dark", "Poison"],
-        weight: 44,
-        height: 37,
+        weight: 136,
+        height: 74,
         ability: "Corruption",
         item: "Ostigon Collar",
         baseStats: {
@@ -4448,8 +4448,8 @@ var loomians = {
     'suomous-awakened': {
         name: "Suomous-Awakened",
         types: ["Melee"],
-        weight: 16,
-        height: 21,
+        weight: 95,
+        height: 65,
         ability: "Jab Cross",
         item: "Suomous Rune",
         baseStats: {
@@ -4543,8 +4543,8 @@ var loomians = {
     'cragildae-awakened': {
         name: "Cragildae-Awakened",
         types: ["Earth", "Melee"],
-        weight: 39,
-        height: 50,
+        weight: 368,
+        height: 75,
         ability: "Grounded",
         item: "Cragildae Rune",
         baseStats: {
@@ -4575,8 +4575,8 @@ var loomians = {
     'cacmeow-awakened': {
         name: "Cacmeow-Awakened",
         types: ["Plant", "Earth"],
-        weight: 9,
-        height: 30,
+        weight: 141,
+        height: 65,
         ability: "Vicious",
         item: "Cacmeow Rune",
         baseStats: {
@@ -4670,8 +4670,8 @@ var loomians = {
     'daeferno-awakened': {
         name: "Daeferno-Awakened",
         types: ["Fire", "Spirit"],
-        weight: 42,
-        height: 57,
+        weight: 78,
+        height: 90,
         ability: "Natural Calamity",
         item: "Daeferno Rune",
         baseStats: {
@@ -4782,8 +4782,8 @@ var loomians = {
     'libelagua-awakened': {
         name: "Libelagua-Awakened",
         types: ["Water", "Insect"],
-        weight: 20,
-        height: 30,
+        weight: 45,
+        height: 90,
         ability: "Bogdown",
         item: "Libelagua Runestone",
         baseStats: {
@@ -4830,8 +4830,8 @@ var loomians = {
     'bubbull-awakened': {
         name: "Bubbull-Awakened",
         types: ["Water", "Earth"],
-        weight: 1806,
-        height: 92,
+        weight: 1411,
+        height: 95,
         ability: "Melting Point",
         item: "Bubbull Rune",
         baseStats: {
@@ -4971,8 +4971,8 @@ var loomians = {
     'vigimante-awakened': {
         name: "Vigimante-Awakened",
         types: ["Water", "Melee"],
-        weight: 36,
-        height: 49,
+        weight: 45,
+        height: 72,
         ability: "Crowd Support",
         item: "Vigimante Rune",
         baseStats: {
@@ -5231,8 +5231,8 @@ var loomians = {
     'jinglark-awakened': {
         name: "Jinglark-Awakened",
         types: ["Plant", "Air"],
-        weight: 41,
-        height: 55,
+        weight: 181,
+        height: 80,
         ability: "Holiday Spirit",
         item: "Jinglark Present",
         baseStats: {
@@ -5279,8 +5279,8 @@ var loomians = {
     'snowclowne-awakened': {
         name: "Snowclowne-Awakened",
         types: ["Food", "Ice"],
-        weight: 23,
-        height: 40,
+        weight: 268,
+        height: 80,
         ability: "Frostillery",
         item: "Silly Cone",
         baseStats: {
@@ -5839,8 +5839,8 @@ var loomians = {
     'boblop-awakened': {
         name: "Boblop-Awakened",
         types: ["Fire", "Air"],
-        weight: 671,
-        height: 120,
+        weight: 816,
+        height: 150,
         ability: "Thermal Uplift",
         item: "Boblop Feather",
         baseStats: {
@@ -7136,8 +7136,8 @@ var loomians = {
     'exoskelis-awakened': {
         name: "Exoskelis-Awakened",
         types: ["Insect", "Dark"],
-        weight: 96,
-        height: 58,
+        weight: 41,
+        height: 85,
         ability: "Ultimate Revival",
         item: "Exoskelis Shard",
         baseStats: {
@@ -7450,8 +7450,8 @@ var loomians = {
     'hangryphus-awakened': {
         name: "Hangryphus-Awakened",
         types: ["Food", "Melee"],
-        weight: 47,
-        height: 60,
+        weight: 445,
+        height: 85,
         ability: "Survival Instinct",
         item: "Hangryphus Pie",
         baseStats: {
@@ -7680,8 +7680,8 @@ var loomians = {
     'hattrix-awakened': {
         name: "Hattrix-Awakened",
         types: ["Dark", "Mind"],
-        weight: 16,
-        height: 43,
+        weight: 69,
+        height: 70,
         ability: "Spell Shield",
         item: "Hattrix Rune",
         baseStats: {
@@ -8661,8 +8661,8 @@ var loomians = {
     'aromaflora-awakened': {
         name: "Aromaflora-Awakened",
         types: ["Plant", "Light"],
-        weight: 38,
-        height: 76,
+        weight: 60,
+        height: 92,
         ability: "Faerie Sanctuary",
         item: "Aromaflora Rune",
         baseStats: {
@@ -8710,7 +8710,7 @@ var loomians = {
         name: "Kinglith-Awakened",
         types: ["Fire", "Earth"],
         weight: 1125,
-        height: 71,
+        height: 110,
         ability: "Siegebreaker",
         item: "Kinglith Pyreblade",
         baseStats: {
@@ -10106,8 +10106,8 @@ var moves = {
         secondaryEffect: true
     },
 
-    hotPot: {
-        name: "Hot Pot",
+    hotpot: {
+        name: "Hotpot",
         power: 95,
         accuracy: 100,
         type: "Fire",
@@ -12571,6 +12571,17 @@ var moves = {
         mr2: "Melee Defense",
         contact: true,
         secondaryEffect: true
+    },
+
+    gatlingGifts: {
+        name: "Gatling Gifts",
+        power: 25,
+        accuracy: 90,
+        type: "Metal",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        hits: 5
     },
 
     razorMomentum: {
@@ -16304,4 +16315,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Ambasa City Doodles added.";
+var changelog = "Adjusted Awakening weights. Added/fixed some moves. If you had any sets containing the move Hotpot, you will need to remake them.";
