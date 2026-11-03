@@ -7896,6 +7896,52 @@ var loomians = {
         }
     },
 
+    ragaboo: {
+        name: "Ragaboo",
+        types: ["Dark", "Basic"],
+        finalEvo: false,
+        weight: 3,
+        height: 30,
+        baseStats: {
+            hp: 55,
+            attack: 70,
+            defense: 55,
+            attackR: 35,
+            defenseR: 45,
+            speed: 60
+        }
+    },
+
+    scarvest: {
+        name: "Scarvest",
+        types: ["Dark", "Basic"],
+        weight: 18,
+        height: 72,
+        baseStats: {
+            hp: 70,
+            attack: 115,
+            defense: 80,
+            attackR: 65,
+            defenseR: 75,
+            speed: 105
+        }
+    },
+
+    faelixin: {
+        name: "Faelixin",
+        types: ["Dark"],
+        weight: 14,
+        height: 48,
+        baseStats: {
+            hp: 60,
+            attack: 105,
+            defense: 70,
+            attackR: 130,
+            defenseR: 60,
+            speed: 90
+        }
+    },
+
     arachniak: {
         name: "Arachniak",
         types: ["Insect", "Spirit"],
@@ -7939,6 +7985,21 @@ var loomians = {
             attackR: 70,
             defenseR: 100,
             speed: 60
+        }
+    },
+
+    cerberant: {
+        name: "Cerberant",
+        types: ["Fire", "Plant"],
+        weight: 249,
+        height: 90,
+        baseStats: {
+            hp: 75,
+            attack: 75,
+            defense: 70,
+            attackR: 135,
+            defenseR: 70,
+            speed: 125
         }
     },
 
@@ -9871,6 +9932,16 @@ var moves = {
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true
+    },
+
+    burnout: {
+        name: "Burnout",
+        power: 130,
+        accuracy: 90,
+        type: "Fire",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
     },
 
     boilingPoint: {
@@ -13352,6 +13423,17 @@ var moves = {
         contact: true
     },
 
+    inTheShadows: {
+        name: "In the Shadows",
+        power: 100,
+        accuracy: 100,
+        type: "Dark",
+        mr: "Melee",
+        mr1: "Melee Attack",
+        mr2: "Melee Defense",
+        contact: true
+    },
+
     lunarCleave: {
         name: "Lunar Cleave",
         power: 95,
@@ -16062,7 +16144,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
                  "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy", "Sulfur Soul", "Inert",
-                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve"];
+                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve", "Night Prowler", "Evil Orb", "Gatekeeper", "Devotion"];
 
 var typeModAbilities = {
     adipose: {
@@ -16315,4 +16397,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Adjusted Awakening weights. Added/fixed some moves. If you had any sets containing the move Hotpot, you will need to remake them.";
+var changelog = "Halloween Doodles added. Use the 'Just Switched In/Out' button for Gatekeeper calcs.";

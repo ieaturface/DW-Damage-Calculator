@@ -447,11 +447,11 @@ function toggleDarkMode() {
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -506,8 +506,8 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
         document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
@@ -810,7 +810,7 @@ function updateAbility(ability) {
     else sandstorm.checked = false;
     if (ability1 == "Light Orb" || ability2 == "Light Orb") lightOrb.checked = true;
     else lightOrb.checked = false;
-    if (ability1 == "Evil Glare" || ability2 == "Evil Glare") evilGlare.checked = true;
+    if (ability1 == "Evil Glare" || ability2 == "Evil Glare" || ability1 == "Evil Orb" || ability2 == "Evil Orb") evilGlare.checked = true;
     else evilGlare.checked = false;
     if (ability1 == "Foam Guard") bubble1.checked = true;
     else bubble1.checked = false;
@@ -1527,7 +1527,7 @@ function loadStats() {
     multi = 1;
     trueStats1.spd = spd1;
     if ((ability1 == "Vitality" && percentHP1.value > 50) || (ability1 == "Second Wind" && percentHP1.value < 25) || ability1 == "Rush") multi *= 1.5;
-    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked) || (ability1 == "Acid Advance" && acidRain.checked) || ability1 == "Metabolize") multi *= 2;
+    else if ((ability1 == "Scarf Down" && chocolateRain.checked) || (ability1 == "Dust Dash" && sandstorm.checked) || (ability1 == "Lithe" && firstItem == "None") || (ability1 == "Storm Surge" && rain.checked) || (ability1 == "Acid Advance" && acidRain.checked) || ability1 == "Metabolize" || (ability1 == "Night Prowler" && darkExpansion.checked)) multi *= 2;
     else if (ability1 == "Flow State" && rain.checked) multi *= 1.2;
     else if (ability1 == "Owolspeed") {
         let owolspeed = owol1.value;
@@ -1583,7 +1583,7 @@ function loadStats() {
     multi = 1;
     trueStats2.spd = spd2;
     if ((ability2 == "Vitality" && percentHP2.value > 50) || (ability2 == "Second Wind" && percentHP2.value < 25) || ability2 == "Rush") multi *= 1.5;
-    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked) || (ability2 == "Acid Advance" && acidRain.checked) || ability2 == "Metabolize") multi *= 2;
+    else if ((ability2 == "Scarf Down" && chocolateRain.checked) || (ability2 == "Dust Dash" && sandstorm.checked) || (ability2 == "Lithe" && secondItem == "None") || (ability2 == "Storm Surge" && rain.checked) || (ability2 == "Acid Advance" && acidRain.checked) || ability2 == "Metabolize" || (ability2 == "Night Prowler" && darkExpansion.checked)) multi *= 2;
     else if (ability2 == "Flow State" && rain.checked) multi *= 1.2;
     else if (ability2 == "Owolspeed") {
         let owolspeed = owol2.value;
@@ -2331,6 +2331,7 @@ function detailedReport() {
     let item = (second ? item1.value : item2.value);
     let ability = (second ? abilities.find((x) => x == abilityDropdown1.value) : abilities.find((x) => x == abilityDropdown2.value));
     let abilitys = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
+    let switchIn = (second ? enteredBtl1.checked : enteredBtl2.checked);
     move = findMove(moveName);
     let qualifier = (move.hits ? "approx." : "");
     hp = (second ? currentHP1.value : currentHP2.value);
@@ -2654,6 +2655,8 @@ function detailedReport() {
             addedDmg += 25;
         }
     }
+
+    if (abilitys == "Gatekeeper" && switchIn && !(ability == "Direct Combatant" || ability == "Impervious" || ability == "Nullcoat")) addedDmg += 12.5; 
     let tickDamage = adjustHP(firstLoom, secondLoom, move, maxHP, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[0];
     tickDamage = tickDamage + Math.floor(maxHP * addedDmg / 100);
     hazardStr = adjustHP(firstLoom, secondLoom, move, hp, selfHP, item, ability, currStatus, second, turnCount, "OHKO")[1];
@@ -4596,6 +4599,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
     let softWater = softWater2.checked;
     let disease = diseased2.value;
     let aquagel = aquagel2.checked;
+    let switchIn = enteredBtl2.checked;
     let hazardString = "";
     let checkAbility = (second == false ? immuneAbilityBoost2.checked : immuneAbilityBoost1.checked);
     let otherAbility = (second ? abilities.find((x) => x == abilityDropdown2.value) : abilities.find((x) => x == abilityDropdown1.value));
@@ -4618,6 +4622,7 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
         softWater = softWater1.checked;
         disease = diseased1.value;
         aquagel = aquagel1.checked;
+        switchIn = enteredBtl1.checked
     }
     disease = parseInt(disease);
 
@@ -4644,6 +4649,8 @@ function adjustHP(loom1, loom2, move, hp1, hp2, item, ability, status, second = 
             hazardString += "3 layer of barbs and ";
         }
     }
+
+    if (otherAbility == "Gatekeeper" && switchIn && !(ability == "Direct Combatant" || ability == "Impervious" || ability == "Nullcoat")) hazardString += "the gatekeeper's toll and ";
 
     if (onlyIncludeIceTrap) {
         hazardString = hazardString.substr(0, hazardString.length - 5);
