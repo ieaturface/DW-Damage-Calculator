@@ -131,10 +131,10 @@ var loomians = {
         weight: 76,
         height: 63,
         baseStats: {
-            hp: 85,
+            hp: 75,
             attack: 105,
             defense: 70,
-            attackR: 85,
+            attackR: 95,
             defenseR: 70,
             speed: 110
         }
@@ -777,8 +777,8 @@ var loomians = {
         baseStats: {
             hp: 50,
             attack: 120,
-            defense: 50,
-            attackR: 70,
+            defense: 70,
+            attackR: 50,
             defenseR: 50,
             speed: 110
         }
@@ -1387,10 +1387,10 @@ var loomians = {
         item: "Grufflin Rune",
         baseStats: {
             hp: 80,
-            attack: 100,
+            attack: 115,
             defense: 80,
-            attackR: 110,
-            defenseR: 90,
+            attackR: 115,
+            defenseR: 85,
             speed: 115
         }
     },
@@ -1434,9 +1434,9 @@ var loomians = {
         height: 87,
         baseStats: {
             hp: 90,
-            attack: 135,
+            attack: 140,
             defense: 150,
-            attackR: 50,
+            attackR: 45,
             defenseR: 40,
             speed: 50
         }
@@ -1607,10 +1607,10 @@ var loomians = {
         item: "Cryotera Rune",
         baseStats: {
             hp: 60,
-            attack: 125,
-            defense: 85,
+            attack: 105,
+            defense: 90,
             attackR: 125,
-            defenseR: 85,
+            defenseR: 90,
             speed: 130
         }
     },
@@ -1654,9 +1654,9 @@ var loomians = {
         height: 67,
         baseStats: {
             hp: 100,
-            attack: 90,
-            defense: 95,
-            attackR: 85,
+            attack: 80,
+            defense: 102,
+            attackR: 98,
             defenseR: 80,
             speed: 45
         }
@@ -2096,10 +2096,10 @@ var loomians = {
         baseStats: {
             hp: 75,
             attack: 70,
-            defense: 85,
-            attackR: 110,
+            defense: 77,
+            attackR: 115,
             defenseR: 75,
-            speed: 100
+            speed: 110
         }
     },
 
@@ -2409,11 +2409,11 @@ var loomians = {
         weight: 2,
         height: 36,
         baseStats: {
-            hp: 90,
-            attack: 55,
+            hp: 70,
+            attack: 105,
             defense: 75,
-            attackR: 100,
-            defenseR: 85,
+            attackR: 105,
+            defenseR: 70,
             speed: 105
         }
     },
@@ -2679,9 +2679,9 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 90,
-            defense: 100,
-            attackR: 90,
-            defenseR: 90,
+            defense: 115,
+            attackR: 65,
+            defenseR: 100,
             speed: 35
         }
     },
@@ -2852,9 +2852,9 @@ var loomians = {
         height: 49,
         baseStats: {
             hp: 85,
-            attack: 75,
+            attack: 55,
             defense: 85,
-            attackR: 80,
+            attackR: 105,
             defenseR: 85,
             speed: 90
         }
@@ -2994,11 +2994,11 @@ var loomians = {
         height: 50,
         baseStats: {
             hp: 120,
-            attack: 77,
+            attack: 72,
             defense: 88,
-            attackR: 107,
+            attackR: 117,
             defenseR: 83,
-            speed: 72
+            speed: 67
         }
     },
 
@@ -3200,9 +3200,9 @@ var loomians = {
             hp: 65,
             attack: 125,
             defense: 80,
-            attackR: 95,
+            attackR: 85,
             defenseR: 60,
-            speed: 60
+            speed: 70
         }
     },
 
@@ -3438,6 +3438,23 @@ var loomians = {
             attackR: 75,
             defenseR: 115,
             speed: 55
+        }
+    },
+
+    'squonk-awakened': {
+        name: "Squonk-Awakened",
+        types: ["Plant", "Spirit"],
+        weight: 18,
+        height: 30,
+        ability: "Breaking Point",
+        item: "Squonk Spectral Hand",
+        baseStats: {
+            hp: 70,
+            attack: 105,
+            defense: 115,
+            attackR: 110,
+            defenseR: 115,
+            speed: 70
         }
     },
 
@@ -3811,9 +3828,9 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 90,
-            defense: 70,
-            attackR: 82,
-            defenseR: 83,
+            defense: 85,
+            attackR: 62,
+            defenseR: 88,
             speed: 90
         }
     },
@@ -4045,10 +4062,10 @@ var loomians = {
         height: 53,
         baseStats: {
             hp: 130,
-            attack: 80,
-            defense: 90,
-            attackR: 105,
-            defenseR: 70,
+            attack: 70,
+            defense: 75,
+            attackR: 100,
+            defenseR: 100,
             speed: 50
         }
     },
@@ -4124,10 +4141,10 @@ var loomians = {
         baseStats: {
             hp: 95,
             attack: 135,
-            defense: 75,
+            defense: 105,
             attackR: 55,
-            defenseR: 70,
-            speed: 50
+            defenseR: 85,
+            speed: 25
         }
     },
 
@@ -4628,11 +4645,11 @@ var loomians = {
         height: 75,
         baseStats: {
             hp: 110,
-            attack: 80,
+            attack: 90,
             defense: 95,
             attackR: 85,
             defenseR: 85,
-            speed: 65
+            speed: 60
         }
     },
 
@@ -5923,11 +5940,11 @@ var loomians = {
         height: 60,
         baseStats: {
             hp: 75,
-            attack: 100,
+            attack: 95,
             defense: 65,
             attackR: 90,
             defenseR: 70,
-            speed: 105
+            speed: 115
         }
     },
 
@@ -5956,7 +5973,7 @@ var loomians = {
             hp: 95,
             attack: 75,
             defense: 110,
-            attackR: 100,
+            attackR: 110,
             defenseR: 85,
             speed: 50
         }
@@ -6198,8 +6215,8 @@ var loomians = {
         height: 58,
         baseStats: {
             hp: 70,
-            attack: 120,
-            defense: 80,
+            attack: 108,
+            defense: 92,
             attackR: 70,
             defenseR: 85,
             speed: 75
@@ -6276,9 +6293,9 @@ var loomians = {
         height: 51,
         baseStats: {
             hp: 95,
-            attack: 60,
+            attack: 50,
             defense: 100,
-            attackR: 115,
+            attackR: 125,
             defenseR: 90,
             speed: 50
         }
@@ -6879,8 +6896,8 @@ var loomians = {
         height: 92,
         baseStats: {
             hp: 100,
-            attack: 75,
-            defense: 91,
+            attack: 65,
+            defense: 101,
             attackR: 108,
             defenseR: 91,
             speed: 85
@@ -6923,8 +6940,8 @@ var loomians = {
         weight: 408,
         height: 100,
         baseStats: {
-            hp: 100,
-            attack: 50,
+            hp: 90,
+            attack: 60,
             defense: 85,
             attackR: 120,
             defenseR: 125,
@@ -7487,9 +7504,9 @@ var loomians = {
         height: 100,
         baseStats: {
             hp: 83,
-            attack: 88,
+            attack: 96,
             defense: 73,
-            attackR: 128,
+            attackR: 120,
             defenseR: 73,
             speed: 93
         }
@@ -7888,11 +7905,11 @@ var loomians = {
         height: 34,
         baseStats: {
             hp: 86,
-            attack: 100,
+            attack: 70,
             defense: 92,
-            attackR: 100,
-            defenseR: 73,
-            speed: 78
+            attackR: 110,
+            defenseR: 83,
+            speed: 88
         }
     },
 
@@ -7939,6 +7956,100 @@ var loomians = {
             attackR: 130,
             defenseR: 60,
             speed: 90
+        }
+    },
+
+    corni: {
+        name: "Corni",
+        types: ["Food", "Insect"],
+        finalEvo: false,
+        weight: 1,
+        height: 12,
+        baseStats: {
+            hp: 60,
+            attack: 30,
+            defense: 35,
+            attackR: 65,
+            defenseR: 55,
+            speed: 45
+        }
+    },
+
+    cornicoon: {
+        name: "Cornicoon",
+        types: ["Food", "Insect"],
+        finalEvo: false,
+        weight: 6,
+        height: 20,
+        baseStats: {
+            hp: 70,
+            attack: 30,
+            defense: 75,
+            attackR: 35,
+            defenseR: 75,
+            speed: 25
+        }
+    },
+
+    cornifly: {
+        name: "Cornifly",
+        types: ["Food", "Insect"],
+        weight: 2,
+        height: 42,
+        baseStats: {
+            hp: 80,
+            attack: 55,
+            defense: 75,
+            attackR: 105,
+            defenseR: 100,
+            speed: 85
+        }
+    },
+
+    tammage: {
+        name: "Tammage",
+        types: ["Spirit", "Basic"],
+        finalEvo: false,
+        weight: 1,
+        height: 10,
+        baseStats: {
+            hp: 30,
+            attack: 20,
+            defense: 30,
+            attackR: 60,
+            defenseR: 50,
+            speed: 50
+        }
+    },
+
+    phantura: {
+        name: "Phantura",
+        types: ["Spirit", "Basic"],
+        finalEvo: false,
+        weight: 4,
+        height: 24,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 50,
+            attackR: 80,
+            defenseR: 65,
+            speed: 70
+        }
+    },
+
+    archphibian: {
+        name: "Archphibian",
+        types: ["Spirit", "Basic"],
+        weight: 13,
+        height: 46,
+        baseStats: {
+            hp: 75,
+            attack: 60,
+            defense: 70,
+            attackR: 115,
+            defenseR: 90,
+            speed: 102
         }
     },
 
@@ -7992,12 +8103,12 @@ var loomians = {
         name: "Cerberant",
         types: ["Fire", "Plant"],
         weight: 249,
-        height: 90,
+        height: 102,
         baseStats: {
-            hp: 75,
-            attack: 75,
+            hp: 85,
+            attack: 90,
             defense: 70,
-            attackR: 135,
+            attackR: 110,
             defenseR: 70,
             speed: 125
         }
@@ -8394,10 +8505,10 @@ var loomians = {
         baseStats: {
             hp: 90,
             attack: 50,
-            defense: 85,
+            defense: 100,
             attackR: 100,
             defenseR: 95,
-            speed: 70
+            speed: 55
         }
     },
 
@@ -8679,11 +8790,11 @@ var loomians = {
             speed: 121
         },
         formStats: {
-            hp: 67,
+            hp: 63,
             attack: 48,
-            defense: 92,
+            defense: 109,
             attackR: 128,
-            defenseR: 88,
+            defenseR: 104,
             speed: 77
         }
     },
@@ -9301,8 +9412,8 @@ var loomians = {
         weight: 58,
         height: 23,
         baseStats: {
-            hp: 69,
-            attack: 98,
+            hp: 79,
+            attack: 88,
             defense: 108,
             attackR: 112,
             defenseR: 103,
@@ -9506,7 +9617,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        aoe: true
+        aoe: true,
+        selfKO: true
     },
 
     dispose: {
@@ -9603,7 +9715,7 @@ var moves = {
 
     shieldBash: {
         name: "Shield Bash",
-        power: 75,
+        power: 85,
         accuracy: 100,
         type: "Basic",
         mr: "Melee",
@@ -9852,7 +9964,8 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
-        aoe: true
+        aoe: true,
+        selfKO: true
     },
 
     elementalClaws: {
@@ -9925,7 +10038,7 @@ var moves = {
 
     firebolt: {
         name: "Firebolt",
-        power: 40,
+        power: 50,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -9977,7 +10090,7 @@ var moves = {
 
     solarFlare: {
         name: "Solar Flare",
-        power: 130,
+        power: 90,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -10051,7 +10164,7 @@ var moves = {
 
     incinerate: {
         name: "Incinerate",
-        power: 40,
+        power: 35,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -10197,6 +10310,7 @@ var moves = {
         mr: "Melee",
         mr1: "Melee Attack",
         mr2: "Melee Defense",
+        selfKO: true
     },
 
     fierySlash: {
@@ -10345,7 +10459,7 @@ var moves = {
 
     boilBomb: {
         name: "Boil Bomb",
-        power: 70,
+        power: 80,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -10538,7 +10652,7 @@ var moves = {
 
     briarMagic: {
         name: "Briar Magic",
-        power: 65,
+        power: 75,
         accuracy: 100,
         type: "Plant",
         mr: "Magic",
@@ -11171,7 +11285,7 @@ var moves = {
 
     windShear: {
         name: "Wind Shear",
-        power: 65,
+        power: 70,
         accuracy: 100,
         type: "Air",
         mr: "Magic",
@@ -11216,8 +11330,8 @@ var moves = {
 
     talonStrike: {
         name: "Talon Strike",
-        power: 80,
-        accuracy: 100,
+        power: 95,
+        accuracy: 90,
         type: "Melee",
         mr: "Melee",
         mr1: "Melee Attack",
@@ -11271,7 +11385,7 @@ var moves = {
 
     nectarSip: {
         name: "Nectar Sip",
-        power: 75,
+        power: 80,
         accuracy: 100,
         type: "Insect",
         mr: "Magic",
@@ -11345,6 +11459,7 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
+        selfKO: true
     },
 
     swarm: {
@@ -11985,6 +12100,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    candyCornado: {
+        name: "Candy Cornado",
+        power: 80,
+        accuracy: 95,
+        type: "Food",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     foodFight: {
         name: "Food Fight",
         power: 65,
@@ -12016,7 +12142,8 @@ var moves = {
         mr1: "Melee Attack",
         mr2: "Melee Defense",
         contact: true,
-        secondaryEffect: true
+        secondaryEffect: true,
+        bite: true
     },
 
     pieGag: {
@@ -12351,7 +12478,7 @@ var moves = {
 
     flashingStrike: {
         name: "Flashing Strike",
-        power: 80,
+        power: 85,
         accuracy: 100,
         type: "Light",
         mr: "Melee",
@@ -12840,7 +12967,7 @@ var moves = {
 
     grudge: {
         name: "Grudge",
-        power: 50,
+        power: 75,
         accuracy: 100,
         type: "Spirit",
         mr: "Melee",
@@ -12903,6 +13030,17 @@ var moves = {
         secondaryEffect: true
     },
 
+    phantomCantrip: {
+        name: "Phantom Cantrip",
+        power: 50,
+        accuracy: 100,
+        type: "Spirit",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
     spiritBomb: {
         name: "Spirit Bomb",
         power: 200,
@@ -12911,6 +13049,7 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        selfKO: true
     },
 
     jumpScare: {
@@ -12938,7 +13077,7 @@ var moves = {
 
     spectralIre: {
         name: "Spectral Ire",
-        power: 90,
+        power: 100,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
@@ -13034,7 +13173,7 @@ var moves = {
 
     drainLife: {
         name: "Drain Life",
-        power: 50,
+        power: 65,
         accuracy: 100,
         type: "Spirit",
         mr: "Magic",
@@ -13088,7 +13227,7 @@ var moves = {
 
     cryoshock: {
         name: "Cryoshock",
-        power: 95,
+        power: 60,
         accuracy: 85,
         type: "Ice",
         mr: "Magic",
@@ -13507,7 +13646,7 @@ var moves = {
 
     frenziedDarkness: {
         name: "Frenzied Darkness",
-        power: 85,
+        power: 105,
         accuracy: 100,
         type: "Dark",
         mr: "Melee",
@@ -13575,14 +13714,15 @@ var moves = {
 
     brimstoneBurst: {
         name: "Brimstone Burst",
-        power: 200,
+        power: 250,
         accuracy: 100,
         type: "Poison",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
         secondaryEffect: true,
-        aoe: true
+        aoe: true,
+        selfKO: true
     },
 
     canister: {
@@ -13597,12 +13737,13 @@ var moves = {
 
     "witch's brew": {
         name: "Witch's Brew",
-        power: 80,
+        power: 85,
         accuracy: 100,
         type: "Poison",
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+        secondaryEffect: true
     },
 
     toxicBomb: {
@@ -14589,6 +14730,14 @@ var moves = {
         mr: "Support"
     },
 
+    metamorphosis: {
+        name: "Metamorphosis",
+        power: 0,
+        accuracy: 100,
+        type: "Insect",
+        mr: "Support"
+    },
+
     web: {
         name: "Web",
         power: 0,
@@ -15262,7 +15411,7 @@ var helmets = {
 
     "performer's mask": {
         name: "Performer's Mask",
-        health: -10,
+        health: -7,
         attack: 0,
         defense: 0,
         mAttack: 15,
@@ -15322,12 +15471,12 @@ var helmets = {
 
     'smoldering hood': {
         name: "Smoldering Hood",
-        health: -6,
-        attack: 16,
+        health: -7,
+        attack: 15,
         defense: 0,
         mAttack: 0,
         mDefense: 0,
-        speed: 0,
+        speed: 5,
     },
 
     'feathered hat': {
@@ -15422,9 +15571,9 @@ var helmets = {
 
     'candy headphones': {
         name: "Candy Headphones",
-        health: -20,
+        health: -12,
         attack: 10,
-        defense: -20,
+        defense: -12,
         mAttack: 0,
         mDefense: 0,
         speed: 12,
@@ -15432,11 +15581,11 @@ var helmets = {
 
     'pale sunbonnet': {
         name: "Pale Sunbonnet",
-        health: -10,
+        health: -12,
         attack: 0,
         defense: 0,
-        mAttack: 5,
-        mDefense: -10,
+        mAttack: 10,
+        mDefense: -12,
         speed: 12,
     },
 
@@ -15607,9 +15756,9 @@ var amulets = {
         health: 0,
         attack: 0,
         defense: 0,
-        mAttack: 0,
+        mAttack: 10,
         mDefense: 15,
-        speed: 5,
+        speed: 0,
     },
 
     'mini camera': {
@@ -16144,7 +16293,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
                  "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy", "Sulfur Soul", "Inert",
-                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve", "Night Prowler", "Evil Orb", "Gatekeeper", "Devotion"];
+                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve", "Night Prowler", "Evil Orb", "Gatekeeper", "Three Heads", "Firefighter", "Mana Pool", "Sweet Lure", "Breaking Point"];
 
 var typeModAbilities = {
     adipose: {
@@ -16159,6 +16308,12 @@ var typeModAbilities = {
         powerMod: false
     },
 
+    glucoseBoost: {
+        name: "Glucose Boost",
+        typeModifier: { type: "Food", modifier: 0 },
+        powerMod: false
+    },
+
     caloricDeficit: {
         name: "Caloric Deficit",
         typeModifier: { type: "Food", modifier: 1.3 },
@@ -16167,7 +16322,7 @@ var typeModAbilities = {
 
     spellcaster: {
         name: "Spellcaster",
-        typeModifier: { type: "Spark", type2: "Ice", type3: "Fire", modifier: 1.25 },
+        typeModifier: { type: "Spark", type2: "Ice", type3: "Fire", modifier: 1.33 },
         powerMod: true
     },
 
@@ -16228,6 +16383,12 @@ var typeModAbilities = {
     spool: {
         name: "Spool",
         typeModifier: { type: "Basic", modifier: 1.3 },
+        powerMod: true
+    },
+
+    birdOfPrey: {
+        name: "Bird of Prey",
+        typeModifier: { type: "Air", modifier: 1.2 },
         powerMod: true
     },
 
@@ -16397,4 +16558,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Halloween Doodles added. Use the 'Just Switched In/Out' button for Gatekeeper calcs.";
+var changelog = "Squonk-Awakened, Tammage, and Corni lines added. Season 26 Balance changes added.";
