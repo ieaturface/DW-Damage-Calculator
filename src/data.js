@@ -7387,8 +7387,8 @@ var loomians = {
         }
     },
 
-    grimantle: {
-        name: "Grimantle",
+    'grimantle-poison': {
+        name: "Grimantle-Poison",
         types: ["Dark", "Poison"],
         weight: 19,
         height: 40,
@@ -7399,6 +7399,21 @@ var loomians = {
             attackR: 85,
             defenseR: 120,
             speed: 75
+        }
+    },
+
+    'grimantle-air': {
+        name: "Grimantle-Air",
+        types: ["Dark", "Air"],
+        weight: 19,
+        height: 40,
+        baseStats: {
+            hp: 75,
+            attack: 65,
+            defense: 60,
+            attackR: 110,
+            defenseR: 105,
+            speed: 100
         }
     },
 

@@ -4197,7 +4197,7 @@ var builtInSets = [
     },
 
 {
-        name: "Grimantle",
+        name: "Grimantle-Poison",
         setName: "Bulky Set Up Sweeper",
         helmet: "Horned Headband",
         amulet: "Sapphire Amulet",
@@ -6464,7 +6464,7 @@ var builtInSets = [
         builtIn: true
     },
 {
-        name: "Grimantle",
+        name: "Grimantle-Poison",
         setName: "Bulky Set",
         helmet: "Horned Headband",
         amulet: "Rock Candy",
