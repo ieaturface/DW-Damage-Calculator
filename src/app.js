@@ -379,6 +379,13 @@ function toggleDarkMode() {
             allInputs[j].style.border = "1px solid #AAAAAA";
         }
 
+        let allTextAreas = document.querySelectorAll("textarea");
+        for (let r = 0; r < allTextAreas.length; r++) {
+            allTextAreas[r].style.backgroundColor = "#757575";
+            allTextAreas[r].style.color = "white";
+            allTextAreas[r].style.border = "1px solid #AAAAAA";
+        }
+
         let allSelects = document.querySelectorAll("select");
         for (let k = 0; k < allSelects.length; k++) {
             allSelects[k].style.backgroundColor = "#545454";
@@ -392,6 +399,7 @@ function toggleDarkMode() {
 
         let radioLabels = document.getElementsByClassName("radioLbl");
         let resultLabels = document.getElementsByClassName("resultLbl");
+        let exportLabels = document.getElementsByClassName("exportLbl");
         for (let p = 0; p < radioLabels.length; p++) {
             radioLabels[p].style.backgroundColor = "#545454";
             radioLabels[p].style.color = "white";
@@ -400,6 +408,10 @@ function toggleDarkMode() {
             resultLabels[q].style.backgroundColor = "#545454";
             resultLabels[q].style.color = "white";
             resultLabels[q].style.border = "1px solid #AAAAAA";
+        }
+        for (let o = 0; o < exportLabels.length; o++) {
+            exportLabels[o].style.backgroundColor = "#545454";
+            exportLabels[o].style.color = "white";
         }
     }
     else {
@@ -419,6 +431,15 @@ function toggleDarkMode() {
             allInputs[j].style.borderWidth = "2px";
         }
 
+        let allTextAreas = document.querySelectorAll("textarea");
+        for (let r = 0; r < allTextAreas.length; r++) {
+            allTextAreas[r].style.backgroundColor = "white";
+            allTextAreas[r].style.color = "black";
+            allTextAreas[r].style.borderStyle = "inset";
+            allTextAreas[r].style.borderColor = "initial";
+            allTextAreas[r].style.borderWidth = "2px";
+        }
+
         let allSelects = document.querySelectorAll("select");
         for (let k = 0; k < allSelects.length; k++) {
             allSelects[k].style.backgroundColor = "white";
@@ -432,6 +453,7 @@ function toggleDarkMode() {
 
         let radioLabels = document.getElementsByClassName("radioLbl");
         let resultLabels = document.getElementsByClassName("resultLbl");
+        let exportLabels = document.getElementsByClassName("exportLbl");
         for (let p = 0; p < radioLabels.length; p++) {
             radioLabels[p].style.backgroundColor = "#e9e9e9";
             radioLabels[p].style.color = "#555555";
@@ -441,17 +463,21 @@ function toggleDarkMode() {
             resultLabels[q].style.color = "#555555";
             resultLabels[q].style.border = "1px solid aaa";
         }
+        for (let o = 0; o < exportLabels.length; o++) {
+            exportLabels[o].style.backgroundColor = "#e9e9e9";
+            exportLabels[o].style.color = "555555";
+        }
     }
 }
 
 function load() {
     loadDropdowns();
     if (document.cookie != "") {
-        let seenChangelongCookie = getCookie("changelog1").substring(11);
+        let seenChangelongCookie = getCookie("changelog2").substring(11);
         let darkModeCookie = getCookie("darkMode").substring(9);
         if (seenChangelongCookie != "true") {
             alert(changelog);
-            document.cookie = "changelog1=true";
+            document.cookie = "changelog2=true";
         }
         if (darkModeCookie == "true") {
             darkMode.click();
@@ -506,14 +532,14 @@ function saveCookie() {
 
     localStorage.setItem("setData", btoa(encoded));
 
-    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2027 12:00:00 UTC";
-    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
+    document.cookie = "changelog2=true; expires=Mon, 1 Jan 2028 12:00:00 UTC";
+    document.cookie = "changelog1=true; expires=Mon, 1 Jan 2000 12:00:00 UTC";
 
     if (darkMode.checked) {
-        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2027 12:00:00 UTC"
+        document.cookie = "darkMode=true; expires=Mon, 1 Jan 2028 12:00:00 UTC"
     }
     else {
-        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2027 12:00:00 UTC";
+        document.cookie = "darkMode=false; expires=Mon, 1 Jan 2028 12:00:00 UTC";
     }
 }
 
@@ -722,14 +748,14 @@ function update(updatePower = false, updateBaseStats = false) {
     }
 
     if (abilityDropdown1.value == "Mental Momentum" || abilityDropdown1.value == "Chanting" || abilityDropdown1.value == "Split" || abilityDropdown1.value == "Firestarter" ||
-        abilityDropdown1.value == "Last Stand" || abilityDropdown1.value == "Cauldron Stew") repeating1.style.display = "inline";
+        abilityDropdown1.value == "Last Stand" || abilityDropdown1.value == "Cauldron Stew" || abilityDropdown1.value == "Spirit Collector") repeating1.style.display = "inline";
     else {
         repeating1.style.display = "none";
         repeating1.value = 0;
     }
 
     if (abilityDropdown2.value == "Mental Momentum" || abilityDropdown2.value == "Chanting" || abilityDropdown2.value == "Split" || abilityDropdown2.value == "Firestarter" ||
-        abilityDropdown2.value == "Last Stand" || abilityDropdown2.value == "Cauldron Stew") repeating2.style.display = "inline";
+        abilityDropdown2.value == "Last Stand" || abilityDropdown2.value == "Cauldron Stew" || abilityDropdown2.value == "Spirit Collector") repeating2.style.display = "inline";
     else {
         repeating2.style.display = "none";
         repeating2.value = 0;
@@ -752,14 +778,18 @@ function update(updatePower = false, updateBaseStats = false) {
 function updateGender(gender) {
     let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
+    let forms1 = document.getElementById("forms1");
+    let forms2 = document.getElementById("forms2");
 
-    if (gender == "gender1" && firstLoom.name == "Staligant-Awakened") {
+    if (gender == "gender1" && (firstLoom.name == "Staligant-Awakened" || forms1.value == "Staligant-Awakened")) {
         if (gender1.value == "Female") abilityDropdown1.value = "Mental Momentum"; 
         else abilityDropdown1.value = "Mental Depletion";
+        loadBaseStats(1);
     
-    } else if (gender == "gender2" && secondLoom.name == "Staligant-Awakened") {
+    } else if (gender == "gender2" && (secondLoom.name == "Staligant-Awakened" || forms2.value == "Staligant-Awakened")) {
         if (gender2.value == "Female") abilityDropdown2.value = "Mental Momentum";
         else abilityDropdown2.value = "Mental Depletion";
+        loadBaseStats(2);
     }
     update();
 }
@@ -953,20 +983,20 @@ function updateFormat() {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'none';
         }
-        field.style.height = "745px"; // +25 per button
-        fieldTraps.style.height = "64.7%"; // +1% per button
+        field.style.height = "1025px"; // +25 per button
+        fieldTraps.style.height = "50.5%"; // ~+2% per button
     }
     else {
         for (let i = 0; i < collection.length; i++) {
             collection[i].style.display = 'inline-block';
         }
-        field.style.height = "790px";
-        fieldTraps.style.height = "67.5%";
+        field.style.height = "1070px";
+        fieldTraps.style.height = "53%";
     }    
     update();
 }
 
-function importSets() {
+/*function importSets() {
     let importedSets;
     let newSets = [];
 
@@ -987,22 +1017,26 @@ function importSets() {
     document.getElementById("err").innerHTML = "Sets Successfully Loaded!";
     update();
 
-}
+}*/
 
-function loadSets(onlyFirst = false, onlySecond = false) {
+function loadSets(onlyFirst = false, onlySecond = false, formChange = false) {
     if (onlyFirst || (!onlyFirst && !onlySecond)) {
         let set1 = pokeDropdown1.options[pokeDropdown1.selectedIndex].set;
         let firstLoom = loomians[pokeDropdown1.value.toLowerCase()];
         let posNat1 = document.getElementById("posNat1");
         let negNat1 = document.getElementById("negNat1");
+        let label1 = document.getElementById("formsLabel1");
+        let forms1 = document.getElementById("forms1");
 
         level1.value = levelCheck.value.split(' ')[1];
         stars1.value = set1.stars;
 
-        $("#moveOne1").val(set1.moves.move1);
-        $("#moveTwo1").val(set1.moves.move2);
-        $("#moveThree1").val(set1.moves.move3);
-        $("#moveFour1").val(set1.moves.move4);
+        if (!formChange) {
+            $("#moveOne1").val(set1.moves.move1);
+            $("#moveTwo1").val(set1.moves.move2);
+            $("#moveThree1").val(set1.moves.move3);
+            $("#moveFour1").val(set1.moves.move4);
+        } 
 
         helmet1.value = set1.helmet;
         amulet1.value = set1.amulet;
@@ -1035,15 +1069,54 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("deleteSet1").style.visibility = "hidden";
         }
 
-        baseHP1.value = firstLoom.baseStats.hp;
-        baseAtk1.value = firstLoom.baseStats.attack;
-        baseDef1.value = firstLoom.baseStats.defense;
-        baseAtkR1.value = firstLoom.baseStats.attackR;
-        baseDefR1.value = firstLoom.baseStats.defenseR;
-        baseSpd1.value = firstLoom.baseStats.speed;
+        if (firstLoom.otherForms || firstLoom.baseSpecies) {
+            if (!(findFormList(forms1, firstLoom.name))) {
+                forms1.options.length = 0;
+                if (firstLoom.otherForms) {
+                    forms1.appendChild(new Option(firstLoom.name));
+                    for (i = 0; i < firstLoom.otherForms.length; i++) {
+                        forms1.appendChild(new Option(firstLoom.otherForms[i]));
+                    }
+                } else if (firstLoom.baseSpecies) {
+                    let baseLoom = loomians[firstLoom.baseSpecies.toLowerCase()];
+                    forms1.appendChild(new Option(baseLoom.name));
+                    for (i = 0; i < baseLoom.otherForms.length; i++) {
+                        forms1.appendChild(new Option(baseLoom.otherForms[i]));
+                    }
+                }
+                forms1.value = firstLoom.name;
+                label1.style.display = "inline-block";
+                forms1.style.display = "inline-block";
+            }
+            if (!formChange) forms1.value = firstLoom.name;
+        } else {
+            label1.style.display = "none";
+            forms1.style.display = "none";
+            forms1.options.length = 0;
+        }
+
+        if (firstLoom.otherForms || firstLoom.baseSpecies) {
+            baseHP1.value = loomians[forms1.value.toLowerCase()].baseStats.hp;
+            baseAtk1.value = loomians[forms1.value.toLowerCase()].baseStats.attack;
+            baseDef1.value = loomians[forms1.value.toLowerCase()].baseStats.defense;
+            baseAtkR1.value = loomians[forms1.value.toLowerCase()].baseStats.attackR;
+            baseDefR1.value = loomians[forms1.value.toLowerCase()].baseStats.defenseR;
+            baseSpd1.value = loomians[forms1.value.toLowerCase()].baseStats.speed;
+            primaryTypeDropdown1.value = loomians[forms1.value.toLowerCase()].types[0];
+            secondaryTypeDropdown1.value = (loomians[forms1.value.toLowerCase()].types[1] != undefined ? loomians[forms1.value.toLowerCase()].types[1] : "None");
+            abilityDropdown1.value = (loomians[forms1.value.toLowerCase()].ability != undefined ? loomians[forms1.value.toLowerCase()].ability : abilityDropdown1.value);
+            item1.value = (loomians[forms1.value.toLowerCase()].item != undefined ? loomians[forms1.value.toLowerCase()].item : item1.value);
+        } else {
+            baseHP1.value = firstLoom.baseStats.hp;
+            baseAtk1.value = firstLoom.baseStats.attack;
+            baseDef1.value = firstLoom.baseStats.defense;
+            baseAtkR1.value = firstLoom.baseStats.attackR;
+            baseDefR1.value = firstLoom.baseStats.defenseR;
+            baseSpd1.value = firstLoom.baseStats.speed;
+        }
 
         if (set1.gender) {
-            gender1.value = set1.gender;
+            if (!formChange) gender1.value = set1.gender;
             loadBaseStats(1);
             updateGender("gender1");
         }
@@ -1054,14 +1127,18 @@ function loadSets(onlyFirst = false, onlySecond = false) {
         let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
         let posNat2 = document.getElementById("posNat2");
         let negNat2 = document.getElementById("negNat2");
+        let label2 = document.getElementById("formsLabel2");
+        let forms2 = document.getElementById("forms2");
 
         level2.value = levelCheck.value.split(' ')[1];
         stars2.value = set2.stars;
 
-        $("#moveOne2").val(set2.moves.move1);
-        $("#moveTwo2").val(set2.moves.move2);
-        $("#moveThree2").val(set2.moves.move3);
-        $("#moveFour2").val(set2.moves.move4);
+        if (!formChange) {
+            $("#moveOne2").val(set2.moves.move1);
+            $("#moveTwo2").val(set2.moves.move2);
+            $("#moveThree2").val(set2.moves.move3);
+            $("#moveFour2").val(set2.moves.move4);
+        }
 
         helmet2.value = set2.helmet;
         amulet2.value = set2.amulet;
@@ -1094,20 +1171,307 @@ function loadSets(onlyFirst = false, onlySecond = false) {
             document.getElementById("deleteSet2").style.visibility = "hidden";
         }
 
-        baseHP2.value = secondLoom.baseStats.hp;
-        baseAtk2.value = secondLoom.baseStats.attack;
-        baseDef2.value = secondLoom.baseStats.defense;
-        baseAtkR2.value = secondLoom.baseStats.attackR;
-        baseDefR2.value = secondLoom.baseStats.defenseR;
-        baseSpd2.value = secondLoom.baseStats.speed;
+        if (secondLoom.otherForms || secondLoom.baseSpecies) {
+            if (!(findFormList(forms2, secondLoom.name))) {
+                forms2.options.length = 0;
+                if (secondLoom.otherForms) {
+                    forms2.appendChild(new Option(secondLoom.name));
+                    for (i = 0; i < secondLoom.otherForms.length; i++) {
+                        forms2.appendChild(new Option(secondLoom.otherForms[i]));
+                    }
+                } else if (secondLoom.baseSpecies) {
+                    let baseLoom = loomians[secondLoom.baseSpecies.toLowerCase()];
+                    forms2.appendChild(new Option(baseLoom.name));
+                    for (i = 0; i < baseLoom.otherForms.length; i++) {
+                        forms2.appendChild(new Option(baseLoom.otherForms[i]));
+                    }
+                }
+                forms2.value = secondLoom.name;
+                label2.style.display = "inline-block";
+                forms2.style.display = "inline-block";
+            }
+            if (!formChange) forms2.value = secondLoom.name;
+        } else {
+            label2.style.display = "none";
+            forms2.style.display = "none";
+            forms2.options.length = 0;
+        }
+
+        if (secondLoom.otherForms || secondLoom.baseSpecies) {
+            baseHP2.value = loomians[forms2.value.toLowerCase()].baseStats.hp;
+            baseAtk2.value = loomians[forms2.value.toLowerCase()].baseStats.attack;
+            baseDef2.value = loomians[forms2.value.toLowerCase()].baseStats.defense;
+            baseAtkR2.value = loomians[forms2.value.toLowerCase()].baseStats.attackR;
+            baseDefR2.value = loomians[forms2.value.toLowerCase()].baseStats.defenseR;
+            baseSpd2.value = loomians[forms2.value.toLowerCase()].baseStats.speed;
+            primaryTypeDropdown2.value = loomians[forms2.value.toLowerCase()].types[0];
+            secondaryTypeDropdown2.value = (loomians[forms2.value.toLowerCase()].types[1] != undefined ? loomians[forms2.value.toLowerCase()].types[1] : "None");
+            abilityDropdown2.value = (loomians[forms2.value.toLowerCase()].ability != undefined ? loomians[forms2.value.toLowerCase()].ability : abilityDropdown2.value);
+            item2.value = (loomians[forms2.value.toLowerCase()].item != undefined ? loomians[forms2.value.toLowerCase()].item : item2.value);
+        } else {
+            baseHP2.value = secondLoom.baseStats.hp;
+            baseAtk2.value = secondLoom.baseStats.attack;
+            baseDef2.value = secondLoom.baseStats.defense;
+            baseAtkR2.value = secondLoom.baseStats.attackR;
+            baseDefR2.value = secondLoom.baseStats.defenseR;
+            baseSpd2.value = secondLoom.baseStats.speed;
+        }
 
         if (set2.gender) {
-            gender2.value = set2.gender;
+            if (!formChange) gender2.value = set2.gender;
             loadBaseStats(2);
             updateGender("gender2");
         }
     }
     update(undefined, false);
+}
+
+function exportSets(loomian) {
+    let loom = createLoomian(loomian);
+    let finalText = loom.name;
+    if (loom.gender != "Male") finalText += " (" + loom.gender.charAt(0) + ")";
+    if (loom.item != "None") finalText += " @ " + loom.item;
+    finalText += "\n";
+    if (loom.ability != "None") finalText += "Trait: " + loom.ability + "\n";
+    if (loom.stars < 6) finalText += "Stars: " + loom.stars + "\n";
+    if (loom.helmet != "(None)" || loom.amulet != "(None)" || loom.artifact != "(None)") {
+        finalText += "Equips: ";
+        if (loom.helmet != "(None)") finalText += loom.helmet + ", ";
+        if (loom.amulet != "(None)") finalText += loom.amulet + ", ";
+        if (loom.artifact != "(None)") finalText += loom.artifact;
+        if ((loom.amulet == "(None)" && loom.artifact == "(None)") || loom.artifact == "(None)") finalText = finalText.slice(0, finalText.length - 2);
+        finalText += "\n";
+    }
+    if (loom.posNat != "none" || loom.negNat != "none") {
+        finalText += "Stats: ";
+        let modText = (loom.mod1 < 0 ? loom.mod1 + "% " : "+" + loom.mod1 + "% ");
+        if (loom.posNat != "none") finalText += modText + calcToSet(loom.posNat.toLowerCase()) + ", ";
+        modText = (loom.mod2 < 0 ? loom.mod2 + "% " : "+" + loom.mod2 + "% ");
+        if (loom.negNat != "none") finalText += modText + calcToSet(loom.negNat.toLowerCase());
+        if (loom.posNat != "none" && loom.negNat == "none") finalText = finalText.slice(0, finalText.length - 2);
+        finalText += "\n";
+    }
+    for (let i = 0; i < 4; i++) {
+        let moveName = loom.moves[i].name;
+        if (moveName !== "(No Move)") finalText += "- " + moveName + "\n";
+    }
+    finalText = finalText.trim();
+    $("textarea.import-team-text").val(finalText);
+}
+
+function findFormList(list, loomian) {
+    for (let opt of list.options) {
+        if (opt.value === loomian) return true;
+    }
+    return false;
+}
+
+function createLoomian(loomian) {
+    let loom = document.getElementById(loomian);
+    let loomInfo = loom.querySelector('[id*="pokes"]');
+    let name = loomInfo.options[loomInfo.selectedIndex].set.name;
+    let stars = loom.querySelector('[id*="stars"]').value;
+    let helmet = loom.querySelector('[id*="helmet"]').value;
+    let amulet = loom.querySelector('[id*="amulet"]').value;
+    let artifact = loom.querySelector('[id*="artifact"]').value;
+    let ability = loom.querySelector('[id*="ability"]').value;
+    let item = loom.querySelector('[id*="item"]').value;
+    let gender = loom.querySelector('[id*="gender"]').value;
+    let posNat = loom.querySelector('[id*="posNat"]').value;
+    let negNat = loom.querySelector('[id*="negNat"]').value;
+    let mod1 = loom.querySelector('[id*="nat1Mod"]').value;
+    let mod2 = loom.querySelector('[id*="nat2Mod"]').value;
+
+    return {
+        name: name,
+        stars: stars,
+        helmet: helmet,
+        amulet: amulet,
+        artifact: artifact,
+        ability: ability,
+        item: item,
+        gender: gender,
+        posNat: posNat,
+        negNat: negNat,
+        mod1: mod1,
+        mod2: mod2,
+        moves: [
+            findMove(loom.querySelector('[id*="moveOne"]').value),
+            findMove(loom.querySelector('[id*="moveTwo"]').value),
+            findMove(loom.querySelector('[id*="moveThree"]').value),
+            findMove(loom.querySelector('[id*="moveFour"]').value),
+        ],
+    }
+}
+
+$("#exportL").click(function () {
+    exportSets("loomian1");
+});
+
+$("#exportR").click(function () {
+    exportSets("loomian2");
+});
+
+$("#imports").click(function () {
+    let looms = document.getElementsByClassName("import-team-text")[0].value;
+    let name = document.getElementsByClassName("import-name-text")[0].value.trim() === "" ? "Custom Set" : document.getElementsByClassName("import-name-text")[0].value;
+
+    let rows = looms.split("\n");
+    let currentRow;
+    let species;
+    let currentLoom;
+    let addedLooms = 0;
+    for (let i = 0; i < rows.length; i++) {
+        species = findSpecies(rows[i]);
+        if (species.offset !== undefined) {
+            let set = makeBlankSet(species.name);
+            set.setName = name;
+            currentRow = rows[i].split(/[()@]/);
+            set.gender = getGender(currentRow, species.offset + 1);
+            set.item = getItem(currentRow, species.offset + 1);
+            set = getStats(set, rows, i + 1);
+            set = getMoves(set, rows, i + 1);
+            addSet(set);
+            addedLooms++;
+        }
+    }
+    if (addedLooms > 0) alert("Added " + addedLooms + (addedLooms === 1 ? " set" : " sets"));
+    else alert("No sets imported. Check your formating and try again.");
+});
+
+function getMoves(set, rows, x) {
+    let movesFound = false;
+    let move;
+    let moves = [];
+    for (; x < rows.length && findSpecies(rows[x]).offset === undefined; x++) {
+        if (rows[x]) {
+            if (rows[x][0] === "-") {
+                movesFound = true;
+                move = rows[x].slice(2).replace("[", "").replace("]", "").trim().replace(/\s+/g, " ");
+                moves.push(move);
+            } else if (movesFound === true) break;
+        }
+    }
+    for (t = 0; t < moves.length; t++) {
+        Object.defineProperty(set.moves, "move" + (t + 1), {value: moves[t]});
+    }
+    return set;
+}
+
+function getStats(set, rows, x) {
+    let currentTP;
+    let currentUP;
+    for (; x < rows.length && findSpecies(rows[x]).offset === undefined; x++) {
+        let currentRow = rows[x] ? rows[x].split(/[/:]/) : "";
+        let ability;
+        let stars;
+        let equips;
+        let stats;
+        let stat;
+        let mod;
+        let personality;
+        let posNat;
+        let negNat;
+        let j;
+
+        switch (currentRow[0]) {
+        case 'Trait':
+            ability = currentRow[1] ? currentRow[1].trim() : "";
+            if (abilities.indexOf(ability) !== -1) set.ability = ability;
+            break;
+        case 'Stars':
+            stars = currentRow[1] ? currentRow[1].trim() : "";
+            if (stars > 0 && stars < 6) set.stars = stars;
+            break;
+        case 'Equips':
+            equips = currentRow[1] ? currentRow[1].trim().split(", ") : "";
+            for (j = 0; j < equips.length; j++) {
+                if (helmets[equips[j].toLowerCase()] !== undefined) set.helmet = equips[j];
+                else if (amulets[equips[j].toLowerCase()] !== undefined) set.amulet = equips[j];
+                else if (artifacts[equips[j].toLowerCase()] !== undefined) set.artifact = equips[j];
+            }
+            break;
+        case 'Stats':
+            stats = currentRow[1] ? currentRow[1].trim().split(", ") : "";
+            for (j = 0; j < stats.length; j++) {
+                mod = stats[j].split(" ")[0];
+                mod = (mod.includes("+") ? mod.slice(1, -1) : mod.slice(0, -1));
+                stat = setToCalc(stats[j].split(" ")[1].toLowerCase());
+                if (j == 1) {
+                    set.mod2 = mod;
+                    set.negNature = stat;
+                } else {
+                    set.mod1 = mod;
+                    set.posNature = stat;
+                }
+            }
+            break;
+        }
+    }
+    return set;
+}
+
+function calcToSet(stat) {
+    switch (stat) {
+    case 'health':
+        return "HP";
+    case 'attack':
+        return "Attack";
+    case 'defense':
+        return "Defense";
+    case 'mattack':
+        return "mAttack";
+    case 'mdefense':
+        return "mDefense";
+    case 'speed':
+        return "Speed"; 
+    }
+}
+
+function setToCalc(stat) {
+    switch (stat) {
+    case 'hp':
+        return "health";
+    case 'attack':
+        return "attack";
+    case 'defense':
+        return "defense";
+    case 'mattack':
+        return "mAttack";
+    case 'mdefense':
+        return "mDefense";
+    case 'speed':
+        return "speed"; 
+    }
+}
+
+function getGender(currentRow, j) {
+    let gender;
+    for (; j < currentRow.length; j++) {
+        gender = currentRow[j].trim();
+        if (gender === "F" || gender === "M") return (gender === "F" ? "Female" : "Male");
+    }
+    return "Male";
+}
+
+function getItem(currentRow, j) {
+    let item;
+    for (; j < currentRow.length; j++) {
+        item = currentRow[j].trim();
+        if (items.indexOf(item) !== -1) return item;
+    }
+    return "None";
+}
+
+function findSpecies(row) {
+    row = row.split(/[()@]/);
+    let name;
+    let offset;
+    for (let j = 0; j < row.length && offset === undefined; j++) {
+        name = row[j].trim();
+        if (loomians[name.toLowerCase()] !== undefined) offset = j;
+    }
+    return{name: name, offset: offset};
 }
 
 function addSet(set, builtIn = false) {
@@ -1164,6 +1528,7 @@ function makeBlankSet(loomian) {
         artifact: "(None)",
         posNature: "none",
         negNature: "none",
+        gender: (loomians[loomian.toLowerCase()].gender ? loomians[loomian.toLowerCase()].gender : "Male"),
         mod1: 10,
         mod2: 10,
         ability: "None",
@@ -1232,6 +1597,8 @@ function loadBaseStats(side) {
     let secondLoom = loomians[pokeDropdown2.value.toLowerCase()];
     let ability1 = abilities.find((x) => x == abilityDropdown1.value);
     let ability2 = abilities.find((x) => x == abilityDropdown2.value);
+    let forms1 = document.getElementById("forms1");
+    let forms2 = document.getElementById("forms2");
     tempAbility1 = abilities.find((x) => x == abilityDropdown1.value);
     tempAbility2 = abilities.find((x) => x == abilityDropdown2.value);
     tempGender1 = gender1.value;
@@ -1239,110 +1606,140 @@ function loadBaseStats(side) {
     let updateHP;
     
     if (side == 1 || side == undefined) {
-        baseHP1.value = firstLoom.baseStats.hp;
-        baseAtk1.value = firstLoom.baseStats.attack;
-        baseDef1.value = firstLoom.baseStats.defense;
-        baseAtkR1.value = firstLoom.baseStats.attackR;
-        baseDefR1.value = firstLoom.baseStats.defenseR;
-        baseSpd1.value = firstLoom.baseStats.speed;
-        if (firstLoom.name == "Staligant" && gender1.value == "Female") {
-            baseAtk1.value = firstLoom.baseStats.attackR;
-            baseDef1.value = firstLoom.baseStats.defenseR;
-            baseAtkR1.value = firstLoom.baseStats.attack;
-            baseDefR1.value = firstLoom.baseStats.defense;
-        } else if (firstLoom.name == "Peakatrice" && gender1.value == "Female") {
-            baseAtk1.value = firstLoom.baseStats.attackR;
-            baseAtkR1.value = firstLoom.baseStats.attack;
-        } else if ((firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) || (firstLoom.name == "Armaratus" && ability1 == "Soul Fortification" && percentHP1.value < 50) || (firstLoom.name == "Freqrec" && ability1 == "Static Startle" && immuneAbilityBoost1.checked)) {
-            baseHP1.value = firstLoom.formStats.hp;
-            baseAtk1.value = firstLoom.formStats.attack;
-            baseDef1.value = firstLoom.formStats.defense;
-            baseAtkR1.value = firstLoom.formStats.attackR;
-            baseDefR1.value = firstLoom.formStats.defenseR;
-            baseSpd1.value = firstLoom.formStats.speed;
-        } else if (firstLoom.name == "Bungo" && ability1 == "Split" && repeating1.value > 1) {
-            if (repeating1.value == 2) {
-                baseHP1.value = firstLoom.bitty.hp;
-                baseAtk1.value = firstLoom.bitty.attack;
-                baseDef1.value = firstLoom.bitty.defense;
-                baseAtkR1.value = firstLoom.bitty.attackR;
-                baseDefR1.value = firstLoom.bitty.defenseR;
-                baseSpd1.value = firstLoom.bitty.speed;
-            } else if (repeating1.value == 3) {
-                baseHP1.value = firstLoom.itty.hp;
-                baseAtk1.value = firstLoom.itty.attack;
-                baseDef1.value = firstLoom.itty.defense;
-                baseAtkR1.value = firstLoom.itty.attackR;
-                baseDefR1.value = firstLoom.itty.defenseR;
-                baseSpd1.value = firstLoom.itty.speed;
+        if (firstLoom.otherForms || firstLoom.baseSpecies) {
+            baseHP1.value = loomians[forms1.value.toLowerCase()].baseStats.hp;
+            baseAtk1.value = loomians[forms1.value.toLowerCase()].baseStats.attack;
+            baseDef1.value = loomians[forms1.value.toLowerCase()].baseStats.defense;
+            baseAtkR1.value = loomians[forms1.value.toLowerCase()].baseStats.attackR;
+            baseDefR1.value = loomians[forms1.value.toLowerCase()].baseStats.defenseR;
+            baseSpd1.value = loomians[forms1.value.toLowerCase()].baseStats.speed;
+            if (forms1.value == "Staligant" && gender1.value == "Female") {
+                baseAtk1.value = loomians[forms1.value.toLowerCase()].baseStats.attackR;
+                baseDef1.value = loomians[forms1.value.toLowerCase()].baseStats.defenseR;
+                baseAtkR1.value = loomians[forms1.value.toLowerCase()].baseStats.attack;
+                baseDefR1.value = loomians[forms1.value.toLowerCase()].baseStats.defense;
             }
-        } else if (firstLoom.name == "Kaboomaroo" && gender1.value == "Female") {
-            baseHP1.value = parseInt(firstLoom.baseStats.hp) + 10;
-            baseDef1.value = parseInt(firstLoom.baseStats.defense) - 10;
+        } else {
+            baseHP1.value = firstLoom.baseStats.hp;
+            baseAtk1.value = firstLoom.baseStats.attack;
+            baseDef1.value = firstLoom.baseStats.defense;
+            baseAtkR1.value = firstLoom.baseStats.attackR;
+            baseDefR1.value = firstLoom.baseStats.defenseR;
+            baseSpd1.value = firstLoom.baseStats.speed;
+            if (firstLoom.name == "Staligant" && gender1.value == "Female") {
+                baseAtk1.value = firstLoom.baseStats.attackR;
+                baseDef1.value = firstLoom.baseStats.defenseR;
+                baseAtkR1.value = firstLoom.baseStats.attack;
+                baseDefR1.value = firstLoom.baseStats.defense;
+            } else if (firstLoom.name == "Peakatrice" && gender1.value == "Female") {
+                baseAtk1.value = firstLoom.baseStats.attackR;
+                baseAtkR1.value = firstLoom.baseStats.attack;
+            } else if ((firstLoom.name == "Reliconis" && ability1 == "Reformation" && immuneAbilityBoost1.checked) || (firstLoom.name == "Armaratus" && ability1 == "Soul Fortification" && percentHP1.value < 50) || (firstLoom.name == "Freqrec" && ability1 == "Static Startle" && immuneAbilityBoost1.checked)) {
+                baseHP1.value = firstLoom.formStats.hp;
+                baseAtk1.value = firstLoom.formStats.attack;
+                baseDef1.value = firstLoom.formStats.defense;
+                baseAtkR1.value = firstLoom.formStats.attackR;
+                baseDefR1.value = firstLoom.formStats.defenseR;
+                baseSpd1.value = firstLoom.formStats.speed;
+            } else if (firstLoom.name == "Bungo" && ability1 == "Split" && repeating1.value > 1) {
+                if (repeating1.value == 2) {
+                    baseHP1.value = firstLoom.bitty.hp;
+                    baseAtk1.value = firstLoom.bitty.attack;
+                    baseDef1.value = firstLoom.bitty.defense;
+                    baseAtkR1.value = firstLoom.bitty.attackR;
+                    baseDefR1.value = firstLoom.bitty.defenseR;
+                    baseSpd1.value = firstLoom.bitty.speed;
+                } else if (repeating1.value == 3) {
+                    baseHP1.value = firstLoom.itty.hp;
+                    baseAtk1.value = firstLoom.itty.attack;
+                    baseDef1.value = firstLoom.itty.defense;
+                    baseAtkR1.value = firstLoom.itty.attackR;
+                    baseDefR1.value = firstLoom.itty.defenseR;
+                    baseSpd1.value = firstLoom.itty.speed;
+                }
+            } else if (firstLoom.name == "Kaboomaroo" && gender1.value == "Female") {
+                baseHP1.value = parseInt(firstLoom.baseStats.hp) + 10;
+                baseDef1.value = parseInt(firstLoom.baseStats.defense) - 10;
+            }
+            if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneAbilityBoost1.checked) {
+                baseAtk1.value = firstLoom.baseStats.defense;
+                baseDef1.value = firstLoom.baseStats.attack;
+                baseAtkR1.value = firstLoom.baseStats.defenseR;
+                baseDefR1.value = firstLoom.baseStats.attackR;
+            }
+            /*if (ability1 == "Sand Swap" && sandstorm.checked) {
+                baseAtk1.value = firstLoom.baseStats.defense;
+                baseDef1.value = firstLoom.baseStats.attack;
+            }*/
         }
-        if ((ability1 == "Vigor" || ability1 == "Elegance") && immuneAbilityBoost1.checked) {
-            baseAtk1.value = firstLoom.baseStats.defense;
-            baseDef1.value = firstLoom.baseStats.attack;
-            baseAtkR1.value = firstLoom.baseStats.defenseR;
-            baseDefR1.value = firstLoom.baseStats.attackR;
-        }
-        /*if (ability1 == "Sand Swap" && sandstorm.checked) {
-            baseAtk1.value = firstLoom.baseStats.defense;
-            baseDef1.value = firstLoom.baseStats.attack;
-        }*/
-    }
+    }    
     if (side == 2 || side == undefined) {
-        baseHP2.value = secondLoom.baseStats.hp;
-        baseAtk2.value = secondLoom.baseStats.attack;
-        baseDef2.value = secondLoom.baseStats.defense;
-        baseAtkR2.value = secondLoom.baseStats.attackR;
-        baseDefR2.value = secondLoom.baseStats.defenseR;
-        baseSpd2.value = secondLoom.baseStats.speed;
-        if (secondLoom.name == "Staligant" && gender2.value == "Female") {
-            baseAtk2.value = secondLoom.baseStats.attackR;
-            baseDef2.value = secondLoom.baseStats.defenseR;
-            baseAtkR2.value = secondLoom.baseStats.attack;
-            baseDefR2.value = secondLoom.baseStats.defense;
-        } else if (secondLoom.name == "Peakatrice" && gender2.value == "Female") {
-            baseAtk2.value = secondLoom.baseStats.attackR;
-            baseAtkR2.value = secondLoom.baseStats.attack;
-        } else if ((secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) || (secondLoom.name == "Armaratus" && ability2 == "Soul Fortification" && percentHP2.value < 50) || (secondLoom.name == "Freqrec" && ability2 == "Static Startle" && immuneAbilityBoost2.checked)) {
-            baseHP2.value = secondLoom.formStats.hp;
-            baseAtk2.value = secondLoom.formStats.attack;
-            baseDef2.value = secondLoom.formStats.defense;
-            baseAtkR2.value = secondLoom.formStats.attackR;
-            baseDefR2.value = secondLoom.formStats.defenseR;
-            baseSpd2.value = secondLoom.formStats.speed;
-        } else if (secondLoom.name == "Bungo" && ability2 == "Split" && repeating2.value > 1) {
-            if (repeating2.value == 2) {
-                baseHP2.value = secondLoom.bitty.hp;
-                baseAtk2.value = secondLoom.bitty.attack;
-                baseDef2.value = secondLoom.bitty.defense;
-                baseAtkR2.value = secondLoom.bitty.attackR;
-                baseDefR2.value = secondLoom.bitty.defenseR;
-                baseSpd2.value = secondLoom.bitty.speed;
-            } else if (repeating2.value == 3) {
-                baseHP2.value = secondLoom.itty.hp;
-                baseAtk2.value = secondLoom.itty.attack;
-                baseDef2.value = secondLoom.itty.defense;
-                baseAtkR2.value = secondLoom.itty.attackR;
-                baseDefR2.value = secondLoom.itty.defenseR;
-                baseSpd2.value = secondLoom.itty.speed;
+        if (secondLoom.otherForms || secondLoom.baseSpecies) {
+            baseHP2.value = loomians[forms2.value.toLowerCase()].baseStats.hp;
+            baseAtk2.value = loomians[forms2.value.toLowerCase()].baseStats.attack;
+            baseDef2.value = loomians[forms2.value.toLowerCase()].baseStats.defense;
+            baseAtkR2.value = loomians[forms2.value.toLowerCase()].baseStats.attackR;
+            baseDefR2.value = loomians[forms2.value.toLowerCase()].baseStats.defenseR;
+            baseSpd2.value = loomians[forms2.value.toLowerCase()].baseStats.speed;
+            if (forms2.value == "Staligant" && gender2.value == "Female") {
+                baseAtk2.value = loomians[forms2.value.toLowerCase()].baseStats.attackR;
+                baseDef2.value = loomians[forms2.value.toLowerCase()].baseStats.defenseR;
+                baseAtkR2.value = loomians[forms2.value.toLowerCase()].baseStats.attack;
+                baseDefR2.value = loomians[forms2.value.toLowerCase()].baseStats.defense;
             }
-        } else if (secondLoom.name == "Kaboomaroo" && gender2.value == "Female") {
-            baseHP2.value = parseInt(secondLoom.baseStats.hp) + 10;
-            baseAtk2.value = parseInt(secondLoom.baseStats.attack) - 10;
+        } else {
+            baseHP2.value = secondLoom.baseStats.hp;
+            baseAtk2.value = secondLoom.baseStats.attack;
+            baseDef2.value = secondLoom.baseStats.defense;
+            baseAtkR2.value = secondLoom.baseStats.attackR;
+            baseDefR2.value = secondLoom.baseStats.defenseR;
+            baseSpd2.value = secondLoom.baseStats.speed;
+            if (secondLoom.name == "Staligant" && gender2.value == "Female") {
+                baseAtk2.value = secondLoom.baseStats.attackR;
+                baseDef2.value = secondLoom.baseStats.defenseR;
+                baseAtkR2.value = secondLoom.baseStats.attack;
+                baseDefR2.value = secondLoom.baseStats.defense;
+            } else if (secondLoom.name == "Peakatrice" && gender2.value == "Female") {
+                baseAtk2.value = secondLoom.baseStats.attackR;
+                baseAtkR2.value = secondLoom.baseStats.attack;
+            } else if ((secondLoom.name == "Reliconis" && ability2 == "Reformation" && immuneAbilityBoost2.checked) || (secondLoom.name == "Armaratus" && ability2 == "Soul Fortification" && percentHP2.value < 50) || (secondLoom.name == "Freqrec" && ability2 == "Static Startle" && immuneAbilityBoost2.checked)) {
+                baseHP2.value = secondLoom.formStats.hp;
+                baseAtk2.value = secondLoom.formStats.attack;
+                baseDef2.value = secondLoom.formStats.defense;
+                baseAtkR2.value = secondLoom.formStats.attackR;
+                baseDefR2.value = secondLoom.formStats.defenseR;
+                baseSpd2.value = secondLoom.formStats.speed;
+            } else if (secondLoom.name == "Bungo" && ability2 == "Split" && repeating2.value > 1) {
+                if (repeating2.value == 2) {
+                    baseHP2.value = secondLoom.bitty.hp;
+                    baseAtk2.value = secondLoom.bitty.attack;
+                    baseDef2.value = secondLoom.bitty.defense;
+                    baseAtkR2.value = secondLoom.bitty.attackR;
+                    baseDefR2.value = secondLoom.bitty.defenseR;
+                    baseSpd2.value = secondLoom.bitty.speed;
+                } else if (repeating2.value == 3) {
+                    baseHP2.value = secondLoom.itty.hp;
+                    baseAtk2.value = secondLoom.itty.attack;
+                    baseDef2.value = secondLoom.itty.defense;
+                    baseAtkR2.value = secondLoom.itty.attackR;
+                    baseDefR2.value = secondLoom.itty.defenseR;
+                    baseSpd2.value = secondLoom.itty.speed;
+                }
+            } else if (secondLoom.name == "Kaboomaroo" && gender2.value == "Female") {
+                baseHP2.value = parseInt(secondLoom.baseStats.hp) + 10;
+                baseAtk2.value = parseInt(secondLoom.baseStats.attack) - 10;
+            }
+            if ((ability2 == "Vigor" || ability2 == "Elegance") && immuneAbilityBoost2.checked) {
+                baseAtk2.value = secondLoom.baseStats.defense;
+                baseDef2.value = secondLoom.baseStats.attack;
+                baseAtkR2.value = secondLoom.baseStats.defenseR;
+                baseDefR2.value = secondLoom.baseStats.attackR;
+            }
+            /*if (ability2 == "Sand Swap" && sandstorm.checked) {
+                baseAtk2.value = secondLoom.baseStats.defense;
+                baseDef2.value = secondLoom.baseStats.attack;
+            }*/
         }
-        if ((ability2 == "Vigor" || ability2 == "Elegance") && immuneAbilityBoost2.checked) {
-            baseAtk2.value = secondLoom.baseStats.defense;
-            baseDef2.value = secondLoom.baseStats.attack;
-            baseAtkR2.value = secondLoom.baseStats.defenseR;
-            baseDefR2.value = secondLoom.baseStats.attackR;
-        }
-        /*if (ability2 == "Sand Swap" && sandstorm.checked) {
-            baseAtk2.value = secondLoom.baseStats.defense;
-            baseDef2.value = secondLoom.baseStats.attack;
-        }*/
     }
 }
 
@@ -1530,6 +1927,8 @@ function loadStats() {
     }
     if (status1.value == "paralasis" && !firstLoom.types.includes("Spark")) multi *= 0.25;
     if (firstItem == "Enchanted Emerald") multi *= 1.5;
+    else if (firstItem == "Evil Red Orb" && firstLoom.name == "Faelixin") multi *= 1.25;
+    else if (firstItem == "Evil Orange Orb" && firstLoom.name == "Purrundle") multi *= 1.25; 
     else if (firstItem == "Heavy Blanket") multi *= 0.5;
     statSpd1.innerHTML = Math.floor(spd1 * multi);
     multi = 1;
@@ -1584,6 +1983,8 @@ function loadStats() {
     }
     if (status2.value == "paralasis" && !secondLoom.types.includes("Spark")) multi *= 0.25;
     if (secondItem == "Enchanted Emerald") multi *= 1.5;
+    else if (secondItem == "Evil Red Orb" && secondLoom.name == "Faelixin") multi *= 1.25;
+    else if (secondItem == "Evil Orange Orb" && secondLoom.name == "Purrundle") multi *= 1.25; 
     else if (secondItem == "Heavy Blanket") multi *= 0.5;
     statSpd2.innerHTML = Math.floor(spd2 * multi);
     multi = 1;
@@ -3470,6 +3871,13 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
         stuffUsed.extra1 += " (" + Math.min(repeat, 5) + " fainted)";
     }
 
+    if (ability1 == "Spirit Collector") {
+        let chanting = Math.min((1 + 0.05 * (repeat)), 1.5);
+        multi *= chanting;
+        stuffUsed.ability1 = ability1;
+        stuffUsed.extra1 += " (" + Math.min(repeat, 10) + " fainted)";
+    }
+
     if (ability1 == "Cauldron Stew") {
         let chanting = Math.min((1 + 0.1 * (repeat)), 1.3);
         multi *= chanting;
@@ -3536,6 +3944,12 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
        (itemA == "Spirit Jar" && tempType == "Spirit") ||
        (itemA == "Pinball String" && withoutSlapDown)) {
         multi *= 1.2;
+        stuffUsed.item1 = itemA;
+    }
+
+    if ((itemA == "Evil Red Orb" && loom1.name == "Faelixin" && tempType == "Dark") ||
+        (itemA == "Evil Orange Orb" && loom1.name == "Purrundle" && tempType == "Beast")) {
+        multi *= 1.25;
         stuffUsed.item1 = itemA;
     }
 
@@ -4273,7 +4687,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
                 else multi = 2;
             }
             multiHits.forEach(num => sum += Math.floor(num * numb));
-            possibleDmg.push((immuneClause == true ? Math.floor(dmg * multi * numb + sum) : Math.max(Math.floor(dmg * multi * numb + sum), 1)));
+            possibleDmg.push((immuneClause == true ? 0 : Math.max(Math.floor(dmg * multi * numb + sum), 1)));
             multi = 1;
         }
         if (foulHit) {
@@ -4291,7 +4705,7 @@ function getMultiplier(loom1, loom2, move, movePower, crit, repeat, hits, elemen
     if (itemA == "Strength Jelly" && withoutSlapDown && dmg < Math.floor(parseInt(stats2.totalHP) * 1/4)){
         enhancedJ1 ? multi *= 3 : multi *= 2;
     }
-    dmg = (immuneClause == true ? Math.floor(dmg * multi + multiDmg) : Math.max(Math.floor(dmg * multi + multiDmg), 1));
+    dmg = (immuneClause == true ? 0 : Math.max(Math.floor(dmg * multi + multiDmg), 1));
 
     if (shardSurge) return dmg;
 

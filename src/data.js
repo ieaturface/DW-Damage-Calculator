@@ -457,6 +457,7 @@ var loomians = {
     thornet: {
         name: "Thornet",
         types: ["Insect", "Plant"],
+        otherForms: ["Thornet-Awakened"],
         weight: 20,
         height: 39,
         baseStats: {
@@ -472,6 +473,7 @@ var loomians = {
     'thornet-awakened': {
         name: "Thornet-Awakened",
         types: ["Metal", "Plant"],
+        baseSpecies: "Thornet",
         weight: 20,
         height: 39,
         ability: "Retaliate",
@@ -630,6 +632,7 @@ var loomians = {
     mawthra: {
         name: "Mawthra",
         types: ["Insect", "Poison"],
+        otherForms: ["Mawthra-Awakened"],
         weight: 18,
         height: 34,
         baseStats: {
@@ -645,6 +648,7 @@ var loomians = {
     'mawthra-awakened': {
         name: "Mawthra-Awakened",
         types: ["Metal", "Poison"],
+        baseSpecies: "Mawthra",
         weight: 96,
         height: 65,
         ability: "Warden",
@@ -678,6 +682,7 @@ var loomians = {
     groato: {
         name: "Groato",
         types: ["Basic"],
+        otherForms: ["Groato-Awakened"],
         weight: 157,
         height: 42,
         baseStats: {
@@ -693,6 +698,7 @@ var loomians = {
     'groato-awakened': {
         name: "Groato-Awakened",
         types: ["Basic", "Water"],
+        baseSpecies: "Groato",
         weight: 115,
         height: 65,
         ability: "Extinguisher",
@@ -974,6 +980,7 @@ var loomians = {
     corrolizard: {
         name: "Corrolizard",
         types: ["Poison"],
+        otherForms: ["Corrolizard-Awakened"],
         weight: 28,
         height: 55,
         baseStats: {
@@ -989,6 +996,7 @@ var loomians = {
     'corrolizard-awakened': {
         name: "Corrolizard-Awakened",
         types: ["Poison", "Spirit"],
+        baseSpecies: "Corrolizard",
         weight: 54,
         height: 78,
         ability: "Decay",
@@ -1053,6 +1061,7 @@ var loomians = {
     cerebopod: {
         name: "Cerebopod",
         types: ["Mind", "Poison"],
+        otherForms: ["Cerebopod-Awakened"],
         weight: 14,
         height: 17,
         baseStats: {
@@ -1068,6 +1077,7 @@ var loomians = {
     'cerebopod-awakened': {
         name: "Cerebopod-Awakened",
         types: ["Mind", "Poison"],
+        baseSpecies: "Cerebopod",
         weight: 41,
         height: 50,
         ability: "Refreshed Resilience",
@@ -1240,6 +1250,7 @@ var loomians = {
     archopos: {
         name: "Archopos",
         types: ["Spirit"],
+        otherForms: ["Archopos-Awakened"],
         weight: 15,
         height: 67,
         baseStats: {
@@ -1255,6 +1266,7 @@ var loomians = {
     'archopos-awakened': {
         name: "Archopos-Awakened",
         types: ["Spirit", "Metal"],
+        baseSpecies: "Archopos",
         weight: 96,
         height: 85,
         ability: "Delicate",
@@ -1366,6 +1378,7 @@ var loomians = {
     grufflin: {
         name: "Grufflin",
         types: ["Food", "Air"],
+        otherForms: ["Grufflin-Awakened"],
         weight: 54,
         height: 32,
         baseStats: {
@@ -1381,6 +1394,7 @@ var loomians = {
     'grufflin-awakened': {
         name: "Grufflin-Awakened",
         types: ["Food", "Air"],
+        baseSpecies: "Grufflin",
         weight: 100,
         height: 52,
         ability: "Analytical",
@@ -1538,6 +1552,7 @@ var loomians = {
     lumiline: {
         name: "Lumiline",
         types: ["Light", "Crystal"],
+        otherForms: ["Lumiline-Awakened"],
         weight: 18,
         height: 29,
         baseStats: {
@@ -1553,6 +1568,7 @@ var loomians = {
     'lumiline-awakened': {
         name: "Lumiline-Awakened",
         types: ["Light", "Crystal"],
+        baseSpecies: "Lumiline",
         weight: 60,
         height: 72,
         ability: "Crystallization",
@@ -1586,6 +1602,7 @@ var loomians = {
     cryotera: {
         name: "Cryotera",
         types: ["Air", "Ice"],
+        otherForms: ["Cryotera-Awakened"],
         weight: 71,
         height: 56,
         baseStats: {
@@ -1601,6 +1618,7 @@ var loomians = {
     'cryotera-awakened': {
         name: "Cryotera-Awakened",
         types: ["Dark", "Ice"],
+        baseSpecies: "Cryotera",
         weight: 10,
         height: 80,
         ability: "Bypass",
@@ -1650,6 +1668,7 @@ var loomians = {
     spectatik: {
         name: "Spectatik",
         types: ["Insect", "Crystal"],
+        otherForms: ["Spectatik-Awakened"],
         weight: 63,
         height: 67,
         baseStats: {
@@ -1665,6 +1684,7 @@ var loomians = {
     'spectatik-awakened': {
         name: "Spectatik-Awakened",
         types: ["Insect", "Crystal"],
+        baseSpecies: "Spectatik",
         weight: 73,
         height: 67,
         ability: "Speed of Swag",
@@ -1698,6 +1718,7 @@ var loomians = {
     bionotic: {
         name: "Bionotic",
         types: ["Water", "Mind"],
+        otherForms: ["Bionotic-Awakened"],
         weight: 20,
         height: 61,
         baseStats: {
@@ -1713,6 +1734,7 @@ var loomians = {
     'bionotic-awakened': {
         name: "Bionotic-Awakened",
         types: ["Water", "Mind"],
+        baseSpecies: "Bionotic",
         weight: 504,
         height: 120,
         ability: "Mind Games",
@@ -1823,6 +1845,7 @@ var loomians = {
     mourveil: {
         name: "Mourveil",
         types: ["Dark", "Plant"],
+        otherForms: ["Mourveil-Awakened"],
         weight: 22,
         height: 53,
         baseStats: {
@@ -1838,6 +1861,7 @@ var loomians = {
     'mourveil-awakened': {
         name: "Mourveil-Awakened",
         types: ["Dark", "Plant"],
+        baseSpecies: "Mourveil",
         weight: 56,
         height: 73,
         ability: "The Fungus",
@@ -1965,6 +1989,7 @@ var loomians = {
     tulenna: {
         name: "Tulenna",
         types: ["Plant"],
+        otherForms: ["Tulenna-Awakened"],
         weight: 5,
         height: 20,
         baseStats: {
@@ -1980,6 +2005,7 @@ var loomians = {
     'tulenna-awakened': {
         name: "Tulenna-Awakened",
         types: ["Plant", "Poison"],
+        baseSpecies: "Tulenna",
         weight: 45,
         height: 60,
         ability: "Toxicity",
@@ -2121,6 +2147,7 @@ var loomians = {
     partybug: {
         name: "Partybug",
         types: ["Insect", "Mind"],
+        otherForms: ["Partybug-Awakened"],
         weight: 112,
         height: 77,
         baseStats: {
@@ -2136,6 +2163,7 @@ var loomians = {
     'partybug-awakened': {
         name: "Partybug-Awakened",
         types: ["Mind", "Beast"],
+        baseSpecies: "Partybug",
         weight: 159,
         height: 95,
         ability: "Archmage",
@@ -2216,6 +2244,7 @@ var loomians = {
     voltenchant: {
         name: "Voltenchant",
         types: ["Spark"],
+        otherForms: ["Voltenchant-Awakened"],
         weight: 34,
         height: 52,
         baseStats: {
@@ -2231,6 +2260,7 @@ var loomians = {
     'voltenchant-awakened': {
         name: "Voltenchant-Awakened",
         types: ["Spark", "Water"],
+        baseSpecies: "Voltenchant",
         weight: 131,
         height: 82,
         ability: "Downpour",
@@ -2279,6 +2309,7 @@ var loomians = {
     malotrick: {
         name: "Malotrick",
         types: ["Dark", "Mind"],
+        otherForms: ["Malotrick-Awakened"],
         weight: 91,
         height: 96,
         baseStats: {
@@ -2294,6 +2325,7 @@ var loomians = {
     'malotrick-awakened': {
         name: "Malotrick-Awakened",
         types: ["Dark", "Spirit"],
+        baseSpecies: "Malotrick",
         weight: 1,
         height: 96,
         ability: "Gaseous Form",
@@ -2327,6 +2359,7 @@ var loomians = {
     skadean: {
         name: "Skadean",
         types: ["Water", "Ice"],
+        otherForms: ["Skadean-Awakened"],
         weight: 48,
         height: 48,
         baseStats: {
@@ -2342,6 +2375,7 @@ var loomians = {
     'skadean-awakened': {
         name: "Skadean-Awakened",
         types: ["Water", "Ice"],
+        baseSpecies: "Skadean",
         ability: "Sea Goddess Disciple",
         item: "Skadean Rune",
         weight: 136,
@@ -2594,6 +2628,7 @@ var loomians = {
     somberock: {
         name: "Somberock",
         types: ["Food", "Dark"],
+        otherForms: ["Somberock-Awakened"],
         weight: 110,
         height: 84,
         baseStats: {
@@ -2609,6 +2644,7 @@ var loomians = {
     'somberock-awakened': {
         name: "Somberock-Awakened",
         types: ["Food", "Light"],
+        baseSpecies: "Somberock",
         weight: 195,
         height: 83,
         ability: "Luminosity",
@@ -2642,6 +2678,7 @@ var loomians = {
     maskomedy: {
         name: "Maskomedy",
         types: ["Light", "Spirit"],
+        otherForms: ["Maskomedy-Awakened"],
         weight: 3,
         height: 38,
         baseStats: {
@@ -2657,6 +2694,7 @@ var loomians = {
     'maskomedy-awakened': {
         name: "Maskomedy-Awakened",
         types: ["Light", "Dark"],
+        baseSpecies: "Maskomedy",
         weight: 7,
         height: 72,
         ability: "Cardinal Sins",
@@ -2674,6 +2712,7 @@ var loomians = {
     theaterror: {
         name: "Theaterror",
         types: ["Spirit", "Dark"],
+        otherForms: ["Theaterror-Awakened"],
         weight: 5,
         height: 35,
         baseStats: {
@@ -2689,6 +2728,7 @@ var loomians = {
     'theaterror-awakened': {
         name: "Theaterror-Awakened",
         types: ["Dark", "Light"],
+        baseSpecies: "Theaterror",
         weight: 7,
         height: 72,
         ability: "Spiteful",
@@ -2800,6 +2840,7 @@ var loomians = {
     tufflaze: {
         name: "Tufflaze",
         types: ["Beast", "Fire"],
+        otherForms: ["Tufflaze-Awakened"],
         weight: 127,
         height: 90,
         baseStats: {
@@ -2815,6 +2856,7 @@ var loomians = {
     'tufflaze-awakened': {
         name: "Tufflaze-Awakened",
         types: ["Beast", "Fire"],
+        baseSpecies: "Tufflaze",
         weight: 695,
         height: 80,
         ability: "Annihilation",
@@ -2848,6 +2890,7 @@ var loomians = {
     hypnotl: {
         name: "Hypnotl",
         types: ["Mind", "Plant"],
+        otherForms: ["Hypnotl-Awakened"],
         weight: 38,
         height: 49,
         baseStats: {
@@ -2863,6 +2906,7 @@ var loomians = {
     'hypnotl-awakened': {
         name: "Hypnotl-Awakened",
         types: ["Mind", "Plant"],
+        baseSpecies: "Hypnotl",
         weight: 55,
         height: 62,
         ability: "Mushboom",
@@ -3114,6 +3158,7 @@ var loomians = {
     umaisho: {
         name: "Umaisho",
         types: ["Food"],
+        otherForms: ["Umaisho-Awakened"],
         weight: 22,
         height: 61,
         baseStats: {
@@ -3129,6 +3174,7 @@ var loomians = {
     'umaisho-awakened': {
         name: "Umaisho-Awakened",
         types: ["Food"],
+        baseSpecies: "Umaisho",
         weight: 232,
         height: 111,
         ability: "Lipid Scale",
@@ -3146,6 +3192,7 @@ var loomians = {
     calamander: {
         name: "Calamander",
         types: ["Food"],
+        otherForms: ["Calamander-Awakened"],
         weight: 1,
         height: 3,
         baseStats: {
@@ -3161,6 +3208,7 @@ var loomians = {
     'calamander-awakened': {
         name: "Calamander-Awakened",
         types: ["Food", "Beast"],
+        baseSpecies: "Calamander",
         weight: 549,
         height: 95,
         ability: "Hidden Strength",
@@ -3302,6 +3350,7 @@ var loomians = {
     staligant: {
         name: "Staligant",
         types: ["Mind", "Crystal"],
+        otherForms: ["Staligant-Awakened"],
         weight: 86,
         height: 54,
         baseStats: {
@@ -3317,6 +3366,7 @@ var loomians = {
     'staligant-awakened': {
         name: "Staligant-Awakened",
         types: ["Mind", "Crystal"],
+        baseSpecies: "Staligant",
         weight: 91,
         height: 96,
         ability: "Mental Depletion",
@@ -3365,6 +3415,7 @@ var loomians = {
     fluppy: {
         name: "Fluppy",
         types: ["Light", "Plant"],
+        otherForms: ["Fluppy-Awakened"],
         weight: 10,
         height: 19,
         baseStats: {
@@ -3380,6 +3431,7 @@ var loomians = {
     'fluppy-awakened': {
         name: "Fluppy-Awakened",
         types: ["Light", "Plant"],
+        baseSpecies: "Fluppy",
         weight: 96,
         height: 65,
         ability: "Ceasing Light",
@@ -3397,6 +3449,7 @@ var loomians = {
     junipyro: {
         name: "Junipyro",
         types: ["Fire", "Plant"],
+        otherForms: ["Junipyro-Awakened"],
         weight: 9,
         height: 12,
         baseStats: {
@@ -3412,6 +3465,7 @@ var loomians = {
     'junipyro-awakened': {
         name: "Junipyro-Awakened",
         types: ["Fire", "Plant"],
+        baseSpecies: "Junipyro",
         weight: 34,
         height: 24,
         ability: "Wildfire",
@@ -3429,6 +3483,7 @@ var loomians = {
     squonk: {
         name: "Squonk",
         types: ["Plant", "Spirit"],
+        otherForms: ["Squonk-Awakened"],
         weight: 9,
         height: 12,
         baseStats: {
@@ -3444,6 +3499,7 @@ var loomians = {
     'squonk-awakened': {
         name: "Squonk-Awakened",
         types: ["Plant", "Spirit"],
+        baseSpecies: "Squonk",
         weight: 18,
         height: 30,
         ability: "Breaking Point",
@@ -3461,6 +3517,7 @@ var loomians = {
     hollihare: {
         name: "Hollihare",
         types: ["Plant", "Ice"],
+        otherForms: ["Hollihare-Awakened"],
         weight: 9,
         height: 12,
         baseStats: {
@@ -3476,6 +3533,7 @@ var loomians = {
     'hollihare-awakened': {
         name: "Hollihare-Awakened",
         types: ["Plant", "Ice"],
+        baseSpecies: "Hollihare",
         weight: 10,
         height: 140,
         ability: "Sugarsick",
@@ -3540,6 +3598,7 @@ var loomians = {
     vermorph: {
         name: "Vermorph",
         types: ["Spark", "Insect"],
+        otherForms: ["Vermorph-Awakened"],
         weight: 102,
         height: 60,
         baseStats: {
@@ -3555,6 +3614,7 @@ var loomians = {
     'vermorph-awakened': {
         name: "Vermorph-Awakened",
         types: ["Spark", "Insect"],
+        baseSpecies: "Vermorph",
         weight: 151,
         height: 75,
         ability: "Joltant",
@@ -3572,6 +3632,7 @@ var loomians = {
     owol: {
         name: "Owol",
         types: ["Air"],
+        otherForms: ["Mother-Owol-Awakened"],
         weight: 39,
         height: 30,
         baseStats: {
@@ -3587,6 +3648,7 @@ var loomians = {
     'mother-owol-awakened': {
         name: "Mother-Owol-Awakened",
         types: ["Air", "Fire"],
+        baseSpecies: "Owol",
         weight: 113,
         height: 60,
         ability: "Mother's Resolve",
@@ -3620,6 +3682,7 @@ var loomians = {
     nyanto: {
         name: "Nyanto",
         types: ["Insect", "Basic"],
+        otherForms: ["Nyanto-Awakened"],
         weight: 159,
         height: 100,
         baseStats: {
@@ -3635,6 +3698,7 @@ var loomians = {
     'nyanto-awakened': {
         name: "Nyanto-Awakened",
         types: ["Insect", "Air"],
+        baseSpecies: "Nyanto",
         weight: 159,
         height: 100,
         ability: "Your Meowjesty",
@@ -3668,6 +3732,7 @@ var loomians = {
     fancyoon: {
         name: "Fancyoon",
         types: ["Basic", "Poison"],
+        otherForms: ["Fancyoon-Awakened"],
         weight: 36,
         height: 33,
         baseStats: {
@@ -3683,6 +3748,7 @@ var loomians = {
     'fancyoon-awakened': {
         name: "Fancyoon-Awakened",
         types: ["Crystal", "Poison"],
+        baseSpecies: "Fancyoon",
         weight: 73,
         height: 65,
         ability: "Foul Welcome",
@@ -3823,6 +3889,7 @@ var loomians = {
     jellupy: {
         name: "Jellupy",
         types: ["Food", "Metal"],
+        otherForms: ["Jellupy-Awakened"],
         weight: 11,
         height: 18,
         baseStats: {
@@ -3838,6 +3905,7 @@ var loomians = {
     'jellupy-awakened': {
         name: "Jellupy-Awakened",
         types: ["Food", "Metal"],
+        baseSpecies: "Jellupy",
         weight: 25,
         height: 36,
         ability: "Jelly Sync",
@@ -4151,6 +4219,7 @@ var loomians = {
     ostigon: {
         name: "Ostigon",
         types: ["Poison", "Beast"],
+        otherForms: ["Ostigon-Awakened"],
         weight: 44,
         height: 37,
         baseStats: {
@@ -4166,6 +4235,7 @@ var loomians = {
     'ostigon-awakened': {
         name: "Ostigon-Awakened",
         types: ["Dark", "Poison"],
+        baseSpecies: "Ostigon",
         weight: 136,
         height: 74,
         ability: "Corruption",
@@ -4308,6 +4378,7 @@ var loomians = {
     riptorvent: {
         name: "Riptorvent",
         types: ["Spark", "Beast"],
+        otherForms: ["Riptorvent-Awakened"],
         weight: 78,
         height: 61,
         baseStats: {
@@ -4323,6 +4394,7 @@ var loomians = {
     'riptorvent-awakened': {
         name: "Riptorvent-Awakened",
         types: ["Spark", "Beast"],
+        baseSpecies: "Riptorvent",
         weight: 78,
         height: 61,
         ability: "Sky Deity",
@@ -4450,6 +4522,7 @@ var loomians = {
     suomous: {
         name: "Suomous",
         types: ["Melee"],
+        otherForms: ["Suomous-Awakened"],
         weight: 16,
         height: 21,
         baseStats: {
@@ -4465,6 +4538,7 @@ var loomians = {
     'suomous-awakened': {
         name: "Suomous-Awakened",
         types: ["Melee"],
+        baseSpecies: "Suomous",
         weight: 95,
         height: 65,
         ability: "Jab Cross",
@@ -4545,6 +4619,7 @@ var loomians = {
     cragildae: {
         name: "Cragildae",
         types: ["Earth", "Melee"],
+        otherForms: ["Cragildae-Awakened"],
         weight: 39,
         height: 50,
         baseStats: {
@@ -4560,6 +4635,7 @@ var loomians = {
     'cragildae-awakened': {
         name: "Cragildae-Awakened",
         types: ["Earth", "Melee"],
+        baseSpecies: "Cragildae",
         weight: 368,
         height: 75,
         ability: "Grounded",
@@ -4577,6 +4653,7 @@ var loomians = {
     cacmeow: {
         name: "Cacmeow",
         types: ["Plant", "Earth"],
+        otherForms: ["Cacmeow-Awakened"],
         weight: 9,
         height: 30,
         baseStats: {
@@ -4592,6 +4669,7 @@ var loomians = {
     'cacmeow-awakened': {
         name: "Cacmeow-Awakened",
         types: ["Plant", "Earth"],
+        baseSpecies: "Cacmeow",
         weight: 141,
         height: 65,
         ability: "Vicious",
@@ -4672,6 +4750,7 @@ var loomians = {
     daeferno: {
         name: "Daeferno",
         types: ["Fire", "Spirit"],
+        otherForms: ["Daeferno-Awakened"],
         weight: 42,
         height: 57,
         baseStats: {
@@ -4687,6 +4766,7 @@ var loomians = {
     'daeferno-awakened': {
         name: "Daeferno-Awakened",
         types: ["Fire", "Spirit"],
+        baseSpecies: "Daeferno",
         weight: 78,
         height: 90,
         ability: "Natural Calamity",
@@ -4784,6 +4864,7 @@ var loomians = {
     libelagua: {
         name: "Libelagua",
         types: ["Water", "Insect"],
+        otherForms: ["Libelagua-Awakened"],
         weight: 20,
         height: 30,
         baseStats: {
@@ -4799,6 +4880,7 @@ var loomians = {
     'libelagua-awakened': {
         name: "Libelagua-Awakened",
         types: ["Water", "Insect"],
+        baseSpecies: "Libelagua",
         weight: 45,
         height: 90,
         ability: "Bogdown",
@@ -4832,6 +4914,7 @@ var loomians = {
     bubbull: {
         name: "Bubbull",
         types: ["Water", "Earth"],
+        otherForms: ["Bubbull-Awakened"],
         weight: 1806,
         height: 92,
         baseStats: {
@@ -4847,6 +4930,7 @@ var loomians = {
     'bubbull-awakened': {
         name: "Bubbull-Awakened",
         types: ["Water", "Earth"],
+        baseSpecies: "Bubbull",
         weight: 1411,
         height: 95,
         ability: "Melting Point",
@@ -4973,6 +5057,7 @@ var loomians = {
     vigimante: {
         name: "Vigimante",
         types: ["Water", "Melee"],
+        otherForms: ["Vigimante-Awakened"],
         weight: 36,
         height: 49,
         baseStats: {
@@ -4988,6 +5073,7 @@ var loomians = {
     'vigimante-awakened': {
         name: "Vigimante-Awakened",
         types: ["Water", "Melee"],
+        baseSpecies: "Vigimante",
         weight: 45,
         height: 72,
         ability: "Crowd Support",
@@ -5233,6 +5319,7 @@ var loomians = {
     jinglark: {
         name: "Jinglark",
         types: ["Plant", "Air"],
+        otherForms: ["Jinglark-Awakened"],
         weight: 41,
         height: 55,
         baseStats: {
@@ -5248,6 +5335,7 @@ var loomians = {
     'jinglark-awakened': {
         name: "Jinglark-Awakened",
         types: ["Plant", "Air"],
+        baseSpecies: "Jinglark",
         weight: 181,
         height: 80,
         ability: "Holiday Spirit",
@@ -5281,6 +5369,7 @@ var loomians = {
     snowclowne: {
         name: "Snowclowne",
         types: ["Food", "Ice"],
+        otherForms: ["Snowclowne-Awakened"],
         weight: 23,
         height: 40,
         baseStats: {
@@ -5296,6 +5385,7 @@ var loomians = {
     'snowclowne-awakened': {
         name: "Snowclowne-Awakened",
         types: ["Food", "Ice"],
+        baseSpecies: "Snowclowne",
         weight: 268,
         height: 80,
         ability: "Frostillery",
@@ -5841,6 +5931,7 @@ var loomians = {
     boblop: {
         name: "Boblop",
         types: ["Basic", "Fire"],
+        otherForms: ["Boblop-Awakened"],
         weight: 671,
         height: 120,
         baseStats: {
@@ -5856,6 +5947,7 @@ var loomians = {
     'boblop-awakened': {
         name: "Boblop-Awakened",
         types: ["Fire", "Air"],
+        baseSpecies: "Boblop",
         weight: 816,
         height: 150,
         ability: "Thermal Uplift",
@@ -5982,6 +6074,7 @@ var loomians = {
     'morphiu-opiuchius': {
         name: "Morphiu-Opiuchius",
         types: ["Mind", "Basic"],
+        otherForms: ["Morphiu-Cancer", "Morphiu-Gemini", "Morphiu-Leo", "Morphiu-Taurus"],
         weight: 46,
         height: 37,
         baseStats: {
@@ -5997,6 +6090,7 @@ var loomians = {
     'morphiu-cancer': {
         name: "Morphiu-Cancer",
         types: ["Mind", "Water"],
+        baseSpecies: "Morphiu-Opiuchius",
         weight: 46,
         height: 37,
         baseStats: {
@@ -6012,6 +6106,7 @@ var loomians = {
     'morphiu-gemini': {
         name: "Morphiu-Gemini",
         types: ["Mind", "Air"],
+        baseSpecies: "Morphiu-Opiuchius",
         weight: 46,
         height: 37,
         baseStats: {
@@ -6027,6 +6122,7 @@ var loomians = {
     'morphiu-leo': {
         name: "Morphiu-Leo",
         types: ["Mind", "Fire"],
+        baseSpecies: "Morphiu-Opiuchius",
         weight: 46,
         height: 37,
         baseStats: {
@@ -6042,6 +6138,7 @@ var loomians = {
     'morphiu-taurus': {
         name: "Morphiu-Taurus",
         types: ["Mind", "Earth"],
+        baseSpecies: "Morphiu-Opiuchius",
         weight: 46,
         height: 37,
         baseStats: {
@@ -7138,6 +7235,7 @@ var loomians = {
     exoskelis: {
         name: "Exoskelis",
         types: ["Insect", "Dark"],
+        otherForms: ["Exoskelis-Awakened"],
         weight: 96,
         height: 58,
         baseStats: {
@@ -7153,6 +7251,7 @@ var loomians = {
     'exoskelis-awakened': {
         name: "Exoskelis-Awakened",
         types: ["Insect", "Dark"],
+        baseSpecies: "Exoskelis",
         weight: 41,
         height: 85,
         ability: "Ultimate Revival",
@@ -7390,6 +7489,7 @@ var loomians = {
     'grimantle-poison': {
         name: "Grimantle-Poison",
         types: ["Dark", "Poison"],
+        otherForms: ["Grimantle-Air"],
         weight: 19,
         height: 40,
         baseStats: {
@@ -7405,6 +7505,7 @@ var loomians = {
     'grimantle-air': {
         name: "Grimantle-Air",
         types: ["Dark", "Air"],
+        baseSpecies: "Grimantle-Poison",
         weight: 19,
         height: 40,
         baseStats: {
@@ -7467,6 +7568,7 @@ var loomians = {
     hangryphus: {
         name: "Hangryphus",
         types: ["Food", "Melee"],
+        otherForms: ["Hangryphus-Awakened"],
         weight: 47,
         height: 60,
         baseStats: {
@@ -7482,6 +7584,7 @@ var loomians = {
     'hangryphus-awakened': {
         name: "Hangryphus-Awakened",
         types: ["Food", "Melee"],
+        baseSpecies: "Hangryphus",
         weight: 445,
         height: 85,
         ability: "Survival Instinct",
@@ -7697,6 +7800,7 @@ var loomians = {
     hattrix: {
         name: "Hattrix",
         types: ["Dark", "Mind"],
+        otherForms: ["Hattrix-Awakened"],
         weight: 16,
         height: 43,
         baseStats: {
@@ -7712,6 +7816,7 @@ var loomians = {
     'hattrix-awakened': {
         name: "Hattrix-Awakened",
         types: ["Dark", "Mind"],
+        baseSpecies: "Hattrix",
         weight: 69,
         height: 70,
         ability: "Spell Shield",
@@ -7974,6 +8079,84 @@ var loomians = {
         }
     },
 
+    gummeye: {
+        name: "Gummeye",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 1,
+        height: 10,
+        baseStats: {
+            hp: 61,
+            attack: 25,
+            defense: 49,
+            attackR: 74,
+            defenseR: 62,
+            speed: 49
+        }
+    },
+
+    mishgumash: {
+        name: "Mishgumash",
+        types: ["Food"],
+        weight: 20,
+        height: 60,
+        baseStats: {
+            hp: 90,
+            attack: 50,
+            defense: 80,
+            attackR: 115,
+            defenseR: 80,
+            speed: 100
+        }
+    },
+
+    wickandle: {
+        name: "Wickandle",
+        types: ["Spirit", "Fire"],
+        finalEvo: false,
+        weight: 1,
+        height: 10,
+        baseStats: {
+            hp: 55,
+            attack: 27,
+            defense: 41,
+            attackR: 68,
+            defenseR: 68,
+            speed: 41
+        }
+    },
+
+    meltimise: {
+        name: "Meltimise",
+        types: ["Spirit", "Fire"],
+        finalEvo: false,
+        weight: 4,
+        height: 24,
+        baseStats: {
+            hp: 71,
+            attack: 42,
+            defense: 71,
+            attackR: 96,
+            defenseR: 96,
+            speed: 54
+        }
+    },
+
+    waxancholy: {
+        name: "Waxancholy",
+        types: ["Spirit", "Fire"],
+        weight: 13,
+        height: 46,
+        baseStats: {
+            hp: 95,
+            attack: 60,
+            defense: 80,
+            attackR: 110,
+            defenseR: 110,
+            speed: 70
+        }
+    },
+
     corni: {
         name: "Corni",
         types: ["Food", "Insect"],
@@ -8114,21 +8297,6 @@ var loomians = {
         }
     },
 
-    cerberant: {
-        name: "Cerberant",
-        types: ["Fire", "Plant"],
-        weight: 249,
-        height: 102,
-        baseStats: {
-            hp: 85,
-            attack: 90,
-            defense: 70,
-            attackR: 110,
-            defenseR: 70,
-            speed: 125
-        }
-    },
-
     twisstler: {
         name: "Twisstler",
         types: ["Poison", "Food"],
@@ -8141,6 +8309,21 @@ var loomians = {
             attackR: 135,
             defenseR: 105,
             speed: 40
+        }
+    },
+
+    cerberant: {
+        name: "Cerberant",
+        types: ["Fire", "Plant"],
+        weight: 249,
+        height: 102,
+        baseStats: {
+            hp: 85,
+            attack: 90,
+            defense: 70,
+            attackR: 110,
+            defenseR: 70,
+            speed: 125
         }
     },
 
@@ -8172,818 +8355,6 @@ var loomians = {
             attackR: 72,
             defenseR: 80,
             speed: 92
-        }
-    },
-
-    infurnius: {
-        name: "Infurnius",
-        types: ["Fire", "Light"],
-        weight: 286,
-        height: 118,
-        baseStats: {
-            hp: 100,
-            attack: 90,
-            defense: 80,
-            attackR: 115,
-            defenseR: 80,
-            speed: 85
-        }
-    },
-
-    phieoby: {
-        name: "Phieoby",
-        types: ["Fire"],
-        finalEvo: false,
-        weight: 8,
-        height: 20,
-        baseStats: {
-            hp: 87,
-            attack: 48,
-            defense: 93,
-            attackR: 77,
-            defenseR: 91,
-            speed: 24
-        }
-    },
-
-    phimareon: {
-        name: "Phimareon",
-        types: ["Fire", "Beast"],
-        weight: 175,
-        height: 104,
-        baseStats: {
-            hp: 92,
-            attack: 67,
-            defense: 79,
-            attackR: 133,
-            defenseR: 82,
-            speed: 96
-        }
-    },
-
-    koriyu: {
-        name: "Koriyu",
-        types: ["Ice", "Dark"],
-        weight: 286,
-        height: 114,
-        baseStats: {
-            hp: 85,
-            attack: 105,
-            defense: 90,
-            attackR: 95,
-            defenseR: 70,
-            speed: 105
-        }
-    },
-
-    artifixie: {
-        name: "Artifixie",
-        types: ["Ice", "Mind"],
-        weight: 18,
-        height: 25,
-        baseStats: {
-            hp: 85,
-            attack: 100,
-            defense: 61,
-            attackR: 101,
-            defenseR: 67,
-            speed: 106
-        }
-    },
-
-    'artifixie-mech': {
-        name: "Artifixie-Mech",
-        types: ["Ice", "Metal"],
-        weight: 1729,
-        height: 157,
-        baseStats: {
-            hp: 90,
-            attack: 100,
-            defense: 115,
-            attackR: 100,
-            defenseR: 115,
-            speed: 60
-        }
-    },
-
-    kreindus: {
-        name: "Kreindus",
-        types: ["Ice", "Dark"],
-        weight: 141,
-        height: 72,
-        baseStats: {
-            hp: 70,
-            attack: 105,
-            defense: 70,
-            attackR: 125,
-            defenseR: 70,
-            speed: 115
-        }
-    },
-
-    lantelope: {
-        name: "Lantelope",
-        types: ["Spark", "Ice"],
-        weight: 54,
-        height: 67,
-        baseStats: {
-            hp: 85,
-            attack: 110,
-            defense: 75,
-            attackR: 115,
-            defenseR: 75,
-            speed: 90
-        }
-    },
-
-    kitave: {
-        name: "Kitave",
-        types: ["Basic"],
-        finalEvo: false,
-        weight: 5,
-        height: 20,
-        baseStats: {
-            hp: 55,
-            attack: 80,
-            defense: 40,
-            attackR: 70,
-            defenseR: 40,
-            speed: 115
-        }
-    },
-
-    curixen: {
-        name: "Curixen",
-        types: ["Basic", "Light"],
-        weight: 42,
-        height: 47,
-        baseStats: {
-            hp: 68,
-            attack: 102,
-            defense: 67,
-            attackR: 83,
-            defenseR: 71,
-            speed: 129
-        }
-    },
-
-    pickit: {
-        name: "Pickit",
-        types: ["Basic"],
-        finalEvo: false,
-        weight: 3,
-        height: 22,
-        baseStats: {
-            hp: 49,
-            attack: 82,
-            defense: 38,
-            attackR: 66,
-            defenseR: 45,
-            speed: 120
-        }
-    },
-
-    velace: {
-        name: "Velace",
-        types: ["Basic", "Fire"],
-        weight: 33,
-        height: 45,
-        baseStats: {
-            hp: 63,
-            attack: 110,
-            defense: 56,
-            attackR: 87,
-            defenseR: 69,
-            speed: 135
-        }
-    },
-
-    jestwirl: {
-        name: "Jestwirl",
-        types: ["Basic", "Mind"],
-        weight: 16,
-        height: 41,
-        baseStats: {
-            hp: 90,
-            attack: 80,
-            defense: 90,
-            attackR: 100,
-            defenseR: 90,
-            speed: 100
-        }
-    },
-
-    hopolatte: {
-        name: "Hopolatte",
-        types: ["Food"],
-        finalEvo: false,
-        weight: 9,
-        height: 22,
-        baseStats: {
-            hp: 40,
-            attack: 60,
-            defense: 45,
-            attackR: 65,
-            defenseR: 50,
-            speed: 80
-        }
-    },
-
-    hopogard: {
-        name: "Hopogard",
-        types: ["Food", "Light"],
-        finalEvo: false,
-        weight: 23,
-        height: 22,
-        baseStats: {
-            hp: 60,
-            attack: 70,
-            defense: 65,
-            attackR: 70,
-            defenseR: 70,
-            speed: 50
-        }
-    },
-
-    cherugard: {
-        name: "Cherugard",
-        types: ["Light", "Air"],
-        weight: 372,
-        height: 111,
-        baseStats: {
-            hp: 90,
-            attack: 75,
-            defense: 95,
-            attackR: 100,
-            defenseR: 95,
-            speed: 95
-        }
-    },
-
-    majestegg: {
-        name: "Majestegg",
-        types: ["Metal", "Food"],
-        weight: 11,
-        height: 16,
-        baseStats: {
-            hp: 80,
-            attack: 150,
-            defense: 60,
-            attackR: 100,
-            defenseR: 60,
-            speed: 10
-        }
-    },
-
-    'majestegg-steed': {
-        name: "Majestegg-Steed",
-        types: ["Metal", "Melee"],
-        weight: 156,
-        height: 65,
-        baseStats: {
-            hp: 80,
-            attack: 120,
-            defense: 85,
-            attackR: 90,
-            defenseR: 85,
-            speed: 115
-        }
-    },
-
-    omeletrot: {
-        name: "Omeletrot",
-        types: ["Melee", "Food"],
-        weight: 154,
-        height: 65,
-        baseStats: {
-            hp: 70,
-            attack: 100,
-            defense: 75,
-            attackR: 65,
-            defenseR: 75,
-            speed: 125
-        }
-    },
-
-    buggle: {
-        name: "Buggle",
-        types: ["Insect", "Basic"],
-        finalEvo: false,
-        weight: 1,
-        height: 16,
-        baseStats: {
-            hp: 60,
-            attack: 30,
-            defense: 60,
-            attackR: 35,
-            defenseR: 65,
-            speed: 100
-        }
-    },
-
-    lepidhonk: {
-        name: "Lepidhonk",
-        types: ["Insect", "Basic"],
-        weight: 7,
-        height: 36,
-        baseStats: {
-            hp: 70,
-            attack: 60,
-            defense: 85,
-            attackR: 53,
-            defenseR: 90,
-            speed: 145
-        }
-    },
-
-    pawsage: {
-        name: "Pawsage",
-        types: ["Food"],
-        finalEvo: false,
-        weight: 5,
-        height: 7,
-        baseStats: {
-            hp: 50,
-            attack: 40,
-            defense: 45,
-            attackR: 70,
-            defenseR: 70,
-            speed: 75
-        }
-    },
-
-    sauschund: {
-        name: "Sauschund",
-        types: ["Food"],
-        weight: 15,
-        height: 13,
-        baseStats: {
-            hp: 90,
-            attack: 50,
-            defense: 100,
-            attackR: 100,
-            defenseR: 95,
-            speed: 55
-        }
-    },
-
-    shweet: {
-        name: "Shweet",
-        types: ["Food", "Mind"],
-        finalEvo: false,
-        weight: 6,
-        height: 24,
-        baseStats: {
-            hp: 45,
-            attack: 30,
-            defense: 55,
-            attackR: 60,
-            defenseR: 70,
-            speed: 40
-        }
-    },
-
-    lobsugar: {
-        name: "Lobsugar",
-        types: ["Food", "Mind"],
-        weight: 93,
-        height: 71,
-        baseStats: {
-            hp: 105,
-            attack: 40,
-            defense: 100,
-            attackR: 100,
-            defenseR: 115,
-            speed: 50
-        }
-    },
-
-    rockeroo: {
-        name: "Rockeroo",
-        types: ["Light", "Melee"],
-        finalEvo: false,
-        weight: 5,
-        height: 17,
-        baseStats: {
-            hp: 50,
-            attack: 65,
-            defense: 40,
-            attackR: 45,
-            defenseR: 45,
-            speed: 80
-        }
-    },
-
-    kaboomaroo: {
-        name: "Kaboomaroo",
-        types: ["Light", "Melee"],
-        weight: 55,
-        height: 75,
-        baseStats: {
-            hp: 80,
-            attack: 120,
-            defense: 65,
-            attackR: 55,
-            defenseR: 55,
-            speed: 120
-        }
-    },
-
-    clowlette: {
-        name: "Clowlette",
-        types: ["Mind", "Air"],
-        finalEvo: false,
-        weight: 3,
-        height: 18,
-        baseStats: {
-            hp: 70,
-            attack: 35,
-            defense: 60,
-            attackR: 85,
-            defenseR: 75,
-            speed: 50
-        }
-    },
-
-    maskusi: {
-        name: "Maskusi",
-        types: ["Mind", "Air"],
-        weight: 46,
-        height: 63,
-        baseStats: {
-            hp: 85,
-            attack: 45,
-            defense: 80,
-            attackR: 110,
-            defenseR: 90,
-            speed: 115
-        }
-    },
-
-    sneekle: {
-        name: "Sneekle",
-        types: ["Basic", "Metal"],
-        finalEvo: false,
-        weight: 12,
-        height: 24,
-        baseStats: {
-            hp: 50,
-            attack: 80,
-            defense: 60,
-            attackR: 40,
-            defenseR: 55,
-            speed: 80
-        }
-    },
-
-    snoaster: {
-        name: "Snoaster",
-        types: ["Basic", "Metal"],
-        weight: 96,
-        height: 177,
-        baseStats: {
-            hp: 85,
-            attack: 115,
-            defense: 90,
-            attackR: 55,
-            defenseR: 80,
-            speed: 100
-        }
-    },
-
-    teddot: {
-        name: "Teddot",
-        types: ["Metal", "Basic"],
-        finalEvo: false,
-        weight: 17,
-        height: 20,
-        baseStats: {
-            hp: 55,
-            attack: 50,
-            defense: 65,
-            attackR: 40,
-            defenseR: 50,
-            speed: 55
-        }
-    },
-
-    uwursa: {
-        name: "Uwursa",
-        types: ["Metal", "Basic"],
-        weight: 190,
-        height: 75,
-        baseStats: {
-            hp: 101,
-            attack: 111,
-            defense: 111,
-            attackR: 61,
-            defenseR: 101,
-            speed: 31
-        }
-    },
-
-    snarmel: {
-        name: "Snarmel",
-        types: ["Food", "Plant"],
-        finalEvo: false,
-        weight: 5,
-        height: 5,
-        baseStats: {
-            hp: 40,
-            attack: 65,
-            defense: 75,
-            attackR: 60,
-            defenseR: 80,
-            speed: 20
-        }
-    },
-
-    applicious: {
-        name: "Applicious",
-        types: ["Food", "Plant"],
-        weight: 9,
-        height: 24,
-        baseStats: {
-            hp: 65,
-            attack: 115,
-            defense: 100,
-            attackR: 80,
-            defenseR: 100,
-            speed: 30
-        }
-    },
-
-    maizite: {
-        name: "Maizite",
-        types: ["Food", "Insect"],
-        finalEvo: false,
-        weight: 1,
-        height: 8,
-        baseStats: {
-            hp: 40,
-            attack: 35,
-            defense: 55,
-            attackR: 35,
-            defenseR: 45,
-            speed: 65
-        }
-    },
-
-    tiricket: {
-        name: "Tiricket",
-        types: ["Food", "Insect"],
-        weight: 10,
-        height: 32,
-        baseStats: {
-            hp: 85,
-            attack: 70,
-            defense: 105,
-            attackR: 70,
-            defenseR: 95,
-            speed: 35
-        }
-    },
-
-    tigrousel: {
-        name: "Tigrousel",
-        types: ["Metal", "Mind"],
-        weight: 255,
-        height: 63,
-        baseStats: {
-            hp: 90,
-            attack: 120,
-            defense: 105,
-            attackR: 85,
-            defenseR: 100,
-            speed: 50
-        }
-    },
-
-    cosmat: {
-        name: "Cosmat",
-        types: ["Dark", "Air"],
-        finalEvo: false,
-        weight: 4,
-        height: 20,
-        baseStats: {
-            hp: 45,
-            attack: 70,
-            defense: 45,
-            attackR: 72,
-            defenseR: 47,
-            speed: 85
-        }
-    },
-
-    novawing: {
-        name: "Novawing",
-        types: ["Dark", "Air"],
-        weight: 29,
-        height: 59,
-        baseStats: {
-            hp: 67,
-            attack: 106,
-            defense: 60,
-            attackR: 110,
-            defenseR: 63,
-            speed: 121
-        }
-    },
-
-    freqrec: {
-        name: "Freqrec",
-        types: ["Spark", "Mind"],
-        weight: 12,
-        height: 22,
-        ability: "Static Startle",
-        baseStats: {
-            hp: 63,
-            attack: 52,
-            defense: 68,
-            attackR: 117,
-            defenseR: 83,
-            speed: 121
-        },
-        formStats: {
-            hp: 63,
-            attack: 48,
-            defense: 109,
-            attackR: 128,
-            defenseR: 104,
-            speed: 77
-        }
-    },
-
-    scentino: {
-        name: "Scentino",
-        types: ["Plant"],
-        finalEvo: false,
-        weight: 17,
-        height: 16,
-        baseStats: {
-            hp: 60,
-            attack: 42,
-            defense: 52,
-            attackR: 82,
-            defenseR: 72,
-            speed: 62
-        }
-    },
-
-    aromaflora: {
-        name: "Aromaflora",
-        types: ["Plant", "Light"],
-        weight: 38,
-        height: 76,
-        baseStats: {
-            hp: 92,
-            attack: 62,
-            defense: 78,
-            attackR: 112,
-            defenseR: 108,
-            speed: 55
-        }
-    },
-
-    'aromaflora-awakened': {
-        name: "Aromaflora-Awakened",
-        types: ["Plant", "Light"],
-        weight: 60,
-        height: 92,
-        ability: "Faerie Sanctuary",
-        item: "Aromaflora Rune",
-        baseStats: {
-            hp: 92,
-            attack: 62,
-            defense: 95,
-            attackR: 130,
-            defenseR: 140,
-            speed: 78
-        }
-    },
-
-    cobblepawn: {
-        name: "Cobblepawn",
-        types: ["Fire", "Earth"],
-        finalEvo: false,
-        weight: 84,
-        height: 37,
-        baseStats: {
-            hp: 68,
-            attack: 72,
-            defense: 89,
-            attackR: 54,
-            defenseR: 64,
-            speed: 14
-        }
-    },
-
-    kinglith: {
-        name: "Kinglith",
-        types: ["Fire", "Earth"],
-        weight: 1125,
-        height: 71,
-        baseStats: {
-            hp: 104,
-            attack: 122,
-            defense: 118,
-            attackR: 60,
-            defenseR: 96,
-            speed: 30
-        }
-    },
-
-    'kinglith-awakened': {
-        name: "Kinglith-Awakened",
-        types: ["Fire", "Earth"],
-        weight: 1125,
-        height: 110,
-        ability: "Siegebreaker",
-        item: "Kinglith Pyreblade",
-        baseStats: {
-            hp: 104,
-            attack: 135,
-            defense: 132,
-            attackR: 78,
-            defenseR: 110,
-            speed: 68
-        }
-    },
-
-    illumina: {
-        name: "Illumina",
-        types: ["Water", "Mind"],
-        finalEvo: false,
-        weight: 13,
-        height: 72,
-        baseStats: {
-            hp: 65,
-            attack: 55,
-            defense: 65,
-            attackR: 90,
-            defenseR: 80,
-            speed: 70
-        }
-    },
-
-    slithescent: {
-        name: "Slithescent",
-        types: ["Water", "Mind"],
-        weight: 24,
-        height: 120,
-        baseStats: {
-            hp: 90,
-            attack: 65,
-            defense: 85,
-            attackR: 115,
-            defenseR: 100,
-            speed: 70
-        }
-    },
-
-    atar: {
-        name: "Atar",
-        types: ["Air"],
-        finalEvo: false,
-        weight: 6,
-        height: 30,
-        baseStats: {
-            hp: 65,
-            attack: 75,
-            defense: 60,
-            attackR: 75,
-            defenseR: 60,
-            speed: 55
-        }
-    },
-
-    atlun: {
-        name: "Atlun",
-        types: ["Air", "Dark"],
-        weight: 22,
-        height: 68,
-        baseStats: {
-            hp: 85,
-            attack: 115,
-            defense: 100,
-            attackR: 65,
-            defenseR: 80,
-            speed: 80
-        }
-    },
-
-    atsun: {
-        name: "Atsun",
-        types: ["Air", "Light"],
-        weight: 20,
-        height: 65,
-        baseStats: {
-            hp: 85,
-            attack: 65,
-            defense: 80,
-            attackR: 115,
-            defenseR: 100,
-            speed: 80
         }
     },
 
@@ -9529,6 +8900,826 @@ var loomians = {
         }
     },
 
+    infurnius: {
+        name: "Infurnius",
+        types: ["Fire", "Light"],
+        weight: 286,
+        height: 118,
+        baseStats: {
+            hp: 100,
+            attack: 90,
+            defense: 80,
+            attackR: 115,
+            defenseR: 80,
+            speed: 85
+        }
+    },
+
+    phieoby: {
+        name: "Phieoby",
+        types: ["Fire"],
+        finalEvo: false,
+        weight: 8,
+        height: 20,
+        baseStats: {
+            hp: 87,
+            attack: 48,
+            defense: 93,
+            attackR: 77,
+            defenseR: 91,
+            speed: 24
+        }
+    },
+
+    phimareon: {
+        name: "Phimareon",
+        types: ["Fire", "Beast"],
+        weight: 175,
+        height: 104,
+        baseStats: {
+            hp: 92,
+            attack: 67,
+            defense: 79,
+            attackR: 133,
+            defenseR: 82,
+            speed: 96
+        }
+    },
+
+    koriyu: {
+        name: "Koriyu",
+        types: ["Ice", "Dark"],
+        weight: 286,
+        height: 114,
+        baseStats: {
+            hp: 85,
+            attack: 105,
+            defense: 90,
+            attackR: 95,
+            defenseR: 70,
+            speed: 105
+        }
+    },
+
+    artifixie: {
+        name: "Artifixie",
+        types: ["Ice", "Mind"],
+        otherForms: ["Artifixie-Mech"],
+        weight: 18,
+        height: 25,
+        baseStats: {
+            hp: 85,
+            attack: 100,
+            defense: 61,
+            attackR: 101,
+            defenseR: 67,
+            speed: 106
+        }
+    },
+
+    'artifixie-mech': {
+        name: "Artifixie-Mech",
+        types: ["Ice", "Metal"],
+        baseSpecies: "Artifixie",
+        weight: 1729,
+        height: 157,
+        baseStats: {
+            hp: 90,
+            attack: 100,
+            defense: 115,
+            attackR: 100,
+            defenseR: 115,
+            speed: 60
+        }
+    },
+
+    kreindus: {
+        name: "Kreindus",
+        types: ["Ice", "Dark"],
+        weight: 141,
+        height: 72,
+        baseStats: {
+            hp: 70,
+            attack: 105,
+            defense: 70,
+            attackR: 125,
+            defenseR: 70,
+            speed: 115
+        }
+    },
+
+    lantelope: {
+        name: "Lantelope",
+        types: ["Spark", "Ice"],
+        weight: 54,
+        height: 67,
+        baseStats: {
+            hp: 85,
+            attack: 110,
+            defense: 75,
+            attackR: 115,
+            defenseR: 75,
+            speed: 90
+        }
+    },
+
+    kitave: {
+        name: "Kitave",
+        types: ["Basic"],
+        finalEvo: false,
+        weight: 5,
+        height: 20,
+        baseStats: {
+            hp: 55,
+            attack: 80,
+            defense: 40,
+            attackR: 70,
+            defenseR: 40,
+            speed: 115
+        }
+    },
+
+    curixen: {
+        name: "Curixen",
+        types: ["Basic", "Light"],
+        weight: 42,
+        height: 47,
+        baseStats: {
+            hp: 68,
+            attack: 102,
+            defense: 67,
+            attackR: 83,
+            defenseR: 71,
+            speed: 129
+        }
+    },
+
+    pickit: {
+        name: "Pickit",
+        types: ["Basic"],
+        finalEvo: false,
+        weight: 3,
+        height: 22,
+        baseStats: {
+            hp: 49,
+            attack: 82,
+            defense: 38,
+            attackR: 66,
+            defenseR: 45,
+            speed: 120
+        }
+    },
+
+    velace: {
+        name: "Velace",
+        types: ["Basic", "Fire"],
+        weight: 33,
+        height: 45,
+        baseStats: {
+            hp: 63,
+            attack: 110,
+            defense: 56,
+            attackR: 87,
+            defenseR: 69,
+            speed: 135
+        }
+    },
+
+    jestwirl: {
+        name: "Jestwirl",
+        types: ["Basic", "Mind"],
+        weight: 16,
+        height: 41,
+        baseStats: {
+            hp: 90,
+            attack: 80,
+            defense: 90,
+            attackR: 100,
+            defenseR: 90,
+            speed: 100
+        }
+    },
+
+    hopolatte: {
+        name: "Hopolatte",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 9,
+        height: 22,
+        baseStats: {
+            hp: 40,
+            attack: 60,
+            defense: 45,
+            attackR: 65,
+            defenseR: 50,
+            speed: 80
+        }
+    },
+
+    hopogard: {
+        name: "Hopogard",
+        types: ["Food", "Light"],
+        finalEvo: false,
+        weight: 23,
+        height: 22,
+        baseStats: {
+            hp: 60,
+            attack: 70,
+            defense: 65,
+            attackR: 70,
+            defenseR: 70,
+            speed: 50
+        }
+    },
+
+    cherugard: {
+        name: "Cherugard",
+        types: ["Light", "Air"],
+        weight: 372,
+        height: 111,
+        baseStats: {
+            hp: 90,
+            attack: 75,
+            defense: 95,
+            attackR: 100,
+            defenseR: 95,
+            speed: 95
+        }
+    },
+
+    majestegg: {
+        name: "Majestegg",
+        types: ["Metal", "Food"],
+        otherForms: ["Majestegg-Steed"],
+        weight: 11,
+        height: 16,
+        baseStats: {
+            hp: 80,
+            attack: 150,
+            defense: 60,
+            attackR: 100,
+            defenseR: 60,
+            speed: 10
+        }
+    },
+
+    'majestegg-steed': {
+        name: "Majestegg-Steed",
+        types: ["Metal", "Melee"],
+        baseSpecies: "Majestegg",
+        weight: 156,
+        height: 65,
+        baseStats: {
+            hp: 80,
+            attack: 120,
+            defense: 85,
+            attackR: 90,
+            defenseR: 85,
+            speed: 115
+        }
+    },
+
+    omeletrot: {
+        name: "Omeletrot",
+        types: ["Melee", "Food"],
+        weight: 154,
+        height: 65,
+        baseStats: {
+            hp: 70,
+            attack: 100,
+            defense: 75,
+            attackR: 65,
+            defenseR: 75,
+            speed: 125
+        }
+    },
+
+    buggle: {
+        name: "Buggle",
+        types: ["Insect", "Basic"],
+        finalEvo: false,
+        weight: 1,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 30,
+            defense: 60,
+            attackR: 35,
+            defenseR: 65,
+            speed: 100
+        }
+    },
+
+    lepidhonk: {
+        name: "Lepidhonk",
+        types: ["Insect", "Basic"],
+        weight: 7,
+        height: 36,
+        baseStats: {
+            hp: 70,
+            attack: 60,
+            defense: 85,
+            attackR: 53,
+            defenseR: 90,
+            speed: 145
+        }
+    },
+
+    pawsage: {
+        name: "Pawsage",
+        types: ["Food"],
+        finalEvo: false,
+        weight: 5,
+        height: 7,
+        baseStats: {
+            hp: 50,
+            attack: 40,
+            defense: 45,
+            attackR: 70,
+            defenseR: 70,
+            speed: 75
+        }
+    },
+
+    sauschund: {
+        name: "Sauschund",
+        types: ["Food"],
+        weight: 15,
+        height: 13,
+        baseStats: {
+            hp: 90,
+            attack: 50,
+            defense: 100,
+            attackR: 100,
+            defenseR: 95,
+            speed: 55
+        }
+    },
+
+    shweet: {
+        name: "Shweet",
+        types: ["Food", "Mind"],
+        finalEvo: false,
+        weight: 6,
+        height: 24,
+        baseStats: {
+            hp: 45,
+            attack: 30,
+            defense: 55,
+            attackR: 60,
+            defenseR: 70,
+            speed: 40
+        }
+    },
+
+    lobsugar: {
+        name: "Lobsugar",
+        types: ["Food", "Mind"],
+        weight: 93,
+        height: 71,
+        baseStats: {
+            hp: 105,
+            attack: 40,
+            defense: 100,
+            attackR: 100,
+            defenseR: 115,
+            speed: 50
+        }
+    },
+
+    rockeroo: {
+        name: "Rockeroo",
+        types: ["Light", "Melee"],
+        finalEvo: false,
+        weight: 5,
+        height: 17,
+        baseStats: {
+            hp: 50,
+            attack: 65,
+            defense: 40,
+            attackR: 45,
+            defenseR: 45,
+            speed: 80
+        }
+    },
+
+    kaboomaroo: {
+        name: "Kaboomaroo",
+        types: ["Light", "Melee"],
+        weight: 55,
+        height: 75,
+        baseStats: {
+            hp: 80,
+            attack: 120,
+            defense: 65,
+            attackR: 55,
+            defenseR: 55,
+            speed: 120
+        }
+    },
+
+    clowlette: {
+        name: "Clowlette",
+        types: ["Mind", "Air"],
+        finalEvo: false,
+        weight: 3,
+        height: 18,
+        baseStats: {
+            hp: 70,
+            attack: 35,
+            defense: 60,
+            attackR: 85,
+            defenseR: 75,
+            speed: 50
+        }
+    },
+
+    maskusi: {
+        name: "Maskusi",
+        types: ["Mind", "Air"],
+        weight: 46,
+        height: 63,
+        baseStats: {
+            hp: 85,
+            attack: 45,
+            defense: 80,
+            attackR: 110,
+            defenseR: 90,
+            speed: 115
+        }
+    },
+
+    sneekle: {
+        name: "Sneekle",
+        types: ["Basic", "Metal"],
+        finalEvo: false,
+        weight: 12,
+        height: 24,
+        baseStats: {
+            hp: 50,
+            attack: 80,
+            defense: 60,
+            attackR: 40,
+            defenseR: 55,
+            speed: 80
+        }
+    },
+
+    snoaster: {
+        name: "Snoaster",
+        types: ["Basic", "Metal"],
+        weight: 96,
+        height: 177,
+        baseStats: {
+            hp: 85,
+            attack: 115,
+            defense: 90,
+            attackR: 55,
+            defenseR: 80,
+            speed: 100
+        }
+    },
+
+    teddot: {
+        name: "Teddot",
+        types: ["Metal", "Basic"],
+        finalEvo: false,
+        weight: 17,
+        height: 20,
+        baseStats: {
+            hp: 55,
+            attack: 50,
+            defense: 65,
+            attackR: 40,
+            defenseR: 50,
+            speed: 55
+        }
+    },
+
+    uwursa: {
+        name: "Uwursa",
+        types: ["Metal", "Basic"],
+        weight: 190,
+        height: 75,
+        baseStats: {
+            hp: 101,
+            attack: 111,
+            defense: 111,
+            attackR: 61,
+            defenseR: 101,
+            speed: 31
+        }
+    },
+
+    snarmel: {
+        name: "Snarmel",
+        types: ["Food", "Plant"],
+        finalEvo: false,
+        weight: 5,
+        height: 5,
+        baseStats: {
+            hp: 40,
+            attack: 65,
+            defense: 75,
+            attackR: 60,
+            defenseR: 80,
+            speed: 20
+        }
+    },
+
+    applicious: {
+        name: "Applicious",
+        types: ["Food", "Plant"],
+        weight: 9,
+        height: 24,
+        baseStats: {
+            hp: 65,
+            attack: 115,
+            defense: 100,
+            attackR: 80,
+            defenseR: 100,
+            speed: 30
+        }
+    },
+
+    maizite: {
+        name: "Maizite",
+        types: ["Food", "Insect"],
+        finalEvo: false,
+        weight: 1,
+        height: 8,
+        baseStats: {
+            hp: 40,
+            attack: 35,
+            defense: 55,
+            attackR: 35,
+            defenseR: 45,
+            speed: 65
+        }
+    },
+
+    tiricket: {
+        name: "Tiricket",
+        types: ["Food", "Insect"],
+        weight: 10,
+        height: 32,
+        baseStats: {
+            hp: 85,
+            attack: 70,
+            defense: 105,
+            attackR: 70,
+            defenseR: 95,
+            speed: 35
+        }
+    },
+
+    tigrousel: {
+        name: "Tigrousel",
+        types: ["Metal", "Mind"],
+        weight: 255,
+        height: 63,
+        baseStats: {
+            hp: 90,
+            attack: 120,
+            defense: 105,
+            attackR: 85,
+            defenseR: 100,
+            speed: 50
+        }
+    },
+
+    cosmat: {
+        name: "Cosmat",
+        types: ["Dark", "Air"],
+        finalEvo: false,
+        weight: 4,
+        height: 20,
+        baseStats: {
+            hp: 45,
+            attack: 70,
+            defense: 45,
+            attackR: 72,
+            defenseR: 47,
+            speed: 85
+        }
+    },
+
+    novawing: {
+        name: "Novawing",
+        types: ["Dark", "Air"],
+        weight: 29,
+        height: 59,
+        baseStats: {
+            hp: 67,
+            attack: 106,
+            defense: 60,
+            attackR: 110,
+            defenseR: 63,
+            speed: 121
+        }
+    },
+
+    freqrec: {
+        name: "Freqrec",
+        types: ["Spark", "Mind"],
+        weight: 12,
+        height: 22,
+        ability: "Static Startle",
+        baseStats: {
+            hp: 63,
+            attack: 52,
+            defense: 68,
+            attackR: 117,
+            defenseR: 83,
+            speed: 121
+        },
+        formStats: {
+            hp: 63,
+            attack: 48,
+            defense: 109,
+            attackR: 128,
+            defenseR: 104,
+            speed: 77
+        }
+    },
+
+    scentino: {
+        name: "Scentino",
+        types: ["Plant"],
+        finalEvo: false,
+        weight: 17,
+        height: 16,
+        baseStats: {
+            hp: 60,
+            attack: 42,
+            defense: 52,
+            attackR: 82,
+            defenseR: 72,
+            speed: 62
+        }
+    },
+
+    aromaflora: {
+        name: "Aromaflora",
+        types: ["Plant", "Light"],
+        otherForms: ["Aromaflora-Awakened"],
+        weight: 38,
+        height: 76,
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 78,
+            attackR: 112,
+            defenseR: 108,
+            speed: 55
+        }
+    },
+
+    'aromaflora-awakened': {
+        name: "Aromaflora-Awakened",
+        types: ["Plant", "Light"],
+        baseSpecies: "Aromaflora",
+        weight: 60,
+        height: 92,
+        ability: "Faerie Sanctuary",
+        item: "Aromaflora Rune",
+        baseStats: {
+            hp: 92,
+            attack: 62,
+            defense: 95,
+            attackR: 130,
+            defenseR: 140,
+            speed: 78
+        }
+    },
+
+    cobblepawn: {
+        name: "Cobblepawn",
+        types: ["Fire", "Earth"],
+        finalEvo: false,
+        weight: 84,
+        height: 37,
+        baseStats: {
+            hp: 68,
+            attack: 72,
+            defense: 89,
+            attackR: 54,
+            defenseR: 64,
+            speed: 14
+        }
+    },
+
+    kinglith: {
+        name: "Kinglith",
+        types: ["Fire", "Earth"],
+        otherForms: ["Kinglith-Awakened"],
+        weight: 1125,
+        height: 71,
+        baseStats: {
+            hp: 104,
+            attack: 122,
+            defense: 118,
+            attackR: 60,
+            defenseR: 96,
+            speed: 30
+        }
+    },
+
+    'kinglith-awakened': {
+        name: "Kinglith-Awakened",
+        types: ["Fire", "Earth"],
+        baseSpecies: "Kinglith",
+        weight: 1125,
+        height: 110,
+        ability: "Siegebreaker",
+        item: "Kinglith Pyreblade",
+        baseStats: {
+            hp: 104,
+            attack: 135,
+            defense: 132,
+            attackR: 78,
+            defenseR: 110,
+            speed: 68
+        }
+    },
+
+    illumina: {
+        name: "Illumina",
+        types: ["Water", "Mind"],
+        finalEvo: false,
+        weight: 13,
+        height: 72,
+        baseStats: {
+            hp: 65,
+            attack: 55,
+            defense: 65,
+            attackR: 90,
+            defenseR: 80,
+            speed: 70
+        }
+    },
+
+    slithescent: {
+        name: "Slithescent",
+        types: ["Water", "Mind"],
+        weight: 24,
+        height: 120,
+        baseStats: {
+            hp: 90,
+            attack: 65,
+            defense: 85,
+            attackR: 115,
+            defenseR: 100,
+            speed: 70
+        }
+    },
+
+    atar: {
+        name: "Atar",
+        types: ["Air"],
+        finalEvo: false,
+        weight: 6,
+        height: 30,
+        baseStats: {
+            hp: 65,
+            attack: 75,
+            defense: 60,
+            attackR: 75,
+            defenseR: 60,
+            speed: 55
+        }
+    },
+
+    atlun: {
+        name: "Atlun",
+        types: ["Air", "Dark"],
+        weight: 22,
+        height: 68,
+        baseStats: {
+            hp: 85,
+            attack: 115,
+            defense: 100,
+            attackR: 65,
+            defenseR: 80,
+            speed: 80
+        }
+    },
+
+    atsun: {
+        name: "Atsun",
+        types: ["Air", "Light"],
+        weight: 20,
+        height: 65,
+        baseStats: {
+            hp: 85,
+            attack: 65,
+            defense: 80,
+            attackR: 115,
+            defenseR: 100,
+            speed: 80
+        }
+    },
+
     melofin: {
         name: "Melofin",
         types: ["Plant", "Food"],
@@ -9557,6 +9748,21 @@ var loomians = {
             attackR: 45,
             defenseR: 98,
             speed: 60
+        }
+    },
+
+    purrundle: {
+        name: "Purrundle",
+        types: ["Spirit", "Beast"],
+        weight: 15,
+        height: 52,
+        baseStats: {
+            hp: 75,
+            attack: 125,
+            defense: 67,
+            attackR: 91,
+            defenseR: 64,
+            speed: 93
         }
     },
 
@@ -10169,6 +10375,17 @@ var moves = {
     sizzle: {
         name: "Sizzle",
         power: 60,
+        accuracy: 100,
+        type: "Fire",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        secondaryEffect: true
+    },
+
+    drippingWax: {
+        name: "Dripping Wax",
+        power: 75,
         accuracy: 100,
         type: "Fire",
         mr: "Magic",
@@ -12180,6 +12397,17 @@ var moves = {
         mr: "Magic",
         mr1: "Ranged Attack",
         mr2: "Ranged Defense",
+    },
+
+    eyeballDeathLaser: {
+        name: "Eyeball Death Laser",
+        power: 150,
+        accuracy: 100,
+        type: "Food",
+        mr: "Magic",
+        mr1: "Ranged Attack",
+        mr2: "Ranged Defense",
+        stat: {amount: -1, battle: "Offense", stat: "AttackR"}
     },
 
 
@@ -16308,7 +16536,7 @@ var abilities = ["Adipose", "Air Current", "Anti-Paralysis", "Apathetic", "Appar
                  "Ultimate Revival", "Sky Deity", "Mistle Kiss", "Evergreen Halo", "Stormfrost", "Cold Circuit", "Sugarsick", "Opposite Day", "Incitement", "Sweet Treat", "Hazardous", "Winter's Blessing", "Luminance", "Static Startle", "Soilbreaker", "Irrigate",
                  "Faeriebloom", "Faerie Sanctuary", "Thermal Uplift", "Ceasing Light", "Stalwart", "Grave Scrambler", "Siege", "Siegebreaker", "King's Edict", "Slipstream", "Slippery Surface", "Flowbreaker", "Cave Dweller", "Resonance", "Nightstalker", "Umbral Hunger",
                  "Natural Calamity", "Fortuna", "Flow State", "Dishonest", "Salt Safeguard", "Survival Instinct", "Fixation", "Wildfire", "Daybreak", "Nightfall", "Sunbask", "Moonbask", "Incubate", "From the Ashes", "Ripening", "Juicy", "Sulfur Soul", "Inert",
-                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve", "Night Prowler", "Evil Orb", "Gatekeeper", "Three Heads", "Firefighter", "Mana Pool", "Sweet Lure", "Breaking Point"];
+                 "Ancient Instinct", "Atavism", "Lunar Eclipse", "Sealkeeper", "Mother's Resolve", "Night Prowler", "Evil Orb", "Gatekeeper", "Three Heads", "Firefighter", "Mana Pool", "Sweet Lure", "Breaking Point", "Food Frenzy", "Spirit Collector"];
 
 var typeModAbilities = {
     adipose: {
@@ -16560,7 +16788,7 @@ var items = ["Used Crayons", "Lucky Pebble", "Ice Pack", "Used Timber", "Battery
              "Enchanted Sapphire", "Enchanted Ruby", "Enchanted Emerald", "Spirit Jar", "Acid Storm in a Bottle", "Boomerang", "Jack in the Box", "Reflective Glass", "Ice Data", "Fire Data", "Spark Data", "Earth Data", "Match Box", "Bubble Wand", "Yo-yo",
              "Nesting Doll", "Soothing Charm", "Heavy Blanket", "Plastic Fangs", "Emergency Call", "Onion", "Ruler", "Potassium Conduit", "Doomflower", "Void Jelly", "Loop Jelly", "Whirlwind Jelly", "Relay Jelly", "Gift Jelly", "Bell Jelly", "Video Game Controller",
              "Pinball String", "Prize Claw", "Old Monitor", "Arcade Joystick", "Ember DNA", "Spore DNA", "Virus DNA", "Surge DNA", "Futuristic Umbrella", "Flower Crown", "Potted Plant", "Siphon Egg", "Plague Mask", "Electric Swatter", "Kindled Heart", "Vengeful Cape",
-             "Guardian Feather"];
+             "Guardian Feather", "Evil Red Orb", "Evil Orange Orb"];
 
 for (let ty in types) {
     items.push(ty.charAt(0).toUpperCase() + ty.slice(1) + " Taffy");
@@ -16573,4 +16801,4 @@ for (let doo in loomians) {
 
 var sets = [];
 
-var changelog = "Squonk-Awakened, Tammage, and Corni lines added. Season 26 Balance changes added.";
+var changelog = "Purrundle, Gummeye, and Wickandle lines added. Updated set imports to be easier to read and share with others. Added a forms selection to those applicable.";
